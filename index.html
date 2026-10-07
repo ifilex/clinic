@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WineBOX · NeuroTest Escolar · La tecnología educativa que tu colegio necesita</title>
-<meta name="description" content="Plataforma de observación conductual con algoritmo validado (ICC ≥ 0,74). Evaluación clínica para familias y licencia de software institucional para colegios, con cero inversión en hardware.">
+<title>WineBOX Clinic · Evaluación Neurocognitiva</title>
+<meta name="description" content="Centro de evaluación neurocognitiva para niños, adolescentes y adultos. Un proceso de orientación profesional, claro y confidencial. WineBOX Clinic.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,8 +22,6 @@
     --wa:#25D366;
     --wa-dark:#1ebe5a;
     --amber:#D4A017;
-    --red:#c0392b;
-    --teal:#006a62;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -41,15 +39,12 @@
   h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800}
   h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:20px}
   h3{font-size:1.15rem;margin-bottom:10px}
-  h4{font-size:1rem}
   p{color:var(--text-soft);margin-bottom:16px}
   .lead{font-size:1.15rem;color:var(--text-soft);max-width:780px}
   .center{text-align:center}
   .mx-auto{margin-left:auto;margin-right:auto}
   strong{color:var(--brand);font-weight:700}
-  em{font-style:italic}
 
-  /* NAV */
   nav{
     position:sticky;top:0;z-index:100;
     background:rgba(255,255,255,0.97);
@@ -57,7 +52,7 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1140px;margin:0 auto;gap:16px}
-  .logo{font-weight:900;font-size:1.25rem;color:var(--brand);letter-spacing:-0.02em;text-decoration:none;display:flex;align-items:center;gap:8px}
+  .logo{font-weight:900;font-size:1.15rem;color:var(--brand);letter-spacing:-0.02em;text-decoration:none;display:flex;align-items:center;gap:8px}
   .logo-dot{width:10px;height:10px;border-radius:50%;background:var(--wa);display:inline-block}
   .nav-links{display:flex;gap:24px;align-items:center}
   .nav-links a{color:var(--text-soft);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color .2s}
@@ -70,7 +65,6 @@
   .nav-cta:hover{background:var(--wa-dark);transform:translateY(-1px)}
   @media(max-width:820px){.nav-links{display:none}}
 
-  /* HERO */
   .hero{padding:70px 0 90px;text-align:center;background:var(--bg)}
   .hero .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
@@ -78,11 +72,6 @@
     padding:8px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;
     margin-bottom:28px;border:1px solid #d5dded;
   }
-  .hero .eyebrow .pulse{
-    width:8px;height:8px;border-radius:50%;background:var(--wa);
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   .hero h1{max-width:920px;margin:0 auto 24px}
   .hero .lead{max-width:720px;margin:0 auto 36px;font-size:1.2rem}
   .btn-wa{
@@ -102,35 +91,87 @@
   .trust-row span{display:flex;align-items:center;gap:6px}
   .trust-row .check{color:var(--wa);font-weight:800}
 
-  /* DOLOR */
   .pain{background:var(--bg-soft)}
   .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:40px 0 32px}
   .pain-card{
     background:#fff;padding:32px 28px;border-radius:16px;
-    border:1px solid var(--line);text-align:center;
-    transition:all .25s;
+    border:1px solid var(--line);text-align:center;transition:all .25s;
   }
   .pain-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,32,69,0.08)}
   .pain-card .emoji{font-size:2.4rem;display:block;margin-bottom:16px}
   .pain-card h3{font-size:1.05rem;margin-bottom:14px}
-  .pain-card p{font-style:italic;font-size:0.95rem;margin:0;color:var(--text-soft)}
+  .pain-card p{font-style:italic;font-size:0.95rem;margin:0}
   .pain-close{max-width:800px;margin:0 auto;text-align:center;font-size:1.15rem;color:var(--text);line-height:1.7}
 
-  /* SOLUCIÓN */
-  .solution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:44px}
-  .sol-card{padding:32px 28px;border-radius:16px;border:1px solid var(--line);background:#fff;transition:all .25s}
-  .sol-card:hover{border-color:var(--brand);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,32,69,0.08)}
-  .sol-card .icon{font-size:2rem;margin-bottom:16px;display:block}
-  .sol-card h3{font-size:1.08rem;margin-bottom:10px}
-  .sol-card p{font-size:0.92rem;margin:0}
-  .whitepaper-link{text-align:center;margin-top:36px;font-size:0.9rem;color:var(--text-mute)}
-  .whitepaper-link a{color:var(--brand);font-weight:700;text-decoration:none}
-  .whitepaper-link a:hover{text-decoration:underline}
+  .signals{background:var(--bg)}
+  .signals-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;margin-top:44px;
+  }
+  .signal-item{
+    display:flex;gap:14px;align-items:flex-start;
+    background:var(--bg-soft);padding:20px 22px;border-radius:14px;
+    border-left:3px solid var(--brand);
+  }
+  .signal-item .num{
+    font-weight:900;color:var(--brand);font-size:1.1rem;flex-shrink:0;
+    line-height:1.4;
+  }
+  .signal-item p{margin:0;font-size:0.92rem;color:var(--text-soft);line-height:1.55}
+  .signals-close{
+    max-width:800px;margin:40px auto 0;text-align:center;
+    font-size:1.05rem;color:var(--text-soft);line-height:1.7;
+    padding:24px 28px;background:var(--brand-light);border-radius:16px;
+  }
+  .signals-close strong{color:var(--brand)}
 
-  /* PROCESO */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;margin-top:44px}
+  .service-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:36px 30px;display:flex;flex-direction:column;transition:all .25s;
+    position:relative;
+  }
+  .service-card:hover{border-color:var(--brand);box-shadow:0 16px 48px rgba(0,32,69,0.12);transform:translateY(-4px)}
+  .service-card.featured{border:2px solid var(--brand);box-shadow:0 12px 40px rgba(0,32,69,0.14)}
+  .service-card.featured::before{
+    content:"MÁS ELEGIDO";position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;
+    font-size:0.7rem;font-weight:800;letter-spacing:0.08em;
+  }
+  .service-tag{
+    display:inline-block;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;
+    padding:5px 12px;border-radius:6px;margin-bottom:18px;color:#fff;
+    align-self:flex-start;
+  }
+  .tag-green{background:var(--wa)}
+  .tag-amber{background:var(--amber)}
+  .tag-red{background:#c0392b}
+  .service-card h3{font-size:1.3rem;margin-bottom:10px;color:var(--brand)}
+  .service-card .for-who{font-size:0.9rem;color:var(--text-mute);margin-bottom:20px;min-height:64px;line-height:1.55}
+  .service-card ul{list-style:none;margin:20px 0;flex-grow:1}
+  .service-card li{
+    font-size:0.92rem;color:var(--text-soft);padding:8px 0 8px 26px;
+    position:relative;line-height:1.55;
+  }
+  .service-card li::before{content:"✓";position:absolute;left:0;top:8px;color:var(--wa);font-weight:800}
+  .service-cta{
+    font-size:1.05rem;font-weight:800;color:var(--brand);
+    margin:16px 0 6px;display:flex;align-items:center;gap:8px;
+  }
+  .service-cta::before{content:"→";color:var(--wa);font-weight:900}
+  .service-note{font-size:0.82rem;color:var(--text-mute);margin-bottom:20px}
+  .service-card .btn-wa{width:100%;justify-content:center;padding:15px 20px;font-size:0.95rem}
+
+  .ethics-note{
+    max-width:720px;margin:48px auto 0;text-align:center;
+    font-size:0.82rem;color:var(--text-mute);line-height:1.7;
+    padding:18px 22px;background:var(--bg-soft);
+    border-radius:12px;border:1px solid var(--line);
+  }
+
   .process{background:var(--bg-soft)}
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:44px}
-  .step{background:#fff;padding:28px 24px;border-radius:16px;border:1px solid var(--line);position:relative;transition:all .25s}
+  .step{background:#fff;padding:28px 24px;border-radius:16px;border:1px solid var(--line);transition:all .25s;position:relative}
   .step:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,32,69,0.08)}
   .step-num{
     display:inline-flex;align-items:center;justify-content:center;
@@ -140,326 +181,37 @@
   .step h3{font-size:1rem;margin-bottom:8px}
   .step p{font-size:0.9rem;margin:0}
 
-  /* FILOSOFÍA DE 3 NIVELES */
-  .philosophy-row{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
-    max-width:960px;
-    margin:40px auto 8px;
-    text-align:center;
+  .team{background:var(--bg)}
+  .team-single{
+    max-width:520px;
+    margin:44px auto 0;
   }
-  .philosophy-item{
-    padding:20px 16px;
-    border-radius:14px;
-    background:var(--bg-soft);
-    border:1px solid var(--line);
-    transition:all .25s;
+  .team-card{
+    background:var(--bg-soft);border-radius:20px;padding:36px 32px;
+    border:1px solid var(--line);transition:all .25s;
   }
-  .philosophy-item:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:0 8px 24px rgba(0,32,69,0.06)}
-  .philosophy-item .icon{font-size:1.8rem;display:block;margin-bottom:10px}
-  .philosophy-item .action{font-weight:800;color:var(--brand);font-size:1rem;margin-bottom:6px;display:block}
-  .philosophy-item .intent{font-size:0.85rem;color:var(--text-mute);line-height:1.5;display:block;font-style:italic}
-
-  /* PRECIOS B2C */
-  .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;margin-top:44px}
-  .price-card{
-    background:#fff;border:1px solid var(--line);border-radius:20px;
-    padding:36px 30px;display:flex;flex-direction:column;transition:all .25s;
-    position:relative;
-  }
-  .price-card:hover{border-color:var(--brand);box-shadow:0 16px 48px rgba(0,32,69,0.12);transform:translateY(-4px)}
-  .price-card.featured{border:2px solid var(--brand);box-shadow:0 12px 40px rgba(0,32,69,0.14)}
-  .price-card.featured::before{
-    content:"MÁS ELEGIDO";position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-    background:var(--brand);color:#fff;padding:6px 16px;border-radius:20px;
-    font-size:0.7rem;font-weight:800;letter-spacing:0.08em;
-  }
-  .price-tag{
-    display:inline-block;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;
-    padding:5px 12px;border-radius:6px;margin-bottom:18px;color:#fff;
-    align-self:flex-start;
-  }
-  .tag-green{background:var(--wa)}
-  .tag-amber{background:var(--amber)}
-  .tag-red{background:var(--red)}
-  .tag-teal{background:var(--teal)}
-  .price-card h3{font-size:1.3rem;margin-bottom:10px;color:var(--brand)}
-  .price-card .for-who{font-size:0.9rem;color:var(--text-mute);margin-bottom:20px;min-height:64px;line-height:1.55}
-  .price-card ul{list-style:none;margin:20px 0;flex-grow:1}
-  .price-card li{
-    font-size:0.92rem;color:var(--text-soft);padding:8px 0 8px 26px;
-    position:relative;line-height:1.55;
-  }
-  .price-card li::before{
-    content:"✓";position:absolute;left:0;top:8px;
-    color:var(--wa);font-weight:800;font-size:1rem;
-  }
-  /* MODIFICADO: price-amount ahora es un CTA, no un monto */
-  .price-consult{
-    font-size:1.05rem;font-weight:800;color:var(--brand);
-    margin:16px 0 6px;letter-spacing:-0.01em;line-height:1.4;
-    display:flex;align-items:center;gap:8px;
-  }
-  .price-consult::before{
-    content:"→";color:var(--wa);font-weight:900;font-size:1.1rem;
-  }
-  .price-note{font-size:0.82rem;color:var(--text-mute);margin-bottom:20px}
-  .price-context{
-    font-size:0.82rem;color:var(--text-soft);background:var(--bg-soft);
-    padding:14px 16px;border-radius:10px;margin-bottom:22px;line-height:1.6;
-    border-left:3px solid var(--brand);
-  }
-  .price-context strong{color:var(--brand)}
-  .price-disclaimer{
-    font-size:0.78rem;color:var(--text-mute);
-    background:#fef7e6;border-left:3px solid var(--amber);
-    padding:12px 14px;border-radius:8px;margin-bottom:22px;
-    line-height:1.55;font-style:italic;
-  }
-  .price-card .btn-wa{width:100%;justify-content:center;padding:15px 20px;font-size:0.95rem}
-
-  /* NOTA ÉTICA BAJO PRICING B2C */
-  .ethics-note{
-    max-width:720px;margin:48px auto 0;text-align:center;
-    font-size:0.82rem;color:var(--text-mute);line-height:1.7;
-    padding:18px 22px;background:var(--bg-soft);
-    border-radius:12px;border:1px solid var(--line);
-  }
-  .ethics-note strong{color:var(--brand)}
-
-  /* SECCIÓN COLEGIOS */
-  .schools-section{
-    background:linear-gradient(180deg, #001530 0%, #002045 50%, #001530 100%);
-    color:#fff;position:relative;overflow:hidden;
-    padding:100px 0;
-  }
-  .schools-section::before{
-    content:'';position:absolute;inset:0;
-    background-image:
-      radial-gradient(circle at 15% 20%, rgba(37,211,102,0.15) 0%, transparent 40%),
-      radial-gradient(circle at 85% 70%, rgba(124,58,237,0.12) 0%, transparent 40%);
-    pointer-events:none;
-  }
-  .schools-section .container{position:relative;z-index:1}
-  .schools-section h2, .schools-section h3, .schools-section h4{color:#fff}
-  .schools-section p{color:rgba(255,255,255,0.82)}
-  .schools-section strong{color:#6ee7a1}
-
-  .fomo-badge{
-    display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,107,107,0.15);
-    border:1px solid rgba(255,107,107,0.35);
-    color:#ff8a8a;padding:8px 18px;border-radius:20px;
-    font-size:0.82rem;font-weight:800;letter-spacing:0.05em;
-    margin-bottom:24px;
-  }
-  .fomo-badge .pulse-red{
-    width:8px;height:8px;border-radius:50%;background:#ff5757;
-    animation:pulse 1.5s infinite;
-  }
-  .schools-section h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;margin-bottom:24px;letter-spacing:-0.03em}
-  .schools-section .lead{color:rgba(255,255,255,0.85);font-size:1.15rem;max-width:820px;margin:0 auto 40px}
-
-  .crisis-stats{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;margin:48px 0;
-  }
-  .crisis-stat{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:16px;padding:28px 24px;text-align:center;
-    backdrop-filter:blur(10px);
-  }
-  .crisis-stat .num{
-    font-size:2.4rem;font-weight:900;color:#6ee7a1;
-    display:block;line-height:1;margin-bottom:8px;letter-spacing:-0.03em;
-  }
-  .crisis-stat .lbl{
-    font-size:0.85rem;color:rgba(255,255,255,0.7);line-height:1.5;
-  }
-
-  .schools-comparison{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.12);
-    border-radius:20px;padding:36px;margin:40px 0;
-    backdrop-filter:blur(10px);
-  }
-  .schools-comparison h3{font-size:1.3rem;margin-bottom:24px;color:#fff}
-  .comparison-table{width:100%;border-collapse:collapse;color:#fff}
-  .comparison-table th, .comparison-table td{
-    padding:14px 16px;text-align:left;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    font-size:0.92rem;
-  }
-  .comparison-table th{
-    font-size:0.72rem;font-weight:800;text-transform:uppercase;
-    letter-spacing:0.08em;color:rgba(255,255,255,0.55);
-  }
-  .comparison-table td{color:rgba(255,255,255,0.88)}
-  .comparison-table tr:last-child td{border-bottom:none}
-  .comparison-table .highlight{color:#6ee7a1;font-weight:800}
-  .comparison-table .old{color:rgba(255,255,255,0.5);text-decoration:line-through}
-
-  .schools-pricing{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;margin:48px 0 40px;
-  }
-  .school-price-card{
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:20px;padding:32px 26px;
-    backdrop-filter:blur(10px);transition:all .25s;
-    position:relative;
-  }
-  .school-price-card:hover{
-    background:rgba(255,255,255,0.1);
-    border-color:rgba(110,231,161,0.5);
-    transform:translateY(-4px);
-  }
-  .school-price-card.featured{
-    border:2px solid #6ee7a1;
-    background:rgba(110,231,161,0.08);
-    box-shadow:0 12px 40px rgba(110,231,161,0.2);
-  }
-  .school-price-card.featured::before{
-    content:"MÁS CONVENIENTE";position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-    background:#6ee7a1;color:#002045;padding:5px 14px;border-radius:20px;
-    font-size:0.68rem;font-weight:900;letter-spacing:0.08em;
-  }
-  .school-price-card .plan{
-    font-size:0.72rem;font-weight:800;text-transform:uppercase;
-    letter-spacing:0.1em;color:#6ee7a1;margin-bottom:12px;
-  }
-  .school-price-card h4{font-size:1.15rem;color:#fff;margin-bottom:6px}
-  .school-price-card .alumnos{
-    font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:20px;
-  }
-  .school-price-card .amount{
-    font-size:1.9rem;font-weight:900;color:#fff;
-    display:block;line-height:1;margin-bottom:6px;letter-spacing:-0.03em;
-  }
-  .school-price-card .por-alumno{
-    font-size:0.8rem;color:#6ee7a1;font-weight:700;margin-bottom:20px;
-  }
-  .school-price-card ul{list-style:none;padding:0;margin:0 0 24px 0}
-  .school-price-card li{
-    font-size:0.85rem;color:rgba(255,255,255,0.8);
-    padding:6px 0 6px 22px;position:relative;line-height:1.5;
-  }
-  .school-price-card li::before{
-    content:"✓";position:absolute;left:0;top:6px;
-    color:#6ee7a1;font-weight:800;font-size:0.9rem;
-  }
-  .school-price-card .btn-wa{width:100%;justify-content:center;padding:14px 18px;font-size:0.9rem}
-
-  .schools-objection{
-    background:rgba(110,231,161,0.08);
-    border-left:4px solid #6ee7a1;
-    border-radius:12px;padding:28px 32px;margin:40px 0;
-  }
-  .schools-objection h4{font-size:1.05rem;margin-bottom:12px;color:#6ee7a1}
-  .schools-objection p{color:rgba(255,255,255,0.88);margin:0;font-size:1rem;line-height:1.7}
-
-  .schools-cta-block{text-align:center;margin-top:56px}
-  .schools-cta-block h3{font-size:clamp(1.3rem,3vw,1.8rem);color:#fff;margin-bottom:16px;max-width:800px;margin-left:auto;margin-right:auto}
-  .schools-cta-block p{color:rgba(255,255,255,0.75);max-width:600px;margin:0 auto 32px}
-  .schools-cta-block .btn-wa{font-size:1.15rem;padding:22px 42px}
-
-  /* ACLARACIÓN LEGAL SOFTWARE */
-  .software-note{
-    max-width:820px;margin:40px auto 0;text-align:center;
-    font-size:0.82rem;color:rgba(255,255,255,0.6);
-    line-height:1.7;padding:18px 22px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:12px;font-style:italic;
-  }
-  .software-note strong{color:#6ee7a1;font-style:normal}
-
-  .model-cards-3{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:24px;
-  }
-  .model-card{
-    border-radius:20px;padding:36px 28px;
-    position:relative;
-    transition:all .25s;
-  }
-  .model-card:hover{transform:translateY(-4px)}
-  .model-card.featured-model{
-    background:linear-gradient(180deg, rgba(110,231,161,0.12) 0%, rgba(110,231,161,0.04) 100%);
-    border:2px solid rgba(110,231,161,0.4);
-  }
-  .model-card.standard-model{
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.15);
-  }
-  .model-badge{
-    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-    background:#6ee7a1;color:#002045;padding:5px 14px;border-radius:20px;
-    font-size:0.68rem;font-weight:900;letter-spacing:0.08em;white-space:nowrap;
-  }
-  .model-card .plan-label{
-    font-size:0.72rem;font-weight:800;text-transform:uppercase;
-    letter-spacing:0.1em;color:#6ee7a1;margin-bottom:12px;
-  }
-  .model-card h4{color:#fff;font-size:1.2rem;margin-bottom:12px}
-  .model-card > p{color:rgba(255,255,255,0.8);font-size:0.92rem;line-height:1.65;margin-bottom:20px}
-  .model-card ul{list-style:none;padding:0;margin:0}
-  .model-card li{
-    color:rgba(255,255,255,0.85);font-size:0.88rem;
-    padding:6px 0 6px 22px;position:relative;
-  }
-  .model-card li::before{
-    content:"✓";position:absolute;left:0;
-    color:#6ee7a1;font-weight:800;
-  }
-
-  .no-hardware-callout{
-    background:linear-gradient(135deg, rgba(110,231,161,0.15) 0%, rgba(110,231,161,0.05) 100%);
-    border:2px solid rgba(110,231,161,0.35);
-    border-radius:24px;padding:48px 40px;margin-top:64px;text-align:center;
-  }
-  .no-hardware-callout h3{font-size:1.5rem;color:#fff;margin-bottom:16px;line-height:1.3}
-  .no-hardware-callout p{color:rgba(255,255,255,0.85);font-size:1.1rem;line-height:1.75;max-width:820px;margin:0 auto 20px}
-  .no-hardware-callout p.small{color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.7;max-width:760px;margin:0 auto}
-
-  /* AUTORIDAD */
-  .authority{background:var(--bg-soft)}
-  .authority-inner{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:center}
-  .authority-photo{
-    width:100%;aspect-ratio:1;border-radius:24px;
+  .team-card:hover{border-color:var(--brand);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,32,69,0.1)}
+  .team-photo{
+    width:80px;height:80px;border-radius:50%;
     background:linear-gradient(135deg,var(--brand),var(--brand-soft));
     display:flex;align-items:center;justify-content:center;
-    color:#fff;font-size:4rem;font-weight:900;letter-spacing:-0.05em;
-    box-shadow:0 20px 60px rgba(0,32,69,0.2);
+    color:#fff;font-size:1.8rem;font-weight:900;margin-bottom:20px;
   }
-  .authority h2{margin-bottom:20px}
-  .authority p{font-size:0.98rem}
-  .authority .name{font-weight:800;color:var(--brand);font-size:1.15rem;margin-bottom:4px}
-  .authority .license{font-size:0.85rem;color:var(--text-mute);margin-bottom:20px;line-height:1.6}
-  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-  .stat-box{
-    background:#fff;padding:22px 18px;border-radius:14px;border:1px solid var(--line);
-    text-align:center;
+  .team-name{font-weight:800;color:var(--brand);font-size:1.15rem;margin-bottom:4px}
+  .team-license{font-size:0.82rem;color:var(--text-mute);margin-bottom:16px;line-height:1.6}
+  .team-role{
+    font-size:0.72rem;font-weight:800;text-transform:uppercase;
+    letter-spacing:0.1em;color:var(--wa);margin-bottom:12px;
   }
-  .stat-box .num{font-size:1.7rem;font-weight:900;color:var(--brand);display:block;line-height:1;letter-spacing:-0.03em}
-  .stat-box .lbl{font-size:0.82rem;color:var(--text-mute);margin-top:8px;display:block;line-height:1.4}
+  .team-bio{font-size:0.92rem;color:var(--text-soft);line-height:1.65;margin:0}
 
-  /* TESTIMONIOS */
-  .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:44px}
-  .testi-card{
-    background:#fff;padding:30px;border-radius:16px;
-    border:1px solid var(--line);border-left:4px solid var(--brand);
-    transition:all .25s;
+  .team-note{
+    max-width:820px;margin:48px auto 0;text-align:center;
+    font-size:0.85rem;color:var(--text-mute);line-height:1.7;
+    padding:20px 24px;background:var(--bg-soft);
+    border-radius:12px;border:1px solid var(--line);
   }
-  .testi-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,32,69,0.08)}
-  .testi-card p{font-style:italic;font-size:0.95rem;color:var(--text);margin-bottom:16px}
-  .testi-card .author{font-size:0.85rem;color:var(--text-mute);font-weight:700;margin:0}
 
-  /* FAQ */
   .faq{max-width:820px;margin:0 auto}
   .faq-item{border-bottom:1px solid var(--line)}
   .faq-item summary{
@@ -468,33 +220,23 @@
     align-items:center;gap:16px;
   }
   .faq-item summary::-webkit-details-marker{display:none}
-  .faq-item summary::after{
-    content:"+";font-size:1.5rem;font-weight:400;color:var(--brand);
-    transition:transform .2s;flex-shrink:0;line-height:1;
-  }
+  .faq-item summary::after{content:"+";font-size:1.5rem;font-weight:400;transition:transform .2s}
   .faq-item[open] summary::after{transform:rotate(45deg)}
-  .faq-item p{padding:0 0 24px;margin:0;font-size:0.95rem;color:var(--text-soft)}
-  .faq-divider{
-    margin:40px 0 20px;font-size:0.72rem;font-weight:800;
-    text-transform:uppercase;letter-spacing:0.15em;
-    color:var(--text-mute);text-align:center;
-  }
+  .faq-item p{padding:0 0 24px;margin:0;font-size:0.95rem}
 
-  /* CIERRE */
   .final-cta{background:var(--brand);color:#fff;text-align:center;padding:100px 0}
-  .final-cta h2{color:#fff;font-size:clamp(1.8rem,3.5vw,2.4rem);max-width:820px;margin:0 auto 20px;letter-spacing:-0.03em}
+  .final-cta h2{color:#fff;font-size:clamp(1.8rem,3.5vw,2.4rem);max-width:820px;margin:0 auto 20px}
   .final-cta p{color:rgba(255,255,255,0.82);max-width:640px;margin:0 auto 40px;font-size:1.08rem}
   .final-cta .microcopy{color:rgba(255,255,255,0.55)}
 
-  /* FOOTER */
   footer{background:#0a1424;color:rgba(255,255,255,0.6);padding:48px 0;font-size:0.85rem}
   footer .container{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
   footer strong{color:#fff}
   footer a{color:rgba(255,255,255,0.8);text-decoration:none}
   footer a:hover{color:#fff}
   .footer-disclaimer{max-width:460px;font-size:0.8rem;line-height:1.6;opacity:0.7}
+  .footer-professional{font-size:0.82rem;margin-top:10px;opacity:0.9;line-height:1.6}
 
-  /* WA FLOTANTE */
   .wa-float{
     position:fixed;bottom:24px;right:24px;z-index:999;
     width:62px;height:62px;border-radius:50%;background:var(--wa);
@@ -504,43 +246,17 @@
   }
   .wa-float:hover{transform:scale(1.1);background:var(--wa-dark)}
   .wa-float svg{width:34px;height:34px;fill:#fff}
-  .wa-float::after{
-    content:'';position:absolute;inset:-6px;border-radius:50%;
-    border:2px solid var(--wa);opacity:0;
-    animation:wa-pulse 2.5s infinite;
-  }
-  @keyframes wa-pulse{
-    0%{transform:scale(1);opacity:0.6}
-    100%{transform:scale(1.35);opacity:0}
-  }
 
-  /* RESPONSIVE */
   @media(max-width:820px){
     section{padding:64px 0}
     .hero{padding:48px 0 64px}
-    .authority-inner{grid-template-columns:1fr;gap:32px}
-    .authority-photo{max-width:260px;margin:0 auto;font-size:3rem}
-    .schools-section{padding:72px 0}
-    .schools-comparison{padding:24px 20px}
-    .comparison-table th, .comparison-table td{padding:10px 8px;font-size:0.82rem}
-    .schools-objection{padding:22px 24px}
-    .no-hardware-callout{padding:36px 24px}
-    .no-hardware-callout h3{font-size:1.25rem}
-    .no-hardware-callout p{font-size:1rem}
   }
   @media(max-width:520px){
     .container{padding:0 18px}
-    .trust-row{gap:14px;font-size:0.8rem;flex-direction:column;align-items:center}
     .btn-wa{padding:16px 24px;font-size:0.98rem}
     .btn-wa.lg{padding:18px 28px;font-size:1.02rem}
-    .price-card{padding:28px 22px}
     .wa-float{width:56px;height:56px;bottom:18px;right:18px}
     .wa-float svg{width:30px;height:30px}
-    .school-price-card{padding:26px 22px}
-    .schools-cta-block .btn-wa{font-size:1rem;padding:18px 28px}
-    .crisis-stat{padding:22px 18px}
-    .crisis-stat .num{font-size:2rem}
-    .model-card{padding:28px 22px}
   }
 </style>
 </head>
@@ -551,36 +267,33 @@
   <div class="nav-inner">
     <a href="#" class="logo">
       <span class="logo-dot"></span>
-      WineBOX
+      WineBOX Clinic
     </a>
     <div class="nav-links">
+      <a href="#senales">Señales</a>
       <a href="#servicios">Servicios</a>
-      <a href="#colegios">Colegios</a>
-      <a href="#autoridad">Investigación</a>
+      <a href="#equipo">Equipo</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="https://wa.me/5491166116631?text=Hola%2C%20vengo%20de%20la%20web%20de%20WineBOX.%20Quiero%20consultar%20sobre%20una%20evaluaci%C3%B3n." class="nav-cta" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20sobre%20una%20evaluaci%C3%B3n." class="nav-cta" target="_blank" rel="noopener">Consultar por WhatsApp</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
   <div class="container">
-    <span class="eyebrow">
-      <span class="pulse"></span>
-      8 años de investigación · 1.200 casos analizados
-    </span>
-    <h1>Tu hijo no está roto.<br>El sistema que lo evalúa, sí.</h1>
-    <p class="lead">Durante 8 años analizamos más de 1.200 sesiones de niños y adolescentes jugando. Descubrimos que la forma tradicional de evaluarlos no captura lo que realmente les pasa. <strong>WineBOX sí.</strong></p>
-    <a href="https://wa.me/5491166116631?text=Hola%2C%20vengo%20de%20la%20web%20de%20WineBOX.%20Quiero%20entender%20qu%C3%A9%20le%20pasa%20a%20mi%20hijo." class="btn-wa" target="_blank" rel="noopener">
+    <span class="eyebrow">Evaluación Neurocognitiva · Psicología Clínica</span>
+    <h1>Entender qué está pasando<br>es el primer paso para acompañar mejor.</h1>
+    <p class="lead">Un equipo de profesionales dedicado a la evaluación neurocognitiva de niños, adolescentes y adultos. Un proceso humano, basado en evidencia, que ayuda a comprender qué está sucediendo y cómo seguir.</p>
+    <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20entender%20qu%C3%A9%20le%20pasa%20a%20mi%20hijo." class="btn-wa" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Quiero entender qué le pasa a mi hijo
+      Consultar por WhatsApp
     </a>
-    <p class="microcopy">Te atiende un coordinador humano. Sin bots. Sin formularios eternos.</p>
+    <p class="microcopy">Te atiende un profesional del equipo. Sin bots. Sin formularios eternos.</p>
     <div class="trust-row">
       <span><span class="check">✔</span> Basado en evidencia científica</span>
-      <span><span class="check">✔</span> 1.200 casos analizados</span>
-      <span><span class="check">✔</span> Psicólogos argentinos</span>
+      <span><span class="check">✔</span> Enfoque clínico y humano</span>
+      <span><span class="check">✔</span> Respuesta en menos de 2 horas</span>
     </div>
   </div>
 </header>
@@ -603,7 +316,7 @@
       <div class="pain-card">
         <span class="emoji">📋</span>
         <h3>En la consulta</h3>
-        <p>"Fuimos a tres profesionales. Nadie me da una respuesta clara. Solo etiquetas."</p>
+        <p>"Buscamos orientación en varios lugares, pero sentíamos que no terminábamos de entender el panorama completo."</p>
       </div>
     </div>
     <p class="pain-close">
@@ -613,36 +326,93 @@
   </div>
 </section>
 
-<!-- SOLUCIÓN -->
-<section>
+<!-- SEÑALES -->
+<section id="senales" class="signals">
   <div class="container">
-    <h2 class="center">No es un test. Es una forma distinta de mirar.</h2>
-    <p class="lead center mx-auto">WineBOX es una <strong>plataforma de observación conductual</strong> que utiliza videojuegos de baja fidelidad visual para analizar cómo tu hijo piensa, siente y se autorregula mientras juega. No es un cuestionario. No es una entrevista incómoda. Es un entorno lúdico donde el cerebro del niño se expresa de forma natural.</p>
-    <div class="solution-grid">
-      <div class="sol-card">
-        <span class="icon">🧠</span>
-        <h3>Algoritmo validado</h3>
-        <p>Nuestro algoritmo clasifica estímulos y genera un perfil inferencial de funciones ejecutivas. Concordancia interjueces: ICC ≥ 0,74 (validado con 3 expertos independientes).</p>
-      </div>
-      <div class="sol-card">
-        <span class="icon">🎮</span>
-        <h3>150+ juegos</h3>
-        <p>Un catálogo de juegos clásicos diseñados para aislar variables cognitivas sin ruido visual. Desde Solitaire hasta Voxel Quest.</p>
-      </div>
-      <div class="sol-card">
-        <span class="icon">📊</span>
-        <h3>Informe clínico real</h3>
-        <p>No te damos un puntaje. Te damos un mapa de fortalezas y dificultades con recomendaciones concretas para el aula y el hogar.</p>
-      </div>
+    <h2 class="center">Señales que vale la pena mirar</h2>
+    <p class="lead center mx-auto">No todas las dificultades son un problema. Pero hay señales que, cuando se repiten en el tiempo y afectan la vida diaria, merecen una mirada profesional.</p>
+
+    <div class="signals-grid">
+      <div class="signal-item"><span class="num">01</span><p>Le cuesta sostener la atención en tareas que debería poder hacer según su edad.</p></div>
+      <div class="signal-item"><span class="num">02</span><p>Se frustra rápido, explota o se bloquea ante cosas que antes resolvía.</p></div>
+      <div class="signal-item"><span class="num">03</span><p>El rendimiento escolar bajó sin una causa clara, o hay una brecha entre su esfuerzo y sus notas.</p></div>
+      <div class="signal-item"><span class="num">04</span><p>Duerme mal, come distinto, o está más irritable de lo habitual.</p></div>
+      <div class="signal-item"><span class="num">05</span><p>Evita situaciones sociales, o le cuesta hacer y mantener vínculos con pares.</p></div>
+      <div class="signal-item"><span class="num">06</span><p>Algo te dice que "no es solo una etapa". Y ya lo consultaste con otros sin respuesta clara.</p></div>
     </div>
-    <p class="whitepaper-link">¿Querés ver la evidencia científica detrás de todo esto? <a href="http://www.winebox.cloud" target="_blank" rel="noopener">Descargá el whitepaper completo →</a></p>
+
+    <p class="signals-close">
+      Si marcaste dos o más señales, <strong>una evaluación puede ayudarte a comprender mejor la situación</strong>. No para etiquetar, sino para entender qué está funcionando y qué necesita apoyo.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <h2 class="center">Servicios de evaluación</h2>
+    <p class="lead center mx-auto">Todos los servicios se coordinan por WhatsApp con un profesional humano. Los honorarios se informan de manera personalizada al coordinar la consulta.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <span class="service-tag tag-green">ORIENTACIÓN INICIAL</span>
+        <h3>Evaluación de Orientación</h3>
+        <p class="for-who">Una instancia inicial para conocer el motivo de consulta y orientar sobre los pasos a seguir. No constituye diagnóstico ni reemplaza una evaluación profesional completa.</p>
+        <ul>
+          <li>Sesión de 30-45 minutos</li>
+          <li>Reporte de observación estructurado</li>
+          <li>Devolución profesional personalizada</li>
+        </ul>
+        <div class="service-cta">Consultá los honorarios por WhatsApp</div>
+        <p class="service-note">Coordinamos según tu caso particular</p>
+        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20la%20Evaluaci%C3%B3n%20de%20Orientaci%C3%B3n." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+
+      <div class="service-card">
+        <span class="service-tag tag-amber">DOCUMENTACIÓN OFICIAL</span>
+        <h3>Apto Psicológico</h3>
+        <p class="for-who">Evaluación profesional con documentación oficial firmada y sellada. Para incorporación laboral, ingreso universitario, licencias o requisitos institucionales.</p>
+        <ul>
+          <li>Evaluación completa</li>
+          <li>Entrevista estructurada (45 min online)</li>
+          <li>Informe de aptitud con perfil de funciones ejecutivas</li>
+          <li>Documento oficial firmado y sellado</li>
+        </ul>
+        <div class="service-cta">Consultá los honorarios por WhatsApp</div>
+        <p class="service-note">Coordinamos según el tipo de trámite</p>
+        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Apto%20Psicol%C3%B3gico." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+
+      <div class="service-card featured">
+        <span class="service-tag tag-red">EVALUACIÓN COMPLETA</span>
+        <h3>Evaluación Neurocognitiva</h3>
+        <p class="for-who">Proceso completo de dos sesiones con informe profesional y plan de orientación. Recomendado para niños de 7 a 17 años con dificultades escolares o emocionales.</p>
+        <ul>
+          <li><strong>Sesión 1:</strong> Evaluación inicial</li>
+          <li><strong>Sesión 2:</strong> Entrevista evaluativa + devolución a los padres</li>
+          <li>Informe con firma y sello</li>
+          <li>Plan de orientación personalizado</li>
+          <li>Llamada de seguimiento a la semana</li>
+        </ul>
+        <div class="service-cta">Consultá los honorarios por WhatsApp</div>
+        <p class="service-note">Coordinamos según tu caso particular</p>
+        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20una%20Evaluaci%C3%B3n%20Neurocognitiva." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+
+    </div>
+
+    <p class="ethics-note">
+      Los honorarios profesionales se informan de manera personalizada al coordinar la consulta, en línea con las normas éticas de la profesión psicológica (FePRA, art. 6.1.1.1 y 6.1.1.3).
+    </p>
   </div>
 </section>
 
 <!-- PROCESO -->
 <section class="process">
   <div class="container">
-    <h2 class="center">Simple. Humano. Por WhatsApp.</h2>
+    <h2 class="center">Cómo es el proceso</h2>
+    <p class="lead center mx-auto">Sin formularios eternos, sin salas de espera, sin vueltas.</p>
     <div class="steps">
       <div class="step">
         <span class="step-num">1</span>
@@ -652,500 +422,41 @@
       <div class="step">
         <span class="step-num">2</span>
         <h3>Contás tu caso</h3>
-        <p>Le contás qué está pasando con tu hijo. Te orienta sobre qué servicio se ajusta mejor. Sin presión.</p>
+        <p>Le contás qué está pasando. Te orienta sobre qué servicio se ajusta mejor a tu situación.</p>
       </div>
       <div class="step">
         <span class="step-num">3</span>
-        <h3>Agenda y coordinación</h3>
-        <p>Coordinás fecha, hora y modalidad. Recibís un enlace único para que tu hijo acceda desde cualquier dispositivo.</p>
+        <h3>Coordinamos</h3>
+        <p>Definimos fecha, hora y modalidad. Recibís un enlace único para acceder desde cualquier dispositivo.</p>
       </div>
       <div class="step">
         <span class="step-num">4</span>
         <h3>Recibís el informe</h3>
-        <p>En 48-72 horas tenés el informe. Una hora después, tu coordinador te llama para explicártelo línea por línea.</p>
+        <p>En 48-72 horas tenés el informe. Una hora después, te llamamos para explicártelo línea por línea.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRECIOS B2C -->
-<section id="servicios">
+<!-- EQUIPO -->
+<section id="equipo" class="team">
   <div class="container">
-    <h2 class="center">Tres niveles de acompañamiento, según lo que necesitás.</h2>
-    <p class="lead center mx-auto" style="margin-bottom:0">Todos los servicios se coordinan por WhatsApp con un profesional humano. Consultá el valor según tu caso particular.</p>
+    <h2 class="center">Nuestro equipo</h2>
+    <p class="lead center mx-auto">WineBOX Clinic es un centro de evaluación neurocognitiva coordinado por profesionales matriculados con formación en práctica clínica y evaluación basada en evidencia.</p>
 
-    <!-- FILOSOFÍA DE LOS 3 NIVELES -->
-    <div class="philosophy-row">
-      <div class="philosophy-item">
-        <span class="icon">🔍</span>
-        <span class="action">Observamos</span>
-        <span class="intent">"Quiero conocer cómo está funcionando."</span>
-      </div>
-      <div class="philosophy-item">
-        <span class="icon">📋</span>
-        <span class="action">Evaluamos y certificamos</span>
-        <span class="intent">"Necesito una evaluación y documentación profesional."</span>
-      </div>
-      <div class="philosophy-item">
-        <span class="icon">🔬</span>
-        <span class="action">Evaluamos, explicamos y proponemos</span>
-        <span class="intent">"Quiero comprender qué está pasando y saber cómo acompañarlo."</span>
+    <div class="team-single">
+      <div class="team-card">
+        <div class="team-photo">EC</div>
+        <div class="team-name">Lic. Emanuel Chanampa</div>
+        <div class="team-license">Psicólogo Clínico · Mat. Nacional 56716 · Mat. Provincial 84132</div>
+        <div class="team-role">Director y responsable profesional</div>
+        <p class="team-bio">Dedicado a la evaluación neurocognitiva de niños, adolescentes y adultos. Su enfoque combina rigor metodológico con una comunicación clara y accesible para las familias.</p>
       </div>
     </div>
 
-    <div class="pricing-grid">
-
-      <!-- ════════════════ SCREENING ════════════════ -->
-      <div class="price-card">
-        <span class="price-tag tag-green">PRIMERA MIRADA</span>
-        <h3>Screening WineBOX</h3>
-        <p class="for-who">Una primera observación objetiva para saber cómo está funcionando tu hijo. Ideal para padres que quieren una orientación antes de decidir si profundizar.</p>
-        <ul>
-          <li>Acceso a la plataforma con módulo de análisis cognitivo</li>
-          <li>30-45 min de juego supervisado</li>
-          <li><strong>Reporte de Observación WineBOX</strong> con perfil de 4 dominios</li>
-          <li>Trazabilidad completa de la sesión</li>
-        </ul>
-        <div class="price-consult">Consultá el valor por WhatsApp</div>
-        <p class="price-note">Coordinamos según tu caso particular</p>
-        <div class="price-context">
-          Primera observación WineBOX con reporte estructurado de los 4 dominios cognitivos. Una mirada objetiva sobre cómo está funcionando tu hijo, sin compromiso de profundizar.
-        </div>
-        <div class="price-disclaimer">
-          <strong>Importante:</strong> el Screening NO es un diagnóstico ni reemplaza una evaluación profesional. Es una primera orientación que <em>no incluye informe firmado ni sellado</em>. Si necesitás documentación oficial, elegí el Apto Psicológico.
-        </div>
-        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Screening%20WineBOX." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
-      </div>
-
-      <!-- ════════════════ APTO PSICOLÓGICO ════════════════ -->
-      <div class="price-card">
-        <span class="price-tag tag-amber">APTO PSICOLÓGICO</span>
-        <h3>Apto Psicológico Laboral / Educacional</h3>
-        <p class="for-who">Evaluación profesional con documentación oficial. Para incorporación laboral, ingreso universitario, licencias, requisitos institucionales o trámites que exigen certificado firmado.</p>
-        <ul>
-          <li>Screening WineBOX completo</li>
-          <li>Entrevista evaluativa estructurada (45 min online)</li>
-          <li><strong>Informe de aptitud</strong> con perfil de funciones ejecutivas</li>
-          <li><strong>Documento oficial con firma y sello del profesional matriculado</strong></li>
-        </ul>
-        <div class="price-consult">Consultá el valor por WhatsApp</div>
-        <p class="price-note">Coordinamos según el tipo de trámite</p>
-        <div class="price-context">
-          Un trámite profesional rápido, claro y accesible. En 48-72 horas tenés tu certificado de apto psicológico listo para presentar donde lo necesites, con el respaldo de un psicólogo matriculado.
-        </div>
-        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Apto%20Psicol%C3%B3gico%20Laboral%2FEducacional." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
-      </div>
-
-      <!-- ════════════════ PSICODIAGNÓSTICO ════════════════ -->
-      <div class="price-card featured">
-        <span class="price-tag tag-red">EVALUACIÓN COMPLETA</span>
-        <h3>Psicodiagnóstico Completo</h3>
-        <p class="for-who">Para padres que necesitan comprender a fondo qué está pasando y recibir un plan de acción concreto. La opción más recomendada para niños de 7 a 17 años con dificultades escolares o emocionales.</p>
-        <ul>
-          <li><strong>Sesión 1:</strong> Screening WineBOX completo</li>
-          <li><strong>Sesión 2:</strong> Entrevista evaluativa con el niño + devolución a los padres</li>
-          <li><strong>Informe psicodiagnóstico profesional con firma y sello</strong></li>
-          <li>Plan de entrenamiento personalizado (4 semanas)</li>
-          <li>Acceso a AURA, IA de acompañamiento offline</li>
-          <li>Llamada de seguimiento a la semana</li>
-        </ul>
-        <div class="price-consult">Consultá el valor por WhatsApp</div>
-        <p class="price-note">Coordinamos según tu caso particular</p>
-        <div class="price-context">
-          Recibís un proceso completo de evaluación en dos sesiones: screening con algoritmo validado, entrevista evaluativa con el niño, devolución personalizada a los padres, informe profesional firmado y sellado, plan de entrenamiento de 4 semanas, acceso a AURA y seguimiento posterior. Todo con acompañamiento humano por WhatsApp.
-        </div>
-        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20el%20Psicodiagn%C3%B3stico%20Completo%20para%20mi%20hijo." class="btn-wa" target="_blank" rel="noopener">Quiero el Psicodiagnóstico</a>
-      </div>
-
-    </div>
-
-    <!-- NOTA ÉTICA -->
-    <p class="ethics-note">
-      Los honorarios profesionales de los servicios clínicos se informan de manera personalizada al coordinar la consulta, en línea con las normas éticas de la profesión psicológica (FePRA, art. 6.1.1.1 y 6.1.1.3). Escribinos por WhatsApp y te orientamos sin compromiso.
+    <p class="team-note">
+      <strong>WineBOX Clinic</strong> es un centro de evaluación psicológica. La responsabilidad profesional y la firma de los informes están a cargo del profesional matriculado que integra el equipo, conforme a la normativa vigente.
     </p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════ -->
-<!-- SECCIÓN COLEGIOS - FOMO MÁXIMO -->
-<!-- ═══════════════════════════════════════════════════════ -->
-<section id="colegios" class="schools-section">
-  <div class="container">
-
-    <div class="center">
-      <span class="fomo-badge">
-        <span class="pulse-red"></span>
-        TECNOLOGÍA EDUCATIVA DE ÚLTIMA GENERACIÓN
-      </span>
-      <h2>Si tu colegio no tiene esto,<br>está educando con herramientas de hace 20 años.</h2>
-      <p class="lead center mx-auto">Mientras otros colegios siguen esperando a que el chico "haga ruido" para evaluarlo, los que ya usan NeuroTest detectan dificultades en <strong>15 minutos</strong>. ¿Quién creés que va a retener más matrícula en los próximos 5 años?</p>
-    </div>
-
-    <!-- CRISIS STATS -->
-    <div class="crisis-stats">
-      <div class="crisis-stat">
-        <span class="num">59%</span>
-        <span class="lbl">de los chicos termina la primaria sin comprensión lectora básica</span>
-      </div>
-      <div class="crisis-stat">
-        <span class="num">40%</span>
-        <span class="lbl">de las escuelas no tienen gabinete psicopedagógico</span>
-      </div>
-      <div class="crisis-stat">
-        <span class="num">1 de 8</span>
-        <span class="lbl">chicos abandona la secundaria antes de recibirse</span>
-      </div>
-      <div class="crisis-stat">
-        <span class="num">20-30</span>
-        <span class="lbl">alumnos por año es lo máximo que puede evaluar un gabinete</span>
-      </div>
-    </div>
-
-    <!-- EL PROBLEMA -->
-    <div style="max-width:900px;margin:60px auto 0;">
-      <h3 style="font-size:1.5rem;margin-bottom:24px;color:#fff;">El sistema está diseñado para detectar solo a los que hacen ruido.</h3>
-      <p style="font-size:1.05rem;line-height:1.8;">El que molesta, el que llora, el que no llega con las notas. <strong>Los silenciosos se pierden.</strong> Y esos silenciosos son, muchas veces, los que terminan abandonando, repitiendo o arrastrando dificultades que nadie detectó a tiempo. Tu gabinete no da abasto. No es culpa de ellos. Es un problema de escala.</p>
-      <p style="font-size:1.05rem;line-height:1.8;">Un profesional no puede evaluar a 500 alumnos. <strong>Pero un algoritmo sí.</strong></p>
-    </div>
-
-    <!-- LA SOLUCIÓN -->
-    <div style="margin-top:80px;">
-      <h3 style="font-size:1.6rem;text-align:center;margin-bottom:16px;">Imaginate esto en tu colegio:</h3>
-      <p style="text-align:center;color:rgba(255,255,255,0.75);max-width:700px;margin:0 auto 48px;">Un lunes a las 9 AM, los 25 alumnos de 4° grado entran al aula. Cada uno abre NeuroTest en su tablet. Juegan 3 juegos de 5 minutos. Se divierten. Se frustran. Eligen. Se equivocan. <strong style="color:#6ee7a1;">El algoritmo observa todo.</strong></p>
-
-      <div class="schools-comparison">
-        <h3>Lo que recibe tu institución:</h3>
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Capacidad</th>
-              <th>Método tradicional</th>
-              <th>NeuroTest Escolar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Tiempo por alumno</td>
-              <td class="old">45-90 minutos</td>
-              <td class="highlight">15 minutos</td>
-            </tr>
-            <tr>
-              <td>Costo por evaluación</td>
-              <td class="old">$144.000</td>
-              <td class="highlight">~$3.000</td>
-            </tr>
-            <tr>
-              <td>Evaluación masiva</td>
-              <td class="old">Imposible</td>
-              <td class="highlight">Curso completo en 1 hora</td>
-            </tr>
-            <tr>
-              <td>Detección temprana</td>
-              <td class="old">Depende del observador</td>
-              <td class="highlight">Automática por algoritmo</td>
-            </tr>
-            <tr>
-              <td>Informe</td>
-              <td class="old">Días o semanas</td>
-              <td class="highlight">Inmediato</td>
-            </tr>
-            <tr>
-              <td>Seguimiento longitudinal</td>
-              <td class="old">Difícil</td>
-              <td class="highlight">Historial por alumno</td>
-            </tr>
-            <tr>
-              <td>Datos agregados por curso</td>
-              <td class="old">No existe</td>
-              <td class="highlight">Panel institucional</td>
-            </tr>
-            <tr>
-              <td>Sesgo del observador</td>
-              <td class="old">Alto</td>
-              <td class="highlight">Eliminado (algoritmo validado)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- QUÉ INCLUYE -->
-    <div style="margin-top:80px;">
-      <h3 style="font-size:1.6rem;text-align:center;margin-bottom:16px;">Lo que recibe tu institución:</h3>
-      <p style="text-align:center;color:rgba(255,255,255,0.75);max-width:700px;margin:0 auto 48px;">Una licencia de uso completo de la plataforma. No un servicio clínico. Una infraestructura de software para que tu gabinete trabaje mejor.</p>
-
-      <div class="solution-grid" style="margin-top:32px;">
-        <div class="sol-card" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
-          <span class="icon">🎯</span>
-          <h3 style="color:#fff;">Tamizaje masivo</h3>
-          <p style="color:rgba(255,255,255,0.8);">Evaluá a todo un curso en una hora de clase. Sin tests de papel. Sin entrevistas eternas. Sin esperar al gabinete.</p>
-        </div>
-        <div class="sol-card" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
-          <span class="icon">📊</span>
-          <h3 style="color:#fff;">Panel institucional</h3>
-          <p style="color:rgba(255,255,255,0.8);">Vista agregada por curso, ciclo y área. Detectá patrones, no casos aislados. Reportes trimestrales automáticos.</p>
-        </div>
-        <div class="sol-card" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
-          <span class="icon">🧠</span>
-          <h3 style="color:#fff;">Algoritmo validado</h3>
-          <p style="color:rgba(255,255,255,0.8);">ICC ≥ 0,74 (concordancia interjueces). Validado con 1.200 casos. 8 años de investigación publicada.</p>
-        </div>
-        <div class="sol-card" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
-          <span class="icon">📄</span>
-          <h3 style="color:#fff;">Informes automáticos</h3>
-          <p style="color:rgba(255,255,255,0.8);">Informe clínico para derivar al profesional externo. Informe pedagógico para que el docente adapte el aula. Todo en segundos.</p>
-        </div>
-        <div class="sol-card" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
-          <span class="icon">🎓</span>
-          <h3 style="color:#fff;">Capacitación docente</h3>
-          <p style="color:rgba(255,255,255,0.8);">2 sesiones online para que el gabinete y los docentes sepan interpretar los datos. Manual de uso incluido.</p>
-        </div>
-        <div class="sol-card" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
-          <span class="icon">🔒</span>
-          <h3 style="color:#fff;">Privacidad total</h3>
-          <p style="color:rgba(255,255,255,0.8);">Procesamiento 100% local. Los datos no salen del dispositivo. Cumple Ley 25.326 de Protección de Datos.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODELO HOGAR + ESCUELA (SIN HARDWARE) -->
-    <div style="margin-top:100px;">
-      <div class="center">
-        <span class="fomo-badge" style="background:rgba(110,231,161,0.15);border-color:rgba(110,231,161,0.4);color:#6ee7a1;">
-          <span class="pulse-red" style="background:#6ee7a1;"></span>
-          CERO INVERSIÓN EN HARDWARE
-        </span>
-        <h3 style="font-size:1.8rem;margin-bottom:16px;line-height:1.2;">Tu colegio no necesita comprar<br>ni una sola tablet.</h3>
-        <p style="color:rgba(255,255,255,0.8);max-width:760px;margin:0 auto;font-size:1.08rem;line-height:1.7;">Los padres hacen la evaluación <strong>desde su propia casa</strong>, en su propio celular, tablet o computadora. El colegio recibe los datos automáticamente en su panel institucional. <strong>Ni un peso en tecnología. Ni un aula adaptada. Ni un técnico instalando nada.</strong></p>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:56px;">
-
-        <div style="background:rgba(110,231,161,0.06);border:1px solid rgba(110,231,161,0.2);border-radius:20px;padding:32px 28px;">
-          <div style="width:56px;height:56px;border-radius:14px;background:rgba(110,231,161,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-            <span style="font-size:1.8rem;">🏠</span>
-          </div>
-          <h4 style="color:#fff;font-size:1.15rem;margin-bottom:12px;">1. El padre recibe el link</h4>
-          <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.65;margin:0;">El colegio envía un enlace único por WhatsApp o email. El padre lo abre desde el celular, la tablet o la computadora que ya tiene en casa. <strong style="color:#6ee7a1;">Sin descargas. Sin instalaciones. Sin costos.</strong></p>
-        </div>
-
-        <div style="background:rgba(110,231,161,0.06);border:1px solid rgba(110,231,161,0.2);border-radius:20px;padding:32px 28px;">
-          <div style="width:56px;height:56px;border-radius:14px;background:rgba(110,231,161,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-            <span style="font-size:1.8rem;">🎮</span>
-          </div>
-          <h4 style="color:#fff;font-size:1.15rem;margin-bottom:12px;">2. El chico juega en casa</h4>
-          <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.65;margin:0;">Con el padre presente, el alumno completa los 3 juegos de 5 minutos. El algoritmo <strong style="color:#6ee7a1;">observa todo en tiempo real</strong>: tiempo de juego, decisiones, frustración, preferencias. Todo queda registrado.</p>
-        </div>
-
-        <div style="background:rgba(110,231,161,0.06);border:1px solid rgba(110,231,161,0.2);border-radius:20px;padding:32px 28px;">
-          <div style="width:56px;height:56px;border-radius:14px;background:rgba(110,231,161,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-            <span style="font-size:1.8rem;">📊</span>
-          </div>
-          <h4 style="color:#fff;font-size:1.15rem;margin-bottom:12px;">3. El colegio recibe los datos</h4>
-          <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.65;margin:0;">El panel institucional del colegio se actualiza automáticamente. <strong style="color:#6ee7a1;">El gabinete ve el informe generado</strong> sin mover un dedo. Métricas agregadas por curso, alertas tempranas, comparativas por ciclo.</p>
-        </div>
-
-      </div>
-
-      <div style="margin-top:80px;">
-        <h3 style="font-size:1.5rem;text-align:center;margin-bottom:16px;">Tres formas de implementarlo. Elegí la que se adapte a tu realidad.</h3>
-        <p style="text-align:center;color:rgba(255,255,255,0.75);max-width:700px;margin:0 auto 48px;">Desde el modelo más liviano hasta el más integrado. Todos con el mismo poder de análisis.</p>
-
-        <div class="model-cards-3">
-
-          <div class="model-card featured-model">
-            <div class="model-badge">CERO HARDWARE</div>
-            <div class="plan-label">Modelo A · 100% Hogar</div>
-            <h4>Todo desde la casa del alumno</h4>
-            <p>El colegio <strong style="color:#6ee7a1;">no necesita ninguna computadora</strong>. Solo envía links y recibe datos. Ideal para colegios con presupuesto ajustado o infraestructura limitada.</p>
-            <ul>
-              <li>Link por WhatsApp o email</li>
-              <li>Evaluación supervisada por el padre</li>
-              <li>Datos llegan directo al panel escolar</li>
-              <li>Sin instalaciones ni capacitación técnica</li>
-            </ul>
-          </div>
-
-          <div class="model-card standard-model">
-            <div class="plan-label">Modelo B · Híbrido</div>
-            <h4>Hogar + aula</h4>
-            <p>Combinás evaluaciones en el aula (con las compus que ya tenés) y evaluaciones en casa. <strong style="color:#6ee7a1;">Ideal para colegios con sala de computación.</strong></p>
-            <ul>
-              <li>Tamizaje masivo en sala de computación</li>
-              <li>Seguimiento profundo desde casa</li>
-              <li>Flexibilidad total según cada caso</li>
-              <li>Panel unificado para el gabinete</li>
-            </ul>
-          </div>
-
-          <div class="model-card standard-model">
-            <div class="plan-label">Modelo C · 100% Escuela</div>
-            <h4>Todo en el aula</h4>
-            <p>Si tenés sala de computación o tablets propias, evaluás a todo el alumnado <strong style="color:#6ee7a1;">en una sola hora de clase</strong>. Máxima eficiencia.</p>
-            <ul>
-              <li>Curso completo en 1 hora</li>
-              <li>Docente supervisa la sesión grupal</li>
-              <li>Datos en tiempo real al gabinete</li>
-              <li>Comparativas por división y ciclo</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="no-hardware-callout">
-        <div style="font-size:3rem;margin-bottom:16px;">💡</div>
-        <h3>Pensalo así:</h3>
-        <p>Otros sistemas de evaluación institucional te obligan a comprar tablets, montar una sala especial, capacitar técnicos y hacer mantenimiento. <strong style="color:#6ee7a1;">Nosotros te damos el mismo poder de análisis con cero inversión en hardware.</strong></p>
-        <p class="small">Los padres usan el celular que ya tienen. El chico juega en casa o en el aula. El colegio recibe los datos en su panel. <strong style="color:#6ee7a1;">Ni un peso en infraestructura. Ni un día de instalación. Ni un solo cable.</strong></p>
-      </div>
-    </div>
-
-    <!-- PRECIOS COLEGIOS -->
-    <div style="margin-top:100px;">
-      <h3 style="font-size:1.6rem;text-align:center;margin-bottom:16px;">Inversión por tramos:</h3>
-      <p style="text-align:center;color:rgba(255,255,255,0.75);max-width:700px;margin:0 auto 48px;">Cuanto más grande tu institución, más baja la inversión por alumno. Todos los planes incluyen <strong style="color:#6ee7a1;">licencia de uso completo de la plataforma</strong>, sin límite de evaluaciones.</p>
-
-      <div class="schools-pricing">
-
-        <div class="school-price-card">
-          <div class="plan">PACK INICIAL</div>
-          <h4>Hasta 150 alumnos</h4>
-          <div class="alumnos">Ideal para jardines y primarias pequeñas</div>
-          <span class="amount">$4.500.000</span>
-          <div class="por-alumno">$30.000 por alumno / año</div>
-          <ul>
-            <li>Licencia completa sin límite de evaluaciones</li>
-            <li>Panel institucional</li>
-            <li>Capacitación docente (2 sesiones)</li>
-            <li>Soporte por WhatsApp</li>
-            <li>Reportes trimestrales</li>
-          </ul>
-          <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Pack%20Inicial%20para%20mi%20colegio." class="btn-wa" target="_blank" rel="noopener">Consultar</a>
-        </div>
-
-        <div class="school-price-card featured">
-          <div class="plan">PACK ESTÁNDAR</div>
-          <h4>151 a 400 alumnos</h4>
-          <div class="alumnos">El más elegido por colegios medianos</div>
-          <span class="amount">$9.000.000</span>
-          <div class="por-alumno">$22.500 por alumno / año</div>
-          <ul>
-            <li>Todo lo del Pack Inicial</li>
-            <li>Acceso para todos los docentes</li>
-            <li>Reporte anual comparativo por ciclo</li>
-            <li>Alertas tempranas automáticas</li>
-            <li>Exportación JSON para integración</li>
-          </ul>
-          <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Pack%20Est%C3%A1ndar%20para%20mi%20colegio." class="btn-wa" target="_blank" rel="noopener">Quiero este pack</a>
-        </div>
-
-        <div class="school-price-card">
-          <div class="plan">PACK INSTITUCIONAL</div>
-          <h4>401 a 800 alumnos</h4>
-          <div class="alumnos">Colegios grandes y secundarias</div>
-          <span class="amount">$14.000.000</span>
-          <div class="por-alumno">$17.500 por alumno / año</div>
-          <ul>
-            <li>Todo lo del Pack Estándar</li>
-            <li>Capacitación ampliada (4 sesiones)</li>
-            <li>Soporte prioritario dedicado</li>
-            <li>Consultoría pedagógica trimestral</li>
-            <li>Personalización de informes</li>
-          </ul>
-          <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Pack%20Institucional%20para%20mi%20colegio." class="btn-wa" target="_blank" rel="noopener">Consultar</a>
-        </div>
-
-        <div class="school-price-card">
-          <div class="plan">PACK RED</div>
-          <h4>800+ alumnos o múltiples sedes</h4>
-          <div class="alumnos">Redes educativas y grupos</div>
-          <span class="amount">A cotizar</span>
-          <div class="por-alumno">Desde $15.000 por alumno / año</div>
-          <ul>
-            <li>Todo lo del Pack Institucional</li>
-            <li>Panel multi-sede centralizado</li>
-            <li>Capacitación por sede</li>
-            <li>Integración con sistemas existentes</li>
-            <li>Gerente de cuenta dedicado</li>
-          </ul>
-          <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Pack%20Red%20para%20mi%20instituci%C3%B3n." class="btn-wa" target="_blank" rel="noopener">Solicitar cotización</a>
-        </div>
-
-      </div>
-
-      <div class="schools-objection">
-        <h4>💡 Hacé la cuenta conmigo:</h4>
-        <p>Una sola evaluación neurocognitiva particular cuesta <strong>$144.000</strong> por alumno. Un colegio de 300 alumnos que quisiera evaluar a todos sus estudiantes pagaría <strong>$43.200.000</strong>. Con el Pack Estándar, paga <strong>$9.000.000</strong> y evalúa a todos. Todas las veces que quiera. Durante todo el año. <strong>Es una inversión que se paga sola con una sola deserción evitada.</strong></p>
-      </div>
-
-      <div class="schools-objection" style="background:rgba(255,107,107,0.08);border-left-color:#ff8a8a;">
-        <h4 style="color:#ff8a8a;">🛑 "Pero es mucho dinero para un colegio..."</h4>
-        <p style="color:rgba(255,255,255,0.9);">Una sola beca completa en tu colegio cuesta más que eso. Una campaña de marketing para captar 20 alumnos nuevos cuesta más que eso. Y si lográs detectar a tiempo a <strong>un solo chico</strong> que estaba por abandonar, ya recuperaste la inversión. <strong>¿Cuánto vale para tu institución evitar una deserción? ¿Cuánto vale una familia que se queda porque "acá sí detectaron algo"?</strong></p>
-      </div>
-
-      <!-- ACLARACIÓN LEGAL -->
-      <p class="software-note">
-        <strong>Importante:</strong> NeuroTest Escolar es una <strong>licencia de uso de software institucional</strong>. No constituye un acto psicológico. La interpretación clínica de los datos generados por la plataforma es responsabilidad exclusiva del equipo profesional de cada institución.
-      </p>
-    </div>
-
-    <div class="schools-cta-block">
-      <h3>No esperes a que tu competencia lo implemente primero.</h3>
-      <p>Agendamos una videollamada de 20 minutos con el equipo directivo. Sin compromiso. Te mostramos la plataforma funcionando en vivo con datos reales de ejemplo.</p>
-      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20agendar%20una%20demostraci%C3%B3n%20en%20vivo%20para%20mi%20colegio." class="btn-wa lg" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Agendar demostración en vivo
-      </a>
-      <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;margin-top:16px;font-style:italic;">20 minutos. Sin compromiso. Con datos reales de tu institución si nos los compartís antes.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- AUTORIDAD -->
-<section id="autoridad" class="authority">
-  <div class="container">
-    <div class="authority-inner">
-      <div class="authority-photo">EC</div>
-      <div>
-        <h2>Detrás de WineBOX hay un psicólogo argentino.</h2>
-        <p class="name">Lic. Emanuel Chanampa</p>
-        <p class="license">Psicólogo · Mat. Nacional 56716 · Mat. Provincial 84132<br>Enfoque: TCC y Estimulación Cognitiva</p>
-        <p>Más de 8 años de experiencia en tratamiento de ansiedad y trastornos del neurodesarrollo en niños, adolescentes y adultos. Autor del whitepaper <em>"Plataforma de Observación Conductual mediante Videojuegos de Baja Fidelidad Visual"</em> y del ebook <em>"WineBOX - El Arte de la Calma"</em>.</p>
-        <div class="stat-row">
-          <div class="stat-box">
-            <span class="num">8 años</span>
-            <span class="lbl">de investigación</span>
-          </div>
-          <div class="stat-box">
-            <span class="num">1.200</span>
-            <span class="lbl">casos analizados (ICC ≥ 0,74)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIOS -->
-<section>
-  <div class="container">
-    <h2 class="center">Lo que dicen las familias y profesionales</h2>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <p>"Llevábamos dos años dando vueltas. El informe de WineBOX fue lo primero que nos explicó qué pasaba con nuestro hijo. En la llamada de seguimiento nos dieron herramientas concretas. Por primera vez sentimos que alguien nos entendía."</p>
-        <p class="author">— María L., madre de Tomás (9 años)</p>
-      </div>
-      <div class="testi-card">
-        <p>"Uso WineBOX en el consultorio como herramienta de screening. El algoritmo me ahorra horas de observación y me da datos que con una entrevista sola no obtendría."</p>
-        <p class="author">— Lic. Carolina R., psicóloga clínica</p>
-      </div>
-      <div class="testi-card">
-        <p>"Implementamos el sistema en el colegio. Los docentes ahora tienen un lenguaje común para hablar de atención y autorregulación. Los padres reciben informes claros."</p>
-        <p class="author">— Director de institución educativa (Buenos Aires)</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1153,27 +464,13 @@
 <section id="faq" class="process">
   <div class="container">
     <h2 class="center">Preguntas frecuentes</h2>
-
-    <div class="faq-divider">— Sobre los servicios clínicos —</div>
     <div class="faq">
-      <details class="faq-item"><summary>¿Cuál es la diferencia entre Screening, Apto Psicológico y Psicodiagnóstico?</summary><p>El <strong>Screening</strong> es una primera observación orientativa: te dice cómo está funcionando tu hijo, pero no es un diagnóstico ni incluye informe firmado. El <strong>Apto Psicológico</strong> es una evaluación profesional con documentación oficial firmada y sellada, ideal para trámites laborales o educativos. El <strong>Psicodiagnóstico</strong> es un proceso completo de dos sesiones con informe profesional, plan de acción y seguimiento posterior.</p></details>
-      <details class="faq-item"><summary>¿Cómo consulto el valor de los servicios clínicos?</summary><p>Escribinos por WhatsApp y te orientamos. Los honorarios se informan de manera personalizada al coordinar la consulta, en línea con las normas éticas de la profesión psicológica. Cada caso es distinto y preferimos conversarlo antes de darte un número.</p></details>
-      <details class="faq-item"><summary>¿Cuánto tarda todo el proceso?</summary><p>Desde que escribís por WhatsApp hasta que recibís el informe final: 3 a 5 días hábiles. El screening en sí dura 30-45 minutos.</p></details>
-      <details class="faq-item"><summary>¿El Screening incluye un informe firmado?</summary><p>No. El Screening entrega un <strong>Reporte de Observación WineBOX</strong> con el perfil de 4 dominios cognitivos, pero no constituye diagnóstico ni reemplaza una evaluación profesional. Si necesitás documentación oficial firmada y sellada, tenés que elegir el Apto Psicológico.</p></details>
-      <details class="faq-item"><summary>¿Mi hijo necesita estar solo durante la evaluación?</summary><p>No. De hecho, recomendamos que un adulto responsable esté presente. WineBOX está diseñado para ser una experiencia compartida, no una prueba aislada.</p></details>
-      <details class="faq-item"><summary>¿Qué pasa si mi hijo se frustra durante el juego?</summary><p>Es parte del proceso. El algoritmo registra cómo gestiona la frustración, que es información clínicamente valiosa. Además, el adulto presente puede aplicar las técnicas de respiración 4-4-4-4 del ebook si es necesario.</p></details>
-      <details class="faq-item"><summary>¿WineBOX reemplaza un diagnóstico psiquiátrico?</summary><p>No. WineBOX es una herramienta de apoyo. El informe del Psicodiagnóstico es una hipótesis de trabajo que debe ser interpretada por un profesional. Nunca sustituye una consulta médica ni un tratamiento psiquiátrico.</p></details>
-      <details class="faq-item"><summary>¿Los datos de mi hijo están seguros?</summary><p>Sí. WineBOX procesa todo localmente en el dispositivo. No se transmiten datos personales a servidores externos. Tu privacidad está protegida por diseño.</p></details>
-    </div>
-
-    <div class="faq-divider">— Sobre NeuroTest Escolar (software para instituciones) —</div>
-    <div class="faq">
-      <details class="faq-item"><summary>¿Qué es exactamente NeuroTest Escolar?</summary><p>Es una <strong>licencia de uso de software institucional</strong>. La plataforma procesa datos de observación conductual de los alumnos y los presenta en un panel para que el gabinete psicopedagógico y los docentes trabajen mejor. No es un servicio clínico ni un acto psicológico: es una herramienta técnica.</p></details>
-      <details class="faq-item"><summary>¿Cómo se implementa en un colegio?</summary><p>Agendamos una videollamada de 20 minutos con el equipo directivo. Mostramos la plataforma en vivo. Si te convence, coordinamos la implementación, capacitación docente y puesta en marcha en 2 semanas.</p></details>
-      <details class="faq-item"><summary>¿El colegio necesita comprar tablets o computadoras?</summary><p>No. Uno de los modelos de implementación es 100% hogar: el padre recibe un link por WhatsApp, el chico juega desde su propio celular o tablet en casa, y el colegio recibe los datos automáticamente en su panel institucional. Cero inversión en hardware.</p></details>
-      <details class="faq-item"><summary>¿Puedo hacer la evaluación desde mi casa aunque mi hijo esté escolarizado?</summary><p>Sí. De hecho es uno de los modelos más usados. El padre recibe el link, supervisa la sesión de 15 minutos en su propio dispositivo, y los resultados llegan tanto a la familia como a la institución (si el colegio está adherido al sistema). Es ideal para colegios sin sala de computación.</p></details>
-      <details class="faq-item"><summary>¿Qué diferencia hay entre hacerlo en casa o en el colegio?</summary><p>El algoritmo y los resultados son exactamente los mismos. La diferencia es logística: en casa el padre supervisa y usa su propio dispositivo; en el colegio el docente supervisa y se usan los equipos de la institución. Muchos colegios combinan ambos modelos según el caso.</p></details>
-      <details class="faq-item"><summary>¿El colegio puede facturar esto como servicio educativo?</summary><p>Es una <strong>licencia de uso de software</strong>. Recomendamos que la institución lo facture y registre como tal. La interpretación clínica de los datos es responsabilidad del equipo profesional del colegio, no del proveedor del software.</p></details>
+      <details class="faq-item"><summary>¿Cuál es la diferencia entre los servicios?</summary><p>La <strong>Evaluación de Orientación</strong> es una instancia inicial para conocer el motivo de consulta. El <strong>Apto Psicológico</strong> es una evaluación con documentación oficial firmada y sellada para trámites. La <strong>Evaluación Neurocognitiva</strong> es un proceso completo de dos sesiones con informe profesional y plan de orientación.</p></details>
+      <details class="faq-item"><summary>¿Cómo consulto los honorarios?</summary><p>Escribinos por WhatsApp y te orientamos. Los honorarios se informan de manera personalizada al coordinar la consulta, en línea con las normas éticas de la profesión psicológica. Cada caso es distinto y preferimos conversarlo antes de darte un número.</p></details>
+      <details class="faq-item"><summary>¿Cuánto tarda todo el proceso?</summary><p>Desde que escribís por WhatsApp hasta que recibís el informe final: 3 a 5 días hábiles. La sesión inicial dura 30-45 minutos.</p></details>
+      <details class="faq-item"><summary>¿El informe reemplaza un diagnóstico médico?</summary><p>No. Es una herramienta de orientación. El informe es una hipótesis de trabajo que debe ser interpretada por un profesional. Nunca sustituye una consulta médica ni un tratamiento psiquiátrico.</p></details>
+      <details class="faq-item"><summary>¿Atienden a adultos también?</summary><p>Sí. El Apto Psicológico y la Evaluación de Orientación están disponibles tanto para niños, adolescentes como para adultos. La Evaluación Neurocognitiva completa está especialmente pensada para niños y adolescentes de 7 a 17 años.</p></details>
+      <details class="faq-item"><summary>¿Los datos están seguros?</summary><p>Sí. El procesamiento es local en el dispositivo. No se transmiten datos personales a servidores externos. Tu privacidad está protegida por diseño y conforme a la Ley 25.326 de Protección de Datos Personales.</p></details>
     </div>
   </div>
 </section>
@@ -1181,13 +478,13 @@
 <!-- CIERRE -->
 <section class="final-cta">
   <div class="container">
-    <h2>Tu hijo no necesita más etiquetas.<br>Necesita que alguien lo mire de verdad.</h2>
-    <p>8 años de investigación. 1.200 casos analizados. Un solo objetivo: darte respuestas claras, no más preguntas.</p>
-    <a href="https://wa.me/5491166116631?text=Hola%2C%20vengo%20de%20la%20web%20de%20WineBOX.%20Quiero%20hablar%20con%20un%20coordinador." class="btn-wa lg" target="_blank" rel="noopener">
+    <h2>Un espacio profesional para orientarte.</h2>
+    <p>Si tenés dudas sobre cómo empezar, escribinos. Te vamos a escuchar y orientar sin compromiso.</p>
+    <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20realizar%20una%20consulta." class="btn-wa lg" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Hablar con un coordinador por WhatsApp
+      Escribir por WhatsApp
     </a>
-    <p class="microcopy">Te respondemos en menos de 2 horas. Lunes a Viernes 9-19 hs · Sábados 9-13 hs.</p>
+    <p class="microcopy">Respondemos en menos de 2 horas hábiles.</p>
   </div>
 </section>
 
@@ -1195,19 +492,23 @@
 <footer>
   <div class="container">
     <div>
-      <strong>WineBOX</strong> · Plataforma de Observación Conductual<br>
-      WhatsApp: <a href="https://wa.me/5491166116631" target="_blank" rel="noopener">+54 9 11 6611 6631</a><br>
-      Web: <a href="http://www.winebox.cloud">winebox.cloud</a>
+      <strong>WineBOX Clinic</strong><br>
+      Centro de Evaluación Neurocognitiva<br>
+      WhatsApp: <a href="https://wa.me/5491166116631" target="_blank" rel="noopener">+54 9 11 6611 6631</a>
+      <div class="footer-professional">
+        Responsable profesional: Lic. Emanuel Chanampa<br>
+        Psicólogo Clínico · Mat. Nacional 56716 · Mat. Provincial 84132
+      </div>
     </div>
     <div class="footer-disclaimer">
-      © 2026 WineBOX. Todos los derechos reservados.<br>
-      <em>Aviso: WineBOX es una herramienta de apoyo. No sustituye diagnóstico ni tratamiento profesional. Los datos se procesan localmente conforme a la Ley 25.326 de Protección de Datos Personales.</em>
+      © 2026 WineBOX Clinic. Todos los derechos reservados.<br>
+      <em>Aviso: Los servicios ofrecidos son de evaluación y orientación psicológica. No sustituyen diagnóstico ni tratamiento médico. La información contenida en este sitio tiene fines exclusivamente informativos y no constituye una oferta de servicios. Los datos se procesan conforme a la Ley 25.326 de Protección de Datos Personales.</em>
     </div>
   </div>
 </footer>
 
 <!-- WHATSAPP FLOTANTE -->
-<a href="https://wa.me/5491166116631?text=Hola%2C%20vengo%20de%20la%20web%20de%20WineBOX." class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+<a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20realizar%20una%20consulta." class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
