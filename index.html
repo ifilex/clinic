@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WineBOX · NeuroTest Escolar · La tecnología educativa que tu colegio necesita</title>
-<meta name="description" content="Plataforma de observación conductual con algoritmo validado (ICC ≥ 0,74). Screening, psicodiagnóstico y sistema institucional para colegios. Cero inversión en hardware: los padres evalúan desde casa, el colegio recibe los datos.">
+<meta name="description" content="Plataforma de observación conductual con algoritmo validado (ICC ≥ 0,74). Screening, apto psicológico y psicodiagnóstico. Sistema institucional para colegios con cero inversión en hardware.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -140,6 +140,27 @@
   .step h3{font-size:1rem;margin-bottom:8px}
   .step p{font-size:0.9rem;margin:0}
 
+  /* FILOSOFÍA DE 3 NIVELES */
+  .philosophy-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    max-width:960px;
+    margin:40px auto 8px;
+    text-align:center;
+  }
+  .philosophy-item{
+    padding:20px 16px;
+    border-radius:14px;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    transition:all .25s;
+  }
+  .philosophy-item:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:0 8px 24px rgba(0,32,69,0.06)}
+  .philosophy-item .icon{font-size:1.8rem;display:block;margin-bottom:10px}
+  .philosophy-item .action{font-weight:800;color:var(--brand);font-size:1rem;margin-bottom:6px;display:block}
+  .philosophy-item .intent{font-size:0.85rem;color:var(--text-mute);line-height:1.5;display:block;font-style:italic}
+
   /* PRECIOS B2C */
   .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;margin-top:44px}
   .price-card{
@@ -182,9 +203,15 @@
     border-left:3px solid var(--brand);
   }
   .price-context strong{color:var(--brand)}
+  .price-disclaimer{
+    font-size:0.78rem;color:var(--text-mute);
+    background:#fef7e6;border-left:3px solid var(--amber);
+    padding:12px 14px;border-radius:8px;margin-bottom:22px;
+    line-height:1.55;font-style:italic;
+  }
   .price-card .btn-wa{width:100%;justify-content:center;padding:15px 20px;font-size:0.95rem}
 
-  /* SECCIÓN COLEGIOS - FOMO MÁXIMO */
+  /* SECCIÓN COLEGIOS */
   .schools-section{
     background:linear-gradient(180deg, #001530 0%, #002045 50%, #001530 100%);
     color:#fff;position:relative;overflow:hidden;
@@ -322,7 +349,6 @@
   .schools-cta-block p{color:rgba(255,255,255,0.75);max-width:600px;margin:0 auto 32px}
   .schools-cta-block .btn-wa{font-size:1.15rem;padding:22px 42px}
 
-  /* BLOQUES NUEVOS: MODELO HOGAR */
   .model-cards-3{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -612,58 +638,89 @@
 <!-- PRECIOS B2C -->
 <section id="servicios">
   <div class="container">
-    <h2 class="center">Elegí lo que necesitás. Sin letra chica.</h2>
+    <h2 class="center">Tres niveles de acompañamiento, según lo que necesitás.</h2>
     <p class="lead center mx-auto" style="margin-bottom:0">Todos los servicios se coordinan por WhatsApp con un profesional humano. Los precios se ajustan trimestralmente según IPC.</p>
+
+    <!-- FILOSOFÍA DE LOS 3 NIVELES -->
+    <div class="philosophy-row">
+      <div class="philosophy-item">
+        <span class="icon">🔍</span>
+        <span class="action">Observamos</span>
+        <span class="intent">"Quiero conocer cómo está funcionando."</span>
+      </div>
+      <div class="philosophy-item">
+        <span class="icon">📋</span>
+        <span class="action">Evaluamos y certificamos</span>
+        <span class="intent">"Necesito una evaluación y documentación profesional."</span>
+      </div>
+      <div class="philosophy-item">
+        <span class="icon">🔬</span>
+        <span class="action">Evaluamos, explicamos y proponemos</span>
+        <span class="intent">"Quiero comprender qué está pasando y saber cómo acompañarlo."</span>
+      </div>
+    </div>
 
     <div class="pricing-grid">
 
+      <!-- ════════════════ SCREENING ════════════════ -->
       <div class="price-card">
-        <span class="price-tag tag-green">SCREENING</span>
-        <h3>Screening Básico WineBOX</h3>
-        <p class="for-who">Para padres que quieren una primera mirada objetiva. Ideal para colegios que necesitan tamizaje rápido de un curso.</p>
+        <span class="price-tag tag-green">PRIMERA MIRADA</span>
+        <h3>Screening WineBOX</h3>
+        <p class="for-who">Una primera observación objetiva para saber cómo está funcionando tu hijo. Ideal para padres que quieren una orientación antes de decidir si profundizar.</p>
         <ul>
-          <li>Acceso a la app con módulo de análisis cognitivo</li>
+          <li>Acceso a la plataforma con módulo de análisis cognitivo</li>
           <li>30-45 min de juego supervisado</li>
-          <li>Informe automatizado de 4 dominios</li>
+          <li><strong>Reporte de Observación WineBOX</strong> con perfil de 4 dominios</li>
           <li>Trazabilidad completa de la sesión</li>
         </ul>
-        <div class="price-amount">$25.000</div>
+        <div class="price-amount">$30.000</div>
         <p class="price-note">ARS · Pago único por evaluación</p>
-        <div class="price-context">Una consulta psicológica online en Argentina cuesta entre $24.000 y $45.000. Vos pagás $25.000 y recibís un informe estructurado al instante.</div>
-        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Screening%20B%C3%A1sico%20WineBOX." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        <div class="price-context">
+          Una consulta psicológica online en Argentina cuesta entre $24.000 y $45.000. Vos pagás $30.000 y recibís un reporte estructurado al instante.
+        </div>
+        <div class="price-disclaimer">
+          <strong>Importante:</strong> el Screening NO es un diagnóstico ni reemplaza una evaluación profesional. Es una primera orientación que <em>no incluye informe firmado ni sellado</em>. Si necesitás documentación oficial, elegí el Apto Psicológico.
+        </div>
+        <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Screening%20WineBOX." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
       </div>
 
+      <!-- ════════════════ APTO PSICOLÓGICO ════════════════ -->
       <div class="price-card">
-        <span class="price-tag tag-amber">APTO</span>
+        <span class="price-tag tag-amber">APTO PSICOLÓGICO</span>
         <h3>Apto Psicológico Laboral / Educacional</h3>
-        <p class="for-who">Para adultos que necesitan apto psicológico para trabajo, universidad o instituciones. También para colegios.</p>
+        <p class="for-who">Evaluación profesional con documentación oficial. Para incorporación laboral, ingreso universitario, licencias, requisitos institucionales o trámites que exigen certificado firmado.</p>
         <ul>
           <li>Screening WineBOX completo</li>
           <li>Entrevista evaluativa estructurada (45 min online)</li>
-          <li>Informe de aptitud con perfil de funciones ejecutivas</li>
-          <li>Emisión de certificado de apto psicológico</li>
+          <li><strong>Informe de aptitud</strong> con perfil de funciones ejecutivas</li>
+          <li><strong>Documento oficial con firma y sello del profesional matriculado</strong></li>
         </ul>
-        <div class="price-amount">$70.000</div>
+        <div class="price-amount">$50.000</div>
         <p class="price-note">ARS · Pago único por persona</p>
-        <div class="price-context">Los Colegios de Psicólogos fijan el "Apto Psicolaboral" en $35.000 (Córdoba, 2026) y el "Psicodiagnóstico" en $134.000-$150.000. Vos pagás $70.000 con respaldo algorítmico.</div>
+        <div class="price-context">
+          Un trámite profesional rápido, claro y accesible. En 48-72 horas tenés tu certificado de apto psicológico listo para presentar donde lo necesites, con el respaldo de un neuropsicólogo matriculado.
+        </div>
         <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20Apto%20Psicol%C3%B3gico%20Laboral%2FEducacional." class="btn-wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
       </div>
 
+      <!-- ════════════════ PSICODIAGNÓSTICO ════════════════ -->
       <div class="price-card featured">
-        <span class="price-tag tag-red">PSICODIAGNÓSTICO</span>
+        <span class="price-tag tag-red">EVALUACIÓN COMPLETA</span>
         <h3>Psicodiagnóstico Completo</h3>
-        <p class="for-who">Para padres que necesitan un diagnóstico profundo y un plan de acción. La opción más recomendada para niños de 7 a 17 años.</p>
+        <p class="for-who">Para padres que necesitan comprender a fondo qué está pasando y recibir un plan de acción concreto. La opción más recomendada para niños de 7 a 17 años con dificultades escolares o emocionales.</p>
         <ul>
           <li><strong>Sesión 1:</strong> Screening WineBOX completo</li>
-          <li><strong>Sesión 2:</strong> Entrevista evaluativa + devolución a padres</li>
-          <li>Informe psicodiagnóstico completo</li>
+          <li><strong>Sesión 2:</strong> Entrevista evaluativa + devolución a los padres</li>
+          <li><strong>Informe psicodiagnóstico profesional con firma y sello</strong></li>
           <li>Plan de entrenamiento personalizado (4 semanas)</li>
           <li>Acceso a AURA, IA de acompañamiento offline</li>
           <li>Llamada de seguimiento a la semana</li>
         </ul>
-        <div class="price-amount">$140.000</div>
+        <div class="price-amount">$165.000</div>
         <p class="price-note">ARS · Pago único por el proceso completo de dos sesiones</p>
-        <div class="price-context">Un psicodiagnóstico tradicional (hasta 6 sesiones) cuesta $134.000-$150.000 según aranceles de obras sociales y colegios profesionales. Vos pagás $140.000 por <strong>dos sesiones</strong> con tecnología de punta y plan de acción concreto.</div>
+        <div class="price-context">
+          Recibís un proceso completo de evaluación en dos sesiones: screening con algoritmo validado, entrevista clínica con el niño, devolución personalizada a los padres, informe profesional firmado y sellado, plan de entrenamiento de 4 semanas, acceso a AURA y seguimiento posterior. Todo con acompañamiento humano por WhatsApp.
+        </div>
         <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20el%20Psicodiagn%C3%B3stico%20Completo%20para%20mi%20hijo." class="btn-wa" target="_blank" rel="noopener">Quiero el Psicodiagnóstico</a>
       </div>
 
@@ -813,9 +870,7 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- NUEVO BLOQUE: MODELO HOGAR + ESCUELA (SIN HARDWARE) -->
-    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- MODELO HOGAR + ESCUELA (SIN HARDWARE) -->
     <div style="margin-top:100px;">
       <div class="center">
         <span class="fomo-badge" style="background:rgba(110,231,161,0.15);border-color:rgba(110,231,161,0.4);color:#6ee7a1;">
@@ -826,7 +881,6 @@
         <p style="color:rgba(255,255,255,0.8);max-width:760px;margin:0 auto;font-size:1.08rem;line-height:1.7;">Los padres hacen la evaluación <strong>desde su propia casa</strong>, en su propio celular, tablet o computadora. El colegio recibe los datos automáticamente en su panel institucional. <strong>Ni un peso en tecnología. Ni un aula adaptada. Ni un técnico instalando nada.</strong></p>
       </div>
 
-      <!-- CÓMO FUNCIONA EL MODELO HOGAR -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:56px;">
 
         <div style="background:rgba(110,231,161,0.06);border:1px solid rgba(110,231,161,0.2);border-radius:20px;padding:32px 28px;">
@@ -855,14 +909,12 @@
 
       </div>
 
-      <!-- LOS 3 MODELOS DE IMPLEMENTACIÓN -->
       <div style="margin-top:80px;">
         <h3 style="font-size:1.5rem;text-align:center;margin-bottom:16px;">Tres formas de implementarlo. Elegí la que se adapte a tu realidad.</h3>
         <p style="text-align:center;color:rgba(255,255,255,0.75);max-width:700px;margin:0 auto 48px;">Desde el modelo más liviano hasta el más integrado. Todos con el mismo poder de análisis.</p>
 
         <div class="model-cards-3">
 
-          <!-- MODELO A: 100% HOGAR -->
           <div class="model-card featured-model">
             <div class="model-badge">CERO HARDWARE</div>
             <div class="plan-label">Modelo A · 100% Hogar</div>
@@ -876,7 +928,6 @@
             </ul>
           </div>
 
-          <!-- MODELO B: HÍBRIDO -->
           <div class="model-card standard-model">
             <div class="plan-label">Modelo B · Híbrido</div>
             <h4>Hogar + aula</h4>
@@ -889,7 +940,6 @@
             </ul>
           </div>
 
-          <!-- MODELO C: 100% ESCUELA -->
           <div class="model-card standard-model">
             <div class="plan-label">Modelo C · 100% Escuela</div>
             <h4>Todo en el aula</h4>
@@ -905,7 +955,6 @@
         </div>
       </div>
 
-      <!-- CALLOUT SIN HARDWARE -->
       <div class="no-hardware-callout">
         <div style="font-size:3rem;margin-bottom:16px;">💡</div>
         <h3>Pensalo así:</h3>
@@ -913,9 +962,6 @@
         <p class="small">Los padres usan el celular que ya tienen. El chico juega en casa o en el aula. El colegio recibe los datos en su panel. <strong style="color:#6ee7a1;">Ni un peso en infraestructura. Ni un día de instalación. Ni un solo cable.</strong></p>
       </div>
     </div>
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- FIN NUEVO BLOQUE -->
-    <!-- ═══════════════════════════════════════════════════════ -->
 
     <!-- PRECIOS COLEGIOS -->
     <div style="margin-top:100px;">
@@ -990,20 +1036,17 @@
 
       </div>
 
-      <!-- CONTEXTO DE PRECIO -->
       <div class="schools-objection">
         <h4>💡 Hacé la cuenta conmigo:</h4>
         <p>Una sola evaluación neurocognitiva particular cuesta <strong>$144.000</strong> por alumno. Un colegio de 300 alumnos que quisiera evaluar a todos sus estudiantes pagaría <strong>$43.200.000</strong>. Con el Pack Estándar, paga <strong>$9.000.000</strong> y evalúa a todos. Todas las veces que quiera. Durante todo el año. <strong>Es una inversión que se paga sola con una sola deserción evitada.</strong></p>
       </div>
 
-      <!-- OBJECIÓN -->
       <div class="schools-objection" style="background:rgba(255,107,107,0.08);border-left-color:#ff8a8a;">
         <h4 style="color:#ff8a8a;">🛑 "Pero es mucho dinero para un colegio..."</h4>
         <p style="color:rgba(255,255,255,0.9);">Una sola beca completa en tu colegio cuesta más que eso. Una campaña de marketing para captar 20 alumnos nuevos cuesta más que eso. Y si lográs detectar a tiempo a <strong>un solo chico</strong> que estaba por abandonar, ya recuperaste la inversión. <strong>¿Cuánto vale para tu institución evitar una deserción? ¿Cuánto vale una familia que se queda porque "acá sí detectaron algo"?</strong></p>
       </div>
     </div>
 
-    <!-- CTA FINAL COLEGIOS -->
     <div class="schools-cta-block">
       <h3>No esperes a que tu competencia lo implemente primero.</h3>
       <p>Agendamos una videollamada de 20 minutos con el equipo directivo. Sin compromiso. Te mostramos la plataforma funcionando en vivo con datos reales de ejemplo.</p>
@@ -1068,10 +1111,12 @@
   <div class="container">
     <h2 class="center">Preguntas frecuentes</h2>
     <div class="faq">
+      <details class="faq-item"><summary>¿Cuál es la diferencia entre Screening, Apto Psicológico y Psicodiagnóstico?</summary><p>El <strong>Screening</strong> es una primera observación orientativa: te dice cómo está funcionando tu hijo, pero no es un diagnóstico ni incluye informe firmado. El <strong>Apto Psicológico</strong> es una evaluación profesional con documentación oficial firmada y sellada, ideal para trámites laborales o educativos. El <strong>Psicodiagnóstico</strong> es un proceso completo de dos sesiones con informe profesional, plan de acción y seguimiento posterior.</p></details>
       <details class="faq-item"><summary>¿Cuánto tarda todo el proceso?</summary><p>Desde que escribís por WhatsApp hasta que recibís el informe final: 3 a 5 días hábiles. El screening en sí dura 30-45 minutos.</p></details>
+      <details class="faq-item"><summary>¿El Screening incluye un informe firmado?</summary><p>No. El Screening entrega un <strong>Reporte de Observación WineBOX</strong> con el perfil de 4 dominios cognitivos, pero no constituye diagnóstico ni reemplaza una evaluación profesional. Si necesitás documentación oficial firmada y sellada, tenés que elegir el Apto Psicológico.</p></details>
       <details class="faq-item"><summary>¿Mi hijo necesita estar solo durante la evaluación?</summary><p>No. De hecho, recomendamos que un adulto responsable esté presente. WineBOX está diseñado para ser una experiencia compartida, no una prueba aislada.</p></details>
       <details class="faq-item"><summary>¿Qué pasa si mi hijo se frustra durante el juego?</summary><p>Es parte del proceso. El algoritmo registra cómo gestiona la frustración, que es información clínicamente valiosa. Además, el adulto presente puede aplicar las técnicas de respiración 4-4-4-4 del ebook si es necesario.</p></details>
-      <details class="faq-item"><summary>¿WineBOX reemplaza un diagnóstico psiquiátrico?</summary><p>No. WineBOX es una herramienta de apoyo. El informe es una hipótesis de trabajo que debe ser interpretada por un profesional. Nunca sustituye una consulta médica ni un tratamiento.</p></details>
+      <details class="faq-item"><summary>¿WineBOX reemplaza un diagnóstico psiquiátrico?</summary><p>No. WineBOX es una herramienta de apoyo. El informe del Psicodiagnóstico es una hipótesis de trabajo que debe ser interpretada por un profesional. Nunca sustituye una consulta médica ni un tratamiento psiquiátrico.</p></details>
       <details class="faq-item"><summary>¿Los datos de mi hijo están seguros?</summary><p>Sí. WineBOX procesa todo localmente en el dispositivo. No se transmiten datos personales a servidores externos. Tu privacidad está protegida por diseño.</p></details>
       <details class="faq-item"><summary>¿Puedo pagar en cuotas?</summary><p>Consultá con tu coordinador por WhatsApp. Evaluamos cada caso.</p></details>
       <details class="faq-item"><summary>¿Cómo se implementa en un colegio?</summary><p>Agendamos una videollamada de 20 minutos con el equipo directivo. Mostramos la plataforma en vivo. Si te convence, coordinamos la implementación, capacitación docente y puesta en marcha en 2 semanas.</p></details>
