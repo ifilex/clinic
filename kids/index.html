@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Arte de la Calma · WineBOX Cognitive</title>
+
+<!-- Metadatos Dublin Core para EPUB -->
+<meta name="dc:title" content="El Arte de la Calma">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Cuando el juego se vuelve una guerra: Cómo calmar a tu hijo sin pelear. Neurociencia, Psicología, Mindfulness y Ejercicios Prácticos para niños de 7 a 17 años.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #2E5266;
+    --primary-dark: #1E3A4A;
+    --primary-light: #4A7589;
+    --accent: #D98E4A;
+    --accent-dark: #B87333;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #EAF0F3;
+    --soft-green: #E8F3EC;
+    --soft-amber: #FBF1E2;
+    --soft-rose: #F7E9E9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 45%, var(--primary-light) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(217,142,74,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 720px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(44px, 8vw, 88px); font-weight: 400; line-height: 1.02; margin-bottom: 28px; letter-spacing: -1.5px; }
+  .cover h1 em { font-style: italic; color: var(--accent); display: block; font-size: 0.85em; }
+  .cover-subtitle { font-size: 21px; font-style: italic; opacity: 0.92; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 16px; border: 1px solid rgba(217,142,74,0.5); border-radius: 20px; color: var(--accent); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-amber); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--accent-dark); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 17px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--accent-dark); }
+  .toc-list .num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* CONTENIDO DE CAPÍTULO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--primary); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--primary); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-blue) 100%); border-left: 4px solid var(--primary); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid #2E8B57; }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--accent); }
+  .callout.warning strong { color: var(--accent-dark); }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.exercise { background: var(--soft-rose); border-left: 4px solid #B85450; }
+  .callout.exercise strong { color: #8B3A36; }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--primary); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15.5px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 12px 16px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* TARJETAS DE JUEGOS */
+  .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin: 1.5em 0; }
+  .game-card { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 8px; padding: 18px; background: var(--paper); text-decoration: none; color: var(--ink); transition: all 0.2s; }
+  .game-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(46,82,102,0.12); border-color: var(--primary); }
+  .game-card .icon { font-size: 1.9rem; margin-bottom: 10px; }
+  .game-card .name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px; color: var(--primary-dark); }
+  .game-card .desc { font-size: 14px; color: var(--muted); flex-grow: 1; margin-bottom: 14px; line-height: 1.5; }
+  .game-card .play-btn { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; background: var(--primary); color: white; padding: 9px; border-radius: 4px; text-align: center; font-weight: 600; }
+  .game-card.install-card { cursor: default; }
+  .game-card.install-card:hover { transform: none; box-shadow: none; border-color: var(--border); }
+
+  /* TARJETAS DE DÍAS Y SEMANAS */
+  .day-card, .week-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 18px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+  .day-card h4, .week-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .day-card .time, .week-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CUADERNO DE EJERCICIOS */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 600px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--primary); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 16px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 14.5px; }
+  .sheet-body table th { font-size: 11px; padding: 10px 12px; }
+  .sheet-body table td { padding: 14px 12px; height: 38px; }
+
+  /* FORM FIELDS */
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  /* SCALE */
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  /* CHECKBOX LIST */
+  .checkbox-list { list-style: none; margin-left: 0; }
+  .checkbox-list li { padding: 12px 10px 12px 40px; position: relative; border-bottom: 1px dashed #cbd5e1; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; }
+  .checkbox-list li::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1.5px solid var(--primary-dark); border-radius: 3px; }
+
+  /* STAIRS */
+  .stairs { margin: 20px 0; }
+  .stair { background: var(--cream); padding: 14px 18px; margin: 8px 0; border-left: 3px solid var(--accent); display: flex; align-items: center; gap: 15px; }
+  .stair .stair-num { background: var(--accent); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .stair .stair-line { flex-grow: 1; border-bottom: 1px solid #cbd5e1; height: 22px; }
+
+  /* AUTHOR */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 640px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--accent); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CTA FINAL */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(217,142,74,0.12); border: 1px solid var(--accent); border-radius: 8px; max-width: 680px; text-align: left; }
+  .cta-box h3 { color: var(--accent); font-size: 24px; margin-bottom: 15px; font-weight: 500; }
+  .cta-box p { font-size: 16px; margin-bottom: 20px; opacity: 0.95; }
+  .cta-box a { display: inline-block; background: var(--accent); color: var(--primary-dark); padding: 13px 26px; text-decoration: none; font-weight: 700; border-radius: 4px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cream); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(46,82,102,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.5cm 1.8cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 11pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--accent) !important; }
+    .cover-tags span { color: var(--accent) !important; border-color: var(--accent) !important; }
+    .cover-brand, .cover-author { color: var(--accent) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-amber) !important; padding: 40px 20px; }
+
+    .toc { page-break-after: always; padding: 40px 20px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 30px 15px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 30px; padding-bottom: 20px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .day-card, .week-card, .summary, .next-step { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 10pt; }
+    th, td { border: 1px solid #666 !important; padding: 6px 8px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .workbook-intro { page-break-before: always; padding: 30px 15px; }
+    .workbook-sheet { page-break-before: always; padding: 30px 15px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+    .checkbox-list li { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--accent) !important; }
+    .cta-box { background: rgba(217,142,74,0.12) !important; border: 1px solid var(--accent) !important; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: var(--primary-dark) !important; }
+
+    a { text-decoration: none; color: black; }
+    .game-card { page-break-inside: avoid; }
+    .game-card .play-btn { display: none; }
+    .game-card a { color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive</div>
+    <h1>El Arte<br><em>de la Calma</em></h1>
+    <p class="cover-subtitle">Cuando el juego se vuelve una guerra:<br>Cómo calmar a tu hijo sin pelear</p>
+    <p class="cover-audience">Para grupos etarios de 7 a 17 años</p>
+    <div class="cover-tags">
+      <span>Neurociencia</span><span>Psicología</span><span>Mindfulness</span><span>Práctica</span>
+    </div>
+    <div class="cover-author">Emanuel Chanampa</div>
+  </div>
+  <div class="cover-foot">Basado en evidencia · Más de 1.200 sesiones de entrenamiento analizadas · 2026</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Aviso Legal y Médico · Consentimiento Informado</div>
+    <h2>Antes de comenzar</h2>
+    <p>Este ecosistema digital (Manual, PWA, APK y licencias de Steam) es una herramienta de apoyo pedagógico, estimulación cognitiva y evaluación conductual en el hogar. <strong>No sustituye la consulta médica presencial, el diagnóstico definitivo ni el tratamiento psicofarmacológico indicado por su médico o terapeuta de cabecera.</strong></p>
+    <ol>
+      <li><strong>Naturaleza de la herramienta.</strong> WineBOX y el presente manual constituyen un ecosistema de estimulación cognitiva diseñado para complementar el trabajo terapéutico. Las métricas y patrones de respuesta generados deben ser interpretados exclusivamente en el contexto clínico de cada paciente por un profesional de la salud mental cualificado.</li>
+      <li><strong>Responsabilidad del usuario o supervisor.</strong> El usuario o su responsable legal asume la supervisión directa de las sesiones, garantizando el cumplimiento de los tiempos de pantalla recomendados (máximo 30-45 minutos por sesión). En el caso de menores de edad, la supervisión de un adulto responsable es obligatoria.</li>
+      <li><strong>Propiedad de los contenidos.</strong> Los videojuegos incluidos mediante claves de Steam son propiedad de terceros. WineBOX actúa únicamente como plataforma de distribución y análisis.</li>
+      <li><strong>Limitación de responsabilidad.</strong> Los desarrolladores de WineBOX no se hacen responsables del uso indebido o interpretación errónea de los resultados sin el debido acompañamiento profesional. Material provisto "tal cual", con fines educativos y de apoyo.</li>
+      <li><strong>Protección de datos.</strong> WineBOX procesa la información de uso de forma local y anónima. Los datos no se transmiten a servidores externos sin consentimiento expreso (Privacy by Design).</li>
+      <li><strong>Aceptación.</strong> Al utilizar WineBOX y seguir este manual, el usuario y/o su responsable legal acepta expresamente estos términos y se compromete a consultar siempre con su profesional de confianza ante cualquier duda sobre su salud mental.</li>
+    </ol>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y responsabilidad</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · El comienzo</span>Cap. 1 Bienvenido, padre valiente</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · El comienzo</span>Cap. 2 La primera tormenta</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Comprender</span>Cap. 3 Neurociencia de la ansiedad</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · Comprender</span>Cap. 4 El mapa de la calma</a></li>
+      <li><a href="#cap5"><span class="part">Parte III · Las herramientas</span>Cap. 5 Herramientas para niños</a></li>
+      <li><a href="#cap6"><span class="part">Parte III · Las herramientas</span>Cap. 6 Guía de ejercicios diarios</a></li>
+      <li><a href="#cap7"><span class="part">Parte IV · El laboratorio</span>Cap. 7 WineBOX: el laboratorio mental</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · El laboratorio</span>Cap. 8 Plan de entrenamiento (4 semanas)</a></li>
+      <li><a href="#cap9"><span class="part">Parte V · Sostener</span>Cap. 9 Plan de mantenimiento</a></li>
+      <li><a href="#cap10"><span class="part">Parte V · Sostener</span>Cap. 10 Descargar WineBOX</a></li>
+      <li><a href="#cap11"><span class="part">Parte V · Sostener</span>Cap. 11 La comunidad de la calma</a></li>
+      <li><a href="#cap12"><span class="part">Parte V · Sostener</span>Cap. 12 El nuevo comienzo</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno de ejercicios</span>13 hojas imprimibles</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenido, padre valiente</h1>
+  </div>
+  <div class="chapter-body">
+    <blockquote>
+      <p>«Has llevado el peso de ver cómo tu hijo, día a día, se ve inmerso en un mundo de juegos lleno de ansiedad, sin poder despegarse de ella, porque todo es un círculo que siempre lo lleva al mismo lugar. No es tu culpa: es el medio que construye juegos y sistemas que obturan la atención de los niños. Pero hoy estás aquí. No eres un mal padre: eres todo lo contrario, alguien que quiere ayudar, sanar y cuidar.»</p>
+      <cite>— Para ti, que estás listo para comenzar a acompañar a tu hijo</cite>
+    </blockquote>
+
+    <p>Este libro no es una fórmula mágica ni una solución rápida. Es una invitación a un viaje profundo: comprender cómo piensan tus hijos y cómo puedes ayudarlos. Mediante un entrenamiento cognitivo con juegos de baja fidelidad, vamos a ir modificando de a poco la conducta de tus hijos, ayudándolos a enfrentar su ansiedad e inquietud.</p>
+
+    <h2>Lo que vas a encontrar en este viaje</h2>
+    <p>Antes de empezar, quiero que sepas exactamente qué te espera. Porque saber el camino es la mitad del trabajo.</p>
+    <ol>
+      <li><strong>Comprender.</strong> Entender cómo funciona el cerebro ansioso de tu hijo, sin culpa y sin juicio.</li>
+      <li><strong>Herramientas.</strong> Aprender técnicas concretas de respiración, mindfulness, reestructuración cognitiva y relajación.</li>
+      <li><strong>Práctica.</strong> Aplicar todo esto con un plan diario y un plan de cuatro semanas.</li>
+      <li><strong>Laboratorio.</strong> Usar WineBOX, un ecosistema de juegos clásicos diseñado para entrenar funciones ejecutivas.</li>
+      <li><strong>Sostener.</strong> Convertir la calma en un hábito y no en un evento aislado.</li>
+    </ol>
+
+    <div class="callout tip">
+      <strong>Tu compromiso</strong>
+      Dedica 10-15 minutos al día a los ejercicios de este libro con tu hijo. La consistencia es más importante que la intensidad. Este viaje es de ambos, y cada paso cuenta.
+    </div>
+
+    <div class="callout warning">
+      <strong>⚠ Recordatorio importante</strong>
+      Este manual es una herramienta de apoyo. Si detectas síntomas graves de ansiedad, depresión o cualquier otra condición de salud mental en tu hijo, consulta a un profesional de la salud antes de comenzar.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>No estás solo. La ansiedad infantil es un fenómeno contemporáneo masivo.</li>
+        <li>Este libro no juzga, acompaña. Vas a trabajar <em>con</em> tu hijo, no <em>contra</em> él.</li>
+        <li>El camino tiene cinco etapas: comprender, aprender, practicar, experimentar y sostener.</li>
+        <li>El compromiso diario vale más que cualquier sesión heroica aislada.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>En el próximo capítulo vas a leer una escena que probablemente reconozcas: el estallido de furia cuando se corta el juego. La historia de una primera tormenta. Porque entenderla es el primer paso para atravesarla.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">La primera tormenta</h1>
+  </div>
+  <div class="chapter-body">
+    <p>El sol de la tarde se filtraba a través de las cortinas del living, tiñendo el ambiente de un dorado cálido que contrastaba con la tormenta que estaba a punto de desatarse. Sobre la mesa ratonera descansaba la tablet, brillando con la interfaz colorida de Roblox, el universo virtual donde transcurrían las horas y los mundos de bloques de su pequeño protagonista de siete años.</p>
+
+    <p>Para él, esa pantalla no era solo un pasatiempo: era un refugio vibrante y absorbente del que no toleraba ser desterrado ni por un segundo. Bastó con que el adulto de la casa intentara cerrar la aplicación para que el delicado equilibrio se rompiera de golpe. El estímulo visual se apagó y, con él, se desvaneció cualquier atisbo de calma.</p>
+
+    <p>Lo que siguió fue una explosión instantánea de pura energía desregulada: gritos agudos, patadas al suelo y un llanto ensordecedor que llenó cada rincón de la casa. Ante la negativa de devolverle el acceso inmediato al juego, el niño se precipitó hacia adelante impulsado por una urgencia ciega, derribando un almohadón y golpeando la mesa con los puños cerrados, atrapado en una marea de frustración donde las palabras ya no tenían cabida y el impulso mandaba en absoluta soledad.</p>
+
+    <blockquote>
+      <p>«La ansiedad no desaparece de un día para otro. Pero con el tiempo, con práctica y con cariño, tu hijo aprenderá a conocer sus señales, a escucharla sin miedo y a dejarla pasar.»</p>
+      <cite>— Un recordatorio para los días difíciles</cite>
+    </blockquote>
+
+    <p>El caos estalló de golpe en la sala cuando la pantalla se quedó en negro. Su corazón se disparó al ritmo de los gritos, con las manos temblando ante la intensidad del desborde y la urgencia por ceder solo para calmar la marea. Pero en medio de la tormenta, recordó la brújula del entrenamiento: <strong>sostener la mirada, no salir corriendo.</strong></p>
+
+    <h3>Su Diario de la Calma</h3>
+    <p><em>«El pecho me latía a mil por hora con la explosión de furia. Pensé: 'No doy más', 'Esto me desborda'. Sentí los hombros contracturados y el vértigo de la impulsividad ajena chocando contra mí. Pero me quedé. Respiré hondo, conteniendo el propio impulso de alterarme. Me enfoqué en lo único controlable: mi propia postura. Después de unos minutos críticos, la marea bajó y la intensidad pasó de un rojo vivo a un pulso manejable. El desafío era aguantar el impacto sin ceder, y lo logré.»</em></p>
+
+    <p>Lo que ocurrió en ese espacio de tensión es el núcleo del entrenamiento conductual. Cuando te mantienes firme ante el despliegue de una crisis sin desbordarte ni huir, le enseñas al sistema nervioso una lección elemental: <strong>se puede atravesar la marea más alta sin que el mundo colapse en el intento.</strong></p>
+
+    <h3>Lo que pasó en el cerebro en ese instante</h3>
+    <ul>
+      <li><strong>Amígdala:</strong> se disparó de inmediato con los gritos y la furia (la clásica señal de alarma: "¡Peligro, todo explota!").</li>
+      <li><strong>Corteza prefrontal:</strong> a pesar del caos, el adulto logró activar la pausa y usar la atención plena para observar el despliegue sin entrar en combate ni ceder por impulso.</li>
+      <li><strong>Neuroplasticidad:</strong> cada vez que se sostiene la calma frente a un estallido en lugar de ceder por cansancio, el cerebro teje una ruta neuronal más sólida hacia la regulación.</li>
+    </ul>
+
+    <div class="callout exercise">
+      <strong>Ejercicio: Tu primera tormenta</strong>
+      Esta semana, elige un momento crítico de transición o límite con el juego donde sepas que el desborde acecha. Aplica el mismo principio: mantén el marco, observa el impulso y no huyas cediendo al grito.
+      <br><br>
+      <strong>Preguntas guía:</strong>
+      <ul style="margin-top: 8px; margin-left: 20px;">
+        <li>¿Qué sentiste en el cuerpo al principio?</li>
+        <li>¿Cómo se transformó la intensidad con el paso de los minutos?</li>
+        <li>¿Qué descubriste sobre tu propia tolerancia?</li>
+      </ul>
+      <em>(Hoja de reflexión disponible en el Cuaderno de Ejercicios).</em>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La tormenta no es un fracaso: es el sistema nervioso de tu hijo pidiendo ayuda.</li>
+        <li>Sostener la calma sin ceder es el acto más pedagógico que puedes hacer.</li>
+        <li>La amígdala se dispara, la corteza prefrontal se desconecta, y la neuroplasticidad se entrena con cada episodio.</li>
+        <li>El Diario de la Calma es tu mejor aliado: escribe lo que sentiste, no solo lo que hizo tu hijo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya viviste la tormenta. Ahora toca comprender el cielo que la produce. En el próximo capítulo vamos a bajar al cerebro mismo: la amígdala, la corteza prefrontal y el eje del estrés. Porque entender la neurociencia es el primer superpoder de un padre acompañante.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Neurociencia de la ansiedad</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Para dominar la inquietud de tu hijo, primero debes entender cómo funciona su cerebro cuando se activa. No es magia: es neurociencia pura. Y entenderlo te dará el poder de guiarlo en un proceso de cambio.</p>
+
+    <p><em>El cerebro infantil: una red de 86 mil millones de neuronas en plena construcción.</em></p>
+
+    <h2>3.1 · La amígdala: el sistema de alarma</h2>
+    <p>La amígdala es una pequeña estructura en el centro del cerebro que actúa como un sistema de alarma personal. En los niños es el detonante típico del llanto y del enojo cuando se sienten frustrados. No razona: reacciona. Detecta amenazas (reales o imaginarias) y activa la respuesta de lucha o huida antes de que la parte racional del cerebro pueda intervenir.</p>
+
+    <div class="callout info">
+      <strong>Dato curioso</strong>
+      La amígdala solo tarda 20 milisegundos en activarse ante una amenaza. La corteza prefrontal tarda entre 300 y 500 milisegundos en responder. En esa diferencia de tiempo vive toda la impulsividad infantil.
+    </div>
+
+    <h2>3.2 · La corteza prefrontal: el centro de control</h2>
+    <p>La corteza prefrontal es el centro de control ejecutivo: responsable de la planificación, la toma de decisiones y la regulación emocional. En los niños está en pleno desarrollo, y no termina de madurar hasta los 25 años aproximadamente. Por eso muchos fallan cuando deben planificar, esperar o frenar un impulso.</p>
+
+    <p>Cuando la amígdala grita, la corteza prefrontal queda <em>offline</em>. Y sin corteza prefrontal, no hay razonamiento posible. Por eso no sirve de nada gritarle a un niño en pleno berrinche: no te está escuchando. Biológicamente, no puede.</p>
+
+    <h2>3.3 · El eje hipotálamo-hipófisis-adrenal</h2>
+    <p>Cuando la amígdala detecta una amenaza, se activa una cascada hormonal que libera cortisol y adrenalina. Es un sistema diseñado para sobrevivir en momentos puntuales de peligro. El problema es cuando se activa todo el tiempo.</p>
+
+    <ul>
+      <li><strong>⚡ Estrés agudo:</strong> activación breve y útil. Nos permite reaccionar ante un peligro real.</li>
+      <li><strong>Estrés crónico:</strong> activación constante. Daña el desarrollo del niño, baja sus defensas, afecta el sueño, el apetito y la memoria.</li>
+    </ul>
+
+    <blockquote>
+      <p>«La ansiedad no es un defecto de carácter. Es una respuesta biológica que se ha vuelto demasiado sensible. Y como cualquier sistema biológico, puede ser entrenada en los niños con juegos para volver al equilibrio.»</p>
+      <cite>— Neurociencia para todos</cite>
+    </blockquote>
+
+    <h2>3.4 · La neuroplasticidad: el superpoder de los niños resilientes</h2>
+    <p>El cerebro es <strong>plástico</strong>: puede cambiar y adaptarse. Cada vez que tu hijo practica una respiración, sostiene una emoción o resuelve un problema, está reforzando conexiones neuronales específicas.</p>
+
+    <p><strong>Lo que se practica, se fortalece.</strong> Cada minuto que se entrena la mente del niño es un ladrillo más en el camino hacia la calma. No es metáfora: es biología.</p>
+
+    <h2>📊 Tabla 1 · El sistema de alarma del cerebro</h2>
+    <table>
+      <thead>
+        <tr><th>Estructura</th><th>Función</th><th>En ansiedad crónica</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Amígdala</td><td>Detecta amenazas y activa la alarma</td><td>Se vuelve hipersensible</td></tr>
+        <tr><td>Corteza prefrontal</td><td>Centro de control</td><td>Se "desconecta", no razona</td></tr>
+        <tr><td>Eje HHA</td><td>Libera cortisol y adrenalina</td><td>Genera desregulación sostenida</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout info">
+      🖨️ Imprime esta tabla y colócala en un lugar visible. Te recordará, cada día, por qué tu hijo reacciona como reacciona.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La amígdala responde 15 veces más rápido que la corteza prefrontal.</li>
+        <li>En pleno berrinche, la corteza prefrontal del niño está desconectada. No puede razonar.</li>
+        <li>El estrés agudo es útil; el crónico, dañino. La diferencia está en la duración.</li>
+        <li>La neuroplasticidad es real: cada práctica refuerza conexiones hacia la calma.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya conoces las piezas del cerebro. Ahora vamos a ver cómo se organizan en un patrón predecible: el ciclo de la ansiedad. Porque identificar el ciclo es lo que permite romperlo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">El mapa de la calma</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Para encontrar la calma en el niño, es necesario comprender cómo funciona su cerebro. Pero también cómo se organiza su ansiedad. Porque la ansiedad no es caótica: sigue un patrón. Y ese patrón se puede mapear.</p>
+
+    <h2>4.1 · El océano de la ansiedad</h2>
+    <p>La ansiedad es como un océano. A veces está en calma; otras veces hay tormenta, y todo explota. Pero debajo de la superficie, en las profundidades, el océano siempre está ahí, sosteniendo la vida.</p>
+
+    <blockquote>
+      <p>«Tu hijo es el océano, no la tormenta. La ansiedad es el viento que agita las olas, pero tú, como padre, eres la profundidad que sostiene todo.»</p>
+      <cite>— Un recordatorio para los días difíciles</cite>
+    </blockquote>
+
+    <h2>4.2 · El ciclo de la ansiedad</h2>
+    <p>La ansiedad sigue un patrón cíclico que se repite: empieza con un pensamiento o idea negativa, luego se manifiesta una sensación física en su cuerpo, lo que los lleva a intentar evitar la situación (conducta de evitación o resistencia), reiniciando el ciclo. Entender esto ayuda a los padres a no caer en las mismas trampas.</p>
+
+    <div class="callout info" style="text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px;">
+      Pensamiento negativo → Sensación física → Conducta de evitación → Y vuelve a empezar
+    </div>
+
+    <p>Cada vuelta del ciclo refuerza el patrón. La buena noticia: si se puede reforzar hacia un lado, se puede reforzar hacia el otro. Eso es lo que vamos a hacer.</p>
+
+    <h2>📊 Tabla 2 · Registro del ciclo de la ansiedad</h2>
+    <table>
+      <thead>
+        <tr><th>Fecha</th><th>Pensamiento</th><th>Sensación física</th><th>Conducta</th><th>¿Cómo rompiste el ciclo?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lunes</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Martes</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Miércoles</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Jueves</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Viernes</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Sábado</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Domingo</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout exercise">
+      <strong>Ejercicio</strong>
+      Cada vez que detectes ansiedad en tu hijo, anota lo que pasó y lo que sintió. Encontrarás una versión imprimible de esta hoja en el Cuaderno de Ejercicios, al final del libro.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La ansiedad es predecible: sigue un ciclo de cuatro pasos.</li>
+        <li>Identificar el ciclo es el primer paso para romperlo.</li>
+        <li>El registro escrito convierte lo abstracto en datos concretos.</li>
+        <li>La metáfora del océano ayuda a separar la identidad del niño del estado momentáneo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tienes el mapa. Ahora toca el arsenal. En el próximo capítulo veremos las siete herramientas fundamentales: respiración, mindfulness, diario, exposición gradual, reestructuración cognitiva y relajación muscular. Cada una con ejercicios paso a paso.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte III</div>
+    <h1 class="chapter-title">Herramientas para niños</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo es el corazón práctico del libro. Aquí están las siete herramientas que, combinadas, forman un sistema completo de regulación emocional para tu hijo. No tienes que aplicarlas todas el primer día. Empieza con una. Sosténla una semana. Después suma la siguiente.</p>
+
+    <h2>5.1 · El detective de pensamientos</h2>
+    <p>Aprende a observar los pensamientos con curiosidad. No todo lo que piensas es verdad. Los niños tienen pensamientos automáticos que suenan como verdades absolutas, pero que en realidad son "trampas cognitivas".</p>
+
+    <table>
+      <thead>
+        <tr><th>Pensamiento trampa</th><th>Cómo se manifiesta</th><th>Cómo lo combatimos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Todo o nada"</td><td>"Si no me sale perfecto, soy un fracaso"</td><td>Busca sus logros y celebra su esfuerzo</td></tr>
+        <tr><td>"Catastrofismo"</td><td>"¡Va a ser horrible, no voy a poder!"</td><td>Plantear: "¿Y si pasa algo lindo o manejable?"</td></tr>
+        <tr><td>"Leer la mente"</td><td>"Seguro que piensan que soy tonto"</td><td>Preguntar: "¿Tenemos pruebas reales de eso?"</td></tr>
+        <tr><td>"Etiquetado"</td><td>"Soy miedoso"</td><td>Etiqueta la acción concreta, nunca al niño</td></tr>
+        <tr><td>"Debería..."</td><td>"Debería hacerlo de una"</td><td>Cambia "debería" por "estoy aprendiendo"</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5.2 · El ancla de la respiración</h2>
+    <p>La respiración es la puerta de entrada para tomar control de la mente. A través de ella, los niños pueden regular sus procesos automáticos y entrenar su atención. Cuando la mente se dispersa en preocupaciones, volver a la respiración activa el sistema nervioso parasimpático (relajación).</p>
+
+    <p>Practicaremos la respiración de 4 tiempos (también conocida como respiración cuadrada o <em>box breathing</em>), una técnica sencilla y poderosa usada en contextos de alto estrés: desde deportistas de élite hasta equipos de rescate.</p>
+
+    <div class="callout exercise">
+      <strong>La respiración 4-4-4-4 · tu ancla en cualquier momento</strong>
+      <div class="steps" style="margin-top: 12px;">
+        <div class="step">Inspira por 4 segundos. <em>(Oliendo una flor)</em></div>
+        <div class="step">Mantén por 4 segundos.</div>
+        <div class="step">Expira por 4 segundos. <em>(Soplando una vela)</em></div>
+        <div class="step">Mantén vacío por 4 segundos.</div>
+      </div>
+    </div>
+
+    <h2>5.3 · Mindfulness e imaginería</h2>
+    <p>El mindfulness es la práctica de entrenar la mente para observar lo que sucede en el presente, sin juzgarlo. No busca eliminar los pensamientos negativos: busca cambiar la relación que tienes con ellos. En lugar de reaccionar automáticamente con miedo, se aprende a observarlos como nubes que pasan por el cielo de la mente.</p>
+
+    <div class="callout exercise">
+      <strong>Ejercicio: Escaneo corporal</strong>
+      <ul style="margin-top: 10px; margin-left: 20px;">
+        <li>Pide a tu hijo que se siente o acueste cómodamente.</li>
+        <li>Lleven la atención a la respiración durante 1 minuto.</li>
+        <li>Recorran el cuerpo notando sensaciones (apretando como robot y soltando como muñeco de trapo).</li>
+        <li>Vuelvan a la respiración por 1 minuto más.</li>
+      </ul>
+    </div>
+
+    <h2>5.4 · El diario de la calma</h2>
+    <p>Una técnica fundamental de la terapia cognitivo-conductual adaptada para registrar pensamientos y emociones de manera sencilla y compartida.</p>
+
+    <p><strong>Ejemplo práctico para conversar con tu hijo:</strong></p>
+    <ul>
+      <li><strong>Situación:</strong> Entrar a un lugar con mucha gente o ir a una fiesta de cumpleaños.</li>
+      <li><strong>Pensamiento automático:</strong> "Hay mucha gente, no quiero entrar, me da vergüenza".</li>
+      <li><strong>Emoción y cuerpo:</strong> Nerviosismo, pancita apretada.</li>
+      <li><strong>Pensamiento alternativo realista:</strong> "Puedo entrar de la mano, mirar un ratito y si necesito un descanso, salimos a respirar".</li>
+    </ul>
+
+    <p>Es importante aclarar que el nuevo pensamiento no tiene que ser "positivo" ni forzado, sino realista y creíble. No se trata de engañarse, sino de encontrar una perspectiva más equilibrada.</p>
+
+    <h2>5.5 · Exposición gradual</h2>
+    <p>La exposición gradual consiste en enfrentar, de manera paulatina y controlada, aquello que desencadena miedo. Al hacerlo repetidamente, el cerebro aprende por experiencia que la respuesta aversiva disminuye. Este proceso se llama <strong>habituación y extinción del miedo</strong>.</p>
+
+    <p>Sin embargo, esta acción debe hacerse con cuidado. Si se realiza de manera prematura o sin herramientas para gestionar la ansiedad, puede intensificar el miedo (sensibilización) o reforzar la evitación. Por eso, el ritmo y el momento de cada paso son clave.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Cómo practicar la exposición gradual</strong>
+      <div class="steps" style="margin-top: 12px;">
+        <div class="step">Identifica una situación que le genere ansiedad al niño.</div>
+        <div class="step">Divide esa situación en pasos pequeños.</div>
+        <div class="step">Enfrenta la situación hasta que la ansiedad disminuya.</div>
+        <div class="step">Repite hasta que el niño no responda negativamente.</div>
+      </div>
+    </div>
+
+    <h2>5.6 · Reestructuración cognitiva</h2>
+    <p>La reestructuración cognitiva es un proceso de aprendizaje que busca modificar patrones de pensamiento disfuncionales. Al identificar y cuestionar las interpretaciones automáticas, se logra que el cerebro actualice sus conexiones neuronales, creando nuevas redes de asociación.</p>
+
+    <div class="callout exercise">
+      <strong>El ABC de la reestructuración cognitiva</strong>
+      <ul style="margin-top: 10px; margin-left: 20px;">
+        <li><strong>A (Activador):</strong> ¿Qué pasó?</li>
+        <li><strong>B (Creencias):</strong> ¿Qué pensó?</li>
+        <li><strong>C (Consecuencias):</strong> ¿Cómo se sintió?</li>
+        <li><strong>D (Discusión):</strong> ¿Hay otra explicación?</li>
+        <li><strong>E (Efecto):</strong> Nueva emoción.</li>
+      </ul>
+    </div>
+
+    <h2>5.7 · Relajación muscular progresiva</h2>
+    <p>Es una técnica creada por el médico Edmund Jacobson en la década de 1920. Se basa en una premisa sencilla: <strong>el cuerpo y la mente están conectados</strong>. Si el cuerpo está tenso, la mente se siente alerta. Si el cuerpo está relajado, la mente tiende a calmarse.</p>
+
+    <p>Consiste en tensar y soltar de forma voluntaria y sistemática los diferentes grupos musculares. Se tensa un grupo durante 5-7 segundos, se nota la sensación de esfuerzo, y luego se suelta de golpe, prestando atención al alivio.</p>
+
+    <h3>¿Por qué es ideal para la ansiedad?</h3>
+    <ol>
+      <li><strong>Rompe el círculo mente-cuerpo.</strong> Al relajar los músculos, se activa el sistema parasimpático.</li>
+      <li><strong>Reduce síntomas físicos.</strong> Disminuye frecuencia cardíaca, presión arterial, hiperventilación y nudo en el estómago.</li>
+      <li><strong>Da sensación de control.</strong> Es una herramienta activa, voluntaria, que el niño puede usar por sí mismo.</li>
+      <li><strong>Entrena la atención plena.</strong> Obliga a concentrarse en las sensaciones del aquí y ahora.</li>
+      <li><strong>Tiene efecto acumulativo.</strong> Con la práctica diaria, el cerebro asocia la relajación con señales específicas.</li>
+    </ol>
+
+    <div class="callout exercise">
+      <strong>Ejercicio: Relajación en 5 pasos</strong>
+      <div class="steps" style="margin-top: 12px;">
+        <div class="step"><strong>Manos y brazos:</strong> aprieta los puños 5 segundos, relaja.</div>
+        <div class="step"><strong>Hombros y cuello:</strong> encoje los hombros 5 segundos, relaja.</div>
+        <div class="step"><strong>Rostro:</strong> arruga la frente, cierra los ojos con fuerza, relaja.</div>
+        <div class="step"><strong>Pecho y abdomen:</strong> infla el pecho y contrae el abdomen, relaja.</div>
+        <div class="step"><strong>Piernas y pies:</strong> estira las piernas y flexiona los pies, relaja.</div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Son siete herramientas, y se complementan entre sí.</li>
+        <li>La respiración es la puerta de entrada; la relajación muscular, el ancla corporal.</li>
+        <li>El diario y la reestructuración trabajan lo cognitivo; el mindfulness, lo atencional.</li>
+        <li>La exposición gradual es la más potente, pero también la que requiere más cuidado.</li>
+        <li>No las apliques todas el primer día. Una por semana.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tienes el arsenal. Ahora vamos a organizarlo. En el próximo capítulo verás cómo distribuir estas herramientas a lo largo de la semana, con un ejercicio por día y una guía paso a paso.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte III</div>
+    <h1 class="chapter-title">Guía de ejercicios diarios</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Esta sección es el núcleo práctico de la guía. Aquí encontrarás un itinerario de ejercicios adaptados para cada día de la semana, diseñados para sostener la regulación emocional en el día a día.</p>
+
+    <div class="callout tip">
+      <strong>Un consejo antes de empezar</strong>
+      Piensa en estos espacios como momentos de cuidado personal ante la exigencia de contener la desregulación. La clave está en la consistencia suave: mejor 5 minutos al día que una hora suelta una vez por semana.
+    </div>
+
+    <div class="day-card">
+      <h4>● Lunes · La respiración consciente</h4>
+      <div class="time">⏱ 5 minutos · Una vez al día</div>
+      <p>Busca un lugar tranquilo. Sienta a tu hijo con la espalda recta. Dile que cierre los ojos y tome conciencia de su respiración natural. Practiquen el ciclo 4-4-4-4 durante 5 minutos.</p>
+    </div>
+
+    <div class="day-card">
+      <h4>● Martes · El detective de pensamientos</h4>
+      <div class="time">⏱ 10 minutos · Una vez al día</div>
+      <p>Elige un momento del día en el que hayas sentido que la paciencia se agotaba. Con tu Diario de la Calma, anota la situación, el pensamiento automático ("No puedo más con esto") y la emoción asociada. Pregúntate: "¿Qué pruebas tengo de que esto es verdad?" y redacta un nuevo pensamiento más equilibrado y operativo.</p>
+    </div>
+
+    <div class="day-card">
+      <h4>● Miércoles · Entrenamiento con WineBOX</h4>
+      <div class="time">⏱ 10-15 minutos · Una vez al día</div>
+      <p>Abre WineBOX y pon a tu hijo a jugar <strong>Solitaire</strong> o <strong>BlockMatrix</strong>. Antes de empezar, haz que haga 3 respiraciones 4-4-4-4. Mientras juega, pregúntale por qué hizo las jugadas que hizo, mientras lo observas.</p>
+    </div>
+
+    <div class="day-card">
+      <h4>● Jueves · El escaneo corporal</h4>
+      <div class="time">⏱ 3 minutos · Una vez al día</div>
+      <p>Sienta o recuesta a tu hijo en el piso. Guíalo diciéndole, con voz suave: "Lleva tu atención a la punta de tus pies y sube lentamente. En cada zona, nota las sensaciones sin juzgar. Si encuentras tensión, respira hacia esa zona durante dos respiraciones profundas."</p>
+    </div>
+
+    <div class="day-card">
+      <h4>● Viernes · Reestructuración cognitiva</h4>
+      <div class="time">⏱ 10 minutos · Una vez al día</div>
+      <p>Elige una situación de esta semana donde tu hijo haya tenido un berrinche. Aplica el ABC de la reestructuración cognitiva y escribe un nuevo pensamiento más realista con cada situación que vaya contando.</p>
+    </div>
+
+    <div class="day-card">
+      <h4>● Sábado · Un paso adelante (exposición gradual)</h4>
+      <div class="time">⏱ 10 minutos · Una vez a la semana</div>
+      <p>Identifica una situación de negociación de límites (como apagar la tablet) que suela generar desborde pero que puedas anticipar. Divídela en pasos pequeños, mantén la postura firme ante la primera reacción y permanece presente hasta que la marea baje.</p>
+    </div>
+
+    <div class="day-card">
+      <h4>● Domingo · Reflexión y autocuidado</h4>
+      <div class="time">⏱ 15 minutos · Una vez a la semana</div>
+      <p>Revisa el Diario de la Calma de la semana. Escribe tres cosas que hayas hecho bien tú y tres que haya hecho bien tu hijo. Escriban una cosa que quieran mejorar ambos. Y dale un premio a tu hijo: leer, caminar, o jugar un juego de WineBOX sin objetivo.</p>
+    </div>
+
+    <h2>📊 Tabla 3 · Tu plan semanal de ejercicios</h2>
+    <table>
+      <thead>
+        <tr><th>Día</th><th>Ejercicio</th><th>✅</th><th>Notas</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lunes</td><td>Respiración consciente</td><td>☐</td><td></td></tr>
+        <tr><td>Martes</td><td>Detective de pensamientos</td><td>☐</td><td></td></tr>
+        <tr><td>Miércoles</td><td>Entrenamiento WineBOX</td><td>☐</td><td></td></tr>
+        <tr><td>Jueves</td><td>Escaneo corporal</td><td>☐</td><td></td></tr>
+        <tr><td>Viernes</td><td>Reestructuración cognitiva</td><td>☐</td><td></td></tr>
+        <tr><td>Sábado</td><td>Exposición gradual</td><td>☐</td><td></td></tr>
+        <tr><td>Domingo</td><td>Reflexión y autocuidado</td><td>☐</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout exercise">
+      <strong>Ejercicio avanzado: la prueba del fuego</strong>
+      Usa juegos como <strong>Voxel Quest</strong> como una forma de exposición intensiva. Dile a tu hijo: "Abre VOXEL QUEST en WineBOX. Antes de empezar, establece una intención: 'Voy a observar mi reacción sin juzgarla'". Hazlo jugar durante 5-10 minutos.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Un ejercicio por día, con una duración concreta.</li>
+        <li>La semana tiene su propio ritmo: respiración, pensamiento, juego, cuerpo, reestructuración, exposición y reflexión.</li>
+        <li>El domingo es el día de la síntesis y el autocuidado.</li>
+        <li>Usa la tabla para marcar el progreso: lo que no se registra, no se sostiene.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tienes el plan. Ahora toca el laboratorio. En el próximo capítulo vamos a ver qué es WineBOX, por qué funciona para entrenar funciones ejecutivas, y qué juegos usar según cada área cognitiva.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte IV</div>
+    <h1 class="chapter-title">WineBOX: el laboratorio mental</h1>
+  </div>
+  <div class="chapter-body">
+    <p>WineBOX Cognitive es mucho más que una consola de videojuegos: es un protocolo de desarrollo personal y una plataforma de estimulación cognitiva. Su filosofía se basa en la <strong>"baja fidelidad visual"</strong>: al reducir el ruido visual y los estímulos complejos, el cerebro se ve obligado a imaginar, planificar y completar la información que falta. Este proceso, respaldado por la Teoría de la Carga Cognitiva, fortalece funciones ejecutivas clave como la atención, la planificación, el control inhibitorio y la flexibilidad cognitiva.</p>
+
+    <p>Dentro de la plataforma tendrás acceso a un catálogo de más de 150 juegos de carácter gratuito, que cumplen con todas las licencias de software. Estos juegos, de estilo clásico, son el vehículo perfecto para entrenar la mente de forma lúdica y efectiva.</p>
+
+    <h2>Dos formas de jugar y ser analizado</h2>
+    <p><strong>1. Juego en la nube (para cualquier dispositivo).</strong> A través de los servicios Nvidia GeForce Now y Xbox Cloud, podrás acceder a tus catálogos de juegos de plataformas como Steam, GOG, Amazon, Epic y Xbox. Esta opción permite disfrutar de tus títulos incluso si tu dispositivo es antiguo, ya que el procesamiento pesado se realiza en la nube. Mientras juegas, el sistema analiza tus patrones de juego y genera un informe detallado.</p>
+
+    <p><strong>2. Juego local y offline (para dispositivos potentes).</strong> Si tu dispositivo cuenta con un procesador superior a un Helio G99 y al menos 6 GB de RAM, podrás ejecutar los juegos de forma local y sin conexión. WineBOX también analizará tu rendimiento y comportamiento.</p>
+
+    <h2>AURA: tu IA de emociones sintéticas</h2>
+    <p>Acompañándote en el viaje está <strong>AURA</strong>, nuestra inteligencia artificial. AURA no es un simple asistente: es una compañera diseñada para brindarte apoyo continuo. Podrás hacerle preguntas sobre la guía, resolver dudas y recibir acompañamiento en todo momento, sin límites de uso ni tiempo, ya que funciona de forma completamente offline desde tu propio dispositivo.</p>
+
+    <ul>
+      <li>Si tu dispositivo tiene 4 GB de RAM o más y soporta WebGL, podrás disfrutar de la versión completa de AURA.</li>
+      <li>Si tu dispositivo tiene menos de 4 GB de RAM, AURA ejecutará una versión reducida.</li>
+    </ul>
+
+    <h2>El flujo WineBOX</h2>
+    <div class="callout info">
+      <ol style="margin-left: 20px;">
+        <li><strong>Evaluación inicial</strong> — WineBOX descubre el estilo cognitivo único de tu hijo.</li>
+        <li><strong>Entrenamiento personalizado</strong> — recomienda los juegos que necesita.</li>
+        <li><strong>AURA, tu acompañante</strong> — una IA que te escucha sin juzgar.</li>
+      </ol>
+    </div>
+
+    <h2>7.1 · Juegos recomendados por área cognitiva</h2>
+    <p>WineBOX pone a disposición un catálogo de más de 150 juegos. Para orientarte, aquí hay una selección organizada según las principales funciones ejecutivas que estimulan.</p>
+
+    <h3>🎯 Atención sostenida</h3>
+    <p><em>Capacidad de mantener el foco en una tarea durante un tiempo prolongado, sin distraerse.</em></p>
+    <div class="games-grid">
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🎵</div>
+        <div class="name">Sequence</div>
+        <div class="desc">Memoria de trabajo y seguimiento de secuencias visuales y auditivas.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🔢</div>
+        <div class="name">Sudoku Cognitivo</div>
+        <div class="desc">Concentración profunda y razonamiento lógico, paso a paso.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🧊</div>
+        <div class="name">Voxel Quest</div>
+        <div class="desc">Enfoque visual sostenido y tiempo de reacción ante estímulos cambiantes.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+    </div>
+
+    <h3>⚡ Control de impulsos</h3>
+    <p><em>Capacidad de frenar una respuesta automática y esperar el momento adecuado.</em></p>
+    <div class="games-grid">
+      <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🃏</div>
+        <div class="name">Solitaire</div>
+        <div class="desc">Paciencia, planificación de movimientos y pausa reflexiva antes de actuar.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🧱</div>
+        <div class="name">BlockMatrix</div>
+        <div class="desc">Organización espacial y toma de decisiones bajo presión, con pausas estratégicas.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🎯</div>
+        <div class="name">Vulkan/Metal Breakout</div>
+        <div class="desc">Medición precisa de la respuesta motora y sincronización ojo-mano.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+    </div>
+
+    <h3>🧭 Planificación ejecutiva</h3>
+    <p><em>Capacidad de anticipar, organizar y ejecutar estrategias.</em></p>
+    <div class="games-grid">
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🚢</div>
+        <div class="name">Naval Pixel</div>
+        <div class="desc">Anticipación y cálculo de los oponentes, permite la gestión de la ansiedad.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simcity/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🏙️</div>
+        <div class="name">Retro Urban</div>
+        <div class="desc">Gestión de recursos, toma de decisiones complejas y visión a futuro.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/war/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">⚔️</div>
+        <div class="name">8bit Realms</div>
+        <div class="desc">Estrategia militar, anticipación de movimientos y adaptación al cambio.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+    </div>
+
+    <h3>❤️ Regulación emocional</h3>
+    <p><em>Capacidad de manejar la frustración, la ansiedad y las emociones intensas durante la tarea.</em></p>
+    <div class="games-grid">
+      <a href="https://ifilex.github.io/WineBOX-Store/winemine.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">💣</div>
+        <div class="name">Winemine</div>
+        <div class="desc">Tolerancia a la frustración y manejo de la incertidumbre (aprender de los errores).</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/prehistorik/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🦖</div>
+        <div class="name">Prehistorix</div>
+        <div class="desc">Perseverancia y paciencia en tareas que requieren ensayo y error constante.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/99noches/index.html" target="_blank" rel="noopener" class="game-card">
+        <div class="icon">🌲</div>
+        <div class="name">99 Noches en el Bosque</div>
+        <div class="desc">Supervivencia, gestión de recursos y decisiones tácticas bajo presión.</div>
+        <div class="play-btn">▶ Jugar ahora</div>
+      </a>
+    </div>
+
+    <div class="callout tip">
+      <strong>💡 Consejo práctico</strong>
+      No limites a tu hijo a un solo tipo de juego. La verdadera potencia de WineBOX aparece cuando combinas sesiones que trabajan diferentes áreas. Por ejemplo: 10 minutos de BlockMatrix (control de impulsos), 10 minutos de Sudoku Cognitivo (atención sostenida) y una partida rápida de Winemine (regulación emocional) para practicar la tolerancia a la frustración.
+    </div>
+
+    <h2>🔒 Privacidad y seguridad</h2>
+    <p>WineBOX ha sido diseñado con la privacidad como pilar fundamental:</p>
+    <ul>
+      <li><strong>Procesamiento local:</strong> toda la información se procesa de forma local en tu propio dispositivo.</li>
+      <li><strong>Sin transmisión de datos personales:</strong> no se transmiten datos personales ni historial de juego a terceros.</li>
+      <li><strong>Control total:</strong> el análisis de los patrones de juego ocurre directamente en tu equipo.</li>
+    </ul>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>WineBOX es un laboratorio mental, no un simple catálogo de juegos.</li>
+        <li>La baja fidelidad visual obliga al cerebro a completar la información, fortaleciendo funciones ejecutivas.</li>
+        <li>Hay cuatro áreas clave: atención, control de impulsos, planificación y regulación emocional.</li>
+        <li>AURA acompaña y contiene: es una IA offline, sin límites de uso.</li>
+        <li>Toda la privacidad es local: nada viaja a servidores externos.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya conoces el laboratorio. Ahora toca el protocolo. En el próximo capítulo verás el plan de entrenamiento de 4 semanas, con objetivos concretos, juegos específicos y ejercicios diarios para cada semana.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV</div>
+    <h1 class="chapter-title">El plan de entrenamiento (4 semanas)</h1>
+  </div>
+  <div class="chapter-body">
+    <p>La calma se cultiva con práctica regular. Aquí tienes un plan de 4 semanas para que tu hijo pueda practicar usando WineBOX Cognitive, con un objetivo por semana y juegos específicos.</p>
+
+    <div class="week-card" style="border-left-color: #B85450;">
+      <div class="objective">Semana 1</div>
+      <h4>⚡ Domando la impulsividad</h4>
+      <p><strong>Objetivo:</strong> aprender a pausar.<br>
+      <strong>Práctica:</strong> respiración 4-4-4-4.<br>
+      <strong>Juegos:</strong> Solitaire, BlockMatrix, Vulkan/Metal Breakout.</p>
+    </div>
+
+    <div class="week-card" style="border-left-color: #2E5266;">
+      <div class="objective">Semana 2</div>
+      <h4>🎯 Enfocando la atención</h4>
+      <p><strong>Objetivo:</strong> fortalecer la concentración.<br>
+      <strong>Práctica:</strong> 2 minutos de silencio.<br>
+      <strong>Juegos:</strong> Sequence, Sudoku Cognitivo, Voxel Quest.</p>
+    </div>
+
+    <div class="week-card" style="border-left-color: #7C5AA6;">
+      <div class="objective">Semana 3</div>
+      <h4>🧭 Planificando con estrategia</h4>
+      <p><strong>Objetivo:</strong> organizar y anticipar.<br>
+      <strong>Práctica:</strong> escribe un objetivo.<br>
+      <strong>Juegos:</strong> Naval Pixel, Retro Urban, 8bit Realms.</p>
+    </div>
+
+    <div class="week-card" style="border-left-color: #D98E4A;">
+      <div class="objective">Semana 4</div>
+      <h4>❤️ Abrazando las emociones</h4>
+      <p><strong>Objetivo:</strong> tolerar la frustración.<br>
+      <strong>Práctica:</strong> sonríe cuando pierdas.<br>
+      <strong>Juegos:</strong> 99 Noches en el Bosque, Winemine, Prehistorix.</p>
+    </div>
+
+    <h2>📊 Tabla 4 · Plan de entrenamiento de 4 semanas</h2>
+    <table>
+      <thead>
+        <tr><th>Semana</th><th>Objetivo</th><th>Juegos</th><th>Ejercicio diario</th><th>✅</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Domando la impulsividad</td><td>Solitaire, BlockMatrix, Vulkan/Metal Breakout</td><td>Respiración 4-4-4-4</td><td>☐</td></tr>
+        <tr><td>2</td><td>Enfocando la atención</td><td>Sequence, Sudoku Cognitivo, Voxel Quest</td><td>2 min de silencio</td><td>☐</td></tr>
+        <tr><td>3</td><td>Planificando con estrategia</td><td>Naval Pixel, Retro Urban, 8bit Realms</td><td>Escribe un objetivo</td><td>☐</td></tr>
+        <tr><td>4</td><td>Abrazando las emociones</td><td>Winemine, Prehistorix, 99 Noches</td><td>Sonríe cuando pierdas</td><td>☐</td></tr>
+      </tbody>
+    </table>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Cada semana entrena una función ejecutiva específica.</li>
+        <li>La práctica diaria acompaña al juego: respiración, silencio, objetivos, tolerancia.</li>
+        <li>Los juegos se combinan para no sobrecargar una sola área.</li>
+        <li>La semana 4 es la más profunda: aprender a perder sin derrumbarse.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>El plan de 4 semanas es el comienzo, no el final. Una vez completado, entra en juego el plan de mantenimiento: rutinas más breves pero sostenidas en el tiempo. Ese es el tema del próximo capítulo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte V</div>
+    <h1 class="chapter-title">Plan de mantenimiento</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Has completado el plan de 4 semanas con tu hijo. ¡Felicidades! Ahora viene lo más importante: mantener los cambios que lograste para que el cerebro de tu hijo estabilice el nuevo aprendizaje y lo incorpore a su vida diaria.</p>
+
+    <p>Para lograrlo, no hace falta seguir con la misma intensidad. De hecho, sería contraproducente. Lo que funciona es <strong>bajar la duración pero mantener la frecuencia</strong>.</p>
+
+    <div class="callout tip">
+      <strong>🌅 Rutina diaria (5-10 min)</strong>
+      Mañana: 2 min de respiración 4-4-4-4. Tarde: 1 juego corto de WineBOX. Noche: escaneo corporal de 3 min.
+    </div>
+
+    <div class="callout tip">
+      <strong>📅 Rutina semanal (20-30 min)</strong>
+      Lunes: juegos de atención. Miércoles: juegos de planificación. Viernes: juegos de regulación emocional. Domingo: reflexión.
+    </div>
+
+    <div class="callout info">
+      <strong>💚 Recordatorio</strong>
+      La clave del mantenimiento es la consistencia. 5 minutos al día son más efectivos que 1 hora una vez a la semana.
+    </div>
+
+    <h2>📊 Tabla 5 · Plan de mantenimiento mensual</h2>
+    <table>
+      <thead>
+        <tr><th>Semana</th><th>Lunes</th><th>Miércoles</th><th>Viernes</th><th>Domingo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+        <tr><td>2</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+        <tr><td>3</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+        <tr><td>4</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+      </tbody>
+    </table>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La calma se sostiene con frecuencia, no con intensidad.</li>
+        <li>Tres momentos diarios: mañana, tarde, noche.</li>
+        <li>Cuatro anclas semanales: atención, planificación, emociones, reflexión.</li>
+        <li>El mantenimiento es la fase más larga y la más transformadora.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tienes el plan de por vida. Ahora vamos a asegurarnos de que tengas WineBOX instalado en todos tus dispositivos. En el próximo capítulo verás las instrucciones paso a paso para Android, iOS, PC y PWA.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte V</div>
+    <h1 class="chapter-title">Descargar WineBOX · Todas las plataformas</h1>
+  </div>
+  <div class="chapter-body">
+    <p>WineBOX está disponible donde quieras. Hemos adaptado la tecnología a diferentes sistemas: ya sea que tengas PC, celular, tablet, o cualquier sistema operativo, podrás acceder. A continuación te dejamos las opciones de instalación.</p>
+
+    <div class="games-grid">
+      <div class="game-card install-card">
+        <div class="icon">📱</div>
+        <div class="name">Android</div>
+        <div class="desc">Versión completa con soporte para juegos de PC. Google Play: <strong>com.winebox.cognitive</strong></div>
+      </div>
+      <div class="game-card install-card">
+        <div class="icon">🍎</div>
+        <div class="name">iOS / iPadOS</div>
+        <div class="desc">A través de la web app (PWA). Funciona sin conexión. <strong>winebox.cloud</strong></div>
+      </div>
+      <div class="game-card install-card">
+        <div class="icon">💻</div>
+        <div class="name">PC / Escritorio</div>
+        <div class="desc">Accede desde cualquier navegador. Instálala como PWA. <strong>winebox.cloud</strong></div>
+      </div>
+    </div>
+
+    <h2>📲 Instalar WineBOX en Android</h2>
+    <div class="steps">
+      <div class="step">Abre el icono de Play Store en tu Android (celular o tablet).</div>
+      <div class="step">Busca en el buscador la leyenda "winebox cognitive".</div>
+      <div class="step">Busca el botón "Instalar" y haz clic en él.</div>
+      <div class="step">Confirma la instalación.</div>
+    </div>
+
+    <h2>🌐 Instalar WineBOX como PWA</h2>
+    <div class="steps">
+      <div class="step">Abre Chrome (Android/PC) o Safari (iOS).</div>
+      <div class="step">Ve a <strong>winebox.cloud</strong>.</div>
+      <div class="step">Busca el icono de instalación: en Chrome, el ícono ➕ o "Instalar app"; en Safari (iOS), el ícono de compartir → "Añadir a la pantalla de inicio".</div>
+      <div class="step">Confirma la instalación.</div>
+    </div>
+
+    <div class="callout warning">
+      <strong>⚠ Al descargar e instalar WineBOX</strong>
+      Aceptas las condiciones de uso y la política de privacidad. Consulta el Aviso Médico y Consentimiento al inicio de este ebook.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>WineBOX está disponible en Android, iOS, iPadOS, PC y PWA.</li>
+        <li>La instalación es gratuita y toma menos de 2 minutos.</li>
+        <li>La versión PWA funciona sin conexión una vez instalada.</li>
+        <li>Toda la privacidad es local: nada viaja a servidores externos.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tienes la herramienta instalada. Ahora toca algo más profundo: la comunidad. Porque el camino hacia la calma se hace más ligero cuando caminamos juntos. Ese es el próximo capítulo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 11 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap11">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 11 · Parte V</div>
+    <h1 class="chapter-title">La comunidad de la calma</h1>
+  </div>
+  <div class="chapter-body">
+    <p>El camino hacia la calma se hace más ligero cuando caminamos juntos. Este capítulo es un espacio para respirar, para leer, y para recordar que no estás solo.</p>
+
+    <blockquote>
+      <p>— Maestro, mi mente no para. Y siento que me hundo.<br>
+      — ¿Ves aquel árbol? Parece solo, pero sus raíces están entrelazadas con las de todos los árboles del bosque. Tú no caes. Estás sujeto. Respira conmigo. Mientras yo respire, tú no estás solo.</p>
+    </blockquote>
+
+    <blockquote>
+      <p>— Maestro, la ansiedad me dice que nadie me entiende.<br>
+      — Entonces camina a mi lado. No necesito entenderte. Solo necesito que sepas que hay otro par de pies pisando el mismo suelo. El eco de tus pasos y los míos son distintos, pero suenan al mismo tiempo. No estás solo en el ruido. Tampoco lo estarás en el silencio.</p>
+    </blockquote>
+
+    <blockquote>
+      <p>— Maestro, ¿cómo sé que todo va a estar bien?<br>
+      — No lo sabes. Pero no hace falta. Cuando la ansiedad aprieta, tu mente te dice que estás solo frente al abismo. Pero mira a tu lado. Estoy aquí. No voy a resolver tu miedo. Voy a estar contigo mientras lo sientes.</p>
+    </blockquote>
+
+    <blockquote>
+      <p>— Maestro, siento que me ahogo en pensamientos.<br>
+      — Apoya tu mano sobre la mía. Siente el calor. Los pensamientos van y vienen, pero mi mano no se mueve. La ansiedad te hace creer que estás aislado en tu cabeza. Pero la calma no está en dejar de pensar. La calma está en saber que, aunque pienses, hay alguien que sigue a tu lado, sin irse.</p>
+    </blockquote>
+
+    <div class="callout info">
+      <strong>💬 Si quieres pertenecer a la comunidad de la calma</strong>
+      Contáctanos al WhatsApp: <a href="https://wa.me/5491166116631" style="color: var(--primary-dark); font-weight: bold;">+54 911 6611 6631</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La calma no es un estado individual: es una práctica relacional.</li>
+        <li>Estar presente, sin resolver, es la forma más alta de acompañar.</li>
+        <li>La comunidad sostiene lo que la voluntad individual no puede.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Llegamos al final del libro. Pero el final de un libro es solo el comienzo de un viaje. El próximo capítulo es el cierre, y también una invitación: a seguir, a empezar de nuevo, a no rendirse.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 12 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap12">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 12 · Parte V</div>
+    <h1 class="chapter-title">El nuevo comienzo</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Has llegado al final de esta guía, pero este es solo el principio de tu viaje.</p>
+
+    <p>La impulsividad no desaparece de un día para otro. Pero con el tiempo, con práctica y con cariño, aprendes a conocer sus señales, y a escucharla sin miedo.</p>
+
+    <blockquote>
+      <p>«Tú eres el artista de tu propia calma. Y aunque a veces haya tormentas, siempre vuelve la serenidad, siempre hay un nuevo amanecer, y siempre hay una oportunidad para empezar de nuevo.»</p>
+      <cite>— Para ti, con todo el respeto y el cariño</cite>
+    </blockquote>
+
+    <h2>🌟 Descarga WineBOX y empieza hoy</h2>
+    <p><strong>¿Sientes que tu hijo necesita más ayuda?</strong></p>
+    <p>No estás solo. Hoy mismo puedes contactarnos para iniciar un nuevo capítulo, para ti y tu hijo, para que vuelvas a verlo feliz, y sientas que esa felicidad vuelve a tu corazón. Porque vinimos a este mundo con una sola orden: ser felices.</p>
+
+    <div class="callout info" style="text-align: center;">
+      <strong>Contacto directo</strong>
+      <a href="https://wa.me/5491166116631" style="color: var(--primary-dark); font-weight: bold; font-size: 18px;">+54 911 6611 6631</a>
+    </div>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Gracias por leer. Ahora anda a abrazar a tu hijo. Y si te sirvió este libro, compártelo con otro padre que lo necesite. Porque la calma, cuando se comparte, se multiplica.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El final de un libro es el comienzo de una práctica.</li>
+        <li>La calma es un arte, y como todo arte, requiere tiempo.</li>
+        <li>No estás solo: hay una comunidad esperándote.</li>
+        <li>La felicidad de tu hijo es el objetivo. Y también la tuya.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DE EJERCICIOS -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno de ejercicios</div>
+    <h2>13 hojas para imprimir y completar</h2>
+    <p>Estas páginas están pensadas para fotocopiarse o imprimirse las veces que necesites. Guárdalas en una carpeta o cuaderno: cada hoja completada es un paso más en tu entrenamiento. No hay respuestas correctas o incorrectas — solo observación honesta.</p>
+    <p>Y recuerda: ante cualquier duda sobre los ejercicios, no dudes en hablar con AURA. Ella te guiará en cada paso de esta guía.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, selecciona "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Diario de la Calma -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Diario</div>
+      <h3>📖 Mi Diario de la Calma</h3>
+    </div>
+    <p class="sheet-intro">Completa una hoja cada vez que sientas ansiedad. Cuantas más veces la uses, más clara se vuelve la conexión entre pensamiento, cuerpo y emoción.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+      <div class="form-field"><label>Situación (¿qué pasó, dónde estabas?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Pensamiento automático (¿qué pensaste?):</label><div class="big-line"></div></div>
+      <div class="form-field">
+        <label>Emoción ANTES (0 = calma total · 10 = máxima ansiedad):</label>
+        <div class="scale-row">
+          <span class="scale-num">0</span><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span>
+        </div>
+      </div>
+      <div class="form-field"><label>Sensación física (¿dónde la sentiste en el cuerpo?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Conducta (¿qué hiciste? ¿evitaste algo?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Evidencia real (¿qué pruebas tengo de que es cierto?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Nuevo pensamiento, más equilibrado:</label><div class="big-line"></div></div>
+      <div class="form-field">
+        <label>Emoción DESPUÉS (0 · 10):</label>
+        <div class="scale-row"><span class="scale-num">0</span><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Registro del Ciclo -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Registro</div>
+      <h3>🔄 Registro del Ciclo de la Ansiedad</h3>
+    </div>
+    <p class="sheet-intro">Cada vez que sientas ansiedad esta semana, anota brevemente qué pasó en cada columna.</p>
+    <div class="sheet-body">
+      <table>
+        <thead><tr><th>Día</th><th>Pensamiento</th><th>Sensación física</th><th>Conducta</th><th>¿Cómo rompí el ciclo?</th></tr></thead>
+        <tbody>
+          <tr><td>Lunes</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Martes</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Miércoles</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Jueves</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Viernes</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Sábado</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Domingo</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Plan Semanal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Plan semanal</div>
+      <h3>📅 Mi Plan Semanal de Ejercicios</h3>
+    </div>
+    <p class="sheet-intro">Marca cada día que completes tu ejercicio. Anota una palabra o frase corta sobre cómo te sentiste.</p>
+    <div class="sheet-body">
+      <table>
+        <thead><tr><th>Día</th><th>Ejercicio</th><th>✅</th><th>Notas / Reflexión</th></tr></thead>
+        <tbody>
+          <tr><td>Lunes</td><td>Respiración Consciente</td><td>☐</td><td></td></tr>
+          <tr><td>Martes</td><td>Detective de Pensamientos</td><td>☐</td><td></td></tr>
+          <tr><td>Miércoles</td><td>Entrenamiento WineBOX</td><td>☐</td><td></td></tr>
+          <tr><td>Jueves</td><td>Escaneo Corporal</td><td>☐</td><td></td></tr>
+          <tr><td>Viernes</td><td>Reestructuración Cognitiva</td><td>☐</td><td></td></tr>
+          <tr><td>Sábado</td><td>Exposición Gradual</td><td>☐</td><td></td></tr>
+          <tr><td>Domingo</td><td>Reflexión y Autocuidado</td><td>☐</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Esta semana, lo que mejor me salió fue:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Lo que quiero mejorar la próxima semana:</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Detective de Pensamientos -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Detective</div>
+      <h3>🔍 El Detective de Pensamientos</h3>
+    </div>
+    <p class="sheet-intro">Cada vez que atrapes un pensamiento trampa, anótalo aquí. Con la práctica, vas a reconocerlos cada vez más rápido.</p>
+    <div class="sheet-body">
+      <div style="border: 1px solid var(--border); padding: 20px; margin-bottom: 20px; border-radius: 8px;">
+        <strong style="color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif;">Caso 1</strong>
+        <div class="form-field" style="margin-top: 12px;"><label>Pensamiento que atrapé:</label><div class="line"></div></div>
+        <div class="form-field"><label>Tipo de trampa (todo o nada / catastrofismo / leer la mente / etiquetado / "debería"):</label><div class="line"></div></div>
+        <div class="form-field"><label>Pensamiento alternativo, más realista:</label><div class="line"></div></div>
+      </div>
+      <div style="border: 1px solid var(--border); padding: 20px; margin-bottom: 20px; border-radius: 8px;">
+        <strong style="color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif;">Caso 2</strong>
+        <div class="form-field" style="margin-top: 12px;"><label>Pensamiento que atrapé:</label><div class="line"></div></div>
+        <div class="form-field"><label>Tipo de trampa:</label><div class="line"></div></div>
+        <div class="form-field"><label>Pensamiento alternativo, más realista:</label><div class="line"></div></div>
+      </div>
+      <div style="border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+        <strong style="color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif;">Caso 3</strong>
+        <div class="form-field" style="margin-top: 12px;"><label>Pensamiento que atrapé:</label><div class="line"></div></div>
+        <div class="form-field"><label>Tipo de trampa:</label><div class="line"></div></div>
+        <div class="form-field"><label>Pensamiento alternativo, más realista:</label><div class="line"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 5: Escaneo Corporal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 5 · Cuerpo</div>
+      <h3>🧘 Escaneo Corporal</h3>
+    </div>
+    <p class="sheet-intro">Marca cada paso a medida que lo haces. No hace falta apurarse.</p>
+    <div class="sheet-body">
+      <ul class="checkbox-list">
+        <li>Me senté o recosté en un lugar cómodo.</li>
+        <li>Llevé la atención a la punta de mis pies.</li>
+        <li>Subí lentamente por piernas, abdomen y pecho, notando sensaciones.</li>
+        <li>Llegué a hombros, brazos, manos y cabeza.</li>
+        <li>Si encontré tensión, respiré hacia esa zona dos veces.</li>
+        <li>Volví a la respiración durante un minuto más.</li>
+      </ul>
+      <div class="form-field" style="margin-top: 24px;"><label>Zona donde sentí más tensión:</label><div class="line"></div></div>
+      <div class="form-field"><label>¿Cómo me siento ahora, comparado con el inicio?</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 6: Relajación Muscular -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 6 · Relajación</div>
+      <h3>💪 Relajación Muscular Progresiva</h3>
+    </div>
+    <p class="sheet-intro">Marca cada paso a medida que lo haces. Aprieta 5 segundos, después suelta y nota la diferencia.</p>
+    <div class="sheet-body">
+      <ul class="checkbox-list">
+        <li>Manos y brazos: aprieto los puños 5 segundos, relajo.</li>
+        <li>Hombros y cuello: encojo los hombros 5 segundos, relajo.</li>
+        <li>Rostro: arrugo la frente, cierro los ojos con fuerza, relajo.</li>
+        <li>Pecho y abdomen: inflo el pecho y contraigo el abdomen, relajo.</li>
+        <li>Piernas y pies: estiro las piernas y flexiono los pies, relajo.</li>
+      </ul>
+      <div class="form-field" style="margin-top: 24px;">
+        <label>Tensión ANTES del ejercicio (0 · 10):</label>
+        <div class="scale-row"><span class="scale-num">0</span><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field">
+        <label>Tensión DESPUÉS del ejercicio (0 · 10):</label>
+        <div class="scale-row"><span class="scale-num">0</span><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 7: Escalera de Exposición -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 7 · Exposición</div>
+      <h3>🪜 Mi Escalera de Exposición Gradual</h3>
+    </div>
+    <p class="sheet-intro">Elige una situación que genere ansiedad y divídela en pasos pequeños, del más fácil al más difícil. Sube un escalón a la vez.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Situación final que quiero poder enfrentar:</label><div class="big-line"></div></div>
+      <div class="stairs">
+        <div class="stair"><div class="stair-num">5</div><div class="stair-line"></div></div>
+        <div class="stair"><div class="stair-num">4</div><div class="stair-line"></div></div>
+        <div class="stair"><div class="stair-num">3</div><div class="stair-line"></div></div>
+        <div class="stair"><div class="stair-num">2</div><div class="stair-line"></div></div>
+        <div class="stair"><div class="stair-num">1</div><div class="stair-line"></div></div>
+      </div>
+      <div class="form-field"><label>Fecha en la que superé el primer escalón:</label><div class="line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 8: ABC Reestructuración -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 8 · Reestructuración</div>
+      <h3>🔤 El ABC de la Reestructuración Cognitiva</h3>
+    </div>
+    <p class="sheet-intro">Usa este esquema cada vez que quieras revisar una reacción emocional con más calma.</p>
+    <div class="sheet-body">
+      <div style="border: 1px solid var(--border); padding: 20px; border-radius: 8px;">
+        <strong style="color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif;">Situación 1</strong>
+        <div class="form-field" style="margin-top: 12px;"><label>A · Activador (¿qué pasó?):</label><div class="line"></div></div>
+        <div class="form-field"><label>B · Creencia (¿qué pensé?):</label><div class="line"></div></div>
+        <div class="form-field"><label>C · Consecuencia (¿cómo me sentí?):</label><div class="line"></div></div>
+        <div class="form-field"><label>D · Discusión (¿hay otra explicación posible?):</label><div class="line"></div></div>
+        <div class="form-field"><label>E · Efecto (nueva emoción):</label><div class="line"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 9: Plan 4 Semanas -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 9 · Plan</div>
+      <h3>⚡ Plan de Entrenamiento de 4 Semanas</h3>
+    </div>
+    <p class="sheet-intro">Marca el progreso de cada semana a medida que la completas.</p>
+    <div class="sheet-body">
+      <table>
+        <thead><tr><th>Semana</th><th>Objetivo</th><th>Juegos</th><th>✅ Progreso</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Domando la Impulsividad</td><td>Solitaire, BlockMatrix, Vulkan/Metal Breakout</td><td>☐</td></tr>
+          <tr><td>2</td><td>Enfocando la Atención</td><td>Sequence, Sudoku Cognitivo, Voxel Quest</td><td>☐</td></tr>
+          <tr><td>3</td><td>Planificando con Estrategia</td><td>Naval Pixel, Retro Urban, 8bit Realms</td><td>☐</td></tr>
+          <tr><td>4</td><td>Abrazando las Emociones</td><td>Winemine, Prehistorix, 99 Noches</td><td>☐</td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Semana que más me costó y por qué:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Semana de la que estoy más orgulloso/a:</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 10: Plan de Mantenimiento -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 10 · Mantenimiento</div>
+      <h3>📆 Plan de Mantenimiento Mensual</h3>
+    </div>
+    <p class="sheet-intro">Una vez completadas las 4 semanas iniciales, usa esta hoja para sostener el hábito.</p>
+    <div class="sheet-body">
+      <table>
+        <thead><tr><th>Semana</th><th>Lunes</th><th>Miércoles</th><th>Viernes</th><th>Domingo</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+          <tr><td>2</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+          <tr><td>3</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+          <tr><td>4</td><td>☐ Atención</td><td>☐ Planificación</td><td>☐ Emociones</td><td>☐ Reflexión</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 11: Reflexión Semanal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 11 · Reflexión</div>
+      <h3>🌟 Mi Reflexión Semanal</h3>
+    </div>
+    <p class="sheet-intro">Un cierre amable para la semana. Revisa tu Diario de la Calma antes de completar esta hoja.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Tres cosas que hice bien esta semana:</label><div class="big-line"></div><div class="big-line"></div><div class="big-line"></div></div>
+      <div class="form-field"><label>Una cosa que quiero mejorar la próxima semana:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Mi capricho de autocuidado para hoy (jugar sin objetivo...):</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 12: Mi Primera Tormenta -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 12 · Tormenta</div>
+      <h3>🌪️ Mi Primera Tormenta</h3>
+    </div>
+    <p class="sheet-intro">Elige un juego de WineBOX que te genere cierta tensión y aplica el principio: observar, no huir.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Juego elegido:</label><div class="line"></div></div>
+      <div class="form-field"><label>¿Qué sentí al principio (cuerpo y mente)?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Cómo cambió la sensación con el paso de los minutos?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué aprendí sobre mí en este ejercicio?</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 13: La Prueba del Fuego -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 13 · Prueba del fuego</div>
+      <h3>🔥 La Prueba del Fuego</h3>
+    </div>
+    <p class="sheet-intro">Ejercicio avanzado de exposición intensiva. Solo avanza aquí cuando te sientas listo/a, con la supervisión adecuada si corresponde.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Juego / situación elegida:</label><div class="line"></div></div>
+      <div class="form-field"><label>Intención antes de empezar ("voy a observar mi reacción sin juzgarla"):</label><div class="big-line"></div></div>
+      <div class="form-field">
+        <label>Ansiedad al minuto 1 (0 · 10):</label>
+        <div class="scale-row"><span class="scale-num">0</span><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field">
+        <label>Ansiedad al minuto 5 (0 · 10):</label>
+        <div class="scale-row"><span class="scale-num">0</span><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field">
+        <label>Ansiedad al minuto 10 (0 · 10):</label>
+        <div class="scale-row"><span class="scale-num">0</span><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field"><label>¿Qué noté en mi cuerpo, respiración y pensamientos?</label><div class="taller-line"></div></div>
+      <div class="callout warning" style="margin-top: 24px; font-size: 15px;">
+        <strong>⚠ Recordatorio</strong>
+        Si en algún momento te sientes abrumado/a, detén el ejercicio y practica la respiración 4-4-4-4. El objetivo es la observación, no la resistencia.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL / IMPRIMIR -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este libro y la plataforma WineBOX han sido creados por un equipo interdisciplinario, liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia experiencia en el tratamiento de la ansiedad y los trastornos del neurodesarrollo en niños, adolescentes y adultos.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Estimulación Cognitiva</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, diseñando herramientas accesibles que invitan a reconectar con la fuerza interior y a encontrar la propia calma.</p>
+
+    <div class="cta-box">
+      <h3>¿Sientes que tu hijo necesita más ayuda?</h3>
+      <p>No estás solo. Hoy mismo puedes contactarnos para iniciar un nuevo capítulo: para ti y tu hijo, para que vuelvas a verlo feliz, y sientas que esa felicidad vuelve a tu corazón. Porque vinimos a este mundo con una sola orden: ser felices.</p>
+      <a href="https://wa.me/5491166116631?text=Hola,%20le%C3%AD%20El%20Arte%20de%20la%20Calma%20y%20quiero%20consultar%20por%20sesiones" target="_blank" rel="noopener noreferrer">Agendar sesión por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🧠 WineBOX · El Arte de la Calma<br>
+      © 2026 · Todos los derechos reservados · Con ciencia y corazón<br>
+      Emanuel Chanampa · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice
+  document.querySelectorAll('nav.toc a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
