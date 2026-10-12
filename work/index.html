@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · 21 Días para Conseguir Trabajo</title>
+
+<meta name="dc:title" content="Método WineBOX · 21 Días para Conseguir Trabajo">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Guía práctica de 21 días para conseguir trabajo: entrená tus reflejos, optimizá tu CV, prepará tus entrevistas y accedé a trabajos remotos en dólares. Incluye enlace de referido a micro1.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #1B3A5C;
+    --primary-dark: #0F2438;
+    --primary-light: #2E5D8A;
+    --accent: #F28705;
+    --accent-dark: #C96B00;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #E6EEF5;
+    --soft-green: #E7F3EB;
+    --soft-amber: #FDF1DF;
+    --soft-rose: #F7E9E9;
+    --soft-orange: #FEF3E7;
+    --alert: #B85450;
+    --play: #2E8B57;
+    --go: #F28705;
+    --green: #2E8B57;
+    --dark-green: #1F6B41;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--accent) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(242,135,5,0.20) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 780px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--cream); margin-bottom: 40px; font-weight: 500; opacity: 0.9; }
+  .cover h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: #FFD9A0; display: block; font-size: 0.8em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.95; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(255,255,255,0.5); border-radius: 20px; color: #FFD9A0; }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.95; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-orange); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--accent-dark); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--accent-dark); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--primary); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--primary); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-blue);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-amber);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '📌 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--accent-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-orange) 100%); border-left: 4px solid var(--accent); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid var(--green); }
+  .callout.tip strong { color: var(--dark-green); }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--accent); }
+  .callout.warning strong { color: var(--accent-dark); }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.go { background: var(--soft-orange); border-left: 4px solid var(--go); }
+  .callout.go strong { color: var(--accent-dark); }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.85;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,58,92,0.14); border-color: var(--primary); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: var(--dark-green); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+  .ex-card .no-play {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--soft-blue); color: var(--primary-dark);
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* DAY CARD */
+  .day-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .day-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .day-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* WEEK CARD */
+  .week-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .week-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .week-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(242,135,5,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--primary-dark);
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); color: #fff; }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--green) 0%, var(--dark-green) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.9); font-size: 16px; max-width: 600px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--dark-green);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .platform-banner .small-note { font-size: 12px; opacity: 0.8; margin-top: 14px; }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--primary); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 14px; }
+  .sheet-body table th { font-size: 10.5px; padding: 9px 11px; }
+  .sheet-body table td { padding: 12px 11px; height: 36px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  .checkbox-list { list-style: none; margin-left: 0; }
+  .checkbox-list li { padding: 12px 10px 12px 40px; position: relative; border-bottom: 1px dashed #cbd5e1; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14.5px; }
+  .checkbox-list li::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1.5px solid var(--primary-dark); border-radius: 3px; }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; color: white; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(242,135,5,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--accent); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(242,135,5,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cream); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(27,58,92,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: #FFD9A0 !important; }
+    .cover-tags span { color: #FFD9A0 !important; border-color: #FFD9A0 !important; }
+    .cover-brand, .cover-author { color: #FFD9A0 !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-orange) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .day-card, .week-card, .summary, .next-step, .ex-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .platform-banner { background: var(--green) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+    .checkbox-list li { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--accent) !important; }
+    .cta-box { background: rgba(242,135,5,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: var(--primary-dark) !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Práctica</div>
+    <h1>21 Días<br><em>para Conseguir Trabajo</em></h1>
+    <p class="cover-subtitle">Manual práctico: entrená tus reflejos, optimizá tu perfil<br>y accedé a trabajos remotos en dólares</p>
+    <p class="cover-audience">Para quienes buscan empleo, cambiar de trabajo o dar el salto al mercado internacional</p>
+    <div class="cover-tags">
+      <span>Búsqueda Laboral</span><span>Gamificación</span><span>Reflejos</span><span>Trabajo Remoto</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia y Limitación de Responsabilidad</div>
+    <h2>Leer antes de comenzar</h2>
+    <p><strong>Este manual es una guía práctica de búsqueda laboral.</strong> No garantiza la obtención de un empleo. Los resultados dependen del esfuerzo, las habilidades previas, el manejo del inglés y las condiciones del mercado. Los montos mencionados son estimaciones basadas en rangos publicados por las plataformas y pueden variar.</p>
+    <p><strong>Esta guía no reemplaza el asesoramiento profesional</strong> en materia laboral, legal o migratoria. Para decisiones importantes, consultá con un especialista.</p>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Sobre los enlaces de referido</h3>
+    <p>Este manual incluye un <strong>enlace de referido</strong> a micro1, una plataforma de entrenamiento de IA. Si te registrás a través de ese enlace y cumplís los requisitos, podés acceder a puestos de trabajo remoto. El autor puede recibir una compensación por las referencias exitosas. <strong>Tu postulación y tu contratación dependen exclusivamente de la plataforma y de tu perfil.</strong></p>
+
+    <p class="legal-sign">— El equipo de WineBOX · Con transparencia y acción</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#intro"><span class="part">Introducción</span>Antes de empezar</a></li>
+      <li><a href="#semana1"><span class="part">Semana 1 · Fundamentos</span>Días 1-7: Base, CV y perfil</a></li>
+      <li><a href="#semana2"><span class="part">Semana 2 · Práctica</span>Días 8-14: Entrevistas, reflejos y marca personal</a></li>
+      <li><a href="#semana3"><span class="part">Semana 3 · Acción</span>Días 15-21: Postulaciones, networking y cierre</a></li>
+      <li><a href="#trabajo-remoto"><span class="part">Oportunidad</span>Trabajos remotos en dólares: micro1</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias comentadas</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno de 21 días</span>Hojas imprimibles y checklist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- INTRODUCCIÓN -->
+<!-- ============================================================ -->
+<article class="chapter" id="intro">
+  <div class="chapter-header">
+    <div class="chapter-number">Introducción</div>
+    <h1 class="chapter-title">Antes de empezar</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Conseguir trabajo no es un evento de suerte. Es un proceso. Y como todo proceso, se puede planificar, dividir en pasos y ejecutar día a día. Este manual te da un plan de <strong>21 días</strong>, con tareas concretas para cada jornada, para que pases de "estoy buscando trabajo" a "tengo entrevistas agendadas" (o, idealmente, una oferta concreta).</p>
+
+    <p>El plan se basa en tres pilares:</p>
+
+    <ul>
+      <li><strong>Entrenamiento de reflejos y agilidad mental:</strong> usamos juegos y ejercicios para agudizar tu velocidad de reacción, tu atención y tu capacidad de tomar decisiones bajo presión. Todo esto se nota en una entrevista de trabajo: en la velocidad con la que respondés, en la claridad con la que pensás, en la soltura con la que manejás lo inesperado.</li>
+      <li><strong>Optimización de perfil:</strong> CV, LinkedIn, portfolio, mensajes de presentación. Todo lo que ven de vos antes de conocerte.</li>
+      <li><strong>Acción diaria:</strong> postulaciones, networking, seguimiento. Sin acción, el mejor CV del mundo no sirve.</li>
+    </ul>
+
+    <blockquote>
+      <p>«La búsqueda de trabajo no es una maratón sin línea de meta. Es un proyecto con sprints. Y cada sprint, por pequeño que sea, te acerca al objetivo.»</p>
+      <cite>— Basado en Back to Work Connect</cite>
+    </blockquote>
+
+    <h2>Cómo usar este manual</h2>
+    <ul>
+      <li><strong>Leelo una vez completo</strong> para tener el panorama general.</li>
+      <li><strong>Volvé a cada día</strong> cuando te toque hacer la tarea.</li>
+      <li><strong>Usá el Cuaderno de 21 Días</strong> (al final del manual) para imprimir y tildar cada tarea completada.</li>
+      <li><strong>Hacé las actividades de juego</strong> que se proponen. No son un adorno: son entrenamiento real.</li>
+    </ul>
+
+    <div class="callout go">
+      <strong>🎮 Los juegos están a un clic</strong>
+      Cada ejercicio de este manual tiene un botón <strong>▶ Jugar ahora</strong> que abre el juego en tu navegador. No necesitás instalar nada. Si querés explorar todos los juegos disponibles, al final del libro tenés acceso a la plataforma completa.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Conseguir trabajo es un proceso, no un evento de suerte.</li>
+        <li>El plan de 21 días se basa en tres pilares: reflejos, perfil y acción.</li>
+        <li>Los juegos entrenan agilidad mental, que se nota en las entrevistas.</li>
+        <li>Usá el Cuaderno de 21 Días para hacer seguimiento.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="semana1">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 1 · Fundamentos</div>
+    <h1 class="chapter-title">Días 1-7: Base, CV y perfil</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la semana:</strong> tener todo listo para empezar a postular. En esta semana no buscás trabajo todavía: preparás las herramientas. CV, LinkedIn, perfil profesional. Y arrancás el entrenamiento de reflejos.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué esta semana es clave?</strong>
+      El 80% de las postulaciones fallan por un CV mal armado, un LinkedIn descuidado o un mensaje de presentación poco claro. Esta semana se trata de construir la base. Sin apuro, pero sin pausa.
+    </div>
+
+    <!-- DÍA 1 -->
+    <div class="day-card">
+      <div class="objective">Día 1 · Lunes</div>
+      <h4>Diagnóstico y objetivos</h4>
+      <p><strong>Tarea:</strong> Escribí en una hoja: ¿Qué tipo de trabajo buscás? ¿Cuáles son tus 3 principales habilidades? ¿Qué te gustaría estar haciendo en 2 años? Sin filtro, sin censura. Solo para vos.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Sequence</strong>. El objetivo es medir tu velocidad de reacción actual. No importa el puntaje: importa la línea de base.</p>
+      <p><strong>Meta del día:</strong> Claridad. Saber qué buscás.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Sequence
+      </a>
+    </div>
+
+    <!-- DÍA 2 -->
+    <div class="day-card">
+      <div class="objective">Día 2 · Martes</div>
+      <h4>CV: borrador inicial</h4>
+      <p><strong>Tarea:</strong> Abrí tu CV actual (o creá uno si no tenés). No te preocupes por el formato todavía. Escribí todo: experiencia, educación, cursos, proyectos, voluntariados. Todo cuenta.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Breakout</strong>. El objetivo es acostumbrarte a responder rápido ante estímulos visuales.</p>
+      <p><strong>Meta del día:</strong> Tener todo el material del CV en un solo lugar.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Breakout
+      </a>
+    </div>
+
+    <!-- DÍA 3 -->
+    <div class="day-card">
+      <div class="objective">Día 3 · Miércoles</div>
+      <h4>CV: estructura y logros</h4>
+      <p><strong>Tarea:</strong> Reorganizá tu CV con esta estructura: encabezado (nombre, contacto, LinkedIn), perfil profesional (2-3 líneas), experiencia (del más reciente al más antiguo), educación, habilidades. En cada experiencia, agregá <strong>logros medibles</strong>, no solo tareas. Ejemplo: "Reduje el tiempo de respuesta en un 30%" en lugar de "Atendía clientes".</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Clumsy Bird</strong>. Ideal para entrenar la tolerancia al error y la vuelta rápida.</p>
+      <p><strong>Meta del día:</strong> CV con logros, no con tareas.</p>
+      <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Clumsy Bird
+      </a>
+    </div>
+
+    <!-- DÍA 4 -->
+    <div class="day-card">
+      <div class="objective">Día 4 · Jueves</div>
+      <h4>LinkedIn: perfil optimizado</h4>
+      <p><strong>Tarea:</strong> Actualizá tu LinkedIn. Título: "Rol objetivo | Especialidad | Prueba (métrica o credencial)". Acerca de: 3-4 líneas con tu nicho, evidencia y qué buscás. Foto profesional. Sin foto de vacaciones.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Solitaire</strong>. Sin tiempo límite, sin presión. Ideal para bajar la ansiedad antes de la tarea.</p>
+      <p><strong>Meta del día:</strong> LinkedIn que hable por vos.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Solitaire
+      </a>
+    </div>
+
+    <!-- DÍA 5 -->
+    <div class="day-card">
+      <div class="objective">Día 5 · Viernes</div>
+      <h4>Portfolio y proyectos</h4>
+      <p><strong>Tarea:</strong> Si tenés portfolio (web, GitHub, Behance, Drive con muestras), actualizalo. Si no tenés, armá uno simple: una carpeta con 3-5 trabajos que muestren lo que sabés hacer. Un PDF alcanza.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Pixel Leap</strong>. Ritmo, coordinación, velocidad. Todo lo que necesitás para una entrevista dinámica.</p>
+      <p><strong>Meta del día:</strong> Tener algo tangible para mostrar.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Pixel Leap
+      </a>
+    </div>
+
+    <!-- DÍA 6 -->
+    <div class="day-card">
+      <div class="objective">Día 6 · Sábado</div>
+      <h4>Mensajes de presentación</h4>
+      <p><strong>Tarea:</strong> Escribí 3 versiones de tu mensaje de presentación: uno corto (para LinkedIn), uno medio (para email) y uno largo (para entrevistas). En cada uno: quién sos, qué sabés hacer, qué buscás.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Sequence</strong>. Compará tu puntaje con el del Día 1. ¿Mejoraste?</p>
+      <p><strong>Meta del día:</strong> Mensajes listos para copiar y pegar.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Sequence
+      </a>
+    </div>
+
+    <!-- DÍA 7 -->
+    <div class="day-card">
+      <div class="objective">Día 7 · Domingo</div>
+      <h4>Revisión de la semana 1</h4>
+      <p><strong>Tarea:</strong> Revisá todo lo que armaste. CV, LinkedIn, portfolio, mensajes. Pedile a alguien de confianza que te dé feedback. Corregí lo que haga falta.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 10 minutos a <strong>Breakout</strong>. Descanso activo.</p>
+      <p><strong>Meta del día:</strong> Todo listo para empezar a postular.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Breakout
+      </a>
+    </div>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Semana 1</strong>
+      No busques perfección en el CV ni en LinkedIn. Buscá claridad. Un CV claro y honesto vence a un CV perfecto y vacío. Y no te saltees el entrenamiento de reflejos: 5 minutos al día, todos los días.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 1 se enfoca en construir la base: CV, LinkedIn, portfolio, mensajes.</li>
+        <li>Los logros medibles vencen a las tareas genéricas.</li>
+        <li>LinkedIn debe tener título, acerca de y foto profesional.</li>
+        <li>El entrenamiento de reflejos se hace todos los días, 5 minutos.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la base lista, entramos en la Semana 2: entrevistas, reflejos y marca personal. En los próximos 7 días vas a practicar respuestas, simular entrevistas y afinar tu agilidad mental.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="semana2">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 2 · Práctica</div>
+    <h1 class="chapter-title">Días 8-14: Entrevistas, reflejos y marca personal</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la semana:</strong> estar listo para una entrevista. Practicar respuestas, afinar la agilidad mental y construir tu marca personal. En esta semana, además de prepararte, empezás a postular a las primeras ofertas.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué esta semana es clave?</strong>
+      Una buena entrevista no se improvisa. Se practica. Esta semana entrenás las respuestas, los tiempos, la expresión corporal y la agilidad mental. Y empezás a postular, porque la práctica sin acción no sirve.
+    </div>
+
+    <!-- DÍA 8 -->
+    <div class="day-card">
+      <div class="objective">Día 8 · Lunes</div>
+      <h4>Preguntas frecuentes de entrevista</h4>
+      <p><strong>Tarea:</strong> Escribí tus respuestas a las 5 preguntas más comunes: "Contame sobre vos", "¿Por qué querés trabajar acá?", "¿Cuáles son tus fortalezas?", "¿Cuáles son tus debilidades?", "¿Dónde te ves en 5 años?". Escribilas, pero no las memorices. La idea es tenerlas claras.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>BlockMatrix</strong>. Decisiones rápidas bajo presión. Exactamente lo que necesitás en una entrevista.</p>
+      <p><strong>Meta del día:</strong> Respuestas claras para las 5 preguntas clave.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con BlockMatrix
+      </a>
+    </div>
+
+    <!-- DÍA 9 -->
+    <div class="day-card">
+      <div class="objective">Día 9 · Martes</div>
+      <h4>Método STAR para logros</h4>
+      <p><strong>Tarea:</strong> Elegí 3 logros de tu experiencia y escribilos con el método STAR: Situación, Tarea, Acción, Resultado. Este formato es el que más usan los entrevistadores para evaluar competencias. Escribí los 3 y practicá decirlos en voz alta.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Sequence</strong>. La memoria de secuencias se entrena, y en una entrevista necesitás recordar datos, nombres y proyectos.</p>
+      <p><strong>Meta del día:</strong> 3 logros contados con el método STAR.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Sequence
+      </a>
+    </div>
+
+    <!-- DÍA 10 -->
+    <div class="day-card">
+      <div class="objective">Día 10 · Miércoles</div>
+      <h4>Simulación de entrevista</h4>
+      <p><strong>Tarea:</strong> Pedile a alguien que te haga una entrevista simulada. Que te pregunte las preguntas del Día 8 y los logros del Día 9. Que te dé feedback honesto. Si no tenés a nadie, grabate en video respondiendo y mirate después.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Naval Pixel</strong>. Estrategia y paciencia. La entrevista no es un sprint, es una partida de ajedrez.</p>
+      <p><strong>Meta del día:</strong> Haber practicado en voz alta, con o sin público.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Naval Pixel
+      </a>
+    </div>
+
+    <!-- DÍA 11 -->
+    <div class="day-card">
+      <div class="objective">Día 11 · Jueves</div>
+      <h4>Marca personal: cómo te presentás</h4>
+      <p><strong>Tarea:</strong> Definí tu marca personal en una frase: "Ayudo a [quién] a lograr [qué] mediante [cómo]". Esa frase va en tu LinkedIn, en tu CV, y en tu presentación en entrevistas. Practicá decirla en 15 segundos.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Breakout</strong>. La velocidad de respuesta se entrena. Y en una entrevista, la primera impresión dura 30 segundos.</p>
+      <p><strong>Meta del día:</strong> Una frase que te represente.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Breakout
+      </a>
+    </div>
+
+    <!-- DÍA 12 -->
+    <div class="day-card">
+      <div class="objective">Día 12 · Viernes</div>
+      <h4>Primeras postulaciones</h4>
+      <p><strong>Tarea:</strong> Elegí 3 ofertas que te interesen. Para cada una, adaptá tu CV y escribí un mensaje de presentación específico. No mandes el mismo CV genérico a todas. Postulá a las 3.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Clumsy Bird</strong>. Tolerancia al rechazo. Vas a recibir "no" muchas veces antes del "sí".</p>
+      <p><strong>Meta del día:</strong> 3 postulaciones enviadas.</p>
+      <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Clumsy Bird
+      </a>
+    </div>
+
+    <!-- DÍA 13 -->
+    <div class="day-card">
+      <div class="objective">Día 13 · Sábado</div>
+      <h4>Networking activo</h4>
+      <p><strong>Tarea:</strong> Escribile a 5 personas de tu red (LinkedIn, WhatsApp, email). No les pidas trabajo directamente. Preguntales cómo están, contales que estás buscando, y preguntales si conocen a alguien que esté contratando en tu área.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Solitaire</strong>. Sin presión. El networking tampoco es una carrera: es un proceso de cultivar vínculos.</p>
+      <p><strong>Meta del día:</strong> 5 conversaciones iniciadas.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Solitaire
+      </a>
+    </div>
+
+    <!-- DÍA 14 -->
+    <div class="day-card">
+      <div class="objective">Día 14 · Domingo</div>
+      <h4>Revisión de la semana 2</h4>
+      <p><strong>Tarea:</strong> Revisá tus postulaciones, tus mensajes, tus respuestas de entrevista. ¿Qué funcionó? ¿Qué no? Ajustá lo que haga falta. Y revisá tu velocidad de reflejos: ¿mejoraste desde el Día 1?</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 10 minutos a <strong>Pixel Leap</strong>. Ritmo, coordinación, velocidad. Descanso activo.</p>
+      <p><strong>Meta del día:</strong> Ajustar y seguir.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Pixel Leap
+      </a>
+    </div>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Semana 2</strong>
+      No esperes a estar "listo" para postular. Postulá mientras practicás. La práctica en el mundo real enseña más que cualquier simulacro. Y no te desanimes con los rechazos: cada "no" te acerca al "sí".
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 2 entrena respuestas, simulaciones y marca personal.</li>
+        <li>El método STAR es clave para contar logros en entrevistas.</li>
+        <li>La práctica en voz alta (con o sin público) es esencial.</li>
+        <li>Las primeras postulaciones se hacen ya, sin esperar a estar "perfecto".</li>
+        <li>El networking se cultiva antes de necesitarlo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la práctica hecha, entramos en la Semana 3: acción masiva. Postulaciones, seguimiento, negociación y cierre. Los últimos 7 días son los de mayor actividad.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="semana3">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 3 · Acción</div>
+    <h1 class="chapter-title">Días 15-21: Postulaciones, networking y cierre</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la semana:</strong> aumentar el volumen de postulaciones, hacer seguimiento, preparar la negociación y cerrar el proceso. Esta semana es la más activa: mucha acción, mucho seguimiento, mucha perseverancia.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué esta semana es clave?</strong>
+      La primera semana fue preparación. La segunda, práctica. Esta tercera es acción masiva. Acá es donde se define si el proceso avanza o se estanca. La clave es el volumen: más postulaciones, más seguimiento, más conversaciones.
+    </div>
+
+    <!-- DÍA 15 -->
+    <div class="day-card">
+      <div class="objective">Día 15 · Lunes</div>
+      <h4>Postulaciones en volumen</h4>
+      <p><strong>Tarea:</strong> Postulá a 5 ofertas más. Adaptá el CV y el mensaje para cada una. Recordá: calidad + cantidad. No mandes 50 postulaciones genéricas, pero tampoco te quedes con 3.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Sequence</strong>. Recordá tu puntaje del Día 1. ¿Mejoró?</p>
+      <p><strong>Meta del día:</strong> 5 postulaciones más.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Sequence
+      </a>
+    </div>
+
+    <!-- DÍA 16 -->
+    <div class="day-card">
+      <div class="objective">Día 16 · Martes</div>
+      <h4>Seguimiento de postulaciones</h4>
+      <p><strong>Tarea:</strong> Hacé seguimiento de las postulaciones de la semana pasada. Un mensaje corto y profesional: "Hola [nombre], quería saber si hay novedades sobre mi postulación. Quedo a disposición." No es insistir: es mostrar interés.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Breakout</strong>. La constancia es un músculo. Se entrena.</p>
+      <p><strong>Meta del día:</strong> Seguimiento de todas las postulaciones activas.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Breakout
+      </a>
+    </div>
+
+    <!-- DÍA 17 -->
+    <div class="day-card">
+      <div class="objective">Día 17 · Miércoles</div>
+      <h4>Preparación de negociación</h4>
+      <p><strong>Tarea:</strong> Investigá el rango salarial de tu puesto en tu mercado. Escribí tu número ideal, tu número aceptable y tu número mínimo. Practicá decir tu número en voz alta, con calma y seguridad.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Naval Pixel</strong>. La negociación es estrategia. La estrategia se entrena.</p>
+      <p><strong>Meta del día:</strong> Tener claros tus números.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Naval Pixel
+      </a>
+    </div>
+
+    <!-- DÍA 18 -->
+    <div class="day-card">
+      <div class="objective">Día 18 · Jueves</div>
+      <h4>Entrevistas reales</h4>
+      <p><strong>Tarea:</strong> Si tenés entrevistas agendadas, preparalas a fondo. Si no tenés, postulá a 5 más y usá el tiempo para practicar con alguien. Cada entrevista es una oportunidad de aprender.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Clumsy Bird</strong>. Tolerancia al rechazo. Las entrevistas son un juego de probabilidades: cuantas más, mejor.</p>
+      <p><strong>Meta del día:</strong> Entrevistas hechas o agendadas.</p>
+      <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Clumsy Bird
+      </a>
+    </div>
+
+    <!-- DÍA 19 -->
+    <div class="day-card">
+      <div class="objective">Día 19 · Viernes</div>
+      <h4>Marca personal en acción</h4>
+      <p><strong>Tarea:</strong> Publicá algo en LinkedIn: un artículo, un comentario, un proyecto, una reflexión. Mostrá tu expertise. La visibilidad pasiva (solo tener el perfil) no alcanza. Hay que publicar.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Pixel Leap</strong>. Ritmo, coordinación. La marca personal también se construye con ritmo: publicar seguido, no todo de golpe.</p>
+      <p><strong>Meta del día:</strong> Una publicación en LinkedIn.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Pixel Leap
+      </a>
+    </div>
+
+    <!-- DÍA 20 -->
+    <div class="day-card">
+      <div class="objective">Día 20 · Sábado</div>
+      <h4>Networking de cierre</h4>
+      <p><strong>Tarea:</strong> Volvé a contactar a las 5 personas de la Semana 2. Contales cómo avanzó tu búsqueda. Agradeceles por el tiempo. Mantené el vínculo vivo. El networking no es transaccional: es relacional.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 5 minutos a <strong>Solitaire</strong>. Paciencia. El networking es un juego de largo plazo.</p>
+      <p><strong>Meta del día:</strong> Vínculos mantenidos.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con Solitaire
+      </a>
+    </div>
+
+    <!-- DÍA 21 -->
+    <div class="day-card">
+      <div class="objective">Día 21 · Domingo</div>
+      <h4>Cierre y próximos pasos</h4>
+      <p><strong>Tarea:</strong> Revisá todo el proceso. ¿Cuántas postulaciones hiciste? ¿Cuántas entrevistas? ¿Qué aprendiste? Escribí un plan para la semana 22: seguí postulando, seguí haciendo networking, seguí entrenando reflejos. El proceso no termina el día 21: empieza a rendir.</p>
+      <p><strong>Entrenamiento de reflejos:</strong> Jugá 10 minutos a <strong>BlockMatrix</strong>. Descanso activo.</p>
+      <p><strong>Meta del día:</strong> Plan para la semana 22.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="play-btn" style="margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--play); color: white; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: white;"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar reflejos con BlockMatrix
+      </a>
+    </div>
+
+    <div class="callout go">
+      <strong>🎯 El proceso no termina el día 21</strong>
+      Los 21 días son un sprint, no una maratón. Al terminarlos, vas a tener las herramientas, la práctica y el ritmo. Ahora toca sostener: seguir postulando, seguir haciendo networking, seguir entrenando. La perseverancia es lo que consigue trabajo.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 3 es de acción masiva: postulaciones, seguimiento, networking.</li>
+        <li>El volumen importa: más postulaciones, más conversaciones.</li>
+        <li>El seguimiento muestra interés y mantiene las puertas abiertas.</li>
+        <li>La negociación se prepara con números claros.</li>
+        <li>El proceso no termina el día 21: se sostiene.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- TRABAJO REMOTO -->
+<!-- ============================================================ -->
+<article class="chapter" id="trabajo-remoto">
+  <div class="chapter-header">
+    <div class="chapter-number">Oportunidad</div>
+    <h1 class="chapter-title">Trabajos remotos en dólares: micro1</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Si tenés un buen manejo del inglés, hay un mercado laboral que te está esperando: el entrenamiento de modelos de inteligencia artificial. Empresas como <strong>micro1</strong> contratan expertos de todo el mundo para evaluar, entrenar y mejorar sistemas de IA. Y pagan en dólares.</p>
+
+    <div class="callout go">
+      <strong>💵 ¿Cuánto se puede ganar?</strong>
+      Los rangos publicados por micro1 van desde <strong>USD 20 por hora</strong> hasta <strong>USD 175 por hora</strong>, dependiendo del rol, la especialidad y la experiencia[reference:0][reference:1]. Con una dedicación de 20-30 horas semanales, es posible superar los <strong>USD 3.000 mensuales</strong>.
+    </div>
+
+    <h2>¿Qué tipo de trabajos ofrecen?</h2>
+    <p>Las posiciones más comunes incluyen:</p>
+    <ul>
+      <li><strong>AI Training Expert:</strong> evaluar herramientas profesionales, documentar comportamientos, generar informes para entrenar modelos de IA. Pago: USD 90-175/hora[reference:2].</li>
+      <li><strong>AI Trainer / Data Annotator:</strong> revisar y etiquetar datos, evaluar respuestas de modelos. Pago: USD 20-98/hora[reference:3].</li>
+      <li><strong>Especialistas por dominio:</strong> STEM, finanzas, medicina, derecho, coding. Cada uno con su propio rango de pago.</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>¿Necesitás experiencia previa en IA?</strong>
+      No. Muchos de estos puestos piden <strong>experiencia en tu dominio</strong> (lo que ya sabés hacer), no en IA. La plataforma te entrena en la tarea específica[reference:4].
+    </div>
+
+    <h2>¿Qué necesitás para postular?</h2>
+    <ul>
+      <li><strong>Inglés fluido:</strong> al menos B2, idealmente C1. La comunicación es en inglés, tanto escrita como oral.</li>
+      <li><strong>Computadora con internet:</strong> para trabajar de forma remota.</li>
+      <li><strong>Una especialidad:</strong> lo que ya sabés hacer. Puede ser tu profesión, un hobby avanzado, o un área de conocimiento.</li>
+      <li><strong>Disponibilidad:</strong> al menos 10-15 horas semanales.</li>
+    </ul>
+
+    <h2>¿Cómo postular?</h2>
+    <p>El proceso es simple. Usá este enlace de referido para registrarte:</p>
+
+    <div class="callout go" style="text-align: center;">
+      <strong>🔗 Enlace de registro</strong>
+      <a href="https://refer.micro1.ai/referral/jobs?referralCode=9b981437-d9fd-42e4-9c7b-112a69e0d4b2&utm_source=referral&utm_medium=share&utm_campaign=job_referral" target="_blank" rel="noopener" style="word-break: break-all; font-size: 14px;">https://refer.micro1.ai/referral/jobs?referralCode=9b981437-d9fd-42e4-9c7b-112a69e0d4b2</a>
+    </div>
+
+    <p>Una vez registrado, completá tu perfil con tu experiencia y habilidades. La plataforma te va a mostrar las ofertas disponibles para tu perfil. Postulá a las que se ajusten a tu experiencia. El proceso de selección suele incluir una prueba técnica y una entrevista.</p>
+
+    <h2>Reflejos y agilidad mental en el trabajo remoto</h2>
+    <p>El trabajo remoto en IA exige lo mismo que entrenamos en este manual: <strong>agilidad mental, atención al detalle, velocidad de procesamiento</strong>. Los juegos de reflejos que practicaste durante los 21 días no son un adorno: son la base de las habilidades que necesitás para destacarte en este tipo de trabajos.</p>
+
+    <div class="platform-banner">
+      <h3>🌐 Accedé a las ofertas de micro1</h3>
+      <p>Si tenés buen inglés y querés trabajar de forma remota en dólares, este es el siguiente paso. Registrate con el enlace de referido, completá tu perfil, y empezá a postular.</p>
+      <a href="https://refer.micro1.ai/referral/jobs?referralCode=9b981437-d9fd-42e4-9c7b-112a69e0d4b2&utm_source=referral&utm_medium=share&utm_campaign=job_referral" target="_blank" rel="noopener" class="platform-cta">
+        🚀 Ir a micro1 y registrarme
+      </a>
+      <p class="small-note">Los puestos y montos son responsabilidad de micro1. Los resultados dependen de tu perfil y de tu desempeño en el proceso de selección.</p>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>micro1 contrata expertos para entrenar modelos de IA de forma remota.</li>
+        <li>Los pagos van de USD 20 a USD 175 por hora, según el rol.</li>
+        <li>Se necesita inglés fluido, computadora e internet, y una especialidad.</li>
+        <li>El registro es a través del enlace de referido.</li>
+        <li>Los juegos de reflejos entrenan las habilidades que este tipo de trabajo exige.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este manual</strong>. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Back to Work Connect. (2025).</span>
+        <span class="ref-title">Step-by-Step Guide to Restart Your Job Search.</span>
+        <span class="ref-source">Back to Work Connect.</span>
+        <span class="ref-context">Introducción, Semana 1, 2, 3. Guía base para la estructura de 21 días, el enfoque de sprints y las tareas diarias.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Solutions for the Workplace. (2026).</span>
+        <span class="ref-title">New Year, New Job Challenge Planner.</span>
+        <span class="ref-source">Solutions for the Workplace.</span>
+        <span class="ref-context">Semana 1, 2, 3. Plan de 21 días con tareas diarias para la búsqueda de empleo.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">micro1. (2026).</span>
+        <span class="ref-title">AI Training Expert / AI Trainer job listings.</span>
+        <span class="ref-source">micro1.</span>
+        <span class="ref-context">Sección "Trabajos remotos en dólares". Rangos de pago y descripciones de roles.</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Gollwitzer, P. M., &amp; Sheeran, P. (2006).</span>
+        <span class="ref-title">Implementation intentions and goal achievement: A meta-analysis of effects and processes.</span>
+        <span class="ref-source">Advances in Experimental Social Psychology, 38, 69-119.</span>
+        <span class="ref-context">Introducción. Fundamenta el uso de intenciones de implementación para la acción diaria.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Wohl, M. J., Pychyl, T. A., &amp; Bennett, S. H. (2010).</span>
+        <span class="ref-title">I forgive myself, now I can study: How self-forgiveness for procrastinating can reduce future procrastination.</span>
+        <span class="ref-source">Personality and Individual Differences, 48(7), 803-808.</span>
+        <span class="ref-context">Semana 2, 3. Fundamenta la autocompasión ante los rechazos y la vuelta rápida al proceso.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Portal MPT. (2026).</span>
+        <span class="ref-title">Más de 60 usuarios mejoran su empleabilidad gracias al 'KEYROOM'.</span>
+        <span class="ref-source">Ministerio de Política Territorial, España.</span>
+        <span class="ref-context">Introducción, Semana 2. Fundamenta el uso de gamificación para entrenar habilidades de empleabilidad.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Brain Reflex. (2025).</span>
+        <span class="ref-title">Brain Reflex - Mini Games.</span>
+        <span class="ref-source">Google Play.</span>
+        <span class="ref-context">Semana 1, 2, 3. Fundamenta el entrenamiento de reflejos y velocidad de reacción con juegos.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">IEEE. (2024).</span>
+        <span class="ref-title">Design and Preliminary Evaluation of a Simulated Interview Educational Game.</span>
+        <span class="ref-source">IIAI-AAI 2024.</span>
+        <span class="ref-context">Semana 2. Fundamenta la simulación de entrevistas como herramienta de preparación.</span>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DE 21 DÍAS -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno de 21 días · Hojas imprimibles</div>
+    <h2>Checklist y seguimiento</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse todos los días. Tildá cada tarea completada. No hay respuestas correctas o incorrectas: solo acción.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, selecciona "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Checklist de 21 días -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Checklist</div>
+      <h3>📋 Checklist de 21 Días</h3>
+    </div>
+    <p class="sheet-intro">Tildá cada tarea completada. El objetivo no es la perfección: es la constancia.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Nombre:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Tarea principal</th><th>Entrenamiento de reflejos</th><th>✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Diagnóstico y objetivos</td><td>Sequence</td><td>☐</td></tr>
+          <tr><td>2</td><td>CV: borrador inicial</td><td>Breakout</td><td>☐</td></tr>
+          <tr><td>3</td><td>CV: estructura y logros</td><td>Clumsy Bird</td><td>☐</td></tr>
+          <tr><td>4</td><td>LinkedIn optimizado</td><td>Solitaire</td><td>☐</td></tr>
+          <tr><td>5</td><td>Portfolio y proyectos</td><td>Pixel Leap</td><td>☐</td></tr>
+          <tr><td>6</td><td>Mensajes de presentación</td><td>Sequence</td><td>☐</td></tr>
+          <tr><td>7</td><td>Revisión semana 1</td><td>Breakout</td><td>☐</td></tr>
+          <tr><td>8</td><td>Preguntas frecuentes</td><td>BlockMatrix</td><td>☐</td></tr>
+          <tr><td>9</td><td>Método STAR</td><td>Sequence</td><td>☐</td></tr>
+          <tr><td>10</td><td>Simulación de entrevista</td><td>Naval Pixel</td><td>☐</td></tr>
+          <tr><td>11</td><td>Marca personal</td><td>Breakout</td><td>☐</td></tr>
+          <tr><td>12</td><td>Primeras postulaciones</td><td>Clumsy Bird</td><td>☐</td></tr>
+          <tr><td>13</td><td>Networking activo</td><td>Solitaire</td><td>☐</td></tr>
+          <tr><td>14</td><td>Revisión semana 2</td><td>Pixel Leap</td><td>☐</td></tr>
+          <tr><td>15</td><td>Postulaciones en volumen</td><td>Sequence</td><td>☐</td></tr>
+          <tr><td>16</td><td>Seguimiento</td><td>Breakout</td><td>☐</td></tr>
+          <tr><td>17</td><td>Preparación de negociación</td><td>Naval Pixel</td><td>☐</td></tr>
+          <tr><td>18</td><td>Entrevistas reales</td><td>Clumsy Bird</td><td>☐</td></tr>
+          <tr><td>19</td><td>Marca personal en acción</td><td>Pixel Leap</td><td>☐</td></tr>
+          <tr><td>20</td><td>Networking de cierre</td><td>Solitaire</td><td>☐</td></tr>
+          <tr><td>21</td><td>Cierre y próximos pasos</td><td>BlockMatrix</td><td>☐</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Registro de postulaciones -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Postulaciones</div>
+      <h3>📤 Registro de Postulaciones</h3>
+    </div>
+    <p class="sheet-intro">Anotá cada postulación que hagas. El seguimiento es clave.</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Empresa</th><th>Puesto</th><th>Estado</th><th>Seguimiento</th></tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="callout tip" style="margin-top: 20px; font-size: 14px;">
+        <strong>💡 Consejo</strong> Hacé seguimiento 5-7 días después de postular. Un mensaje corto alcanza: "Hola, quería saber si hay novedades sobre mi postulación. Quedo a disposición."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Registro de entrenamiento de reflejos -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Reflejos</div>
+      <h3>🧠 Registro de Entrenamiento de Reflejos</h3>
+    </div>
+    <p class="sheet-intro">Anotá tu puntaje o tiempo de reacción cada día. El objetivo es ver la mejora.</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego</th><th>Puntaje / Tiempo</th><th>¿Mejoré?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Sequence</td><td></td><td></td></tr>
+          <tr><td>2</td><td>Breakout</td><td></td><td></td></tr>
+          <tr><td>3</td><td>Clumsy Bird</td><td></td><td></td></tr>
+          <tr><td>4</td><td>Solitaire</td><td></td><td></td></tr>
+          <tr><td>5</td><td>Pixel Leap</td><td></td><td></td></tr>
+          <tr><td>6</td><td>Sequence</td><td></td><td></td></tr>
+          <tr><td>7</td><td>Breakout</td><td></td><td></td></tr>
+          <tr><td>8</td><td>BlockMatrix</td><td></td><td></td></tr>
+          <tr><td>9</td><td>Sequence</td><td></td><td></td></tr>
+          <tr><td>10</td><td>Naval Pixel</td><td></td><td></td></tr>
+          <tr><td>11</td><td>Breakout</td><td></td><td></td></tr>
+          <tr><td>12</td><td>Clumsy Bird</td><td></td><td></td></tr>
+          <tr><td>13</td><td>Solitaire</td><td></td><td></td></tr>
+          <tr><td>14</td><td>Pixel Leap</td><td></td><td></td></tr>
+          <tr><td>15</td><td>Sequence</td><td></td><td></td></tr>
+          <tr><td>16</td><td>Breakout</td><td></td><td></td></tr>
+          <tr><td>17</td><td>Naval Pixel</td><td></td><td></td></tr>
+          <tr><td>18</td><td>Clumsy Bird</td><td></td><td></td></tr>
+          <tr><td>19</td><td>Pixel Leap</td><td></td><td></td></tr>
+          <tr><td>20</td><td>Solitaire</td><td></td><td></td></tr>
+          <tr><td>21</td><td>BlockMatrix</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Enlace de referido -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Oportunidad</div>
+      <h3>💵 Trabajo Remoto en Dólares</h3>
+    </div>
+    <p class="sheet-intro">Si tenés buen inglés, este es tu próximo paso. Registrate con el enlace de referido y empezá a postular.</p>
+    <div class="sheet-body">
+      <div class="callout go" style="text-align: center; font-size: 15px;">
+        <strong>🔗 Enlace de registro a micro1</strong>
+        <a href="https://refer.micro1.ai/referral/jobs?referralCode=9b981437-d9fd-42e4-9c7b-112a69e0d4b2&utm_source=referral&utm_medium=share&utm_campaign=job_referral" target="_blank" rel="noopener" style="word-break: break-all; font-size: 13px;">https://refer.micro1.ai/referral/jobs?referralCode=9b981437-d9fd-42e4-9c7b-112a69e0d4b2</a>
+      </div>
+      <div class="form-field" style="margin-top: 30px;"><label>¿Me registré?</label><div class="line"></div></div>
+      <div class="form-field"><label>Puestos a los que postulé:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Fecha de postulación:</label><div class="line"></div></div>
+      <div class="form-field"><label>Novedades:</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este manual y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el tratamiento de la ansiedad, la regulación conductual, y el entrenamiento de habilidades para la vida y el trabajo.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Entrenamiento de Habilidades</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, diseñando herramientas accesibles que invitan a arrancar, sostener y avanzar. Sin culpa, sin perfeccionismo, sin promesas vacías.</p>
+
+    <div class="cta-box">
+      <h3>¿Querés acceder a trabajos remotos en dólares?</h3>
+      <p>Si tenés buen inglés y querés dar el salto al mercado internacional, registrate con el enlace de referido y empezá a postular hoy mismo.</p>
+      <a href="https://refer.micro1.ai/referral/jobs?referralCode=9b981437-d9fd-42e4-9c7b-112a69e0d4b2&utm_source=referral&utm_medium=share&utm_campaign=job_referral" target="_blank" rel="noopener">Registrarme en micro1</a>
+    </div>
+
+    <div class="footer-note">
+      🧠 WineBOX · 21 Días para Conseguir Trabajo<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y acción · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

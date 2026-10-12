@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WineBOX Clinic · Evaluación Neurocognitiva y Ecosistema de Recursos</title>
-<meta name="description" content="Centro de evaluación neurocognitiva para niños, adolescentes y adultos. Un ecosistema de recursos gratuitos, ebooks y software de estimulación cognitiva. Un proceso de orientación profesional, claro y confidencial.">
+<title>WineBOX Clinic · Evaluación Neurocognitiva y Biblioteca de Recursos</title>
+<meta name="description" content="Centro de evaluación neurocognitiva para niños, adolescentes y adultos. 9 ebooks gratuitos, IA terapéutica y software de estimulación cognitiva. Un proceso de orientación profesional, claro y confidencial.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -25,6 +25,10 @@
     --rose:#c0392b;
     --violet:#7C5AA6;
     --teal:#2E5266;
+    --forest:#2E8B57;
+    --night:#3D2C4E;
+    --slate:#4A5568;
+    --orange:#F28705;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -204,29 +208,52 @@
   .step h3{font-size:1rem;margin-bottom:8px}
   .step p{font-size:0.9rem;margin:0}
 
-  /* ECOSYSTEM SECTION */
-  .ecosystem-section{background:var(--bg)}
-  .eco-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:44px;
+  /* LIBRARY SECTION */
+  .library-section{background:var(--bg)}
+  .library-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:24px;
+    margin-top:44px;
   }
-  .eco-card{
-    background:var(--bg-soft);border-radius:20px;padding:36px 30px;
-    border:1px solid var(--line);transition:all .25s;display:flex;flex-direction:column;
+  .library-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:28px 26px;display:flex;flex-direction:column;
+    transition:all .25s;position:relative;overflow:hidden;
   }
-  .eco-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,32,69,0.1);border-color:var(--brand)}
-  .eco-card .eco-badge{
-    font-size:0.7rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;
-    padding:5px 12px;border-radius:6px;align-self:flex-start;margin-bottom:18px;color:#fff;
+  .library-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--brand),var(--wa));
+    opacity:0.7;
   }
-  .eco-card h3{font-size:1.25rem;margin-bottom:10px;color:var(--brand)}
-  .eco-card .eco-desc{font-size:0.92rem;color:var(--text-soft);flex-grow:1;margin-bottom:20px;line-height:1.6}
-  .eco-card .eco-link{
+  .library-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 40px rgba(0,32,69,0.10);
+    border-color:var(--brand);
+  }
+  .library-card .lib-badge{
+    font-size:0.68rem;font-weight:800;letter-spacing:0.08em;
+    text-transform:uppercase;padding:4px 10px;border-radius:5px;
+    align-self:flex-start;margin-bottom:14px;color:#fff;
+  }
+  .library-card .lib-icon{
+    font-size:2rem;margin-bottom:12px;display:block;
+  }
+  .library-card h3{
+    font-size:1.05rem;margin-bottom:8px;color:var(--brand);
+    line-height:1.3;
+  }
+  .library-card .lib-desc{
+    font-size:0.88rem;color:var(--text-soft);
+    flex-grow:1;margin-bottom:18px;line-height:1.55;
+  }
+  .library-card .lib-link{
     display:inline-flex;align-items:center;gap:8px;
-    font-weight:800;font-size:0.95rem;color:var(--brand);text-decoration:none;
-    transition:gap .2s;
+    font-weight:800;font-size:0.9rem;color:var(--brand);
+    text-decoration:none;transition:gap .2s;
   }
-  .eco-card .eco-link:hover{gap:12px}
-  .eco-card .eco-link::after{content:"→";color:var(--wa);font-weight:900}
+  .library-card .lib-link:hover{gap:12px}
+  .library-card .lib-link::after{content:"→";color:var(--wa);font-weight:900}
 
   /* AURA SECTION */
   .aura-section{background:var(--brand);color:#fff;padding:80px 0}
@@ -245,27 +272,6 @@
   .aura-section .btn-wa:hover{background:var(--brand-light);transform:translateY(-2px)}
   .aura-section .btn-wa svg{fill:var(--brand)}
   .aura-section .microcopy{color:rgba(255,255,255,0.6)}
-
-  /* BOOKS SECTION */
-  .books-section{background:var(--bg-soft)}
-  .books-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:44px;
-  }
-  .book-card{
-    background:#fff;border-radius:20px;padding:36px 30px;
-    border:1px solid var(--line);transition:all .25s;display:flex;flex-direction:column;
-  }
-  .book-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,32,69,0.1);border-color:var(--brand)}
-  .book-card .book-icon{font-size:2.2rem;margin-bottom:16px;display:block}
-  .book-card h3{font-size:1.15rem;margin-bottom:8px;color:var(--brand)}
-  .book-card .book-desc{font-size:0.9rem;color:var(--text-soft);flex-grow:1;margin-bottom:20px;line-height:1.6}
-  .book-card .book-link{
-    display:inline-flex;align-items:center;gap:8px;
-    font-weight:800;font-size:0.95rem;color:var(--brand);text-decoration:none;
-    transition:gap .2s;
-  }
-  .book-card .book-link:hover{gap:12px}
-  .book-card .book-link::after{content:"→";color:var(--wa);font-weight:900}
 
   /* FAQ */
   .faq{max-width:820px;margin:0 auto}
@@ -310,6 +316,7 @@
     section{padding:64px 0}
     .hero{padding:48px 0 64px}
     .ecosystem-strip .container{gap:20px}
+    .library-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
   }
   @media(max-width:520px){
     .container{padding:0 18px}
@@ -317,6 +324,7 @@
     .btn-wa.lg{padding:18px 28px;font-size:1.02rem}
     .wa-float{width:56px;height:56px;bottom:18px;right:18px}
     .wa-float svg{width:30px;height:30px}
+    .library-grid{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -332,7 +340,7 @@
     <div class="nav-links">
       <a href="#senales">Señales</a>
       <a href="#servicios">Servicios</a>
-      <a href="#ecosistema">Recursos</a>
+      <a href="#biblioteca">Biblioteca</a>
       <a href="#equipo">Equipo</a>
       <a href="#faq">FAQ</a>
     </div>
@@ -343,9 +351,9 @@
 <!-- HERO -->
 <header class="hero">
   <div class="container">
-    <span class="eyebrow">Evaluación Neurocognitiva · Psicología Clínica · Recursos Gratuitos</span>
+    <span class="eyebrow">Evaluación Neurocognitiva · Psicología Clínica · 9 Ebooks Gratuitos</span>
     <h1>Entender qué está pasando<br>es el primer paso para acompañar mejor.</h1>
-    <p class="lead">Un equipo de profesionales dedicado a la evaluación neurocognitiva de niños, adolescentes y adultos. Un proceso humano, basado en evidencia, que ayuda a comprender qué está sucediendo y cómo seguir. Y un ecosistema de recursos gratuitos para que empieces a entrenar tu mente hoy mismo.</p>
+    <p class="lead">Un equipo de profesionales dedicado a la evaluación neurocognitiva de niños, adolescentes y adultos. Un proceso humano, basado en evidencia, que ayuda a comprender qué está sucediendo y cómo seguir. Y una biblioteca de 9 ebooks gratuitos para que empieces a entrenar tu mente hoy mismo.</p>
     <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20entender%20qu%C3%A9%20le%20pasa%20a%20mi%20hijo." class="btn-wa" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Consultar por WhatsApp
@@ -362,7 +370,7 @@
 <!-- ECOSYSTEM STRIP -->
 <div class="ecosystem-strip">
   <div class="container">
-    <div class="eco-item"><span class="eco-icon">📖</span> Ebooks gratuitos</div>
+    <div class="eco-item"><span class="eco-icon">📖</span> 9 ebooks gratuitos</div>
     <div class="eco-item"><span class="eco-icon">🧠</span> Aura, terapeuta IA gratuita</div>
     <div class="eco-item"><span class="eco-icon">🎮</span> Software de estimulación cognitiva</div>
     <div class="eco-item"><span class="eco-icon">💬</span> Acompañamiento humano</div>
@@ -509,57 +517,121 @@
   </div>
 </section>
 
-<!-- ECOSISTEMA DE RECURSOS -->
-<section id="ecosistema" class="ecosystem-section">
+<!-- BIBLIOTECA DE EBOOKS GRATUITOS -->
+<section id="biblioteca" class="library-section">
   <div class="container">
-    <h2 class="center">Un ecosistema completo de recursos</h2>
-    <p class="lead center mx-auto">Creemos que el acceso al conocimiento y a las herramientas de entrenamiento cognitivo no debería tener barreras. Por eso, todo nuestro ecosistema digital es gratuito y está disponible para vos.</p>
+    <h2 class="center">Biblioteca de 9 ebooks gratuitos</h2>
+    <p class="lead center mx-auto">Creemos que el acceso al conocimiento y a las herramientas de entrenamiento cognitivo no debería tener barreras. Por eso, toda nuestra biblioteca es gratuita y está disponible para vos, sin registro ni costo.</p>
 
-    <div class="eco-grid">
-      <div class="eco-card">
-        <span class="eco-badge" style="background:var(--teal);">LIBRO PARA ADULTOS</span>
-        <h3>📖 El Arte de la Calma</h3>
-        <p class="eco-desc">Una guía profunda para comprender tu ansiedad, entrenar tu mente y recuperar el control de tu vida. Basada en neurociencia, psicología y mindfulness. Incluye ejercicios prácticos y un cuaderno de trabajo imprimible.</p>
-        <a href="https://winebox.clinic/calma" target="_blank" rel="noopener" class="eco-link">Leer gratis</a>
+    <div class="library-grid">
+
+      <!-- 1. CALMA ADULTOS -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--teal);">Ansiedad · Adultos</span>
+        <span class="lib-icon">📖</span>
+        <h3>El Arte de la Calma</h3>
+        <p class="lib-desc">Comprende tu ansiedad, entrena tu mente y recupera el control de tu vida. Basado en neurociencia, psicología y mindfulness. Incluye ejercicios prácticos y un cuaderno de trabajo imprimible.</p>
+        <a href="https://winebox.clinic/calma" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
       </div>
-      <div class="eco-card">
-        <span class="eco-badge" style="background:var(--violet);">LIBRO PARA PADRES</span>
-        <h3>📖 El Arte de la Calma · Niños</h3>
-        <p class="eco-desc">Cuando el juego se vuelve una guerra: cómo calmar a tu hijo sin pelear. Una guía para padres que quieren entender la ansiedad infantil y acompañar a sus hijos de 7 a 17 años con herramientas concretas.</p>
-        <a href="https://winebox.clinic/kids" target="_blank" rel="noopener" class="eco-link">Leer gratis</a>
+
+      <!-- 2. DISTIMIA -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--violet);">Depresión · Adultos</span>
+        <span class="lib-icon">🌧️</span>
+        <h3>Distimia y Depresión</h3>
+        <p class="lib-desc">Protocolo de activación conductual para atravesar la distimia, la depresión y los estados pre y post depresivos. Con juegos de acción, reestructuración cognitiva y herramientas prácticas.</p>
+        <a href="https://winebox.clinic/distimia" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
       </div>
-      <div class="eco-card">
-        <span class="eco-badge" style="background:var(--amber);">LIBRO TÉCNICO</span>
-        <h3>📖 IA Precódigo</h3>
-        <p class="eco-desc">Bajá el uso de tokens y optimizá tu código en pocos pasos. Un libro que combina neurociencia, desarrollo de software e inteligencia artificial. Con recursos de acompañamiento psicológico para perfiles tech.</p>
-        <a href="https://wineboxtool.cloud/precodigo" target="_blank" rel="noopener" class="eco-link">Leer gratis</a>
+
+      <!-- 3. DUELO -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--slate);">Duelo · Adultos</span>
+        <span class="lib-icon">🕯️</span>
+        <h3>La Pérdida y el Duelo</h3>
+        <p class="lib-desc">Protocolo honesto de acompañamiento: qué puede y qué no puede hacer la terapia gameficada. Guía para personas en duelo, familiares y terapeutas. Sin promesas vacías, con presencia.</p>
+        <a href="https://winebox.clinic/duelo" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
       </div>
+
+      <!-- 4. ICTUS -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--night);">Rehabilitación · Adultos</span>
+        <span class="lib-icon">🧠</span>
+        <h3>Método WineBOX ICTUS</h3>
+        <p class="lib-desc">Protocolo de estimulación y rehabilitación cognitiva post-ictus. 8 semanas, 30 ejercicios, 4 dominios clínicos. Con acceso directo a los juegos y guía para terapeutas, pacientes y familias.</p>
+        <a href="https://winebox.clinic/ictus" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
+      </div>
+
+      <!-- 5. KIDS -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--violet);">Ansiedad · Niños</span>
+        <span class="lib-icon">🧸</span>
+        <h3>El Arte de la Calma · Niños</h3>
+        <p class="lib-desc">Cuando el juego se vuelve una guerra: cómo calmar a tu hijo sin pelear. Guía para padres que quieren entender la ansiedad infantil y acompañar a sus hijos de 7 a 17 años con herramientas concretas.</p>
+        <a href="https://winebox.clinic/kids" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
+      </div>
+
+      <!-- 6. MEMORIA / DEMENCIA -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--forest);">Demencia · Adultos Mayores</span>
+        <span class="lib-icon">🌿</span>
+        <h3>Memoria y Demencia</h3>
+        <p class="lib-desc">Protocolo de estimulación cognitiva para personas con Alzheimer, demencia senil y demencia frontotemporal. Guía para cuidadores, familiares y terapeutas. Juegos clásicos accesibles desde el eBook.</p>
+        <a href="https://winebox.clinic/memoria" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
+      </div>
+
+      <!-- 7. PROCRASTINACIÓN -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--orange);">Productividad · Todos</span>
+        <span class="lib-icon">⏰</span>
+        <h3>Dejalo para después</h3>
+        <p class="lib-desc">Protocolo anti-procrastinación asistido por videojuegos. Cómo convertir la postergación en acción concreta. La regla de los 2 minutos, el Pomodoro y el sistema flexible de tres versiones.</p>
+        <a href="https://winebox.clinic/procastinar" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
+      </div>
+
+      <!-- 8. RUPTURA -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--rose);">Duelo amoroso · Adultos</span>
+        <span class="lib-icon">💔</span>
+        <h3>Rupturas y Después</h3>
+        <p class="lib-desc">Protocolo de acompañamiento y activación conductual para atravesar el final de una relación. Cómo interrumpir la rumiación, regular la emoción y reconstruir la identidad después de una ruptura.</p>
+        <a href="https://winebox.clinic/ruptura" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
+      </div>
+
+      <!-- 9. TRABAJO -->
+      <div class="library-card">
+        <span class="lib-badge" style="background:var(--wa);">Búsqueda laboral · Todos</span>
+        <span class="lib-icon">💼</span>
+        <h3>21 Días para Conseguir Trabajo</h3>
+        <p class="lib-desc">Manual práctico para conseguir trabajo en 21 días. Entrenamiento de reflejos con juegos, optimización de CV y LinkedIn, preparación de entrevistas y acceso a trabajos remotos en dólares.</p>
+        <a href="https://winebox.clinic/work" target="_blank" rel="noopener" class="lib-link">Leer gratis</a>
+      </div>
+
     </div>
 
     <!-- AURA -->
-    <div style="margin-top:32px;">
-      <div class="eco-card" style="text-align:center; align-items:center;">
-        <span class="eco-badge" style="background:var(--wa);">IA GRATUITA · 24/7</span>
-        <div style="font-size:2.5rem; margin-bottom:12px;">🧠</div>
-        <h3>Aura · Tu acompañante terapéutico digital</h3>
-        <p class="eco-desc" style="max-width:600px; margin-left:auto; margin-right:auto;">Una IA diseñada para acompañarte en el día a día, brindarte orientación inicial y apoyo psicoeducativo. Funciona offline, sin límites de uso, y está disponible para todos. Aura no diagnostica ni receta: te escucha, te orienta y te acompaña mientras entrenás tu calma.</p>
-        <a href="https://winebox.cloud/aura.html" target="_blank" rel="noopener" class="eco-link" style="font-size:1.05rem;">Probar Aura gratis</a>
+    <div style="margin-top:36px;">
+      <div class="library-card" style="text-align:center; align-items:center; max-width:780px; margin:0 auto;">
+        <span class="lib-badge" style="background:var(--wa);">IA GRATUITA · 24/7</span>
+        <div style="font-size:2.8rem; margin-bottom:14px;">🧠</div>
+        <h3 style="font-size:1.35rem;">Aura · Tu acompañante terapéutico digital</h3>
+        <p class="lib-desc" style="max-width:600px; margin-left:auto; margin-right:auto; font-size:0.95rem;">Una IA diseñada para acompañarte en el día a día, brindarte orientación inicial y apoyo psicoeducativo. Funciona offline, sin límites de uso, y está disponible para todos. Aura no diagnostica ni receta: te escucha, te orienta y te acompaña mientras entrenás tu calma.</p>
+        <a href="https://winebox.cloud/aura.html" target="_blank" rel="noopener" class="lib-link" style="font-size:1.05rem;">Probar Aura gratis</a>
       </div>
     </div>
 
     <!-- SOFTWARE -->
-    <div style="margin-top:32px;">
-      <div class="eco-card" style="text-align:center; align-items:center;">
-        <span class="eco-badge" style="background:var(--brand);">PLATAFORMA DE ESTIMULACIÓN COGNITIVA</span>
-        <div style="font-size:2.5rem; margin-bottom:12px;">🎮</div>
-        <h3>WineBOX · Entrenamiento cognitivo con juegos clásicos</h3>
-        <p class="eco-desc" style="max-width:600px; margin-left:auto; margin-right:auto;">Más de 150 juegos clásicos de baja fidelidad visual, diseñados para fortalecer atención, planificación, control de impulsos y regulación emocional. Accesible desde cualquier dispositivo, sin costo. Ideal para complementar el trabajo terapéutico y entrenar la mente de forma lúdica.</p>
-        <a href="https://winebox.cloud" target="_blank" rel="noopener" class="eco-link" style="font-size:1.05rem;">Explorar WineBOX</a>
+    <div style="margin-top:24px;">
+      <div class="library-card" style="text-align:center; align-items:center; max-width:780px; margin:0 auto;">
+        <span class="lib-badge" style="background:var(--brand);">PLATAFORMA DE ESTIMULACIÓN COGNITIVA</span>
+        <div style="font-size:2.8rem; margin-bottom:14px;">🎮</div>
+        <h3 style="font-size:1.35rem;">WineBOX · Entrenamiento cognitivo con juegos clásicos</h3>
+        <p class="lib-desc" style="max-width:600px; margin-left:auto; margin-right:auto; font-size:0.95rem;">Más de 150 juegos clásicos de baja fidelidad visual, diseñados para fortalecer atención, planificación, control de impulsos y regulación emocional. Accesible desde cualquier dispositivo, sin costo. Es la misma plataforma que usan todos los ebooks.</p>
+        <a href="https://winebox.cloud" target="_blank" rel="noopener" class="lib-link" style="font-size:1.05rem;">Explorar WineBOX</a>
       </div>
     </div>
 
     <p class="ethics-note" style="margin-top:48px;">
-      <strong>Importante:</strong> Los ebooks, la IA Aura y la plataforma WineBOX son herramientas de apoyo educativo y de estimulación cognitiva. No constituyen diagnóstico, tratamiento ni reemplazan la consulta con un profesional de la salud mental. Su uso es gratuito y no genera relación profesional-paciente.
+      <strong>Importante:</strong> Los 9 ebooks, la IA Aura y la plataforma WineBOX son herramientas de apoyo educativo y de estimulación cognitiva. No constituyen diagnóstico, tratamiento ni reemplazan la consulta con un profesional de la salud mental. Su uso es gratuito y no genera relación profesional-paciente.
     </p>
   </div>
 </section>
@@ -593,7 +665,7 @@
     <div class="faq">
       <details class="faq-item"><summary>¿Cuál es la diferencia entre los servicios?</summary><p>La <strong>Evaluación de Orientación</strong> es una instancia inicial para conocer el motivo de consulta. El <strong>Apto Psicológico</strong> es una evaluación con documentación oficial firmada y sellada para trámites. La <strong>Evaluación Neurocognitiva</strong> es un proceso completo de dos sesiones con informe profesional y plan de orientación.</p></details>
       <details class="faq-item"><summary>¿Cómo consulto los honorarios?</summary><p>Escribinos por WhatsApp y te orientamos. Los honorarios se informan de manera personalizada al coordinar la consulta, en línea con las normas éticas de la profesión psicológica. Cada caso es distinto y preferimos conversarlo antes de darte un número.</p></details>
-      <details class="faq-item"><summary>¿Los recursos gratuitos (ebooks, Aura, WineBOX) son realmente gratis?</summary><p>Sí, completamente gratuitos. Creemos que el acceso a herramientas de entrenamiento cognitivo y educación emocional no debería tener barreras. Podés leer los ebooks, usar Aura y explorar WineBOX sin costo alguno. Son herramientas de apoyo que complementan, pero no reemplazan, el trabajo profesional.</p></details>
+      <details class="faq-item"><summary>¿Los 9 ebooks son realmente gratis?</summary><p>Sí, los 9 ebooks son completamente gratuitos. Creemos que el acceso a herramientas de entrenamiento cognitivo y educación emocional no debería tener barreras. Podés leerlos todos sin registro ni costo. Son herramientas de apoyo que complementan, pero no reemplazan, el trabajo profesional.</p></details>
       <details class="faq-item"><summary>¿Aura reemplaza a un terapeuta?</summary><p>No. Aura es una herramienta de acompañamiento y apoyo psicoeducativo. No diagnostica, no receta y no reemplaza la consulta con un profesional de la salud mental. Es un recurso complementario que puede ayudarte en el día a día mientras entrenás tu calma.</p></details>
       <details class="faq-item"><summary>¿Cuánto tarda todo el proceso?</summary><p>Desde que escribís por WhatsApp hasta que recibís el informe final: 3 a 5 días hábiles. La sesión inicial dura 30-45 minutos.</p></details>
       <details class="faq-item"><summary>¿El informe reemplaza un diagnóstico médico?</summary><p>No. Es una herramienta de orientación. El informe es una hipótesis de trabajo que debe ser interpretada por un profesional. Nunca sustituye una consulta médica ni un tratamiento psiquiátrico.</p></details>
@@ -630,7 +702,7 @@
     </div>
     <div class="footer-disclaimer">
       © 2026 WineBOX Clinic. Todos los derechos reservados.<br>
-      <em>Aviso: Los servicios ofrecidos son de evaluación y orientación psicológica. No sustituyen diagnóstico ni tratamiento médico. Los ebooks, la IA Aura y la plataforma WineBOX son herramientas de apoyo educativo y de estimulación cognitiva, no constituyen diagnóstico ni tratamiento, y su uso no genera relación profesional-paciente. La información contenida en este sitio tiene fines exclusivamente informativos y no constituye una oferta de servicios. Los datos se procesan conforme a la Ley 25.326 de Protección de Datos Personales.</em>
+      <em>Aviso: Los servicios ofrecidos son de evaluación y orientación psicológica. No sustituyen diagnóstico ni tratamiento médico. Los 9 ebooks, la IA Aura y la plataforma WineBOX son herramientas de apoyo educativo y de estimulación cognitiva, no constituyen diagnóstico ni tratamiento, y su uso no genera relación profesional-paciente. La información contenida en este sitio tiene fines exclusivamente informativos y no constituye una oferta de servicios. Los datos se procesan conforme a la Ley 25.326 de Protección de Datos Personales.</em>
     </div>
   </div>
 </footer>

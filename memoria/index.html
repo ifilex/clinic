@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · Protocolo de Estimulación Cognitiva para Demencias</title>
+
+<meta name="dc:title" content="Método WineBOX · Protocolo de Estimulación Cognitiva para Demencias">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Protocolo de estimulación cognitiva asistida por videojuegos de baja fidelidad visual para personas con Alzheimer, demencia senil y demencia frontotemporal. Guía para cuidadores, familiares y terapeutas.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #2E5266;
+    --primary-dark: #1E3A4A;
+    --primary-light: #4A7589;
+    --accent: #D98E4A;
+    --accent-dark: #B87333;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #EAF0F3;
+    --soft-green: #E8F3EC;
+    --soft-amber: #FBF1E2;
+    --soft-rose: #F7E9E9;
+    --alert: #B85450;
+    --play: #2E8B57;
+    --warm: #C97B5D;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 45%, var(--warm) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(217,142,74,0.18) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 760px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: var(--accent); display: block; font-size: 0.8em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.92; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(217,142,74,0.5); border-radius: 20px; color: var(--accent); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-rose); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--alert); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--alert); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--accent-dark); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--primary); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--primary); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-blue);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-amber);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '📌 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--accent-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-blue) 100%); border-left: 4px solid var(--primary); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid #2E8B57; }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--accent); }
+  .callout.warning strong { color: var(--accent-dark); }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.exercise { background: var(--soft-rose); border-left: 4px solid #B85450; }
+  .callout.exercise strong { color: #8B3A36; }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--primary); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.7;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(46,82,102,0.14); border-color: var(--primary); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: #1F6B41; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+  .ex-card .no-play {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--soft-blue); color: var(--primary-dark);
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* WEEK CARD */
+  .week-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .week-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .week-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(217,142,74,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--primary-dark);
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); color: #fff; }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--primary); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 14px; }
+  .sheet-body table th { font-size: 10.5px; padding: 9px 11px; }
+  .sheet-body table td { padding: 12px 11px; height: 36px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  .checkbox-list { list-style: none; margin-left: 0; }
+  .checkbox-list li { padding: 12px 10px 12px 40px; position: relative; border-bottom: 1px dashed #cbd5e1; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14.5px; }
+  .checkbox-list li::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1.5px solid var(--primary-dark); border-radius: 3px; }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--accent); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cream); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(46,82,102,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--accent) !important; }
+    .cover-tags span { color: var(--accent) !important; border-color: var(--accent) !important; }
+    .cover-brand, .cover-author { color: var(--accent) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-rose) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .week-card, .summary, .next-step, .ex-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+    .checkbox-list li { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--accent) !important; }
+    .cta-box { background: rgba(217,142,74,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: var(--primary-dark) !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Clínica</div>
+    <h1>Método<br><em>WineBOX</em></h1>
+    <p class="cover-subtitle">Protocolo de Estimulación Cognitiva para Personas con Demencia<br>Alzheimer · Demencia Senil · Demencia Frontotemporal</p>
+    <p class="cover-audience">Guía para cuidadores, familiares y terapeutas · Juegos accesibles desde el eBook</p>
+    <div class="cover-tags">
+      <span>Estimulación Cognitiva</span><span>Demencia</span><span>Juegos Clásicos</span><span>Tablet &amp; Móvil</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia Clínica y Criterios de Seguridad</div>
+    <h2>Leer antes de aplicar el protocolo</h2>
+    <p><strong>Este protocolo NO debe utilizarse como única intervención en personas con demencia.</strong> Debe integrarse en un plan de estimulación cognitiva coordinado por un equipo cualificado de neurología, neuropsicología y terapia ocupacional.</p>
+    <p>La fatiga cognitiva, la labilidad emocional y las fluctuaciones atencionales propias de la demencia exigen pausas frecuentes. Ante signos de sobrecarga o desregulación, <strong>suspenda la sesión inmediatamente</strong>.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Banderas rojas para suspender la tarea</h3>
+    <ol>
+      <li>Agitación psicomotriz, agresividad verbal o física.</li>
+      <li>Llanto inconsolable o angustia desbordada.</li>
+      <li>Confusión aguda o desorientación súbita.</li>
+      <li>Caída abrupta del rendimiento o abandono de la tarea.</li>
+      <li>Quejas de dolor, mareo o malestar físico.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y estimulación cognitiva. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento médico, farmacológico o neuropsicológico prescrito por un especialista.</strong> Su aplicación en demencia es una adaptación clínica razonada.</p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del paciente o su representante legal, y estricta confidencialidad de las fichas de seguimiento, según la normativa de derechos del paciente (Ley 26.529 y Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y corazón</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Introducción</span>Cap. 1 Bienvenida al Método WineBOX Demencias</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Introducción</span>Cap. 2 Carta al cuidador y a la familia</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Fundamentos</span>Cap. 3 Por qué los juegos funcionan</a></li>
+      <li><a href="#cap4"><span class="part">Parte III · Protocolo</span>Cap. 4 Estructura de las sesiones</a></li>
+      <li><a href="#cap5"><span class="part">Parte IV · Ejercicios</span>Cap. 5 Dominio 1 · Memoria y reminiscencia</a></li>
+      <li><a href="#cap6"><span class="part">Parte IV · Ejercicios</span>Cap. 6 Dominio 2 · Atención y lenguaje</a></li>
+      <li><a href="#cap7"><span class="part">Parte IV · Ejercicios</span>Cap. 7 Dominio 3 · Funciones ejecutivas</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · Ejercicios</span>Cap. 8 Dominio 4 · Comprensión y acción (con terapeuta)</a></li>
+      <li><a href="#cap9"><span class="part">Parte V · Registro</span>Cap. 9 Seguimiento y consentimiento informado</a></li>
+      <li><a href="#cap10"><span class="part">Parte VI · Cierre</span>Cap. 10 Decálogo del cuidador</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno del cuidador</span>Hojas imprimibles y anexos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida al Método WineBOX Demencias</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay un momento, después del diagnóstico, en el que el mundo se detiene. La palabra "demencia" cae como una losa. Y de repente, todo lo que parecía estable se vuelve incierto: los nombres, las rutinas, las conversaciones, los rostros.</p>
+
+    <p>Este manual nace de ese momento. Nace de la certeza de que <strong>la persona sigue estando ahí</strong>, aunque la memoria se resista. Y de la convicción de que la estimulación cognitiva no tiene por qué ser árida, infantilizante ni frustrante.</p>
+
+    <blockquote>
+      <p>«No se trata de recuperar lo que se perdió, sino de sostener lo que todavía está. Cada partida de dominó, cada sopa de letras, cada canción recordada a medias, es un acto de presencia. Y la presencia es, quizás, el mejor tratamiento que existe.»</p>
+      <cite>— Mensaje al cuidador, Método WineBOX Demencias</cite>
+    </blockquote>
+
+    <h2>Qué es el Método WineBOX Demencias</h2>
+    <p>El Método WineBOX Demencias es un <strong>protocolo estructurado de estimulación cognitiva</strong> que utiliza juegos clásicos digitalizados de baja fidelidad visual como vehículo terapéutico. Está diseñado específicamente para personas con Alzheimer, demencia senil y demencia frontotemporal, en fases leve a moderada, que presentan pérdida progresiva de memoria y otras funciones cognitivas.</p>
+
+    <p>El protocolo se organiza en <strong>sesiones diarias de 15 a 20 minutos</strong>, con ejercicios agrupados en cuatro dominios clínicos: memoria y reminiscencia, atención y lenguaje, funciones ejecutivas, y comprensión y acción. Cada sesión está calibrada para no inducir fatiga cognitiva y maximizar la experiencia de éxito.</p>
+
+    <div class="callout tip">
+      <strong>🎮 Los juegos están a un clic</strong>
+      Cada ejercicio de este eBook tiene un botón <strong>▶ Jugar ahora</strong> que abre directamente el juego en tu navegador o tablet. No hace falta instalar nada, ni registrarse. Y si querés explorar todos los juegos disponibles, al final del libro tenés acceso a la plataforma completa.
+    </div>
+
+    <h2>Por qué juegos clásicos</h2>
+    <p>Los juegos de mesa y las actividades de lápiz y papel han sido utilizados durante décadas en programas de estimulación cognitiva para personas mayores. La evidencia respalda su efectividad: <strong>actividades como juegos de mesa, sopas de letras y rompecabezas han demostrado ser efectivas para fortalecer la atención, la memoria y la concentración</strong>.</p>
+
+    <p>Un estudio longitudinal de 68 años con más de 1.000 participantes encontró que <strong>quienes jugaban juegos de mesa con mayor frecuencia mostraban un declive cognitivo significativamente menor en la vejez</strong>, incluyendo memoria y velocidad de procesamiento. <a href="#ref1" class="cite">Altschul &amp; Deary, 2020 <span class="cite-ref">[1]</span></a> Los juegos de mesa como el dominó, el bingo o la lotería fomentan la atención, la memoria, el pensamiento estratégico y la interacción social. <a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a></p>
+
+    <p>La ventaja de WineBOX es que digitaliza estos juegos clásicos con una interfaz minimalista, accesible desde cualquier tablet o teléfono. <strong>No requiere destreza tecnológica</strong>, ni conexión a internet permanente, y está diseñado para ser usado tanto por el cuidador en casa como por el terapeuta en consulta.</p>
+
+    <div class="footnote">
+      <strong>¿Qué dice exactamente la evidencia?</strong> El estudio de Altschul y Deary (2020) siguió a 1.091 personas nacidas en 1936 durante 68 años. Midieron la frecuencia con la que jugaban juegos de mesa a los 70 y 76 años, y les hicieron pruebas cognitivas a los 70, 73, 76 y 79 años. Quienes jugaban más seguido tenían menos declive en memoria y velocidad de procesamiento. No es magia: es estimulación sostenida.
+    </div>
+
+    <div class="callout info">
+      <strong>Regla de oro del método</strong>
+      El objetivo no es el puntaje. Es <strong>sostener la atención, activar la memoria y generar bienestar</strong>. Si la persona se equivoca, está bien. Si abandona la tarea, está bien. Lo que importa es el tiempo compartido y la activación cognitiva.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El Método WineBOX Demencias es un protocolo de estimulación cognitiva con juegos clásicos digitalizados.</li>
+        <li>Está diseñado para Alzheimer, demencia senil y demencia frontotemporal en fases leve a moderada.</li>
+        <li>Los juegos son accesibles desde el eBook con un solo clic, sin instalación.</li>
+        <li>El objetivo no es el rendimiento, sino la activación cognitiva y el bienestar.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en los fundamentos técnicos, queremos dirigirnos directamente a quien sostiene el día a día: al cuidador, al familiar, al que está al lado. En el próximo capítulo vas a encontrar una carta escrita para vos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta al cuidador y a la familia</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para quien está al lado, sosteniendo. Si sos terapeuta, leelo también: te va a recordar por qué hacemos lo que hacemos.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido cuidador, querida familia:</p>
+
+    <p>Sabemos que es agotador. Que muchas veces no sabés qué decir, cuándo insistir, cuándo dejar descansar. Que a veces la frustración se te escapa y después te sentís culpable. Que hay días en los que todo parece retroceder, y otros en los que una pequeña victoria te llena el alma.</p>
+
+    <p>Tu rol en este método es central. <strong>No sos un observador pasivo. Sos el andamiaje.</strong> Tu tarea no es "hacer que recuerde". Es <strong>acompañar</strong>.</p>
+
+    <p>Los estudios sobre estimulación cognitiva individual en demencia han mostrado algo importante: <strong>aunque la cognición no siempre mejore significativamente, la calidad de la relación entre la persona con demencia y su cuidador sí mejora</strong>. Los cuidadores reportan que las sesiones hacen que el tiempo compartido sea mucho más gratificante. Y esa mejora en la relación se asocia con menos depresión en el cuidador y menos riesgo de institucionalización. <a href="#ref3" class="cite">Orrell et al., 2014 <span class="cite-ref">[3]</span></a> <a href="#ref4" class="cite">Yates et al., 2016 <span class="cite-ref">[4]</span></a></p>
+
+    <p>O sea: <strong>el juego no es solo para el paciente. Es para ustedes dos.</strong> Es una excusa para estar juntos, para reírse de un error, para recordar una canción, para sostener una conversación que de otro modo no sucedería.</p>
+
+    <div class="footnote">
+      <strong>¿Qué midió exactamente el estudio iCST?</strong> Orrell y colaboradores (2014) hicieron un ensayo clínico aleatorizado, multicéntrico, en el Reino Unido, con 356 díadas cuidador-paciente. El grupo experimental recibió 30 minutos de estimulación cognitiva individual en casa, dos veces por semana, durante 25 semanas. Los resultados cognitivos no mostraron diferencias significativas, pero <em>la calidad de la relación cuidador-paciente y la calidad de vida del cuidador sí mejoraron significativamente</em>. Eso es lo importante: el vínculo.
+    </div>
+
+    <h2>Tu rol en cinco claves</h2>
+    <ul>
+      <li><strong>Celebrá el intento, no el resultado.</strong> No importa si completó la sopa de letras: importa que la empezó, que se sentó, que lo intentó.</li>
+      <li><strong>Acompañá sin corregir.</strong> Si se equivoca, no lo corrijas de inmediato. Dejalo procesar. Después preguntale si quiere seguir o si prefiere otra cosa.</li>
+      <li><strong>Respetá los tiempos.</strong> 15 minutos son 15 minutos. Si a los 5 minutos ya no quiere más, se termina. No hay fracaso.</li>
+      <li><strong>Hablá con voz suave y pausada.</strong> Las instrucciones simples, de una en una, funcionan mejor que las explicaciones largas.</li>
+      <li><strong>Usá el juego como excusa para conversar.</strong> "¿Te acordás de cuando jugabas al dominó con tu papá?" Ese es el verdadero ejercicio: la reminiscencia.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Recordatorio importante</strong>
+      Este manual es una herramienta de apoyo. No reemplaza el tratamiento médico ni la evaluación neuropsicológica. Si observás cambios bruscos en la conducta, el estado de ánimo o la cognición, consultá con el equipo tratante.
+    </div>
+
+    <p>El camino es largo, pero no lo están caminando solos. Este manual es una herramienta, y nosotros estamos del otro lado del WhatsApp si necesitan orientación profesional.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y esperanza,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás orientación para acompañar a un familiar con demencia?</h3>
+      <p>Escribinos por WhatsApp. Te vamos a escuchar, orientar y, si hace falta, acompañar profesionalmente. No estás solo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20necesito%20orientaci%C3%B3n%20para%20acompa%C3%B1ar%20a%20un%20familiar%20con%20demencia." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El cuidador es el andamiaje, no un observador pasivo.</li>
+        <li>El objetivo no es que recuerde, es acompañar.</li>
+        <li>El juego mejora la relación cuidador-paciente y reduce el riesgo de institucionalización.</li>
+        <li>Celebrá el intento, no el resultado. Respetá los tiempos.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte técnica. En el próximo capítulo vamos a ver por qué los juegos funcionan: la evidencia, los mecanismos cerebrales y las ventajas de la baja fidelidad visual.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Por qué los juegos funcionan</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo responde a la pregunta más importante: <strong>¿por qué jugar puede ayudar a una persona con demencia?</strong> No es una creencia. Es neurociencia y evidencia clínica.</p>
+
+    <h2>3.1 · La plasticidad cerebral no desaparece</h2>
+    <p>Aunque la capacidad de plasticidad cerebral disminuye con la edad y con la enfermedad, <strong>no desaparece completamente</strong>. Investigaciones recientes demuestran que actividades estructuradas pueden generar mejoras en la conectividad sináptica y en el rendimiento cognitivo, incluso en adultos mayores con deterioro leve. <a href="#ref5" class="cite">Ball et al., 2002 <span class="cite-ref">[5]</span></a> <a href="#ref6" class="cite">Rebok et al., 2014 <span class="cite-ref">[6]</span></a></p>
+
+    <p>La teoría de la <strong>reserva cognitiva</strong> postula que el cerebro puede compensar el daño estructural mediante la activación de circuitos alternativos, siempre que haya sido estimulado previamente a través del aprendizaje, la lectura, el juego, la socialización. <a href="#ref7" class="cite">Stern, 2002 <span class="cite-ref">[7]</span></a> <a href="#ref8" class="cite">Stern, 2012 <span class="cite-ref">[8]</span></a> El juego es, precisamente, uno de esos estímulos.</p>
+
+    <div class="footnote">
+      <strong>¿Qué es la reserva cognitiva?</strong> Es la capacidad del cerebro de tolerar mejor el daño. Imaginate dos personas con el mismo grado de lesión cerebral: una que estudió, leyó, jugó y socializó toda su vida; otra que no. La primera tiene más "reserva" y puede seguir funcionando mejor, porque su cerebro tiene más caminos alternativos. El juego construye reserva.
+    </div>
+
+    <h2>3.2 · Qué dice la evidencia sobre los juegos clásicos</h2>
+
+    <table>
+      <thead>
+        <tr><th>Juego</th><th>Función estimulada</th><th>Referencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dominó, cartas, bingo</td><td>Atención, memoria, pensamiento estratégico, interacción social</td><td><a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a></td></tr>
+        <tr><td>Sopa de letras</td><td>Concentración visual, memoria semántica, reconocimiento de patrones</td><td><a href="#ref9" class="cite">Bottiroli et al., 2008 <span class="cite-ref">[9]</span></a></td></tr>
+        <tr><td>Simon (secuencias)</td><td>Memoria a corto plazo, atención sostenida</td><td><a href="#ref10" class="cite">Salthouse, 2006 <span class="cite-ref">[10]</span></a></td></tr>
+        <tr><td>Rompecabezas</td><td>Percepción espacial, coordinación visomotriz, razonamiento lógico</td><td><a href="#ref9" class="cite">Bottiroli et al., 2008 <span class="cite-ref">[9]</span></a></td></tr>
+        <tr><td>Juegos de acción (FPS)</td><td>Atención, discriminación visual, velocidad de procesamiento</td><td><a href="#ref11" class="cite">Green &amp; Bavelier, 2003 <span class="cite-ref">[11]</span></a> <a href="#ref12" class="cite">Anguera et al., 2013 <span class="cite-ref">[12]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout warning">
+      <strong>⚠ Una advertencia importante</strong>
+      Los juegos de "entrenamiento cerebral" genéricos <strong>no tienen evidencia sólida</strong> de beneficio clínico significativo en Alzheimer. <a href="#ref13" class="cite">Simons et al., 2016 <span class="cite-ref">[13]</span></a> Lo que funciona es la <strong>estimulación cognitiva estructurada</strong>, con sesiones planificadas, temáticas y guiadas por un profesional o cuidador entrenado. WineBOX no es un "juego de entrenamiento cerebral": es una herramienta dentro de un protocolo estructurado.
+    </div>
+
+    <h2>3.3 · La ventaja de la baja fidelidad visual</h2>
+    <p>Los videojuegos comerciales abruman con estímulos visuales hiperrealistas, efectos, música y notificaciones. En el cerebro con demencia, esta sobrecarga <strong>colapsa los recursos atencionales disponibles</strong>.</p>
+
+    <p>La baja fidelidad visual de WineBOX (estilo pixel art y 8-bits) <strong>libera capacidad de trabajo</strong> para el control ejecutivo y la interacción. Este principio se apoya en la <strong>Teoría de la Carga Cognitiva</strong>, que distingue entre carga extrínseca (la que impone el diseño) y carga intrínseca (la de la tarea en sí). Al minimizar la extrínseca, se libera capacidad para la intrínseca. <a href="#ref14" class="cite">Sweller, 1988 <span class="cite-ref">[14]</span></a> <a href="#ref15" class="cite">Sweller, 2010 <span class="cite-ref">[15]</span></a> <a href="#ref16" class="cite">Mayer &amp; Moreno, 2003 <span class="cite-ref">[16]</span></a></p>
+
+    <div class="footnote">
+      <strong>Ejemplo simple de carga cognitiva:</strong> Si le pedís a alguien que sume 2+2 mientras mira una película de acción, le va a costar más que si lo hace en silencio. La película es "carga extrínseca": no tiene nada que ver con la suma, pero consume recursos. WineBOX elimina la película. Deja solo la suma.
+    </div>
+
+    <h2>3.4 · Lo que la evidencia dice sobre CST</h2>
+    <p>La <strong>Terapia de Estimulación Cognitiva (CST, por sus siglas en inglés)</strong> es una de las intervenciones no farmacológicas más investigadas para personas con demencia, con más de 20 años de evidencia acumulada. <a href="#ref17" class="cite">Spector et al., 2003 <span class="cite-ref">[17]</span></a> <a href="#ref18" class="cite">Woods et al., 2012 <span class="cite-ref">[18]</span></a> Los estudios controlados han mostrado mejoras significativas en cognición global, estado de ánimo e independencia funcional en personas con demencia leve que recibieron estimulación cognitiva individual en casa durante un año. <a href="#ref3" class="cite">Orrell et al., 2014 <span class="cite-ref">[3]</span></a></p>
+
+    <p>Los programas de CST estructurada típicamente consisten en <strong>14 sesiones de 45 minutos, dos veces por semana durante 7 semanas</strong>, con actividades temáticas como juegos de palabras, actualidad, creatividad y orientación a la realidad. <a href="#ref17" class="cite">Spector et al., 2003 <span class="cite-ref">[17]</span></a> WineBOX Demencias adapta estos principios a un formato más flexible, digital y accesible desde casa.</p>
+
+    <div class="footnote">
+      <strong>¿Qué es la CST?</strong> Es un programa estructurado de actividades grupales o individuales, diseñado específicamente para personas con demencia leve a moderada. No es "hacer cualquier cosa": es un protocolo con sesiones planificadas, objetivos claros y materiales específicos. La revisión Cochrane (Woods et al., 2012) concluyó que la CST mejora la cognición y la calidad de vida. Es el estándar de oro de la estimulación cognitiva no farmacológica.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La plasticidad cerebral no desaparece: la estimulación estructurada puede generar mejoras.</li>
+        <li>Los juegos clásicos (dominó, sopa de letras, Simon) tienen respaldo en la literatura.</li>
+        <li>Los "juegos de entrenamiento cerebral" genéricos no tienen evidencia sólida.</li>
+        <li>La Terapia de Estimulación Cognitiva (CST) es la intervención no farmacológica más investigada.</li>
+        <li>La baja fidelidad visual reduce la sobrecarga y libera recursos atencionales.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los fundamentos claros, entramos en el protocolo de aplicación. En el próximo capítulo vas a ver la estructura completa de las sesiones, los criterios de progresión y cómo manejar la fatiga cognitiva.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte III</div>
+    <h1 class="chapter-title">Estructura de las sesiones</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe el corazón operativo del método. Es la parte que responde a la pregunta: <strong>¿cómo se aplica el protocolo día a día?</strong></p>
+
+    <h2>4.1 · Estructura temporal en cuatro dominios</h2>
+
+    <table>
+      <thead>
+        <tr><th>Dominio</th><th>Foco</th><th>Juegos</th><th>Frecuencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>Memoria y reminiscencia</td><td>Dominó, Generala, Escoba de 15, Rec</td><td>2-3 veces por semana</td></tr>
+        <tr><td><strong>2</strong></td><td>Atención y lenguaje</td><td>Sopa de letras, Sequence (Simon), Sudoku</td><td>2-3 veces por semana</td></tr>
+        <tr><td><strong>3</strong></td><td>Funciones ejecutivas</td><td>Damas, Chinchón, Solitaire</td><td>1-2 veces por semana</td></tr>
+        <tr><td><strong>4</strong></td><td>Comprensión y acción (con terapeuta)</td><td>FreeDoom, Laberintos simples</td><td>1 vez por semana, con supervisión</td></tr>
+      </tbody>
+    </table>
+
+    <p>El orden no es azaroso. Cada dominio prepara el siguiente. La memoria y la reminiscencia activan la identidad. La atención y el lenguaje sostienen la comunicación. Las funciones ejecutivas entrenan la planificación. Y la comprensión y acción, siempre con el terapeuta presente, evalúan la capacidad de entender y sostener una tarea compleja.</p>
+
+    <h2>4.2 · Estructura de la sesión tipo (15-20 minutos)</h2>
+
+    <div class="session-card">
+      <h4>Bienvenida y orientación · 3 minutos</h4>
+      <div class="session-meta">Activación</div>
+      <p>Se comienza con una conversación breve: <em>¿Qué día es hoy? ¿Cómo te sentís? ¿Qué desayunaste?</em> La orientación a la realidad es una técnica clásica de CST. No se corrige si se equivoca: se acompaña. <a href="#ref17" class="cite">Spector et al., 2003 <span class="cite-ref">[17]</span></a></p>
+    </div>
+
+    <div class="session-card">
+      <h4>Actividad principal · 10-12 minutos</h4>
+      <div class="session-meta">Foco clínico</div>
+      <p>Se aplica el juego correspondiente al dominio del día. El cuidador o terapeuta <strong>observa</strong>: ¿cómo sostiene la atención? ¿cómo reacciona al error? ¿cómo se comunica? No se interpreta, se registra.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Cierre y reminiscencia · 3-5 minutos</h4>
+      <div class="session-meta">Reflexión</div>
+      <p>Preguntas guía: <em>¿Te gustó? ¿Te acordás de algo parecido? ¿Jugabas a esto cuando eras chico?</em> Este cierre es tan importante como el juego mismo: activa la memoria episódica y la identidad. <a href="#ref19" class="cite">Woods et al., 2018 <span class="cite-ref">[19]</span></a></p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Principio de sesión única diaria</strong>
+      Se recomienda una sola sesión por día, en el mismo horario, para favorecer la rutina. La consistencia vence a la intensidad. Mejor 15 minutos todos los días que una hora una vez por semana.
+    </div>
+
+    <h2>4.3 · Criterios de progresión y ajuste</h2>
+
+    <table>
+      <thead>
+        <tr><th>Situación</th><th>Indicador</th><th>Acción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>La persona disfruta y sostiene</strong></td><td>Participa activamente, se ríe, pide más</td><td>Continuar con el mismo juego o subir un nivel.</td></tr>
+        <tr><td><strong>La persona se frustra</strong></td><td>Se enoja, abandona, se angustia</td><td>Bajar dificultad, cambiar de juego o terminar la sesión.</td></tr>
+        <tr><td><strong>La persona se distrae</strong></td><td>Mira para otro lado, no responde</td><td>Reducir estímulos ambientales, acercar la tablet, usar voz suave.</td></tr>
+        <tr><td><strong>La persona está agitada</strong></td><td>Agresividad, llanto, desorientación</td><td>Detener la sesión. No insistir. Aplicar contención.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4.4 · Manejo de la fatiga cognitiva</h2>
+    <p>La fatiga cognitiva es real en demencia. Estos son los ajustes que funcionan:</p>
+    <ul>
+      <li><strong>Reducir la demanda temporal.</strong> Fraccionar la tarea en bloques de 5 minutos con pausas.</li>
+      <li><strong>Eliminar ruido ambiental.</strong> Apagar la televisión, la radio, las notificaciones del teléfono.</li>
+      <li><strong>Regular el brillo de la pantalla.</strong> Que no sea ni muy fuerte ni muy tenue.</li>
+      <li><strong>Cambiar de juego dentro del dominio.</strong> Si el bloqueo es con la sopa de letras, probar con el Simon.</li>
+      <li><strong>Revisar el sueño y la medicación.</strong> A veces la fatiga es fisiológica, no psicológica.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Principio de realidad</strong>
+      Ningún protocolo reemplaza el juicio clínico. Si la persona está en una fase avanzada de la enfermedad, si hay agitación severa o si hay fatiga extrema, el protocolo debe diferirse o adaptarse. Consultá con el equipo tratante.
+    </div>
+
+    <div class="cta-box">
+      <h3>¿Querés implementar este protocolo con un familiar o paciente?</h3>
+      <p>Si sos cuidador o profesional y querés orientación sobre cómo adaptar el protocolo a un caso particular, escribinos. Te acompañamos.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20M%C3%A9todo%20WineBOX%20Demencias." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El protocolo se organiza en 4 dominios: memoria, atención/lenguaje, funciones ejecutivas, comprensión/acción.</li>
+        <li>La sesión tipo dura 15-20 minutos: bienvenida, actividad principal, cierre con reminiscencia.</li>
+        <li>Los criterios de progresión evitan forzar y previenen la frustración.</li>
+        <li>La fatiga cognitiva se maneja con ajustes ambientales y de demanda.</li>
+        <li>El juicio clínico siempre prevalece sobre el protocolo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el protocolo claro, entramos en los cuatro dominios. En los próximos cuatro capítulos vas a ver, uno por uno, los ejercicios con su fundamento clínico, su guía para el cuidador, y un acceso directo para jugar.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 · DOMINIO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte IV · Dominio 1</div>
+    <h1 class="chapter-title">Memoria y reminiscencia</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> activar la memoria episódica y semántica, sostener la identidad y generar bienestar a través de la reminiscencia. Los juegos de este dominio son los más accesibles y los que mejor toleran las personas con demencia.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué empezar por acá?</strong>
+      La memoria episódica (los recuerdos de la propia vida) es una de las más afectadas en Alzheimer, pero la memoria semántica (el conocimiento del mundo) y la memoria implícita (las habilidades aprendidas) suelen mantenerse más estables. Los juegos clásicos activan estas memorias preservadas y dan una experiencia de éxito.
+    </div>
+
+    <h2>Los 4 ejercicios del Dominio 1</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 1</div>
+        <div class="ex-name">Dominó</div>
+        <div class="ex-fn">Atención · Memoria · Pensamiento estratégico</div>
+        <div class="ex-desc">El clásico juego de fichas. Se puede jugar en pareja o de a tres. El objetivo no es ganar: es mantener la atención, contar, reconocer patrones y conversar. Ideal para activar la memoria procedimental y la interacción social.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/domino/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 2</div>
+        <div class="ex-name">Generala (Dados)</div>
+        <div class="ex-fn">Cálculo simple · Memoria de trabajo · Toma de decisiones</div>
+        <div class="ex-desc">El clásico juego de dados. Se tiran cinco dados y se busca la mejor combinación. Estimula el cálculo simple, la memoria de trabajo y la toma de decisiones bajo incertidumbre. Muy accesible y social.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/generala/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 3</div>
+        <div class="ex-name">Escoba de 15</div>
+        <div class="ex-fn">Cálculo mental · Atención · Memoria</div>
+        <div class="ex-desc">El clásico juego de cartas español. Se deben sumar 15 con las cartas de la mesa para llevárselas. Estimula el cálculo mental simple, la atención sostenida y la memoria. Ideal para jugar en pareja.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/escoba/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 4</div>
+        <div class="ex-name">Rec (Grabadora)</div>
+        <div class="ex-fn">Reminiscencia · Memoria episódica · Lenguaje</div>
+        <div class="ex-desc">La grabadora digital. Se usa para grabar recuerdos, canciones, refranes o simplemente la voz. El cuidador puede preguntar: "¿Cómo era tu casa cuando eras chico?" y la persona graba su respuesta. Luego se escucha juntos. Activa la memoria episódica y la identidad.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/recorder/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir Grabadora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 1 · Dominó</h3>
+    <p><strong>Fundamento clínico:</strong> los juegos de mesa como el dominó fomentan la atención, la memoria, el pensamiento estratégico y la interacción social, fortaleciendo vínculos y reduciendo el aislamiento. <a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a> Además, activan la memoria procedimental (el "cómo se juega") que suele preservarse más tiempo.</p>
+    <p><strong>Guía para el cuidador:</strong> <em>"¿Jugamos un dominó? No importa quién gane. Solo jugamos un rato."</em> No corregir los errores. Si se equivoca, seguir el juego con naturalidad.</p>
+    <p><strong>Observación clínica:</strong> ¿reconoce las fichas? ¿cuenta los puntos? ¿sostiene la atención? ¿conversa mientras juega? ¿se ríe? Anotar todo.</p>
+
+    <h3>Ejercicio 2 · Generala (Dados)</h3>
+    <p><strong>Fundamento clínico:</strong> el juego de dados estimula el cálculo simple, la memoria de trabajo y la toma de decisiones. Es una actividad altamente social y accesible. <a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"Tiramos los dados y vemos qué sale. ¿Cuántos puntos tenemos?"</em> El objetivo es la conversación, no la puntuación.</p>
+    <p><strong>Observación clínica:</strong> ¿reconoce los números? ¿suma? ¿recuerda las reglas? ¿se frustra si no le sale lo que quiere?</p>
+
+    <h3>Ejercicio 3 · Escoba de 15</h3>
+    <p><strong>Fundamento clínico:</strong> el cálculo mental simple (sumar 15) activa la memoria de trabajo y la atención sostenida. El juego es una excusa para la interacción y la conversación. <a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"¿Qué cartas suman 15? Vamos a buscar juntos."</em> Se puede jugar con cartas de verdad o digital.</p>
+    <p><strong>Observación clínica:</strong> ¿suma correctamente? ¿se frustra? ¿pide ayuda? ¿disfruta del juego?</p>
+
+    <h3>Ejercicio 4 · Rec (Grabadora) · Reminiscencia</h3>
+    <p><strong>Fundamento clínico:</strong> la reminiscencia es una técnica clásica de estimulación cognitiva. Actividades que evocan recuerdos lejanos, como canciones populares, relatos tradicionales o refranes, son una excelente forma de estimulación cognitiva y mejoran el estado de ánimo. <a href="#ref19" class="cite">Woods et al., 2018 <span class="cite-ref">[19]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"¿Te acordás de alguna canción de tu infancia? ¿La grabamos?"</em> No importa si la letra está incompleta. Lo importante es el recuerdo y la emoción.</p>
+    <p><strong>Observación clínica:</strong> ¿qué recuerda? ¿qué emociones aparecen? ¿qué temas le interesan? Anotar para futuras sesiones.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para el Dominio 1</strong>
+      No busques rendimiento. Buscá conexión. El objetivo de estos ejercicios es que la persona se sienta acompañada, activa y valorada. Si al final de la sesión hay una sonrisa, la sesión fue un éxito.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La memoria episódica y semántica se activan con juegos clásicos y reminiscencia.</li>
+        <li>El dominó, los dados y la escoba son accesibles y socialmente gratificantes.</li>
+        <li>La grabadora de voz es una herramienta poderosa para la reminiscencia.</li>
+        <li>El objetivo no es el rendimiento, es la conexión y el bienestar.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la memoria activada, pasamos al Dominio 2: atención y lenguaje. En el próximo capítulo vas a ver los ejercicios de sopa de letras, Simon y Sudoku, con sus adaptaciones para demencia.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 · DOMINIO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte IV · Dominio 2</div>
+    <h1 class="chapter-title">Atención y lenguaje</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> sostener la atención focalizada, estimular el lenguaje y la memoria semántica, y entrenar la memoria de trabajo visual y auditiva.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este dominio?</strong>
+      La atención sostenida es una de las primeras funciones en deteriorarse en demencia. Sin atención, no hay memoria, no hay lenguaje, no hay comunicación. Los ejercicios de este dominio están diseñados para ser simples, visuales y gratificantes.
+    </div>
+
+    <h2>Los 3 ejercicios del Dominio 2</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 5</div>
+        <div class="ex-name">Sopa de Letras</div>
+        <div class="ex-fn">Atención visual · Memoria semántica · Lenguaje</div>
+        <div class="ex-desc">El clásico juego de búsqueda de palabras. Se pueden buscar palabras de una categoría (animales, frutas, nombres de la familia). Estimula la concentración visual, la memoria semántica y el reconocimiento de patrones.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sopa/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 6</div>
+        <div class="ex-name">Sequence (Simon)</div>
+        <div class="ex-fn">Memoria de trabajo · Atención sostenida</div>
+        <div class="ex-desc">El clásico juego de memoria secuencial. Cuatro botones de colores se iluminan en una secuencia que hay que repetir. Estimula la memoria a corto plazo y la atención sostenida. Empezar con secuencias de 2 elementos e ir subiendo lentamente.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 7</div>
+        <div class="ex-name">Sudoku (versión simplificada)</div>
+        <div class="ex-fn">Atención selectiva · Razonamiento lógico</div>
+        <div class="ex-desc">El clásico rompecabezas numérico, en su versión más simple (4x4 o 6x6 con ayuda). Estimula la atención selectiva y el razonamiento lógico sin ansiedad. Se puede hacer con números grandes y guía del cuidador.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 5 · Sopa de Letras</h3>
+    <p><strong>Fundamento clínico:</strong> las sopas de letras estimulan la concentración visual, la memoria semántica y el reconocimiento de patrones, contribuyendo a la alfabetización funcional y al enriquecimiento del vocabulario en adultos mayores con distintos niveles de escolaridad. <a href="#ref9" class="cite">Bottiroli et al., 2008 <span class="cite-ref">[9]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"Busquemos palabras de animales. ¿Ves alguna? Traza con el dedo antes de marcar."</em> Se puede hacer juntos, en voz alta.</p>
+    <p><strong>Observación clínica:</strong> ¿encuentra las palabras? ¿se frustra? ¿pide ayuda? ¿lee en voz alta? ¿asocia las palabras con recuerdos?</p>
+
+    <h3>Ejercicio 6 · Sequence (Simon)</h3>
+    <p><strong>Fundamento clínico:</strong> el juego de Simon es un clásico entrenamiento de memoria a corto plazo. Los estudios muestran que mejora la memoria a corto plazo y da una experiencia gratificante. <a href="#ref10" class="cite">Salthouse, 2006 <span class="cite-ref">[10]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"Mira los colores. ¿Cuál se iluminó primero? Ahora repetilo conmigo."</em> Si se equivoca, se empieza de nuevo sin frustración.</p>
+    <p><strong>Observación clínica:</strong> ¿repite 2 elementos? ¿3? ¿se frustra al fallar? ¿disfruta del juego?</p>
+
+    <h3>Ejercicio 7 · Sudoku simplificado</h3>
+    <p><strong>Fundamento clínico:</strong> el razonamiento lógico y la atención selectiva. La versión simplificada (4x4 o 6x6) reduce la carga cognitiva y permite la experiencia de éxito. <a href="#ref9" class="cite">Bottiroli et al., 2008 <span class="cite-ref">[9]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"¿Qué número falta en esta fila? Vamos a mirar juntos."</em> Se puede hacer con lápiz y papel o en la tablet.</p>
+    <p><strong>Observación clínica:</strong> ¿comprende la lógica? ¿necesita ayuda? ¿se frustra?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para el Dominio 2</strong>
+      La atención es frágil. Si a los 5 minutos la persona se distrae, no es un fracaso: es el momento de hacer una pausa, tomar agua, y quizás retomar después. La flexibilidad es la clave.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La sopa de letras estimula atención visual, memoria semántica y lenguaje.</li>
+        <li>El Simon entrena memoria de trabajo y atención sostenida.</li>
+        <li>El Sudoku simplificado entrena razonamiento lógico sin ansiedad.</li>
+        <li>La flexibilidad y las pausas frecuentes son esenciales.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la atención y el lenguaje activados, pasamos al Dominio 3: funciones ejecutivas. En el próximo capítulo vas a ver los ejercicios de damas, chinchón y solitaire.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 · DOMINIO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte IV · Dominio 3</div>
+    <h1 class="chapter-title">Funciones ejecutivas</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> entrenar la planificación simple, la inhibición de respuestas automáticas y la flexibilidad cognitiva. Estos ejercicios requieren un poco más de esfuerzo, por lo que se recomiendan 1-2 veces por semana.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este dominio?</strong>
+      Las funciones ejecutivas son las más afectadas en la demencia frontotemporal y en las fases moderadas del Alzheimer. Entrenarlas ayuda a mantener la autonomía en las actividades de la vida diaria: organizar una comida, seguir una receta, manejar el dinero.
+    </div>
+
+    <h2>Los 3 ejercicios del Dominio 3</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 8</div>
+        <div class="ex-name">Damas</div>
+        <div class="ex-fn">Planificación simple · Inhibición · Estrategia</div>
+        <div class="ex-desc">El clásico juego de damas. Se juega en un tablero de 8x8. Estimula la planificación simple, la inhibición de respuestas automáticas y la estrategia. Se puede jugar con reglas simplificadas: sin capturas obligatorias, sin coronación.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 9</div>
+        <div class="ex-name">Chinchón</div>
+        <div class="ex-fn">Flexibilidad cognitiva · Memoria · Toma de decisiones</div>
+        <div class="ex-desc">El clásico juego de cartas español. Se busca formar combinaciones de tres o más cartas del mismo número o escaleras del mismo palo. Estimula la flexibilidad cognitiva, la memoria y la toma de decisiones. Se puede jugar con cartas de verdad.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/chichon/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 10</div>
+        <div class="ex-name">Solitaire</div>
+        <div class="ex-fn">Atención sostenida · Inhibición · Planificación</div>
+        <div class="ex-desc">El clásico solitario. Se ordenan las cartas por palo y número. Estimula la atención sostenida, la inhibición de respuestas impulsivas y la planificación. Se puede jugar con cartas de verdad o en la tablet, con ayuda del cuidador.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 8 · Damas</h3>
+    <p><strong>Fundamento clínico:</strong> las damas estimulan la planificación simple y la inhibición de respuestas automáticas. En demencia frontotemporal, donde la impulsividad es frecuente, este juego ayuda a practicar la pausa antes de mover. <a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"Antes de mover, vamos a mirar todo el tablero. ¿Qué pasa si movés acá?"</em> Si se frustra, se simplifican las reglas: sin capturas obligatorias.</p>
+    <p><strong>Observación clínica:</strong> ¿planifica? ¿se impulsa? ¿se frustra? ¿pide ayuda?</p>
+
+    <h3>Ejercicio 9 · Chinchón</h3>
+    <p><strong>Fundamento clínico:</strong> la flexibilidad cognitiva se entrena cuando la persona debe cambiar de estrategia según las cartas que recibe. Es un juego social, que permite la conversación y la risa. <a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"¿Qué cartas te sirven? ¿Armamos una escalera?"</em> Se puede jugar sin apuro, con las cartas a la vista.</p>
+    <p><strong>Observación clínica:</strong> ¿reconoce las combinaciones? ¿se frustra? ¿disfruta del juego?</p>
+
+    <h3>Ejercicio 10 · Solitaire</h3>
+    <p><strong>Fundamento clínico:</strong> el solitario es un ejercicio de atención sostenida y planificación. La persona debe ordenar las cartas por palo y número, lo que requiere mantener el objetivo en mente y frenar el impulso de mover sin pensar. <a href="#ref2" class="cite">Cheng et al., 2014 <span class="cite-ref">[2]</span></a></p>
+    <p><strong>Guía para el cuidador:</strong> <em>"¿Dónde va esta carta? ¿Qué carta necesitamos para completar esta pila?"</em> Se puede hacer juntos, con el cuidador señalando las opciones.</p>
+    <p><strong>Observación clínica:</strong> ¿sostiene la atención? ¿planifica? ¿se frustra? ¿disfruta?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para el Dominio 3</strong>
+      Estos ejercicios requieren más esfuerzo. Si la persona se cansa, no insistir. Mejor 5 minutos bien aprovechados que 15 minutos de frustración. Y siempre recordar: el objetivo es la activación, no el rendimiento.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Las damas entrenan planificación simple e inhibición.</li>
+        <li>El chinchón entrena flexibilidad cognitiva y memoria.</li>
+        <li>El solitario entrena atención sostenida y planificación.</li>
+        <li>Si la persona se cansa, no insistir. La activación es el objetivo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Llegamos al último dominio: comprensión y acción. Este es el único que requiere la presencia del terapeuta, porque evalúa si la persona comprende, entiende y sostiene una tarea compleja. En el próximo capítulo vas a ver cómo se aplica.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 · DOMINIO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV · Dominio 4</div>
+    <h1 class="chapter-title">Comprensión y acción (con terapeuta)</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> evaluar la capacidad de comprender una instrucción simple, sostener la atención en una tarea compleja y ejecutar una acción motora dirigida a un objetivo. Este dominio es <strong>exclusivamente de aplicación con terapeuta presente</strong>.</p>
+
+    <div class="callout alert">
+      <strong>⚠ Este dominio NO se aplica de forma autónoma</strong>
+      Los juegos de acción requieren la presencia de un terapeuta o profesional entrenado para observar la comprensión, la tolerancia a la frustración y la capacidad de sostener la tarea. No se recomienda su uso en casa sin supervisión profesional.
+    </div>
+
+    <h2>Los 2 ejercicios del Dominio 4</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 11</div>
+        <div class="ex-name">FreeDoom (navegación simple)</div>
+        <div class="ex-fn">Comprensión · Atención sostenida · Acción dirigida</div>
+        <div class="ex-desc">Juego de disparos en primera persona, en su versión más simple y con baja fidelidad visual. El terapeuta observa si el paciente comprende la instrucción ("avanzá y dispará a lo que aparece"), si sostiene la atención y si ejecuta la acción. No se evalúa el puntaje: se evalúa la comprensión y la tolerancia.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos (con terapeuta)</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/doom1.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir FreeDoom
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 12</div>
+        <div class="ex-name">Laberintos simples (Voxel Quest)</div>
+        <div class="ex-fn">Orientación espacial · Comprensión · Memoria de recorrido</div>
+        <div class="ex-desc">Laberintos en 3D minimalista. El terapeuta pide al paciente que encuentre la salida o que llegue a un objeto determinado. Se observa si comprende la instrucción, si planifica el recorrido y si recuerda por dónde vino.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos (con terapeuta)</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 11 · FreeDoom (navegación simple)</h3>
+    <p><strong>Fundamento clínico:</strong> los juegos de acción mejoran las habilidades atencionales por su énfasis en la discriminación y el procesamiento rápido de información visual. <a href="#ref11" class="cite">Green &amp; Bavelier, 2003 <span class="cite-ref">[11]</span></a> <a href="#ref12" class="cite">Anguera et al., 2013 <span class="cite-ref">[12]</span></a> En demencia, se usan para evaluar <strong>comprensión de instrucciones, atención sostenida y acción dirigida a un objetivo</strong>.</p>
+    <p><strong>Guía para el terapeuta:</strong> <em>"Vamos a jugar un juego. Tenés que avanzar por el pasillo y disparar a lo que aparece. ¿Entendés? Yo te voy a acompañar."</em> Si el paciente no comprende, se simplifica la instrucción: <em>"Solo avanzá. Yo te digo cuándo disparar."</em></p>
+    <p><strong>Observación clínica:</strong> ¿comprende la instrucción verbal? ¿sostiene la atención en la pantalla? ¿ejecuta la acción motora? ¿se frustra? ¿abandona? ¿tolera el error? Anotar todo.</p>
+
+    <h3>Ejercicio 12 · Laberintos simples (Voxel Quest)</h3>
+    <p><strong>Fundamento clínico:</strong> la orientación espacial y la memoria de recorrido se evalúan con laberintos. El terapeuta puede observar si el paciente comprende la instrucción ("encontrá la salida"), si planifica el recorrido y si recuerda por dónde vino. <a href="#ref20" class="cite">Zoltan, 2007 <span class="cite-ref">[20]</span></a></p>
+    <p><strong>Guía para el terapeuta:</strong> <em>"¿Podés encontrar la salida? ¿Para dónde vas a ir primero?"</em> Si se pierde, se le puede dar una pista.</p>
+    <p><strong>Observación clínica:</strong> ¿comprende la instrucción? ¿planifica? ¿se orienta? ¿se frustra? ¿abandona?</p>
+
+    <div class="callout warning">
+      <strong>⚠ Recordatorio clínico</strong>
+      Este dominio no es para entrenar, es para <strong>evaluar</strong>. La presencia del terapeuta es obligatoria. Si el paciente se angustia, se detiene la sesión. El objetivo es observar la comprensión y la tolerancia, no el rendimiento.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El Dominio 4 evalúa comprensión, atención sostenida y acción dirigida.</li>
+        <li>Requiere la presencia de un terapeuta o profesional entrenado.</li>
+        <li>FreeDoom y Voxel Quest se usan para observar, no para entrenar.</li>
+        <li>Si el paciente se angustia, se detiene la sesión inmediatamente.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los cuatro dominios vistos, entramos en la parte de registro clínico. En el próximo capítulo vas a ver cómo sistematizar la observación, qué medidas tomar y cómo dejar constancia del consentimiento informado.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte V</div>
+    <h1 class="chapter-title">Seguimiento y consentimiento informado</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Un protocolo sin registro es solo una serie de juegos sueltos. Lo que convierte al Método WineBOX Demencias en una herramienta clínica es su <strong>sistema de observación y seguimiento</strong>. Este capítulo describe cómo registrar y qué observar.</p>
+
+    <h2>9.1 · Ficha de seguimiento semanal</h2>
+    <p>Instrumento de observación ecológica para cuidadores y terapeutas. Se completa una fila por sesión.</p>
+
+    <table>
+      <thead>
+        <tr><th>Día</th><th>Juego</th><th>Duración</th><th>Participó</th><th>Observación conductual</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lunes</td><td>Dominó</td><td>15 min</td><td>☐ Sí ☐ No</td><td>Se rió, conversó sobre su padre</td></tr>
+        <tr><td>Martes</td><td>Sopa de letras</td><td>10 min</td><td>☐ Sí ☐ No</td><td>Encontró 4 palabras, se cansó al final</td></tr>
+        <tr><td>Miércoles</td><td>Sequence</td><td>10 min</td><td>☐ Sí ☐ No</td><td>Repitió 2 elementos, se frustró al 3ro</td></tr>
+        <tr><td>Jueves</td><td>Generala</td><td>15 min</td><td>☐ Sí ☐ No</td><td>Disfrutó, contó los puntos en voz alta</td></tr>
+        <tr><td>Viernes</td><td>Rec (grabadora)</td><td>10 min</td><td>☐ Sí ☐ No</td><td>Recordó una canción de su infancia</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Escala de bienestar post-sesión (1 a 5)</h3>
+    <div class="scale-row">
+      <span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span>
+    </div>
+    <p style="font-size: 13px; color: var(--muted); font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: -6px;">1 = Angustiado · 5 = Muy contento</p>
+
+    <h2>9.2 · Qué observar en cada sesión</h2>
+    <table>
+      <thead>
+        <tr><th>Aspecto</th><th>Pregunta guía</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Atención</strong></td><td>¿Sostiene la mirada en la pantalla? ¿Cuánto tiempo?</td></tr>
+        <tr><td><strong>Comprensión</strong></td><td>¿Entiende la instrucción? ¿Necesita que se la repitan?</td></tr>
+        <tr><td><strong>Memoria</strong></td><td>¿Recuerda las reglas? ¿Recuerda jugadas anteriores?</td></tr>
+        <tr><td><strong>Emoción</strong></td><td>¿Se ríe? ¿Se frustra? ¿Se angustia? ¿Se enoja?</td></tr>
+        <tr><td><strong>Socialización</strong></td><td>¿Conversa? ¿Pide ayuda? ¿Comparte?</td></tr>
+        <tr><td><strong>Fatiga</strong></td><td>¿Bosteza? ¿Se distrae? ¿Pide parar?</td></tr>
+      </tbody>
+    </table>
+
+    <h2>9.3 · Consentimiento informado</h2>
+    <p>Toda intervención requiere consentimiento informado por escrito del paciente o su representante legal. Modelo disponible en el Cuaderno del Cuidador (Hoja 3). El documento debe incluir:</p>
+    <ul>
+      <li>Datos del paciente o representante legal.</li>
+      <li>Descripción del protocolo y sus alcances.</li>
+      <li>Aclaración de que no sustituye tratamiento médico.</li>
+      <li>Autorización para realizar los ejercicios y los registros.</li>
+      <li>Firma y fecha.</li>
+    </ul>
+
+    <div class="callout alert">
+      <strong>🚩 Recordatorio</strong>
+      Este protocolo no reemplaza el juicio clínico. Ante cualquier duda sobre la elegibilidad de un paciente, consultar con el equipo de neurología o neuropsicología tratante antes de iniciar.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La ficha semanal sistematiza la observación ecológica.</li>
+        <li>Observar atención, comprensión, memoria, emoción y fatiga en cada sesión.</li>
+        <li>El consentimiento informado por escrito es obligatorio antes de iniciar.</li>
+        <li>El juicio clínico siempre prevalece sobre el protocolo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el registro claro, llegamos al cierre. En el próximo capítulo vas a encontrar el decálogo del cuidador: diez principios para sostener el cuidado a largo plazo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte VI</div>
+    <h1 class="chapter-title">Decálogo del cuidador</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Llegaste al final del protocolo. Si llegaste hasta acá, hiciste algo enorme: <strong>acompañaste</strong>. No importa si las sesiones salieron perfectas o si hubo días en los que no quisiste jugar. Lo que importa es que estuviste.</p>
+
+    <blockquote>
+      <p>«La demencia no se combate con medicamentos ni con ejercicios. Se combate con presencia. Con estar ahí, todos los días, aunque la memoria se resista. Eso es lo que sostiene a la persona. Eso es lo que sostiene al cuidador.»</p>
+      <cite>— Mensaje al cuidador, Método WineBOX Demencias</cite>
+    </blockquote>
+
+    <h2>Decálogo del cuidador a largo plazo</h2>
+    <ol>
+      <li><strong>Celebrá el intento, no el resultado.</strong> El intento es el músculo, el resultado es la consecuencia.</li>
+      <li><strong>Respetá los tiempos.</strong> 15 minutos son 15 minutos. Si a los 5 minutos ya no quiere, se termina. No hay fracaso.</li>
+      <li><strong>No corrijas.</strong> Si se equivoca, está bien. El error es parte del proceso.</li>
+      <li><strong>Hablá suave y pausado.</strong> Las instrucciones simples, de una en una, funcionan mejor.</li>
+      <li><strong>Usá el juego como excusa para conversar.</strong> El recuerdo compartido es el verdadero ejercicio.</li>
+      <li><strong>Cuidate vos también.</strong> El agotamiento del cuidador es real. Pedí ayuda. Tomate pausas.</li>
+      <li><strong>Anotá lo que observás.</strong> Los registros son la memoria del proceso. Te van a servir para ver la evolución.</li>
+      <li><strong>Hablá con el equipo tratante.</strong> El protocolo acompaña, no reemplaza. Tu neurólogo y tu neuropsicólogo son parte del proceso.</li>
+      <li><strong>Tené paciencia con vos mismo.</strong> No sos un terapeuta. Sos un cuidador. Y eso ya es enorme.</li>
+      <li><strong>Recordá por qué lo hacés.</strong> Porque la persona que está al lado tuyo sigue estando ahí. Y merece ser acompañada.</li>
+    </ol>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>A los cuidadores y familias:</em> gracias por la valentía de cada día.<br>
+    <em>A los terapeutas:</em> gracias por sistematizar la esperanza con evidencia.</p>
+
+    <p>Este manual y la plataforma WineBOX representan un ecosistema de estimulación cognitiva que respeta la dignidad, el ritmo y la capacidad de cambio del cerebro humano.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>"No se trata de recordar todo. Se trata de estar presente."</em></p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si estás acompañando a un familiar con demencia y querés orientación profesional, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20M%C3%A9todo%20WineBOX%20Demencias%20y%20quiero%20acompa%C3%B1amiento%20profesional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El final del protocolo es el comienzo del cuidado a largo plazo.</li>
+        <li>El decálogo sistematiza las claves para sostener el cuidado.</li>
+        <li>El autocuidado del cuidador es tan importante como el del paciente.</li>
+        <li>El acompañamiento profesional sigue siendo importante.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS BIBLIOGRÁFICAS COMENTADAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este eBook</strong>, para que puedas volver al capítulo correspondiente si querés profundizar. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Altschul, D. M., &amp; Deary, I. J. (2020).</span>
+        <span class="ref-title">Playing analog games is associated with reduced declines in cognitive function: a 68-year longitudinal cohort study.</span>
+        <span class="ref-source">The Journals of Gerontology: Series B, 75(3), 474-482.</span>
+        <span class="ref-context">Cap. 1 · Bienvenida. Sostiene la afirmación de que jugar juegos de mesa con frecuencia se asocia con menor declive cognitivo en la vejez (memoria y velocidad de procesamiento).</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Cheng, S. T., Chow, P. K., Song, Y. Q., Yu, E. C., Chan, A. C., Lee, T. M., &amp; Lam, J. H. (2014).</span>
+        <span class="ref-title">Mental and physical activities delay cognitive decline in older persons with dementia.</span>
+        <span class="ref-source">The American Journal of Geriatric Psychiatry, 22(1), 63-74.</span>
+        <span class="ref-context">Cap. 1, 5, 7. Fundamenta el uso de juegos de mesa (dominó, cartas, bingo) para estimular atención, memoria, pensamiento estratégico e interacción social en personas con demencia.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">Orrell, M., Aguirre, E., Spector, A., Hoare, Z., Woods, R. T., Streater, A., ... &amp; Hoe, J. (2014).</span>
+        <span class="ref-title">Maintenance cognitive stimulation therapy for dementia: single-blind, multicentre, pragmatic randomised controlled trial.</span>
+        <span class="ref-source">The British Journal of Psychiatry, 204(6), 454-461.</span>
+        <span class="ref-context">Cap. 2, 3. Ensayo clínico aleatorizado que muestra mejoras en la calidad de la relación cuidador-paciente y en la calidad de vida del cuidador con estimulación cognitiva individual en casa (iCST).</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Yates, L. A., Orrell, M., Spector, A., &amp; Orgeta, V. (2016).</span>
+        <span class="ref-title">Service users' involvement in the development of individual Cognitive Stimulation Therapy (iCST) for dementia.</span>
+        <span class="ref-source">Clinical Interventions in Aging, 11, 1743.</span>
+        <span class="ref-context">Cap. 2. Complementa la evidencia sobre iCST y el rol del cuidador como agente activo de la estimulación.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Ball, K., Berch, D. B., Helmers, K. F., Jobe, J. B., Leveck, M. D., Marsiske, M., ... &amp; Willis, S. L. (2002).</span>
+        <span class="ref-title">Effects of cognitive training interventions with older adults: a randomized controlled trial.</span>
+        <span class="ref-source">JAMA, 288(18), 2271-2281.</span>
+        <span class="ref-context">Cap. 3. Estudio clásico ACTIVE que demuestra que el entrenamiento cognitivo estructurado mejora funciones específicas en adultos mayores.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Rebok, G. W., Ball, K., Guey, L. T., Jones, R. N., Kim, H. Y., King, J. W., ... &amp; Willis, S. L. (2014).</span>
+        <span class="ref-title">Ten-year effects of the advanced cognitive training for independent and vital elderly cognitive training trial on cognition and everyday functioning in older adults.</span>
+        <span class="ref-source">Journal of the American Geriatrics Society, 62(1), 16-24.</span>
+        <span class="ref-context">Cap. 3. Seguimiento a 10 años del estudio ACTIVE: los beneficios del entrenamiento cognitivo se mantienen en el tiempo.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Stern, Y. (2002).</span>
+        <span class="ref-title">What is cognitive reserve? Theory and research application of the reserve concept.</span>
+        <span class="ref-source">Journal of the International Neuropsychological Society, 8(3), 448-460.</span>
+        <span class="ref-context">Cap. 3. Define el concepto de reserva cognitiva: la capacidad del cerebro de tolerar mejor el daño gracias a la estimulación previa.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Stern, Y. (2012).</span>
+        <span class="ref-title">Cognitive reserve in ageing and Alzheimer's disease.</span>
+        <span class="ref-source">The Lancet Neurology, 11(11), 1006-1012.</span>
+        <span class="ref-context">Cap. 3. Actualización del concepto de reserva cognitiva aplicado específicamente a envejecimiento y Alzheimer.</span>
+      </li>
+
+      <li id="ref9">
+        <span class="ref-num">[9]</span>
+        <span class="ref-authors">Bottiroli, S., Cavallini, E., &amp; Vecchi, T. (2008).</span>
+        <span class="ref-title">Long-term effects of memory training in the elderly: a longitudinal study.</span>
+        <span class="ref-source">Archives of Gerontology and Geriatrics, 47(2), 277-289.</span>
+        <span class="ref-context">Cap. 3, 6. Respalda el uso de sopas de letras, rompecabezas y Sudoku simplificado para estimular concentración visual, memoria semántica y razonamiento lógico.</span>
+      </li>
+
+      <li id="ref10">
+        <span class="ref-num">[10]</span>
+        <span class="ref-authors">Salthouse, T. A. (2006).</span>
+        <span class="ref-title">Mental exercise and mental aging: Evaluating the validity of the "use it or lose it" hypothesis.</span>
+        <span class="ref-source">Perspectives on Psychological Science, 1(1), 68-87.</span>
+        <span class="ref-context">Cap. 3, 6. Aporta la perspectiva crítica sobre el "úsalo o piérdelo", matizando el alcance de los juegos de memoria como el Simon.</span>
+      </li>
+
+      <li id="ref11">
+        <span class="ref-num">[11]</span>
+        <span class="ref-authors">Green, C. S., &amp; Bavelier, D. (2003).</span>
+        <span class="ref-title">Action video game modifies visual selective attention.</span>
+        <span class="ref-source">Nature, 423(6939), 534-537.</span>
+        <span class="ref-context">Cap. 3, 8. Estudio clásico que demuestra que los juegos de acción mejoran la atención selectiva y el procesamiento visual rápido. Fundamenta el uso de FreeDoom en el Dominio 4.</span>
+      </li>
+
+      <li id="ref12">
+        <span class="ref-num">[12]</span>
+        <span class="ref-authors">Anguera, J. A., Boccanfuso, J., Rintoul, J. L., Al-Hashimi, O., Faraji, F., Janowich, J., ... &amp; Gazzaley, A. (2013).</span>
+        <span class="ref-title">Video game training enhances cognitive control in older adults.</span>
+        <span class="ref-source">Nature, 501(7465), 97-101.</span>
+        <span class="ref-context">Cap. 3, 8. Estudio pionero que muestra mejoras en control cognitivo en adultos mayores tras entrenamiento con videojuegos.</span>
+      </li>
+
+      <li id="ref13">
+        <span class="ref-num">[13]</span>
+        <span class="ref-authors">Simons, D. J., Boot, W. R., Charness, N., Gathercole, S. E., Chabris, C. F., Hambrick, D. Z., &amp; Stine-Morrow, E. A. (2016).</span>
+        <span class="ref-title">Do "brain-training" programs work?</span>
+        <span class="ref-source">Psychological Science in the Public Interest, 17(3), 103-186.</span>
+        <span class="ref-context">Cap. 3. Revisión crítica que muestra que los juegos de "entrenamiento cerebral" genéricos no tienen evidencia sólida de beneficio clínico. Justifica por qué WineBOX no es un "brain trainer" más.</span>
+      </li>
+
+      <li id="ref14">
+        <span class="ref-num">[14]</span>
+        <span class="ref-authors">Sweller, J. (1988).</span>
+        <span class="ref-title">Cognitive load during problem solving: Effects on learning.</span>
+        <span class="ref-source">Cognitive Science, 12(2), 257-285.</span>
+        <span class="ref-context">Cap. 3. Teoría de la Carga Cognitiva original. Fundamenta la baja fidelidad visual.</span>
+      </li>
+
+      <li id="ref15">
+        <span class="ref-num">[15]</span>
+        <span class="ref-authors">Sweller, J. (2010).</span>
+        <span class="ref-title">Element interactivity and intrinsic, extraneous, and germane cognitive load.</span>
+        <span class="ref-source">Educational Psychology Review, 22(2), 123-138.</span>
+        <span class="ref-context">Cap. 3. Actualización de la Teoría de la Carga Cognitiva. Distingue entre carga extrínseca, intrínseca y pertinente.</span>
+      </li>
+
+      <li id="ref16">
+        <span class="ref-num">[16]</span>
+        <span class="ref-authors">Mayer, R. E., &amp; Moreno, R. (2003).</span>
+        <span class="ref-title">Nine ways to reduce cognitive load in multimedia learning.</span>
+        <span class="ref-source">Educational Psychologist, 38(1), 43-52.</span>
+        <span class="ref-context">Cap. 3. Aporta nueve principios para reducir la carga cognitiva en entornos digitales, aplicados al diseño de WineBOX.</span>
+      </li>
+
+      <li id="ref17">
+        <span class="ref-num">[17]</span>
+        <span class="ref-authors">Spector, A., Orrell, M., Davies, S., &amp; Woods, B. (2003).</span>
+        <span class="ref-title">Can reality orientation be rehabilitated? Development and piloting of an evidence-based programme of cognition-based therapies for people with dementia.</span>
+        <span class="ref-source">Neuropsychological Rehabilitation, 13(3), 335-356.</span>
+        <span class="ref-context">Cap. 3, 4. Describe el desarrollo inicial de la Terapia de Estimulación Cognitiva (CST), su estructura de 14 sesiones y sus técnicas de orientación a la realidad.</span>
+      </li>
+
+      <li id="ref18">
+        <span class="ref-num">[18]</span>
+        <span class="ref-authors">Woods, B., Aguirre, E., Spector, A. E., &amp; Orrell, M. (2012).</span>
+        <span class="ref-title">Cognitive stimulation to improve cognitive functioning in people with dementia.</span>
+        <span class="ref-source">Cochrane Database of Systematic Reviews, (2), CD005562.</span>
+        <span class="ref-context">Cap. 3. Revisión Cochrane que consolida la evidencia de la CST como intervención no farmacológica de primera línea.</span>
+      </li>
+
+      <li id="ref19">
+        <span class="ref-num">[19]</span>
+        <span class="ref-authors">Woods, B., O'Philbin, L., Farrell, E. M., Spector, A. E., &amp; Orrell, M. (2018).</span>
+        <span class="ref-title">Reminiscence therapy for dementia.</span>
+        <span class="ref-source">Cochrane Database of Systematic Reviews, (3), CD001120.</span>
+        <span class="ref-context">Cap. 4, 5. Revisión Cochrane sobre terapia de reminiscencia: mejora el estado de ánimo y la cognición en personas con demencia. Fundamenta el uso de la grabadora (Rec) y el cierre de reminiscencia.</span>
+      </li>
+
+      <li id="ref20">
+        <span class="ref-num">[20]</span>
+        <span class="ref-authors">Zoltan, B. (2007).</span>
+        <span class="ref-title">Vision, perception, and cognition: Evaluation and treatment of acquired brain injury (4th ed.).</span>
+        <span class="ref-source">Slack.</span>
+        <span class="ref-context">Cap. 8. Manual clínico que fundamenta la evaluación de orientación espacial y memoria de recorrido con laberintos (Voxel Quest).</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-blue); border-left-color: var(--primary);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar, PubMed o el sitio web de las revistas. Si querés profundizar en alguna, podés buscarla por el título o el DOI. Si tenés dificultades para acceder a algún artículo, escribinos y te orientamos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Todos los ejercicios de este protocolo, y muchos más, están disponibles de forma gratuita en la plataforma WineBOX. Filtrá por área cognitiva, encontrá nuevos desafíos, y entrená desde cualquier dispositivo con o sin conexión.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DEL CUIDADOR -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno del cuidador · Hojas imprimibles</div>
+    <h2>Anexos, fichas y consentimiento</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse en cada sesión. Guárdalas en una carpeta. No hay respuestas correctas o incorrectas — solo observación honesta y rigurosa.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, selecciona "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Ficha de seguimiento semanal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Seguimiento</div>
+      <h3>📋 Ficha de Seguimiento Semanal</h3>
+    </div>
+    <p class="sheet-intro">Instrumento de observación ecológica. Completar una fila por sesión.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Paciente:</label><div class="line"></div></div>
+      <div class="form-field"><label>Semana N.º:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego</th><th>Duración</th><th>☐ Sí ☐ No</th><th>Observación conductual</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Martes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Miércoles</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Jueves</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Viernes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Sábado</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Domingo</td><td></td><td></td><td>☐</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Escala de bienestar post-sesión (1 · 5):</label>
+        <div class="scale-row"><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span></div>
+      </div>
+      <div class="form-field"><label>Observaciones generales de la semana:</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Registro de reminiscencia -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Reminiscencia</div>
+      <h3>🎙️ Registro de Reminiscencia</h3>
+    </div>
+    <p class="sheet-intro">Cada vez que la persona comparta un recuerdo, anótalo acá. Con el tiempo, vas a tener un mapa de su historia.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+      <div class="form-field"><label>¿Qué recordó? (canción, lugar, persona, oficio...):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué emoción apareció? (alegría, nostalgia, tristeza...):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué le preguntaste para seguir la conversación?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Cómo reaccionó? (se rió, se emocionó, se cerró...):</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Consentimiento informado -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Consentimiento</div>
+      <h3>📝 Consentimiento Informado</h3>
+    </div>
+    <p class="sheet-intro">Modelo de consentimiento escrito para uso clínico o domiciliario.</p>
+    <div class="sheet-body">
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Yo, ______________________________________, con DNI ____________________, en calidad de paciente / representante legal, manifiesto haber sido informado/a sobre los alcances del <strong>Método WineBOX Demencias</strong>.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Comprendo que este protocolo <strong>no sustituye el tratamiento médico ni neuropsicológico prescrito</strong>, y que su aplicación es una herramienta de estimulación cognitiva complementaria.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 30px;">Otorgo mi consentimiento para participar en las sesiones de estimulación cognitiva y para que se realicen los registros correspondientes, con estricta confidencialidad.</p>
+
+      <div class="form-field" style="margin-top: 40px;"><label>Firma del paciente / tutor:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Aclaración:</label><div class="line"></div></div>
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+
+      <div class="callout warning" style="margin-top: 30px; font-size: 14px;">
+        <strong>⚠ Protección de datos</strong>
+        Los registros deben guardarse en un entorno seguro y confidencial, conforme a la Ley 26.529 de derechos del paciente y la Ley 25.326 de Protección de Datos Personales.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Decálogo del cuidador -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Decálogo</div>
+      <h3>💚 Decálogo del Cuidador</h3>
+    </div>
+    <p class="sheet-intro">Pegá esta hoja en un lugar visible. Es tu brújula para los días difíciles.</p>
+    <div class="sheet-body">
+      <ol style="font-size: 15.5px; line-height: 1.8; margin-left: 1.2em;">
+        <li>Celebrá el intento, no el resultado.</li>
+        <li>Respetá los tiempos.</li>
+        <li>No corrijas.</li>
+        <li>Hablá suave y pausado.</li>
+        <li>Usá el juego como excusa para conversar.</li>
+        <li>Cuidate vos también.</li>
+        <li>Anotá lo que observás.</li>
+        <li>Hablá con el equipo tratante.</li>
+        <li>Tené paciencia con vos mismo.</li>
+        <li>Recordá por qué lo hacés.</li>
+      </ol>
+      <div class="callout tip" style="margin-top: 24px; font-size: 14.5px;">
+        <strong>💚 Recordatorio</strong>
+        El agotamiento del cuidador es real. Pedí ayuda. Tomate pausas. No sos un terapeuta: sos un cuidador. Y eso ya es enorme.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este libro y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el tratamiento de la ansiedad, los trastornos del neurodesarrollo y la estimulación cognitiva en adultos mayores con deterioro cognitivo.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Estimulación Cognitiva</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, diseñando herramientas accesibles que invitan a reconectar con la fuerza interior y a encontrar la propia calma.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás orientación profesional?</h3>
+      <p>Si estás acompañando a un familiar con demencia, o si sos profesional y querés implementar el protocolo, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20M%C3%A9todo%20WineBOX%20Demencias%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🧠 WineBOX · Método Demencias<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y corazón · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

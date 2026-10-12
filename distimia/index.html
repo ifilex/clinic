@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · Protocolo de Activación Conductual para Distimia y Depresión</title>
+
+<meta name="dc:title" content="Método WineBOX · Protocolo de Activación Conductual para Distimia y Depresión">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Protocolo de activación conductual asistida por videojuegos de acción para personas con distimia, depresión y estados pre y post depresivos. Guía para pacientes, terapeutas y familias.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #2E5266;
+    --primary-dark: #1E3A4A;
+    --primary-light: #4A7589;
+    --accent: #D98E4A;
+    --accent-dark: #B87333;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #EAF0F3;
+    --soft-green: #E8F3EC;
+    --soft-amber: #FBF1E2;
+    --soft-rose: #F7E9E9;
+    --alert: #B85450;
+    --play: #2E8B57;
+    --warm: #C97B5D;
+    --violet: #7C5AA6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--violet) 45%, var(--warm) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(217,142,74,0.18) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 760px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: var(--accent); display: block; font-size: 0.8em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.92; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(217,142,74,0.5); border-radius: 20px; color: var(--accent); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-rose); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--alert); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--alert); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--accent-dark); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--primary); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--primary); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-blue);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-amber);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '📌 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--accent-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-blue) 100%); border-left: 4px solid var(--primary); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid #2E8B57; }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--accent); }
+  .callout.warning strong { color: var(--accent-dark); }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.exercise { background: var(--soft-rose); border-left: 4px solid #B85450; }
+  .callout.exercise strong { color: #8B3A36; }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--primary); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.7;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(46,82,102,0.14); border-color: var(--primary); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: #1F6B41; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+  .ex-card .no-play {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--soft-blue); color: var(--primary-dark);
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* WEEK CARD */
+  .week-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .week-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .week-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(217,142,74,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--primary-dark);
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); color: #fff; }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--primary); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 14px; }
+  .sheet-body table th { font-size: 10.5px; padding: 9px 11px; }
+  .sheet-body table td { padding: 12px 11px; height: 36px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  .checkbox-list { list-style: none; margin-left: 0; }
+  .checkbox-list li { padding: 12px 10px 12px 40px; position: relative; border-bottom: 1px dashed #cbd5e1; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14.5px; }
+  .checkbox-list li::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1.5px solid var(--primary-dark); border-radius: 3px; }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--accent); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cream); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(46,82,102,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--accent) !important; }
+    .cover-tags span { color: var(--accent) !important; border-color: var(--accent) !important; }
+    .cover-brand, .cover-author { color: var(--accent) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-rose) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .week-card, .summary, .next-step, .ex-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+    .checkbox-list li { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--accent) !important; }
+    .cta-box { background: rgba(217,142,74,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: var(--primary-dark) !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Clínica</div>
+    <h1>Método<br><em>WineBOX</em></h1>
+    <p class="cover-subtitle">Protocolo de Activación Conductual para Distimia y Depresión<br>Cuando el juego se convierte en movimiento</p>
+    <p class="cover-audience">Guía para pacientes, terapeutas y familias · Juegos de acción accesibles desde el eBook</p>
+    <div class="cover-tags">
+      <span>TCC</span><span>Activación Conductual</span><span>Videojuegos</span><span>Hábitos</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia Clínica y Criterios de Seguridad</div>
+    <h2>Leer antes de aplicar el protocolo</h2>
+    <p><strong>Este protocolo NO debe utilizarse como única intervención en depresión.</strong> Debe integrarse en un plan de tratamiento coordinado por un equipo cualificado de psicología, psiquiatría y terapia ocupacional.</p>
+    <p>La fatiga cognitiva, la anhedonia y las fluctuaciones del estado de ánimo propias de la depresión exigen flexibilidad. Ante signos de sobrecarga o desregulación, <strong>suspenda la sesión inmediatamente</strong>.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Banderas rojas para suspender la tarea</h3>
+    <ol>
+      <li>Aparición de pensamientos de muerte o autolesión. <strong>Derivar urgentemente a profesional.</strong></li>
+      <li>Agitación psicomotriz, agresividad verbal o física.</li>
+      <li>Llanto inconsolable o angustia desbordada.</li>
+      <li>Caída abrupta del rendimiento o abandono de la tarea con autodesprecio.</li>
+      <li>Quejas de dolor, mareo o malestar físico.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y activación conductual. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento médico, farmacológico o psicoterapéutico prescrito por un especialista.</strong> Su aplicación en depresión es una adaptación clínica razonada.</p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del paciente o su representante legal, y estricta confidencialidad de las fichas de seguimiento, según la normativa de derechos del paciente (Ley 26.529 y Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y corazón</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Introducción</span>Cap. 1 Bienvenida al Método WineBOX Activación</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Introducción</span>Cap. 2 Carta al paciente y a la familia</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Fundamentos</span>Cap. 3 Qué son la distimia y la depresión</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · Fundamentos</span>Cap. 4 Cómo se abordan desde la TCC</a></li>
+      <li><a href="#cap5"><span class="part">Parte II · Fundamentos</span>Cap. 5 Por qué los videojuegos de acción funcionan</a></li>
+      <li><a href="#cap6"><span class="part">Parte III · Protocolo</span>Cap. 6 Estructura del programa de activación</a></li>
+      <li><a href="#cap7"><span class="part">Parte IV · Ejercicios</span>Cap. 7 Dominio 1 · Activación y energía</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · Ejercicios</span>Cap. 8 Dominio 2 · Rumiación y flexibilidad</a></li>
+      <li><a href="#cap9"><span class="part">Parte IV · Ejercicios</span>Cap. 9 Dominio 3 · Control y logro</a></li>
+      <li><a href="#cap10"><span class="part">Parte IV · Ejercicios</span>Cap. 10 Dominio 4 · Conexión y hábitos</a></li>
+      <li><a href="#cap11"><span class="part">Parte V · Registro</span>Cap. 11 Seguimiento y consentimiento informado</a></li>
+      <li><a href="#cap12"><span class="part">Parte VI · Cierre</span>Cap. 12 Decálogo del paciente activo</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno de activación</span>Hojas imprimibles y anexos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida al Método WineBOX Activación</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay un momento, en la depresión, en el que todo pesa. Levantarse de la cama es una montaña. Salir a caminar es un acto heroico. Contestar un mensaje es una tarea titánica. Y lo peor: la mente no para. Repite, una y otra vez, los mismos pensamientos oscuros, la misma autocrítica, el mismo sinsentido.</p>
+
+    <p>Este manual nace de ese momento. Nace de la certeza de que <strong>el movimiento, incluso el más pequeño, es el primer paso para salir</strong>. Y de la convicción de que la activación conductual no tiene por qué ser árida ni moralista.</p>
+
+    <blockquote>
+      <p>«La depresión te dice que no vale la pena moverse. La activación conductual te dice: movete primero, y después fijate si valía la pena. El movimiento viene antes que la motivación. No al revés.»</p>
+      <cite>— Principio de la Activación Conductual</cite>
+    </blockquote>
+
+    <h2>Qué es el Método WineBOX Activación</h2>
+    <p>El Método WineBOX Activación es un <strong>protocolo estructurado de activación conductual</strong> que utiliza videojuegos de acción de baja fidelidad visual como vehículo terapéutico. Está diseñado específicamente para personas con distimia (trastorno depresivo persistente), depresión mayor y estados pre y post depresivos que presentan anhedonia, apatía, rumiación y falta de energía.</p>
+
+    <p>El protocolo se organiza en <strong>sesiones diarias de 15 a 25 minutos</strong>, con ejercicios agrupados en cuatro dominios clínicos: activación y energía, rumiación y flexibilidad, control y logro, y conexión y hábitos. Cada sesión está calibrada para no inducir fatiga y maximizar la experiencia de logro.</p>
+
+    <div class="callout tip">
+      <strong>🎮 Los juegos están a un clic</strong>
+      Cada ejercicio de este eBook tiene un botón <strong>▶ Jugar ahora</strong> que abre directamente el juego en tu navegador o tablet. No hace falta instalar nada, ni registrarse. Y si querés explorar todos los juegos disponibles, al final del libro tenés acceso a la plataforma completa.
+    </div>
+
+    <h2>Por qué videojuegos de acción</h2>
+    <p>La depresión no es solo tristeza. Es <strong>rumiación</strong> (pensamientos repetitivos y negativos que no se detienen), <strong>anhedonia</strong> (incapacidad de sentir placer) y <strong>apatía</strong> (falta de motivación para actuar). Los videojuegos de acción atacan estos tres frentes:</p>
+
+    <ul>
+      <li><strong>Contra la rumiación:</strong> la velocidad del juego exige atención sostenida, dejando poco espacio mental para los bucles de pensamiento negativo. Un estudio con pacientes deprimidos encontró que 6 semanas jugando a un videojuego de acción redujeron los niveles de rumiación. <a href="#ref1" class="cite">Kühn et al., 2018 <span class="cite-ref">[1]</span></a></li>
+      <li><strong>Contra la anhedonia:</strong> el logro frecuente y visible genera pequeños picos de dopamina, el neurotransmisor del placer y la motivación. <a href="#ref2" class="cite">Anguera et al., 2013 <span class="cite-ref">[2]</span></a></li>
+      <li><strong>Contra la apatía:</strong> el juego ofrece una estructura simple: objetivo claro, acción inmediata, feedback instantáneo. No requiere planificación compleja ni fuerza de voluntad heroica. <a href="#ref3" class="cite">Simons et al., 2016 <span class="cite-ref">[3]</span></a></li>
+    </ul>
+
+    <div class="footnote">
+      <strong>¿Qué es exactamente la activación conductual?</strong> Es un componente central de la TCC para la depresión. La idea es simple: la depresión genera un círculo vicioso de inactividad → menos refuerzo positivo → más desánimo → más inactividad. La activación conductual rompe ese círculo programando actividades que generen placer o sensación de logro, aunque al principio no haya ganas. <a href="#ref4" class="cite">Jacobson et al., 1996 <span class="cite-ref">[4]</span></a> <a href="#ref5" class="cite">Ekers et al., 2014 <span class="cite-ref">[5]</span></a>
+    </div>
+
+    <div class="callout info">
+      <strong>Regla de oro del método</strong>
+      El objetivo no es el puntaje. Es <strong>moverse, sostener la atención y sentir que uno puede</strong>. Si el paciente pierde, está bien. Si abandona la tarea, está bien. Lo que importa es el acto de empezar.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El Método WineBOX Activación es un protocolo de activación conductual con videojuegos de acción.</li>
+        <li>Está diseñado para distimia, depresión mayor y estados pre/post depresivos.</li>
+        <li>Los juegos de acción reducen rumiación, activan motivación y rompen la apatía.</li>
+        <li>El objetivo no es el rendimiento, sino el acto de empezar y sostenerse.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en los fundamentos técnicos, queremos dirigirnos directamente a quien está atravesando esto: al paciente y a su familia. En el próximo capítulo vas a encontrar una carta escrita para vos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta al paciente y a la familia</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para quien está atravesando el proceso, y para quien lo acompaña. Si sos terapeuta, leelo también: te va a recordar por qué hacemos lo que hacemos.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido paciente:</p>
+
+    <p>Lo que te pasa no es flojera. No es falta de voluntad. No es que "no quieras salir". Es una enfermedad. Una enfermedad real, con bases neurobiológicas reales, que afecta cómo tu cerebro procesa la recompensa, la motivación y la energía.</p>
+
+    <p>La depresión te miente. Te dice que no vale la pena intentarlo. Que todo va a salir mal. Que sos una carga. Que no hay salida. Esas no son verdades. Son síntomas. Y los síntomas se tratan.</p>
+
+    <blockquote>
+      <p>«El movimiento viene antes que la motivación. No esperes tener ganas. Empezá, y las ganas vienen después.»</p>
+      <cite>— Principio de la Activación Conductual</cite>
+    </blockquote>
+
+    <p>Este protocolo está pensado para que empieces por lo más pequeño. No te pide que salgas a correr una maratón. Te pide que juegues 15 minutos. Nada más. Si esos 15 minutos te parecen demasiado, jugá 5. Si 5 te parecen demasiado, jugá 2. <strong>Lo importante es el acto de empezar, no la duración.</strong></p>
+
+    <p>Vas a jugar. Sí, jugar. Vas a disparar naves, vas a esquivar obstáculos, vas a resolver laberintos. Y mientras jugás, tu cerebro va a estar entrenando funciones que la depresión te robó: atención sostenida, flexibilidad, sensación de logro, motivación.</p>
+
+    <p>No importa si perdés. De hecho, <strong>perder es parte del entrenamiento</strong>. Cada vez que perdés y volvés a empezar, le estás demostrando a tu cerebro que el fracaso no es el final. Que se puede reintentar. Que hay una próxima vez.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>A la familia, a la pareja, al amigo, al que está al lado:</p>
+
+    <p>Sabemos que también es difícil para vos. Que muchas veces no sabés qué decir. Que querés ayudar pero no sabés cómo. Que a veces te frustrás porque "no pone de su parte". Que te sentís culpable por sentirte así.</p>
+
+    <p>Tu rol en este método es central. <strong>No sos un salvador. Sos un acompañante.</strong> Tu tarea es:</p>
+
+    <ul>
+      <li><strong>No juzgar.</strong> No digas "animate", "ponete las pilas", "salí un poco". Eso no ayuda. Lo que ayuda es estar.</li>
+      <li><strong>Celebrar el intento, no el resultado.</strong> No importa si ganó el juego: importa que se sentó, que lo intentó, que sostuvo 10 minutos.</li>
+      <li><strong>No corregir.</strong> Si se equivoca en el juego, no le digas "no, apretá ahí". Dejalo procesar. Dejalo equivocarse.</li>
+      <li><strong>Respetar los tiempos.</strong> 15 minutos son 15 minutos. Si a los 5 minutos ya no quiere más, se termina. No hay fracaso.</li>
+      <li><strong>Ofrecer compañía, no supervisión.</strong> Preguntale si querés que estés cerca, o si prefiere jugar solo. Respetá su espacio.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Atención a las banderas rojas</strong>
+      Si aparecen pensamientos de muerte o autolesión, <strong>derivá urgentemente a un profesional</strong>. No es algo que se maneje solo con un juego. La activación conductual es un complemento, no un reemplazo del tratamiento.
+    </div>
+
+    <p>El camino es largo, pero no lo están caminando solos. Este manual es una herramienta, y nosotros estamos del otro lado del WhatsApp si necesitan orientación profesional.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y esperanza,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Están atravesando esto y no saben por dónde empezar?</h3>
+      <p>Escribinos por WhatsApp. Te vamos a escuchar, orientar y, si hace falta, acompañar profesionalmente. No estás solo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20necesito%20orientaci%C3%B3n%20para%20un%20caso%20de%20distimia%20o%20depresi%C3%B3n." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La depresión es una enfermedad real, no falta de voluntad.</li>
+        <li>El movimiento viene antes que la motivación.</li>
+        <li>El objetivo es empezar, aunque sea con 2 minutos.</li>
+        <li>La familia es el acompañante, no el salvador.</li>
+        <li>Celebrá el intento, no el resultado.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte técnica. En el próximo capítulo vamos a ver qué son exactamente la distimia y la depresión: sus síntomas, sus mecanismos cerebrales y por qué no es "solo estar triste".</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Qué son la distimia y la depresión</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Antes de hablar de activación conductual, necesitamos entender qué estamos tratando. Porque la depresión no es una sola cosa. Hay distintos tipos, distintos grados, distintos mecanismos. Y confundirlos puede llevar a tratamientos equivocados.</p>
+
+    <h2>3.1 · Depresión mayor: el episodio agudo</h2>
+    <p>La depresión mayor (Trastorno Depresivo Mayor, o MDD por sus siglas en inglés) se caracteriza por <strong>episodios</strong> de al menos dos semanas en los que la persona presenta:</p>
+
+    <ul>
+      <li><strong>Estado de ánimo deprimido</strong> la mayor parte del día, casi todos los días.</li>
+      <li><strong>Anhedonia:</strong> pérdida de interés o placer en actividades que antes disfrutaba.</li>
+      <li><strong>Alteraciones del sueño:</strong> insomnio o hipersomnia.</li>
+      <li><strong>Alteraciones del apetito:</strong> pérdida o aumento de peso significativo.</li>
+      <li><strong>Fatiga o pérdida de energía</strong> casi todos los días.</li>
+      <li><strong>Sentimientos de inutilidad o culpa excesiva.</strong></li>
+      <li><strong>Dificultad para concentrarse o tomar decisiones.</strong></li>
+      <li><strong>Pensamientos de muerte o suicidio.</strong></li>
+    </ul>
+
+    <p>Para el diagnóstico, se requieren al menos 5 de estos síntomas, y deben causar malestar clínicamente significativo o deterioro en el funcionamiento. <a href="#ref6" class="cite">APA, 2013 <span class="cite-ref">[6]</span></a></p>
+
+    <div class="footnote">
+      <strong>Lo que la depresión mayor NO es:</strong> no es tristeza normal. La tristeza es una emoción adaptativa, proporcional a una pérdida, que se resuelve con el tiempo. La depresión mayor es un estado persistente, desproporcionado, que no se resuelve solo y que afecta el funcionamiento diario. La tristeza te hace llorar; la depresión te quita las ganas de todo, incluido llorar.
+    </div>
+
+    <h2>3.2 · Distimia: la depresión persistente</h2>
+    <p>La distimia, ahora llamada <strong>Trastorno Depresivo Persistente (PDD)</strong>, es una forma de depresión <strong>crónica</strong> pero de menor intensidad que la depresión mayor. Los criterios diagnósticos incluyen:</p>
+
+    <ul>
+      <li><strong>Estado de ánimo deprimido</strong> durante la mayor parte del día, más días de los que no, durante <strong>al menos 2 años</strong> en adultos (1 año en adolescentes).</li>
+      <li>Presencia de al menos <strong>2</strong> de los siguientes síntomas: pérdida de apetito o sobrealimentación, insomnio o hipersomnia, baja energía o fatiga, baja autoestima, dificultad para concentrarse o tomar decisiones, sentimientos de desesperanza.</li>
+      <li>La persona nunca ha estado sin los síntomas durante más de 2 meses consecutivos en esos 2 años.</li>
+    </ul>
+
+    <p>La distimia suele empezar temprano, en la adolescencia o adultez temprana, y se cronifica. Muchas personas con distimia creen que "así son ellas", que son "melancólicas por naturaleza", y no buscan ayuda porque no identifican un episodio agudo. <a href="#ref7" class="cite">Klein et al., 2006 <span class="cite-ref">[7]</span></a></p>
+
+    <div class="footnote">
+      <strong>Ejemplo para entender la diferencia:</strong> Imaginá que la depresión mayor es como una gripe severa: te postra, te impide funcionar, dura semanas. La distimia es como una alergia crónica: no te postra, pero te acompaña todos los días. Te acostumbrás a vivir con el malestar de fondo, y dejas de notar cuánto te limita. Hasta que un día te das cuenta de que nunca estás realmente bien.
+    </div>
+
+    <h2>3.3 · Estados pre y post depresivos</h2>
+    <p>No todo es blanco o negro. Hay estados intermedios que no cumplen criterios completos de depresión mayor, pero que generan malestar significativo:</p>
+
+    <ul>
+      <li><strong>Depresión subclínica:</strong> síntomas depresivos que no llegan al umbral diagnóstico, pero que afectan la calidad de vida. <a href="#ref8" class="cite">Cuijpers et al., 2014 <span class="cite-ref">[8]</span></a></li>
+      <li><strong>Depresión residual:</strong> síntomas que persisten después de un episodio de depresión mayor, incluso cuando la persona ya no cumple criterios completos. Es un factor de riesgo importante de recaída. <a href="#ref9" class="cite">Judd et al., 1998 <span class="cite-ref">[9]</span></a></li>
+      <li><strong>Recaída y recurrencia:</strong> la depresión mayor tiende a repetirse. La activación conductual sostenida es clave para prevenir recaídas. <a href="#ref10" class="cite">Dobson et al., 2008 <span class="cite-ref">[10]</span></a></li>
+    </ul>
+
+    <h2>3.4 · El ciclo de la depresión</h2>
+    <p>La depresión sigue un patrón cíclico que se retroalimenta:</p>
+
+    <div class="callout info" style="text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px;">
+      Tristeza o pérdida → Aislamiento y menos actividad → Menos refuerzo positivo → Más desánimo → Más aislamiento → Y vuelve a empezar
+    </div>
+
+    <p>Cada vuelta del ciclo refuerza el patrón. La buena noticia: si se puede reforzar hacia un lado, se puede reforzar hacia el otro. Eso es lo que hace la activación conductual.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La depresión mayor es un episodio agudo de al menos 2 semanas con síntomas severos.</li>
+        <li>La distimia es una depresión crónica de baja intensidad, de al menos 2 años.</li>
+        <li>Existen estados pre y post depresivos que también requieren atención.</li>
+        <li>La depresión sigue un ciclo de inactividad → menos refuerzo → más desánimo.</li>
+        <li>La activación conductual rompe ese ciclo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos qué es la depresión. Ahora toca ver cómo se aborda desde la Terapia Cognitivo-Conductual. En el próximo capítulo vamos a la activación conductual y la reestructuración cognitiva: las dos herramientas centrales de la TCC para la depresión.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">Cómo se abordan desde la TCC</h1>
+  </div>
+  <div class="chapter-body">
+    <p>La <strong>Terapia Cognitivo-Conductual (TCC)</strong> es el tratamiento psicológico con mayor respaldo empírico para la depresión. <a href="#ref11" class="cite">Cuijpers et al., 2013 <span class="cite-ref">[11]</span></a> Se basa en una premisa simple pero poderosa: <strong>no son los eventos los que nos deprimen, sino la interpretación que hacemos de ellos, y las conductas que se derivan de esa interpretación.</strong></p>
+
+    <p>La TCC para la depresión tiene dos componentes principales:</p>
+
+    <ul>
+      <li><strong>Activación conductual (AC):</strong> intervención que busca aumentar la participación en actividades que generan placer o sensación de logro, rompiendo el ciclo de inactividad.</li>
+      <li><strong>Reestructuración cognitiva (RC):</strong> intervención que busca identificar y modificar los patrones de pensamiento distorsionados que mantienen la depresión.</li>
+    </ul>
+
+    <p>Ambos componentes son eficaces, y se complementan. <a href="#ref12" class="cite">Cuijpers et al., 2007 <span class="cite-ref">[12]</span></a> Pero la activación conductual es especialmente relevante para este protocolo, porque ataca el síntoma más incapacitante: la apatía.</p>
+
+    <h2>4.1 · Activación conductual: moverse antes de tener ganas</h2>
+    <p>La activación conductual parte de una premisa contraintuitiva pero respaldada por la evidencia: <strong>el movimiento viene antes que la motivación</strong>. No necesitás tener ganas para empezar. Empezás, y las ganas vienen después. <a href="#ref4" class="cite">Jacobson et al., 1996 <span class="cite-ref">[4]</span></a></p>
+
+    <p>Un metaanálisis exhaustivo encontró que la activación conductual es un tratamiento eficaz para la depresión en adultos, con efectos que se mantienen hasta 12 meses después de la aleatorización. Y es eficaz incluso en formatos autoguiados. <a href="#ref5" class="cite">Ekers et al., 2014 <span class="cite-ref">[5]</span></a></p>
+
+    <div class="footnote">
+      <strong>¿Cómo funciona la activación conductual?</strong> Imaginá que la depresión es como un agujero en el suelo. Cada vez que la persona hace algo que le genera placer o logro, pone un ladrillo para salir. Al principio, los ladrillos son pocos y el agujero es profundo. Pero a fuerza de poner ladrillos, el agujero se hace menos profundo. La clave es <em>programar</em> las actividades, no esperar a que surjan espontáneamente. Porque en la depresión, la motivación espontánea no surge.
+    </div>
+
+    <h2>4.2 · Reestructuración cognitiva: cambiar la mirada</h2>
+    <p>La reestructuración cognitiva identifica los <strong>pensamientos automáticos negativos</strong> (esos que aparecen sin que los invitemos: "no sirvo", "todo va a salir mal", "soy una carga") y los cuestiona con evidencia.</p>
+
+    <p>El modelo ABCDE, desarrollado por Albert Ellis, es una herramienta clásica de la TCC para trabajar esto: <a href="#ref13" class="cite">Ellis, 1962 <span class="cite-ref">[13]</span></a></p>
+
+    <ul>
+      <li><strong>A (Activador):</strong> ¿Qué pasó? ¿Cuál fue la situación?</li>
+      <li><strong>B (Creencias):</strong> ¿Qué pensé? ¿Qué me dije a mí mismo?</li>
+      <li><strong>C (Consecuencias):</strong> ¿Cómo me sentí? ¿Qué hice?</li>
+      <li><strong>D (Discusión):</strong> ¿Qué evidencia tengo de que eso es verdad? ¿Hay otra explicación?</li>
+      <li><strong>E (Efecto):</strong> ¿Cuál es el nuevo pensamiento, más equilibrado? ¿Cómo me siento ahora?</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>Ejemplo práctico del ABCDE:</strong>
+      <strong>A:</strong> "Un amigo no me contestó el mensaje."<br>
+      <strong>B:</strong> "Seguro está enojado conmigo. Soy un pesado."<br>
+      <strong>C:</strong> "Me siento triste, culpable. Me encierro y no le escribo más."<br>
+      <strong>D:</strong> "¿Tengo pruebas de que está enojado? No. Puede estar ocupado, o no haber visto el mensaje. Otras veces me contestó tarde y no estaba enojado."<br>
+      <strong>E:</strong> "Puede que esté ocupado. Le escribo de nuevo mañana. No es personal."<br>
+      <strong>Nueva emoción:</strong> Alivio, calma.
+    </div>
+
+    <h2>4.3 · Por qué la TCC funciona</h2>
+    <p>La TCC para la depresión no solo reduce los síntomas: <strong>previene las recaídas</strong>. Un estudio clásico encontró que, después de un tratamiento exitoso, las personas que habían recibido TCC tenían significativamente menos recaídas que las que habían recibido solo medicación. <a href="#ref10" class="cite">Dobson et al., 2008 <span class="cite-ref">[10]</span></a></p>
+
+    <p>La razón es que la TCC no solo "tapa" los síntomas: <strong>enseña habilidades</strong>. La persona aprende a identificar sus patrones de pensamiento, a activarse aunque no tenga ganas, a tolerar el malestar sin derrumbarse. Son herramientas que quedan para toda la vida.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La TCC tiene dos componentes: activación conductual y reestructuración cognitiva.</li>
+        <li>La activación conductual parte de que el movimiento viene antes que la motivación.</li>
+        <li>La reestructuración cognitiva cuestiona los pensamientos automáticos negativos.</li>
+        <li>El modelo ABCDE es una herramienta clásica para trabajar los pensamientos.</li>
+        <li>La TCC no solo reduce síntomas, previene recaídas enseñando habilidades.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos cómo se aborda la depresión desde la TCC. Ahora toca ver cómo los videojuegos de acción pueden potenciar este proceso. En el próximo capítulo vas a ver la evidencia, los mecanismos cerebrales y por qué funcionan mejor que otras aproximaciones.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte II</div>
+    <h1 class="chapter-title">Por qué los videojuegos de acción funcionan</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo responde a la pregunta clave: <strong>¿por qué un videojuego de acción puede ayudar en la depresión?</strong> No es una creencia. Es neurociencia y evidencia clínica.</p>
+
+    <h2>5.1 · Contra la rumiación</h2>
+    <p>La rumiación es uno de los síntomas más incapacitantes de la depresión. Es ese bucle mental que repite una y otra vez los mismos pensamientos oscuros: "no sirvo", "todo va a salir mal", "no hay salida". Es agotador, y no se detiene con la voluntad.</p>
+
+    <p>Un estudio con pacientes deprimidos encontró que <strong>6 semanas de entrenamiento con un videojuego de acción rápido (Boson X) redujeron significativamente los niveles de rumiación</strong> y mejoraron el rendimiento en tareas de flexibilidad cognitiva. <a href="#ref1" class="cite">Kühn et al., 2018 <span class="cite-ref">[1]</span></a></p>
+
+    <p>¿Por qué? Porque el juego exige <strong>atención sostenida y velocidad de reacción</strong>. No hay espacio mental para rumiar mientras estás esquivando obstáculos a toda velocidad. La atención se ancla en el presente, y el bucle se rompe.</p>
+
+    <div class="footnote">
+      <strong>¿Qué es exactamente la rumiación?</strong> Es un estilo de pensamiento repetitivo y pasivo, centrado en los síntomas de malestar y en sus posibles causas y consecuencias, sin llegar a ninguna solución. No es resolver un problema: es darle vueltas al problema sin avanzar. La rumiación es un factor de riesgo importante para el inicio y el mantenimiento de la depresión. <a href="#ref14" class="cite">Nolen-Hoeksema et al., 2008 <span class="cite-ref">[14]</span></a>
+    </div>
+
+    <h2>5.2 · Contra la anhedonia</h2>
+    <p>La anhedonia es la incapacidad de sentir placer en actividades que antes resultaban gratificantes. Es uno de los síntomas más resistentes al tratamiento, y uno de los que más afecta la calidad de vida. <a href="#ref15" class="cite">Treadway &amp; Zald, 2011 <span class="cite-ref">[15]</span></a></p>
+
+    <p>Los videojuegos de acción ofrecen <strong>logros frecuentes, visibles e inmediatos</strong>. Cada enemigo eliminado, cada obstáculo superado, cada nivel alcanzado, genera un pequeño pico de dopamina, el neurotransmisor del placer y la motivación. No es la solución completa para la anhedonia, pero es un <strong>primer paso</strong>: la persona vuelve a sentir que algo le importa, aunque sea un juego.</p>
+
+    <p>Un ensayo clínico aleatorizado con videojuegos de acción en pacientes con depresión mayor encontró mejoras significativas en cognición y reducción de síntomas. <a href="#ref2" class="cite">Anguera et al., 2013 <span class="cite-ref">[2]</span></a></p>
+
+    <h2>5.3 · Contra la apatía</h2>
+    <p>La apatía es la falta de motivación para iniciar cualquier actividad. Es lo que hace que levantarse de la cama sea una montaña. Los videojuegos de acción ofrecen una <strong>estructura simple</strong>: objetivo claro, acción inmediata, feedback instantáneo. No requiere planificación compleja ni fuerza de voluntad heroica.</p>
+
+    <p>Un estudio de 2025 con un videojuego de control cognitivo aplicado de forma remota encontró <strong>reducción de síntomas depresivos en adultos subclínicos</strong>. <a href="#ref16" class="cite">Legends of Hoa'manu RCT, 2025 <span class="cite-ref">[16]</span></a></p>
+
+    <div class="footnote">
+      <strong>¿Por qué el juego y no otra actividad?</strong> Porque el juego tiene tres ventajas sobre otras actividades: (1) <strong>estructura clara</strong> (sabés qué hacer), (2) <strong>feedback inmediato</strong> (ves el resultado de tus acciones al instante), (3) <strong>bajo costo de inicio</strong> (no requiere preparación, ni desplazamiento, ni planificación). Para alguien con apatía severa, eso es oro.
+    </div>
+
+    <h2>5.4 · La ventaja de la baja fidelidad visual</h2>
+    <p>Los videojuegos comerciales abruman con estímulos visuales hiperrealistas, efectos, música y notificaciones. En el cerebro deprimido, esta sobrecarga <strong>colapsa los recursos atencionales disponibles</strong> y puede aumentar la sensación de agobio.</p>
+
+    <p>La baja fidelidad visual de WineBOX (estilo pixel art y 8-bits) <strong>libera capacidad de trabajo</strong> para el control ejecutivo y la interacción. Además, reduce la distracción sensorial y permite un mayor control experimental de los estímulos. <a href="#ref17" class="cite">Sweller, 2010 <span class="cite-ref">[17]</span></a> <a href="#ref18" class="cite">Mayer &amp; Moreno, 2003 <span class="cite-ref">[18]</span></a></p>
+
+    <h2>5.5 · Videojuegos de acción vs. juegos de relajación</h2>
+    <p>Hay una idea muy difundida de que para la depresión lo mejor son los juegos relajantes, tranquilos, tipo "mindfulness digital". La evidencia no respalda esa idea de forma unánime. Los juegos de acción, por su exigencia atencional y su estructura de logro, <strong>atacan directamente los mecanismos centrales de la depresión</strong>: rumiación, anhedonia y apatía. Los juegos de relajación pueden ser útiles como complemento, pero no como intervención principal.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Una advertencia importante</strong>
+      No todos los videojuegos de acción sirven. Los juegos con violencia extrema, con narrativas oscuras o con sistemas de recompensa excesivamente adictivos pueden ser contraproducentes. WineBOX selecciona juegos con <strong>baja fidelidad visual, recompensas predecibles y dificultad ajustable</strong>, y los integra en un protocolo estructurado con seguimiento clínico.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los videojuegos de acción reducen la rumiación al exigir atención sostenida.</li>
+        <li>Ofrecen logros frecuentes que activan la motivación y combaten la anhedonia.</li>
+        <li>Su estructura simple combate la apatía.</li>
+        <li>La baja fidelidad visual reduce la sobrecarga y libera recursos atencionales.</li>
+        <li>Los juegos de acción atacan los mecanismos centrales de la depresión mejor que los juegos de relajación.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los fundamentos claros, entramos en el protocolo de aplicación. En el próximo capítulo vas a ver la estructura completa del programa: las 4 semanas, la sesión tipo, los criterios de progresión y cómo manejar la fatiga.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte III</div>
+    <h1 class="chapter-title">Estructura del programa de activación</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe el corazón operativo del método. Es la parte que responde a la pregunta: <strong>¿cómo se aplica el protocolo día a día?</strong></p>
+
+    <h2>6.1 · Estructura temporal en cuatro dominios</h2>
+
+    <table>
+      <thead>
+        <tr><th>Dominio</th><th>Foco</th><th>Juegos</th><th>Frecuencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>Activación y energía</td><td>Breakout, Clumsy Bird, Pixel Leap</td><td>3-4 veces por semana</td></tr>
+        <tr><td><strong>2</strong></td><td>Rumiación y flexibilidad</td><td>Voxel Quest, Sequence, FreeDoom</td><td>2-3 veces por semana</td></tr>
+        <tr><td><strong>3</strong></td><td>Control y logro</td><td>Sudoku, Solitaire, BlockMatrix</td><td>2-3 veces por semana</td></tr>
+        <tr><td><strong>4</strong></td><td>Conexión y hábitos</td><td>Rec (Grabadora), Diario ABCDE, Damas</td><td>1-2 veces por semana</td></tr>
+      </tbody>
+    </table>
+
+    <p>El orden no es azaroso. Cada dominio prepara el siguiente. La activación y la energía son la puerta de entrada: sin movimiento, no hay nada más. La rumiación y la flexibilidad rompen el bucle mental. El control y el logro construyen la sensación de eficacia. Y la conexión y los hábitos consolidan el cambio a largo plazo.</p>
+
+    <h2>6.2 · Estructura de la sesión tipo (15-25 minutos)</h2>
+
+    <div class="session-card">
+      <h4>Bienvenida y chequeo del ánimo · 3 minutos</h4>
+      <div class="session-meta">Activación</div>
+      <p>Se comienza con una conversación breve: <em>¿Cómo te sentís hoy, en una escala del 1 al 10? ¿Qué pasó desde la última sesión?</em> No se juzga, se registra. El objetivo es tomar conciencia del estado de ánimo sin quedar atrapado en él.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Actividad principal · 10-15 minutos</h4>
+      <div class="session-meta">Foco clínico</div>
+      <p>Se aplica el juego correspondiente al dominio del día. El paciente juega. El terapeuta o el propio paciente <strong>observa</strong>: ¿pudo empezar? ¿sostuvo la atención? ¿se frustró? ¿volvió a intentar? No se interpreta, se registra.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Cierre y reestructuración · 3-5 minutos</h4>
+      <div class="session-meta">Reflexión</div>
+      <p>Preguntas guía: <em>¿Qué notaste? ¿Qué te costó? ¿Qué te salió bien? ¿Qué te dijiste cuando perdiste?</em> Este cierre es tan importante como el juego mismo: entrena la autoconciencia y la reestructuración cognitiva.</p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Principio de sesión diaria</strong>
+      Se recomienda una sola sesión por día, en el mismo horario, para favorecer la rutina. La consistencia vence a la intensidad. Mejor 15 minutos todos los días que una hora una vez por semana.
+    </div>
+
+    <h2>6.3 · Criterios de progresión y ajuste</h2>
+
+    <table>
+      <thead>
+        <tr><th>Situación</th><th>Indicador</th><th>Acción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>El paciente juega y sostiene</strong></td><td>Participa activamente, pide más</td><td>Continuar con el mismo juego o subir un nivel.</td></tr>
+        <tr><td><strong>El paciente se frustra</strong></td><td>Se enoja, abandona, se autodesprecia</td><td>Bajar dificultad, cambiar de juego o terminar la sesión.</td></tr>
+        <tr><td><strong>El paciente se distrae</strong></td><td>Mira para otro lado, no responde</td><td>Reducir estímulos ambientales, acercar la pantalla, usar voz suave.</td></tr>
+        <tr><td><strong>El paciente está muy apático</strong></td><td>No quiere jugar, se queda quieto</td><td>Ofrecer 2 minutos, o simplemente acompañar. No forzar.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6.4 · Manejo de la fatiga y la apatía</h2>
+    <p>La fatiga y la apatía son reales en la depresión. Estos son los ajustes que funcionan:</p>
+    <ul>
+      <li><strong>Reducir la demanda temporal.</strong> Fraccionar la tarea en bloques de 5 minutos con pausas.</li>
+      <li><strong>Eliminar ruido ambiental.</strong> Apagar la televisión, la radio, las notificaciones del teléfono.</li>
+      <li><strong>Regular el brillo de la pantalla.</strong> Que no sea ni muy fuerte ni muy tenue.</li>
+      <li><strong>Cambiar de juego dentro del dominio.</strong> Si el bloqueo es con el Breakout, probar con el Clumsy Bird.</li>
+      <li><strong>Revisar el sueño y la medicación.</strong> A veces la fatiga es fisiológica, no psicológica.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Principio de realidad</strong>
+      Ningún protocolo reemplaza el juicio clínico. Si el paciente está en una fase aguda severa, si hay riesgo suicida o si hay agitación extrema, el protocolo debe diferirse o adaptarse. Consultá con el equipo tratante.
+    </div>
+
+    <div class="cta-box">
+      <h3>¿Querés implementar este protocolo con un paciente?</h3>
+      <p>Si sos profesional y querés orientación sobre cómo adaptar el protocolo a un caso particular, o si querés coordinar una evaluación, escribinos. Te acompañamos.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20M%C3%A9todo%20WineBOX%20Activaci%C3%B3n." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El protocolo se organiza en 4 dominios: activación/energía, rumiación/flexibilidad, control/logro, conexión/hábitos.</li>
+        <li>La sesión tipo dura 15-25 minutos: bienvenida, actividad principal, cierre con reestructuración.</li>
+        <li>Los criterios de progresión evitan forzar y previenen la frustración.</li>
+        <li>La fatiga y la apatía se manejan con ajustes ambientales y de demanda.</li>
+        <li>El juicio clínico siempre prevalece sobre el protocolo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el protocolo claro, entramos en los cuatro dominios. En los próximos cuatro capítulos vas a ver, uno por uno, los ejercicios con su fundamento clínico, su guía para el paciente, y un acceso directo para jugar.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 · DOMINIO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte IV · Dominio 1</div>
+    <h1 class="chapter-title">Activación y energía</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> romper la inactividad, generar movimiento y activar el sistema de recompensa. Los juegos de este dominio son los más accesibles y los que mejor toleran las personas con depresión severa.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué empezar por acá?</strong>
+      La depresión paraliza. La persona no se mueve, y no moverse la deprime más. Este dominio está diseñado para romper ese círculo con la menor barrera de entrada posible: juegos simples, objetivos claros, logros frecuentes. No importa si dura 2 minutos. Importa que empiece.
+    </div>
+
+    <h2>Los 3 ejercicios del Dominio 1</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 1</div>
+        <div class="ex-name">Breakout</div>
+        <div class="ex-fn">Activación · Coordinación visomotora · Logro inmediato</div>
+        <div class="ex-desc">El clásico rompebloques. Se controla una paleta para rebotar una pelota y romper ladrillos. Cada ladrillo roto es un logro visible e inmediato. Ideal para empezar: simple, visual, gratificante.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 2</div>
+        <div class="ex-name">Clumsy Bird</div>
+        <div class="ex-fn">Activación · Tolerancia al error · Reintento</div>
+        <div class="ex-desc">El clásico juego de aleteo. Se toca la pantalla para mantener el pájaro volando y esquivar obstáculos. Cada intento es una oportunidad de reintentar. Ideal para trabajar la tolerancia al fracaso y la persistencia.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 5-10 minutos</span></div>
+        <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 3</div>
+        <div class="ex-name">Pixel Leap</div>
+        <div class="ex-fn">Activación · Ritmo · Coordinación</div>
+        <div class="ex-desc">Juego de plataformas con generación procedural. Cada partida es única. Se salta de plataforma en plataforma al ritmo de la música. Ideal para activar el cuerpo y la atención de forma lúdica.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 1 · Breakout</h3>
+    <p><strong>Fundamento clínico:</strong> el rompebloques ofrece logros visibles e inmediatos (cada ladrillo roto), lo que activa el sistema de recompensa y combate la anhedonia. La coordinación visomotora simple no requiere esfuerzo cognitivo excesivo. <a href="#ref2" class="cite">Anguera et al., 2013 <span class="cite-ref">[2]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"No te preocupes por perder. Solo mirá cuántos ladrillos rompés. Cada uno cuenta."</em> No se busca puntaje alto, se busca acumular pequeños logros.</p>
+    <p><strong>Observación clínica:</strong> ¿pudo empezar? ¿sostuvo la atención? ¿se frustró al perder? ¿volvió a intentar? ¿se rió? Anotar todo.</p>
+
+    <h3>Ejercicio 2 · Clumsy Bird</h3>
+    <p><strong>Fundamento clínico:</strong> el juego exige tolerancia al error y reintento constante. Cada intento fallido es seguido por la posibilidad de empezar de nuevo. Esto entrena la <strong>persistencia</strong> y la <strong>tolerancia al fracaso</strong>, dos habilidades clave para salir de la depresión. <a href="#ref1" class="cite">Kühn et al., 2018 <span class="cite-ref">[1]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"¿Cuántos intentos hiciste? ¿Volviste a empezar? Eso es lo importante. No el puntaje. La cantidad de veces que te levantaste."</em></p>
+    <p><strong>Observación clínica:</strong> ¿cuántos intentos hace antes de frustrarse? ¿se autodesprecia al perder? ¿puede reírse del error?</p>
+
+    <h3>Ejercicio 3 · Pixel Leap</h3>
+    <p><strong>Fundamento clínico:</strong> el ritmo y la coordinación activan el sistema motor y generan una sensación de fluidez. La música dinámica refuerza el estado de activación. <a href="#ref19" class="cite">Green &amp; Bavelier, 2003 <span class="cite-ref">[19]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"Seguí el ritmo. No pienses. Solo saltá. El cuerpo sabe."</em> El objetivo es salir del modo "pensar demasiado" y entrar en modo "hacer".</p>
+    <p><strong>Observación clínica:</strong> ¿logra entrar en el ritmo? ¿se frustra con las caídas? ¿disfruta del movimiento?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para el Dominio 1</strong>
+      No busques rendimiento. Buscá movimiento. El objetivo de estos ejercicios es que el cuerpo se active, aunque sea por 2 minutos. Si al final de la sesión la persona se movió un poco más que antes, la sesión fue un éxito.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El Breakout ofrece logros visibles e inmediatos que combaten la anhedonia.</li>
+        <li>El Clumsy Bird entrena la tolerancia al error y el reintento.</li>
+        <li>El Pixel Leap activa el ritmo y la coordinación para salir del modo "pensar demasiado".</li>
+        <li>El objetivo no es el rendimiento, es el movimiento.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el cuerpo activado, pasamos al Dominio 2: rumiación y flexibilidad. En el próximo capítulo vas a ver los ejercicios de Voxel Quest, Sequence y FreeDoom, diseñados para romper el bucle mental.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 · DOMINIO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV · Dominio 2</div>
+    <h1 class="chapter-title">Rumiación y flexibilidad</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> romper el bucle de pensamiento negativo, entrenar la atención sostenida y la flexibilidad cognitiva. Estos ejercicios exigen un nivel de activación mayor, por lo que se recomiendan 2-3 veces por semana.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este dominio?</strong>
+      La rumiación es uno de los síntomas más resistentes de la depresión. Es el bucle mental que repite una y otra vez los mismos pensamientos oscuros. Los juegos de este dominio exigen <strong>atención sostenida y velocidad de reacción</strong>, lo que deja poco espacio mental para rumiar. <a href="#ref1" class="cite">Kühn et al., 2018 <span class="cite-ref">[1]</span></a>
+    </div>
+
+    <h2>Los 3 ejercicios del Dominio 2</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 4</div>
+        <div class="ex-name">Voxel Quest</div>
+        <div class="ex-fn">Atención sostenida · Orientación espacial · Rompe-rumiación</div>
+        <div class="ex-desc">Exploración de laberintos 3D minimalistas. El paciente debe encontrar la salida mientras evita enemigos. La exigencia atencional es alta, lo que deja poco espacio para el pensamiento rumiante. Ideal para "cortar" el bucle mental.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 5</div>
+        <div class="ex-name">Sequence (Simon)</div>
+        <div class="ex-fn">Memoria de trabajo · Atención sostenida · Flexibilidad</div>
+        <div class="ex-desc">El clásico juego de memoria secuencial. Cuatro botones de colores se iluminan en una secuencia que hay que repetir. Requiere atención sostenida y memoria de trabajo, lo que desplaza los pensamientos rumiantes.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 6</div>
+        <div class="ex-name">FreeDoom (navegación simple)</div>
+        <div class="ex-fn">Atención dividida · Velocidad de procesamiento · Rompe-rumiación</div>
+        <div class="ex-desc">Juego de disparos en primera persona, en su versión más simple. La velocidad del juego exige atención sostenida y velocidad de reacción, lo que rompe el bucle de pensamiento negativo. Se puede jugar con dificultad ajustable.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/doom1.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir FreeDoom
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 4 · Voxel Quest</h3>
+    <p><strong>Fundamento clínico:</strong> la exploración de laberintos exige <strong>atención sostenida y orientación espacial</strong>. El paciente debe mantener el foco en la tarea mientras navega y evita enemigos. Esta exigencia atencional <strong>desplaza los pensamientos rumiantes</strong>, que necesitan recursos cognitivos para mantenerse. <a href="#ref2" class="cite">Anguera et al., 2013 <span class="cite-ref">[2]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"Encontrá la salida. No pienses en nada más. Solo mirá el mapa y avanzá."</em> El objetivo es entrar en "modo flujo": atención plena en la tarea, sin espacio para la rumiación.</p>
+    <p><strong>Observación clínica:</strong> ¿pudo sostener la atención? ¿se perdió? ¿se frustró? ¿logró "desconectar" del pensamiento rumiante?</p>
+
+    <h3>Ejercicio 5 · Sequence (Simon)</h3>
+    <p><strong>Fundamento clínico:</strong> la memoria de trabajo y la atención sostenida son recursos limitados. Cuando el cerebro está ocupado repitiendo una secuencia de colores, no puede simultáneamente rumiar. Es una forma de <strong>"bloquear" el bucle mental</strong> con una tarea cognitiva. <a href="#ref20" class="cite">Salthouse, 2006 <span class="cite-ref">[20]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"Mirá los colores. Repetilos. Si te equivocás, empezamos de nuevo. No pasa nada."</em></p>
+    <p><strong>Observación clínica:</strong> ¿puede sostener la atención en la secuencia? ¿se frustra al fallar? ¿usa estrategias (subvocalizar, agrupar)?</p>
+
+    <h3>Ejercicio 6 · FreeDoom</h3>
+    <p><strong>Fundamento clínico:</strong> los juegos de acción rápida exigen <strong>atención sostenida y velocidad de procesamiento</strong>. La investigación muestra que este tipo de juegos reduce la rumiación en pacientes deprimidos. <a href="#ref1" class="cite">Kühn et al., 2018 <span class="cite-ref">[1]</span></a> <a href="#ref19" class="cite">Green &amp; Bavelier, 2003 <span class="cite-ref">[19]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"Avanzá y dispará. No pienses. Solo reaccioná. El juego te va a mantener enfocado."</em> Si el paciente se abruma, se baja la dificultad o se cambia a otro juego.</p>
+    <p><strong>Observación clínica:</strong> ¿logró sostener la atención? ¿se abrumó? ¿pudo "cortar" el pensamiento rumiante durante el juego?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para el Dominio 2</strong>
+      El objetivo no es ganar. Es <strong>cortar el bucle</strong>. Si el paciente logra 10 minutos sin rumiar, la sesión fue un éxito. No importa si perdió todas las partidas.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El Voxel Quest exige atención sostenida que desplaza la rumiación.</li>
+        <li>El Sequence ocupa la memoria de trabajo, bloqueando el bucle mental.</li>
+        <li>El FreeDoom exige velocidad de reacción que rompe el pensamiento rumiante.</li>
+        <li>El objetivo no es ganar, es cortar el bucle.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el bucle mental cortado, pasamos al Dominio 3: control y logro. En el próximo capítulo vas a ver los ejercicios de Sudoku, Solitaire y BlockMatrix, diseñados para reconstruir la sensación de eficacia.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 · DOMINIO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte IV · Dominio 3</div>
+    <h1 class="chapter-title">Control y logro</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> reconstruir la sensación de eficacia, el control sobre el entorno y la capacidad de resolver problemas. Estos ejercicios requieren un poco más de esfuerzo cognitivo, pero generan una sensación de logro más profunda.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este dominio?</strong>
+      La depresión hace que la persona se sienta impotente, incapaz, sin control sobre su vida. Los juegos de este dominio ofrecen <strong>problemas resueltos paso a paso</strong>, con feedback inmediato y la posibilidad de ver el progreso. Cada problema resuelto es una prueba de que la persona <em>puede</em>.
+    </div>
+
+    <h2>Los 3 ejercicios del Dominio 3</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 7</div>
+        <div class="ex-name">Sudoku</div>
+        <div class="ex-fn">Razonamiento lógico · Control · Logro progresivo</div>
+        <div class="ex-desc">El clásico rompecabezas numérico. Se completa una cuadrícula con números del 1 al 9 sin repetir. Cada número colocado correctamente es un logro visible. Ideal para reconstruir la sensación de control y eficacia.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 8</div>
+        <div class="ex-name">Solitaire</div>
+        <div class="ex-fn">Planificación · Control · Tolerancia a la incertidumbre</div>
+        <div class="ex-desc">El clásico solitario. Se ordenan las cartas por palo y número. Requiere planificación y tolerancia a la incertidumbre (no siempre salen las cartas que necesitás). Ideal para trabajar la aceptación de lo que no se puede controlar.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 9</div>
+        <div class="ex-name">BlockMatrix</div>
+        <div class="ex-fn">Toma de decisiones · Control · Flexibilidad</div>
+        <div class="ex-desc">El clásico juego de bloques. Se deben encajar piezas que caen para completar líneas. Requiere toma de decisiones rápida y flexibilidad ante lo inesperado. Ideal para entrenar la adaptación al cambio.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 7 · Sudoku</h3>
+    <p><strong>Fundamento clínico:</strong> el Sudoku ofrece <strong>logros progresivos y verificables</strong>. Cada número colocado correctamente es una confirmación de que la persona puede resolver problemas. Esto combate directamente la sensación de impotencia y baja autoeficacia. <a href="#ref21" class="cite">Bandura, 1977 <span class="cite-ref">[21]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"No busques completarlo todo. Solo completá una fila. Después, la siguiente. Un paso a la vez."</em> Se fracciona la tarea en logros pequeños y alcanzables.</p>
+    <p><strong>Observación clínica:</strong> ¿pudo empezar? ¿se frustró? ¿reconoció sus logros? ¿se autodespreció al equivocarse?</p>
+
+    <h3>Ejercicio 8 · Solitaire</h3>
+    <p><strong>Fundamento clínico:</strong> el solitario requiere <strong>planificación y tolerancia a la incertidumbre</strong>. No todas las partidas se pueden ganar, porque depende de las cartas que salen. Esto entrena la <strong>aceptación de lo que no se puede controlar</strong>, una habilidad clave en la depresión. <a href="#ref22" class="cite">Hayes et al., 2006 <span class="cite-ref">[22]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"A veces las cartas no acompañan. No es tu culpa. Lo importante es cómo jugás con lo que tenés."</em></p>
+    <p><strong>Observación clínica:</strong> ¿se frustra cuando no puede ganar? ¿puede aceptar la incertidumbre? ¿disfruta del proceso?</p>
+
+    <h3>Ejercicio 9 · BlockMatrix</h3>
+    <p><strong>Fundamento clínico:</strong> el juego de bloques requiere <strong>toma de decisiones rápida y flexibilidad</strong> ante lo inesperado. La persona debe adaptarse a las piezas que caen, sin poder controlar cuáles son. Esto entrena la <strong>flexibilidad cognitiva</strong> y la <strong>tolerancia a la frustración</strong>. <a href="#ref23" class="cite">Monsell, 2003 <span class="cite-ref">[23]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"No te apegues a un plan. Mirá lo que viene y adaptate. El juego te va a mostrar cómo."</em></p>
+    <p><strong>Observación clínica:</strong> ¿se frustra cuando no le salen las piezas que quiere? ¿puede adaptarse? ¿sostiene la atención?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para el Dominio 3</strong>
+      El objetivo no es completar la tarea. Es <strong>reconstruir la sensación de que uno puede</strong>. Cada número colocado, cada carta movida, cada línea completada, es una prueba de eficacia. Eso es lo que se lleva el paciente.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El Sudoku ofrece logros progresivos que combaten la baja autoeficacia.</li>
+        <li>El Solitaire entrena la aceptación de la incertidumbre.</li>
+        <li>El BlockMatrix entrena la flexibilidad y la adaptación al cambio.</li>
+        <li>El objetivo no es completar, es reconstruir la sensación de eficacia.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la sensación de control reconstruida, pasamos al Dominio 4: conexión y hábitos. En el próximo capítulo vas a ver los ejercicios de Rec (grabadora), Diario ABCDE y Damas, diseñados para consolidar el cambio y construir hábitos sostenibles.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 · DOMINIO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte IV · Dominio 4</div>
+    <h1 class="chapter-title">Conexión y hábitos</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo del dominio:</strong> consolidar los cambios, construir hábitos sostenibles y reconectar con los demás y con uno mismo. Estos ejercicios son los que marcan la diferencia entre una mejoría pasajera y un cambio duradero.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este dominio?</strong>
+      La depresión aísla. La persona se encierra, evita el contacto, se desconecta de lo que le importaba. Los juegos de este dominio están diseñados para <strong>reconectar</strong>: con la propia voz, con los propios pensamientos, con los demás. Y para <strong>construir hábitos</strong> que sostengan el cambio en el tiempo.
+    </div>
+
+    <h2>Los 3 ejercicios del Dominio 4</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 10</div>
+        <div class="ex-name">Rec (Grabadora)</div>
+        <div class="ex-fn">Reconexión · Expresión emocional · Memoria episódica</div>
+        <div class="ex-desc">La grabadora digital. Se usa para grabar la propia voz: cómo se siente hoy, qué logró esta semana, qué le gustaría decirle a su yo del pasado. Escuchar la propia voz es una forma de reconectar con uno mismo y con el proceso.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/recorder/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir Grabadora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 11</div>
+        <div class="ex-name">Diario ABCDE</div>
+        <div class="ex-fn">Reestructuración cognitiva · Autoconciencia · Hábito</div>
+        <div class="ex-desc">El modelo ABCDE para trabajar los pensamientos automáticos negativos. Se completa en el cuaderno de activación (Hoja 2). Es la herramienta central de la reestructuración cognitiva, y el hábito que más previene recaídas.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <span class="no-play">📝 En el cuaderno</span>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 12</div>
+        <div class="ex-name">Damas</div>
+        <div class="ex-fn">Conexión social · Tolerancia a la frustración · Estrategia</div>
+        <div class="ex-desc">El clásico juego de damas. Se puede jugar contra la IA o contra otra persona. Si se juega con alguien (familiar, amigo, terapeuta), es una excusa para <strong>reconectar socialmente</strong>. Si se juega solo, entrena estrategia y tolerancia a la frustración.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 10 · Rec (Grabadora)</h3>
+    <p><strong>Fundamento clínico:</strong> la expresión emocional a través de la voz activa la <strong>memoria episódica</strong> y permite <strong>externalizar los pensamientos</strong>, reduciendo la rumiación. Escuchar la propia voz en retrospectiva muestra la evolución del estado de ánimo, lo que refuerza la sensación de progreso. <a href="#ref24" class="cite">Pennebaker &amp; Chung, 2011 <span class="cite-ref">[24]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"Grabá un mensaje de un minuto: ¿cómo te sentís hoy? ¿qué lograste esta semana? Después escuchalo. Vas a ver que estás mejor de lo que creés."</em></p>
+    <p><strong>Observación clínica:</strong> ¿puede expresar lo que siente? ¿se autodesprecia en la grabación? ¿reconoce sus logros?</p>
+
+    <h3>Ejercicio 11 · Diario ABCDE</h3>
+    <p><strong>Fundamento clínico:</strong> el modelo ABCDE es la herramienta clásica de la reestructuración cognitiva. Escribir los pensamientos automáticos y cuestionarlos <strong>reduce la intensidad emocional</strong> y <strong>entrena un nuevo hábito mental</strong>: en lugar de creer automáticamente lo que la depresión dice, la persona aprende a preguntarse "¿esto es verdad?". <a href="#ref13" class="cite">Ellis, 1962 <span class="cite-ref">[13]</span></a> <a href="#ref25" class="cite">Beck et al., 1979 <span class="cite-ref">[25]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"Cuando te sientas mal, abrí el cuaderno. Escribí qué pasó, qué pensaste, cómo te sentiste, y después preguntate: ¿tengo pruebas de que es verdad? ¿hay otra explicación?"</em></p>
+    <p><strong>Observación clínica:</strong> ¿puede identificar sus pensamientos automáticos? ¿necesita ayuda para cuestionarlos? ¿el nuevo pensamiento es creíble para él/ella?</p>
+
+    <h3>Ejercicio 12 · Damas</h3>
+    <p><strong>Fundamento clínico:</strong> el juego de damas, cuando se juega con otra persona, es una <strong>excusa para la conexión social</strong>. La depresión aísla, y el aislamiento empeora la depresión. Jugar con alguien (aunque sea un juego simple) rompe ese aislamiento. <a href="#ref26" class="cite">Cruwys et al., 2013 <span class="cite-ref">[26]</span></a></p>
+    <p><strong>Guía para el paciente:</strong> <em>"¿Jugamos una partida? No importa quién gane. Solo jugamos un rato y conversamos."</em> Se puede jugar presencialmente o por videollamada.</p>
+    <p><strong>Observación clínica:</strong> ¿acepta jugar con otro? ¿conversa? ¿se ríe? ¿se retrae?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para el Dominio 4</strong>
+      El objetivo no es ganar ni completar el cuaderno. Es <strong>construir hábitos</strong>. Un minuto de grabación por día, una entrada en el diario por semana, una partida de damas con alguien. Pequeños actos repetidos que, con el tiempo, reconstruyen la vida.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La grabadora ayuda a externalizar emociones y ver el progreso.</li>
+        <li>El Diario ABCDE entrena la reestructuración cognitiva como hábito.</li>
+        <li>Las Damas, jugadas con otro, rompen el aislamiento social.</li>
+        <li>El objetivo no es ganar, es construir hábitos sostenibles.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los cuatro dominios vistos, entramos en la parte de registro clínico. En el próximo capítulo vas a ver cómo sistematizar la observación, qué medidas tomar y cómo dejar constancia del consentimiento informado.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 11 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap11">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 11 · Parte V</div>
+    <h1 class="chapter-title">Seguimiento y consentimiento informado</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Un protocolo sin registro es solo una serie de juegos sueltos. Lo que convierte al Método WineBOX Activación en una herramienta clínica es su <strong>sistema de observación y seguimiento</strong>. Este capítulo describe cómo registrar y qué observar.</p>
+
+    <h2>11.1 · Ficha de seguimiento semanal</h2>
+    <p>Instrumento de observación ecológica. Se completa una fila por sesión.</p>
+
+    <table>
+      <thead>
+        <tr><th>Día</th><th>Juego</th><th>Duración</th><th>Ánimo pre (1-10)</th><th>Ánimo post (1-10)</th><th>Observación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lunes</td><td>Breakout</td><td>10 min</td><td>3</td><td>5</td><td>Empezó con resistencia, después se enganchó</td></tr>
+        <tr><td>Martes</td><td>Voxel Quest</td><td>12 min</td><td>4</td><td>5</td><td>Sostuvo la atención, sin rumiación visible</td></tr>
+        <tr><td>Miércoles</td><td>Sudoku</td><td>15 min</td><td>3</td><td>4</td><td>Se frustró al inicio, después se calmó</td></tr>
+        <tr><td>Jueves</td><td>Sequence</td><td>10 min</td><td>4</td><td>6</td><td>Se rió al equivocarse, buen humor</td></tr>
+        <tr><td>Viernes</td><td>Rec + Diario</td><td>15 min</td><td>3</td><td>5</td><td>Reconoció un logro de la semana</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Escala de ánimo pre y post sesión (1 a 10)</h3>
+    <div class="scale-row">
+      <span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span>
+    </div>
+    <p style="font-size: 13px; color: var(--muted); font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: -6px;">1 = Muy mal · 10 = Muy bien</p>
+
+    <h2>11.2 · Qué observar en cada sesión</h2>
+    <table>
+      <thead>
+        <tr><th>Aspecto</th><th>Pregunta guía</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Inicio</strong></td><td>¿Pudo empezar? ¿Cuánto tardó en arrancar?</td></tr>
+        <tr><td><strong>Atención</strong></td><td>¿Sostuvo la mirada en la pantalla? ¿Cuánto tiempo?</td></tr>
+        <tr><td><strong>Frustración</strong></td><td>¿Se enojó? ¿Se autodespreció? ¿Abandonó?</td></tr>
+        <tr><td><strong>Logro</strong></td><td>¿Reconoció algún logro? ¿Se felicitó?</td></tr>
+        <tr><td><strong>Rumiación</strong></td><td>¿Pudo "cortar" el pensamiento negativo durante el juego?</td></tr>
+        <tr><td><strong>Conexión</strong></td><td>¿Conversó? ¿Compartió? ¿Se rió?</td></tr>
+      </tbody>
+    </table>
+
+    <h2>11.3 · Consentimiento informado</h2>
+    <p>Toda intervención requiere consentimiento informado por escrito del paciente o su representante legal. Modelo disponible en el Cuaderno de Activación (Hoja 3). El documento debe incluir:</p>
+    <ul>
+      <li>Datos del paciente.</li>
+      <li>Descripción del protocolo y sus alcances.</li>
+      <li>Aclaración de que no sustituye tratamiento médico o psicoterapéutico.</li>
+      <li>Autorización para realizar los ejercicios y los registros.</li>
+      <li>Firma y fecha.</li>
+    </ul>
+
+    <div class="callout alert">
+      <strong>🚩 Recordatorio</strong>
+      Este protocolo no reemplaza el juicio clínico. Ante cualquier duda sobre la elegibilidad de un paciente, consultar con el equipo de psicología o psiquiatría tratante antes de iniciar. Si hay riesgo suicida, <strong>derivar urgentemente</strong>.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La ficha semanal sistematiza la observación ecológica.</li>
+        <li>Observar inicio, atención, frustración, logro, rumiación y conexión.</li>
+        <li>El consentimiento informado por escrito es obligatorio antes de iniciar.</li>
+        <li>El juicio clínico siempre prevalece sobre el protocolo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el registro claro, llegamos al cierre. En el próximo capítulo vas a encontrar el decálogo del paciente activo: doce principios para sostener el cambio a largo plazo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 12 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap12">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 12 · Parte VI</div>
+    <h1 class="chapter-title">Decálogo del paciente activo</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Llegaste al final del protocolo. Si llegaste hasta acá, hiciste algo enorme: <strong>te moviste</strong>. No importa si las sesiones salieron perfectas o si hubo días en los que no quisiste jugar. Lo que importa es que empezaste.</p>
+
+    <blockquote>
+      <p>«La depresión te dice que no vale la pena. La activación conductual te dice: movete primero, y después fijate si valía la pena. El movimiento viene antes que la motivación. No al revés.»</p>
+      <cite>— Principio de la Activación Conductual</cite>
+    </blockquote>
+
+    <h2>Decálogo del paciente activo a largo plazo</h2>
+    <ol>
+      <li><strong>Movete antes de tener ganas.</strong> La motivación viene después de la acción, no antes.</li>
+      <li><strong>Celebrá el intento, no el resultado.</strong> El intento es el músculo, el resultado es la consecuencia.</li>
+      <li><strong>Respetá tus tiempos.</strong> 15 minutos son 15 minutos. Si hoy solo podés 2, son 2. No hay fracaso.</li>
+      <li><strong>No te corrijas.</strong> Si te equivocás en el juego, está bien. El error es parte del proceso.</li>
+      <li><strong>Hablá con vos mismo como le hablarías a un amigo.</strong> No te digas "no sirvo". Decite "estoy aprendiendo".</li>
+      <li><strong>Usá el juego como excusa para conectar.</strong> Invitá a alguien a jugar. La conexión social es un antidepresivo natural.</li>
+      <li><strong>Registrá lo que observás.</strong> Los registros son la memoria del proceso. Te van a servir para ver la evolución.</li>
+      <li><strong>Hablá con tu terapeuta.</strong> El protocolo acompaña, no reemplaza. Tu psicólogo y tu psiquiatra son parte del proceso.</li>
+      <li><strong>Tené paciencia con vos mismo.</strong> La depresión no se va de un día para otro. Pero cada paso cuenta.</li>
+      <li><strong>Recordá por qué lo hacés.</strong> Porque hay una vida al otro lado. Y merece ser vivida.</li>
+      <li><strong>No estás solo.</strong> Aunque la depresión te diga lo contrario, hay personas que te quieren y profesionales que te pueden ayudar.</li>
+      <li><strong>Pedí ayuda cuando la necesites.</strong> No es debilidad. Es estrategia.</li>
+    </ol>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>A los pacientes:</em> gracias por la valentía de cada intento.<br>
+    <em>A los terapeutas:</em> gracias por acompañar con evidencia y humanidad.</p>
+
+    <p>Este manual y la plataforma WineBOX representan un ecosistema de activación conductual que respeta la dignidad, el ritmo y la capacidad de cambio del cerebro humano.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>"No se trata de esperar a estar bien para moverse. Se trata de moverse para empezar a estar bien."</em></p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si estás atravesando un proceso de depresión y querés orientación profesional, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20M%C3%A9todo%20WineBOX%20Activaci%C3%B3n%20y%20quiero%20acompa%C3%B1amiento%20profesional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El final del protocolo es el comienzo de una vida activa.</li>
+        <li>El decálogo sistematiza las claves para sostener el cambio.</li>
+        <li>El autocuidado y la paciencia son esenciales.</li>
+        <li>El acompañamiento profesional sigue siendo importante.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS BIBLIOGRÁFICAS COMENTADAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este eBook</strong>, para que puedas volver al capítulo correspondiente si querés profundizar. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Kühn, S., Berna, F., Lüdtke, T., Gallinat, J., &amp; Meinzer, M. (2018).</span>
+        <span class="ref-title">Fighting depression: Action video game play may reduce rumination and increase subjective and objective cognition in depressed patients.</span>
+        <span class="ref-source">Frontiers in Psychology, 9, 129.</span>
+        <span class="ref-context">Cap. 1, 5, 8. Estudio clave que muestra que 6 semanas de entrenamiento con un videojuego de acción reducen la rumiación y mejoran la cognición en pacientes deprimidos.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Anguera, J. A., Boccanfuso, J., Rintoul, J. L., Al-Hashimi, O., Faraji, F., Janowich, J., ... &amp; Gazzaley, A. (2013).</span>
+        <span class="ref-title">Video game training enhances cognitive control in older adults.</span>
+        <span class="ref-source">Nature, 501(7465), 97-101.</span>
+        <span class="ref-context">Cap. 5, 7, 8. Estudio pionero que demuestra mejoras en control cognitivo tras entrenamiento con videojuegos. Fundamenta el uso de juegos de acción para la activación.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">Simons, D. J., Boot, W. R., Charness, N., Gathercole, S. E., Chabris, C. F., Hambrick, D. Z., &amp; Stine-Morrow, E. A. (2016).</span>
+        <span class="ref-title">Do "brain-training" programs work?</span>
+        <span class="ref-source">Psychological Science in the Public Interest, 17(3), 103-186.</span>
+        <span class="ref-context">Cap. 1, 5. Revisión crítica que matiza el alcance de los juegos de entrenamiento cerebral y justifica por qué WineBOX no es un "brain trainer" más.</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Jacobson, N. S., Dobson, K. S., Truax, P. A., Addis, M. E., Koerner, K., Gollan, J. K., ... &amp; Prince, S. E. (1996).</span>
+        <span class="ref-title">A component analysis of cognitive-behavioral treatment for depression.</span>
+        <span class="ref-source">Journal of Consulting and Clinical Psychology, 64(2), 295-304.</span>
+        <span class="ref-context">Cap. 1, 4. Estudio clásico que demuestra que la activación conductual por sí sola es tan eficaz como la TCC completa para la depresión.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Ekers, D., Webster, L., Van Straten, A., Cuijpers, P., Richards, D., &amp; Gilbody, S. (2014).</span>
+        <span class="ref-title">Behavioural activation for depression: An update of meta-analyses of effectiveness and sub group analysis.</span>
+        <span class="ref-source">PLoS ONE, 9(6), e100100.</span>
+        <span class="ref-context">Cap. 1, 4. Metaanálisis exhaustivo que confirma la eficacia de la activación conductual para la depresión, con efectos sostenidos hasta 12 meses.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">American Psychiatric Association. (2013).</span>
+        <span class="ref-title">Diagnostic and statistical manual of mental disorders (5th ed.).</span>
+        <span class="ref-source">American Psychiatric Publishing.</span>
+        <span class="ref-context">Cap. 3. Manual diagnóstico de referencia para los criterios de depresión mayor y trastorno depresivo persistente (distimia).</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Klein, D. N., Shankman, S. A., &amp; Rose, S. (2006).</span>
+        <span class="ref-title">Ten-year prospective follow-up study of the naturalistic course of dysthymic disorder and double depression.</span>
+        <span class="ref-source">American Journal of Psychiatry, 163(5), 872-880.</span>
+        <span class="ref-context">Cap. 3. Estudio longitudinal que describe el curso crónico de la distimia y su impacto a largo plazo.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Cuijpers, P., Koole, S. L., van Dijke, A., Roca, M., Li, J., &amp; Reynolds, C. F. (2014).</span>
+        <span class="ref-title">Psychotherapy for subclinical depression: Meta-analysis.</span>
+        <span class="ref-source">The British Journal of Psychiatry, 205(4), 268-274.</span>
+        <span class="ref-context">Cap. 3. Metaanálisis que muestra la eficacia de la psicoterapia para la depresión subclínica.</span>
+      </li>
+
+      <li id="ref9">
+        <span class="ref-num">[9]</span>
+        <span class="ref-authors">Judd, L. L., Akiskal, H. S., Maser, J. D., Zeller, P. J., Endicott, J., Coryell, W., ... &amp; Keller, M. B. (1998).</span>
+        <span class="ref-title">Major depressive disorder: A prospective study of residual subthreshold depressive symptoms as predictor of rapid relapse.</span>
+        <span class="ref-source">Journal of Affective Disorders, 50(2-3), 97-108.</span>
+        <span class="ref-context">Cap. 3. Estudio que demuestra que los síntomas residuales predicen recaídas en depresión mayor.</span>
+      </li>
+
+      <li id="ref10">
+        <span class="ref-num">[10]</span>
+        <span class="ref-authors">Dobson, K. S., Hollon, S. D., Dimidjian, S., Schmaling, K. B., Kohlenberg, R. J., Gallop, R. J., ... &amp; Jacobson, N. S. (2008).</span>
+        <span class="ref-title">Randomized trial of behavioral activation, cognitive therapy, and antidepressant medication in the prevention of relapse and recurrence in major depression.</span>
+        <span class="ref-source">Journal of Consulting and Clinical Psychology, 76(3), 468-477.</span>
+        <span class="ref-context">Cap. 3, 4. Ensayo clínico que muestra que la TCC y la activación conductual previenen recaídas mejor que la medicación sola.</span>
+      </li>
+
+      <li id="ref11">
+        <span class="ref-num">[11]</span>
+        <span class="ref-authors">Cuijpers, P., Berking, M., Andersson, G., Quigley, L., Kleiboer, A., &amp; Dobson, K. S. (2013).</span>
+        <span class="ref-title">A meta-analysis of cognitive-behavioural therapy for adult depression, alone and in comparison with other treatments.</span>
+        <span class="ref-source">The Canadian Journal of Psychiatry, 58(7), 376-385.</span>
+        <span class="ref-context">Cap. 4. Metaanálisis que confirma la TCC como el tratamiento psicológico con mayor respaldo empírico para la depresión.</span>
+      </li>
+
+      <li id="ref12">
+        <span class="ref-num">[12]</span>
+        <span class="ref-authors">Cuijpers, P., van Straten, A., &amp; Warmerdam, L. (2007).</span>
+        <span class="ref-title">Behavioral activation treatments of depression: A meta-analysis.</span>
+        <span class="ref-source">Clinical Psychology Review, 27(3), 318-326.</span>
+        <span class="ref-context">Cap. 4. Metaanálisis que compara la activación conductual con la reestructuración cognitiva y encuentra eficacia similar.</span>
+      </li>
+
+      <li id="ref13">
+        <span class="ref-num">[13]</span>
+        <span class="ref-authors">Ellis, A. (1962).</span>
+        <span class="ref-title">Reason and emotion in psychotherapy.</span>
+        <span class="ref-source">Lyle Stuart.</span>
+        <span class="ref-context">Cap. 4, 10. Origen del modelo ABCDE, herramienta central de la reestructuración cognitiva.</span>
+      </li>
+
+      <li id="ref14">
+        <span class="ref-num">[14]</span>
+        <span class="ref-authors">Nolen-Hoeksema, S., Wisco, B. E., &amp; Lyubomirsky, S. (2008).</span>
+        <span class="ref-title">Rethinking rumination.</span>
+        <span class="ref-source">Perspectives on Psychological Science, 3(5), 400-424.</span>
+        <span class="ref-context">Cap. 5. Revisión exhaustiva sobre la rumiación como factor de riesgo y mantenimiento de la depresión.</span>
+      </li>
+
+      <li id="ref15">
+        <span class="ref-num">[15]</span>
+        <span class="ref-authors">Treadway, M. T., &amp; Zald, D. H. (2011).</span>
+        <span class="ref-title">Reconsidering anhedonia in depression: Lessons from translational neuroscience.</span>
+        <span class="ref-source">Neuroscience &amp; Biobehavioral Reviews, 35(3), 537-555.</span>
+        <span class="ref-context">Cap. 5. Revisión sobre la anhedonia como síntoma central de la depresión y sus bases neurobiológicas.</span>
+      </li>
+
+      <li id="ref16">
+        <span class="ref-num">[16]</span>
+        <span class="ref-authors">Legends of Hoa'manu RCT. (2025).</span>
+        <span class="ref-title">A remotely-applied, cognitive control-based video game intervention to reduce depressive symptoms in a sub-clinical population: A randomized controlled trial.</span>
+        <span class="ref-source">Journal of Affective Disorders.</span>
+        <span class="ref-context">Cap. 5. Ensayo clínico que muestra reducción de síntomas depresivos con un videojuego de control cognitivo aplicado de forma remota.</span>
+      </li>
+
+      <li id="ref17">
+        <span class="ref-num">[17]</span>
+        <span class="ref-authors">Sweller, J. (2010).</span>
+        <span class="ref-title">Element interactivity and intrinsic, extraneous, and germane cognitive load.</span>
+        <span class="ref-source">Educational Psychology Review, 22(2), 123-138.</span>
+        <span class="ref-context">Cap. 5. Teoría de la Carga Cognitiva: fundamenta la baja fidelidad visual para reducir la sobrecarga.</span>
+      </li>
+
+      <li id="ref18">
+        <span class="ref-num">[18]</span>
+        <span class="ref-authors">Mayer, R. E., &amp; Moreno, R. (2003).</span>
+        <span class="ref-title">Nine ways to reduce cognitive load in multimedia learning.</span>
+        <span class="ref-source">Educational Psychologist, 38(1), 43-52.</span>
+        <span class="ref-context">Cap. 5. Principios para reducir la carga cognitiva en entornos digitales, aplicados al diseño de WineBOX.</span>
+      </li>
+
+      <li id="ref19">
+        <span class="ref-num">[19]</span>
+        <span class="ref-authors">Green, C. S., &amp; Bavelier, D. (2003).</span>
+        <span class="ref-title">Action video game modifies visual selective attention.</span>
+        <span class="ref-source">Nature, 423(6939), 534-537.</span>
+        <span class="ref-context">Cap. 7, 8. Estudio clásico que demuestra que los juegos de acción mejoran la atención selectiva y el procesamiento visual rápido.</span>
+      </li>
+
+      <li id="ref20">
+        <span class="ref-num">[20]</span>
+        <span class="ref-authors">Salthouse, T. A. (2006).</span>
+        <span class="ref-title">Mental exercise and mental aging: Evaluating the validity of the "use it or lose it" hypothesis.</span>
+        <span class="ref-source">Perspectives on Psychological Science, 1(1), 68-87.</span>
+        <span class="ref-context">Cap. 8. Perspectiva crítica sobre el entrenamiento cognitivo, aplicada al uso del Sequence (Simon).</span>
+      </li>
+
+      <li id="ref21">
+        <span class="ref-num">[21]</span>
+        <span class="ref-authors">Bandura, A. (1977).</span>
+        <span class="ref-title">Self-efficacy: Toward a unifying theory of behavioral change.</span>
+        <span class="ref-source">Psychological Review, 84(2), 191-215.</span>
+        <span class="ref-context">Cap. 9. Teoría de la autoeficacia: fundamenta por qué los logros progresivos (como los del Sudoku) combaten la impotencia.</span>
+      </li>
+
+      <li id="ref22">
+        <span class="ref-num">[22]</span>
+        <span class="ref-authors">Hayes, S. C., Luoma, J. B., Bond, F. W., Masuda, A., &amp; Lillis, J. (2006).</span>
+        <span class="ref-title">Acceptance and commitment therapy: Model, processes and outcomes.</span>
+        <span class="ref-source">Behaviour Research and Therapy, 44(1), 1-25.</span>
+        <span class="ref-context">Cap. 9. La Terapia de Aceptación y Compromiso (ACT) fundamenta la aceptación de la incertidumbre en juegos como el Solitaire.</span>
+      </li>
+
+      <li id="ref23">
+        <span class="ref-num">[23]</span>
+        <span class="ref-authors">Monsell, S. (2003).</span>
+        <span class="ref-title">Task switching.</span>
+        <span class="ref-source">Trends in Cognitive Sciences, 7(3), 134-140.</span>
+        <span class="ref-context">Cap. 9. Revisión sobre flexibilidad cognitiva y costo de cambio, aplicada al BlockMatrix.</span>
+      </li>
+
+      <li id="ref24">
+        <span class="ref-num">[24]</span>
+        <span class="ref-authors">Pennebaker, J. W., &amp; Chung, C. K. (2011).</span>
+        <span class="ref-title">Expressive writing: Connections to physical and mental health.</span>
+        <span class="ref-source">Oxford Handbook of Health Psychology.</span>
+        <span class="ref-context">Cap. 10. La expresión emocional (escribir o grabar) reduce la rumiación y mejora el estado de ánimo.</span>
+      </li>
+
+      <li id="ref25">
+        <span class="ref-num">[25]</span>
+        <span class="ref-authors">Beck, A. T., Rush, A. J., Shaw, B. F., &amp; Emery, G. (1979).</span>
+        <span class="ref-title">Cognitive therapy of depression.</span>
+        <span class="ref-source">Guilford Press.</span>
+        <span class="ref-context">Cap. 10. Obra fundacional de la terapia cognitiva para la depresión, base del Diario ABCDE.</span>
+      </li>
+
+      <li id="ref26">
+        <span class="ref-num">[26]</span>
+        <span class="ref-authors">Cruwys, T., Dingle, G. A., Haslam, C., Haslam, S. A., Jetten, J., &amp; Morton, T. A. (2013).</span>
+        <span class="ref-title">Social group memberships protect against future development of depression and improve recovery.</span>
+        <span class="ref-source">Social Science &amp; Medicine, 98, 179-186.</span>
+        <span class="ref-context">Cap. 10. La conexión social protege contra la depresión y mejora la recuperación. Fundamenta el uso de juegos como las Damas para reconectar.</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-blue); border-left-color: var(--primary);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar, PubMed o el sitio web de las revistas. Si querés profundizar en alguna, podés buscarla por el título o el DOI. Si tenés dificultades para acceder a algún artículo, escribinos y te orientamos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Todos los ejercicios de este protocolo, y muchos más, están disponibles de forma gratuita en la plataforma WineBOX. Filtrá por área cognitiva, encontrá nuevos desafíos, y entrená desde cualquier dispositivo con o sin conexión.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DE ACTIVACIÓN -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno de activación · Hojas imprimibles</div>
+    <h2>Anexos, fichas y consentimiento</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse en cada sesión. Guárdalas en una carpeta. No hay respuestas correctas o incorrectas — solo observación honesta y rigurosa.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, selecciona "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Ficha de seguimiento semanal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Seguimiento</div>
+      <h3>📋 Ficha de Seguimiento Semanal</h3>
+    </div>
+    <p class="sheet-intro">Instrumento de observación ecológica. Completar una fila por sesión.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Paciente:</label><div class="line"></div></div>
+      <div class="form-field"><label>Semana N.º:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego</th><th>Duración</th><th>Ánimo pre (1-10)</th><th>Ánimo post (1-10)</th><th>Observación</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Martes</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Miércoles</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Jueves</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Viernes</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Sábado</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Domingo</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Escala de ánimo (1 · 10):</label>
+        <div class="scale-row"><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field"><label>Observaciones generales de la semana:</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Diario ABCDE -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Diario ABCDE</div>
+      <h3>🔤 Diario de Reestructuración Cognitiva</h3>
+    </div>
+    <p class="sheet-intro">Modelo cognitivo para trabajar los pensamientos automáticos negativos. Completar cada vez que aparezca malestar significativo.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+      <div class="form-field"><label>A · Activador (¿qué pasó?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>B · Creencia (¿qué pensé?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>C · Consecuencia (¿cómo me sentí? Emoción + conducta):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>D · Discusión (¿qué evidencia tengo? ¿hay otra explicación?):</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>E · Efecto (nuevo pensamiento, más equilibrado):</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Consentimiento informado -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Consentimiento</div>
+      <h3>📝 Consentimiento Informado</h3>
+    </div>
+    <p class="sheet-intro">Modelo de consentimiento escrito para uso clínico o domiciliario.</p>
+    <div class="sheet-body">
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Yo, ______________________________________, con DNI ____________________, en calidad de paciente / representante legal, manifiesto haber sido informado/a sobre los alcances del <strong>Método WineBOX Activación</strong>.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Comprendo que este protocolo <strong>no sustituye el tratamiento médico ni psicoterapéutico prescrito</strong>, y que su aplicación es una herramienta de activación conductual complementaria.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 30px;">Otorgo mi consentimiento para participar en las sesiones de activación conductual y para que se realicen los registros correspondientes, con estricta confidencialidad.</p>
+
+      <div class="form-field" style="margin-top: 40px;"><label>Firma del paciente / tutor:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Aclaración:</label><div class="line"></div></div>
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+
+      <div class="callout warning" style="margin-top: 30px; font-size: 14px;">
+        <strong>⚠ Protección de datos</strong>
+        Los registros deben guardarse en un entorno seguro y confidencial, conforme a la Ley 26.529 de derechos del paciente y la Ley 25.326 de Protección de Datos Personales.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Decálogo del paciente activo -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Decálogo</div>
+      <h3>💚 Decálogo del Paciente Activo</h3>
+    </div>
+    <p class="sheet-intro">Pegá esta hoja en un lugar visible. Es tu brújula para los días difíciles.</p>
+    <div class="sheet-body">
+      <ol style="font-size: 15.5px; line-height: 1.8; margin-left: 1.2em;">
+        <li>Movete antes de tener ganas.</li>
+        <li>Celebrá el intento, no el resultado.</li>
+        <li>Respetá tus tiempos.</li>
+        <li>No te corrijas.</li>
+        <li>Hablá con vos mismo como le hablarías a un amigo.</li>
+        <li>Usá el juego como excusa para conectar.</li>
+        <li>Registrá lo que observás.</li>
+        <li>Hablá con tu terapeuta.</li>
+        <li>Tené paciencia con vos mismo.</li>
+        <li>Recordá por qué lo hacés.</li>
+        <li>No estás solo.</li>
+        <li>Pedí ayuda cuando la necesites.</li>
+      </ol>
+      <div class="callout tip" style="margin-top: 24px; font-size: 14.5px;">
+        <strong>💚 Recordatorio</strong>
+        La depresión te dice que no vale la pena. La activación conductual te dice: movete primero, y después fijate. El movimiento viene antes que la motivación.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este libro y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el tratamiento de la ansiedad, los trastornos del estado de ánimo y la activación conductual en adultos.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Activación Conductual</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, diseñando herramientas accesibles que invitan a reconectar con la fuerza interior y a encontrar la propia calma.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás orientación profesional?</h3>
+      <p>Si estás atravesando un proceso de depresión, o si sos profesional y querés implementar el protocolo, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20M%C3%A9todo%20WineBOX%20Activaci%C3%B3n%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🧠 WineBOX · Método Activación<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y corazón · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

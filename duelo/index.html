@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · Protocolo de Acompañamiento en el Duelo</title>
+
+<meta name="dc:title" content="Método WineBOX · Protocolo de Acompañamiento en el Duelo">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Protocolo honesto de acompañamiento en el duelo: qué puede y qué no puede hacer la terapia gameficada. Guía para personas en duelo, familiares y terapeutas.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #2E5266;
+    --primary-dark: #1E3A4A;
+    --primary-light: #4A7589;
+    --accent: #D98E4A;
+    --accent-dark: #B87333;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #EAF0F3;
+    --soft-green: #E8F3EC;
+    --soft-amber: #FBF1E2;
+    --soft-rose: #F7E9E9;
+    --soft-purple: #EFE9F2;
+    --alert: #B85450;
+    --play: #2E8B57;
+    --warm: #C97B5D;
+    --violet: #7C5AA6;
+    --night: #3D2C4E;
+    --slate: #4A5568;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1F1B2E 0%, #3D2C4E 40%, #4A3D5C 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(217,142,74,0.10) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 780px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: var(--accent); display: block; font-size: 0.8em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.92; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(217,142,74,0.5); border-radius: 20px; color: var(--accent); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-rose); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--alert); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--alert); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--accent-dark); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--primary); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--primary); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-blue);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-amber);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '📌 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--accent-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-purple) 100%); border-left: 4px solid var(--primary); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid #2E8B57; }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--accent); }
+  .callout.warning strong { color: var(--accent-dark); }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.honest { background: var(--soft-purple); border-left: 4px solid var(--violet); }
+  .callout.honest strong { color: var(--violet); }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--primary); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--slate), var(--violet));
+    opacity: 0.7;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(46,82,102,0.14); border-color: var(--primary); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--violet); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: #1F6B41; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+  .ex-card .no-play {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--soft-blue); color: var(--primary-dark);
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* PHASE CARD */
+  .phase-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .phase-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .phase-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--slate) 0%, var(--night) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(217,142,74,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--primary-dark);
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); color: #fff; }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--slate) 0%, var(--night) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--primary); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 14px; }
+  .sheet-body table th { font-size: 10.5px; padding: 9px 11px; }
+  .sheet-body table td { padding: 12px 11px; height: 36px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  .checkbox-list { list-style: none; margin-left: 0; }
+  .checkbox-list li { padding: 12px 10px 12px 40px; position: relative; border-bottom: 1px dashed #cbd5e1; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14.5px; }
+  .checkbox-list li::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1.5px solid var(--primary-dark); border-radius: 3px; }
+
+  /* ABOUT */
+  .about { background: var(--night); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; color: white; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--accent); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cream); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(46,82,102,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: #1F1B2E !important; color: white !important; }
+    .cover h1 em { color: var(--accent) !important; }
+    .cover-tags span { color: var(--accent) !important; border-color: var(--accent) !important; }
+    .cover-brand, .cover-author { color: var(--accent) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-rose) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .phase-card, .summary, .next-step, .ex-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .platform-banner { background: var(--slate) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+    .checkbox-list li { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--night) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--accent) !important; }
+    .cta-box { background: rgba(217,142,74,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: var(--primary-dark) !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Clínica</div>
+    <h1>La Pérdida<br><em>y el Duelo</em></h1>
+    <p class="cover-subtitle">Protocolo honesto de acompañamiento<br>Lo que se puede hacer, lo que no, y lo que hay que atravesar</p>
+    <p class="cover-audience">Guía para personas en duelo, familiares y terapeutas</p>
+    <div class="cover-tags">
+      <span>Duelo</span><span>Pérdida</span><span>Límites de la terapia</span><span>Presencia</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia Clínica y Honestidad Profesional</div>
+    <h2>Este eBook no pretende curar el duelo</h2>
+    <p><strong>El duelo no es una enfermedad. No es un problema a resolver. No es un síntoma a eliminar.</strong> Es una respuesta humana natural a la pérdida, y como tal, no se "trata": se acompaña.</p>
+    <p>Este manual es una herramienta de apoyo. <strong>No reemplaza la psicoterapia ni el acompañamiento profesional</strong>, y no pretende "distraer" a nadie del dolor. Al contrario: busca ayudar a atravesarlo, sin evitarlo y sin cronificarlo.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Banderas rojas para buscar ayuda profesional urgente</h3>
+    <ol>
+      <li><strong>Pensamientos de muerte o autolesión. Derivar de inmediato a guardia o línea de crisis.</strong></li>
+      <li>Incapacidad total para funcionar durante más de 2 semanas.</li>
+      <li>Síntomas psicóticos (ver o escuchar a la persona fallecida de forma persistente, desconexión de la realidad).</li>
+      <li>Consumo problemático de alcohol u otras sustancias.</li>
+      <li>Negación total de la pérdida después de meses.</li>
+      <li>Aislamiento extremo y abandono del cuidado personal.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento psicoterapéutico o psiquiátrico prescrito por un especialista.</strong></p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del paciente o su representante legal, según la normativa de derechos del paciente (Ley 26.529 y Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con honestidad y respeto</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Introducción</span>Cap. 1 Bienvenida: cuando la pérdida llega</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Introducción</span>Cap. 2 Carta a quien está atravesando el duelo</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Comprender</span>Cap. 3 Qué es el duelo (modelos y evidencia)</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · Comprender</span>Cap. 4 Tipos de pérdida: no todas duelen igual</a></li>
+      <li><a href="#cap5"><span class="part">Parte II · Comprender</span>Cap. 5 Los límites de la terapia gameficada</a></li>
+      <li><a href="#cap6"><span class="part">Parte III · El acompañamiento</span>Cap. 6 Estructura del protocolo: no curar, acompañar</a></li>
+      <li><a href="#cap7"><span class="part">Parte IV · Los días</span>Cap. 7 Días 1-7: shock y refugio</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · Los días</span>Cap. 8 Días 8-30: la tormenta y la oscilación</a></li>
+      <li><a href="#cap9"><span class="part">Parte IV · Los días</span>Cap. 9 Meses 2-6: reconstrucción y sentido</a></li>
+      <li><a href="#cap10"><span class="part">Parte IV · Los días</span>Cap. 10 Después: integración y vínculos continuos</a></li>
+      <li><a href="#cap11"><span class="part">Parte V · Registro</span>Cap. 11 Seguimiento y consentimiento informado</a></li>
+      <li><a href="#cap12"><span class="part">Parte VI · Cierre</span>Cap. 12 Decálogo del duelo</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno del duelo</span>Hojas imprimibles y anexos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida: cuando la pérdida llega</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay un momento, después de una pérdida, en el que el mundo se detiene. No importa si la pérdida fue anticipada o súbita, si fue una persona, un animal, un trabajo, una salud, una versión de uno mismo. Cuando algo se pierde, algo se rompe. Y no hay vuelta atrás.</p>
+
+    <p>Este libro no pretende arreglar eso. No pretende acelerar el duelo, ni hacerlo más corto, ni disfrazarlo de otra cosa. No pretende que juegues para "no pensar". Sería una falta de respeto a tu dolor, y una mentira profesional.</p>
+
+    <p>Lo que este libro pretende es más humilde y, quizás, más útil: <strong>acompañarte en los días del duelo</strong>. Darte herramientas concretas para sostenerte, para transitar, para atravesar. Y decirte con claridad <strong>qué puede hacer un juego, y qué no</strong>. Porque la honestidad es, aquí, la primera herramienta.</p>
+
+    <blockquote>
+      <p>«El duelo no es una enfermedad. No hay que curarlo. No hay que superarlo. Hay que atravesarlo. Y para atravesarlo, hay que estar dispuesto a sentirlo.»</p>
+      <cite>— Principio central del acompañamiento en duelo</cite>
+    </blockquote>
+
+    <h2>Qué es este protocolo</h2>
+    <p>Este es un <strong>protocolo de acompañamiento honesto</strong>. No es un "tratamiento". No es una "terapia gameficada". Es una <strong>guía para atravesar el duelo</strong>, con ejercicios, con pausas, con juegos que pueden servir como pequeños respiros, y con la claridad de que <strong>el verdadero trabajo es el duelo mismo</strong>, no la distracción de él.</p>
+
+    <p>Está diseñado para personas que atraviesan cualquiera de estas pérdidas:</p>
+
+    <ul>
+      <li><strong>Pérdida de un ser querido:</strong> pareja, madre, padre, hijo, hermano, amigo.</li>
+      <li><strong>Pérdida de una mascota:</strong> el duelo por un animal no es "menor". Es un duelo real, con la particularidad de que muchas veces es un duelo desautorizado socialmente.</li>
+      <li><strong>Pérdida de un trabajo:</strong> el duelo por la identidad laboral, por los vínculos, por el propósito.</li>
+      <li><strong>Pérdida de una salud:</strong> el duelo por el cuerpo que se tenía, por las capacidades que se perdieron.</li>
+      <li><strong>Pérdida de una versión de uno mismo:</strong> dejar atrás una etapa, una relación, un país, una fe.</li>
+    </ul>
+
+    <div class="callout honest">
+      <strong>Antes de empezar, una aclaración honesta</strong>
+      Este libro contiene juegos. Pero los juegos, aquí, no son el tratamiento. Son <strong>pequeños respiros</strong> que el sistema nervioso necesita para no colapsar. El tratamiento del duelo es el duelo mismo: llorar, recordar, hablar, escribir, estar con otros, recibir acompañamiento. Ningún juego reemplaza eso. Si en algún momento este manual parece sugerir lo contrario, es un error de lectura, no de intención.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El duelo no es una enfermedad. No se cura, se atraviesa.</li>
+        <li>Este protocolo no pretende eliminar el dolor: pretende acompañarlo.</li>
+        <li>Aplica a cualquier tipo de pérdida: persona, mascota, trabajo, salud, identidad.</li>
+        <li>Los juegos son respiros, no tratamientos. El trabajo real es el duelo mismo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en cualquier parte técnica, queremos dirigirnos directamente a quien está atravesando esto. En el próximo capítulo vas a encontrar una carta escrita para vos, con la honestidad que este tema merece.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta a quien está atravesando el duelo</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para quien en este momento está en el fondo del pozo. Si sos terapeuta o acompañante, leelo también: te va a recordar por qué hacemos lo que hacemos.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido corazón en duelo:</p>
+
+    <p>Lo que estás sintiendo no tiene nombre fácil. No es tristeza, o no solo tristeza. Es una mezcla rara de vacío, de rabia, de culpa, de alivio a veces, de incredulidad, de cansancio. Es una experiencia que no se parece a ninguna otra, y que, sin embargo, todos los seres humanos atravesamos alguna vez.</p>
+
+    <p>No voy a decirte que "el tiempo todo lo cura". No es del todo cierto, y cuando uno está en el fondo, esa frase no ayuda. Tampoco voy a decirte que "ya va a pasar", porque a lo mejor no pasa, y lo que uno necesita no es que "pase" sino <strong>aprender a vivir con eso</strong>.</p>
+
+    <p>Lo que sí voy a decirte es esto: <strong>el duelo no es un problema a resolver. Es un proceso a transitar</strong>. Y como todo proceso, tiene sus tiempos, sus fases, sus subidas y bajadas. No es lineal. No tiene un plazo. No se hace "bien" ni "mal". Se hace como se puede.</p>
+
+    <blockquote>
+      <p>«El duelo es el precio que pagamos por haber amado. Y si duele tanto, es porque valió tanto la pena.»</p>
+      <cite>— Anónimo, citado en múltiples tradiciones</cite>
+    </blockquote>
+
+    <p>Este libro tiene juegos. Pero quiero ser honesto con vos: <strong>los juegos no te van a sacar el dolor</strong>. No te van a "distraer" mágicamente. No van a hacer que olvides. Si algún libro te promete eso, miente.</p>
+
+    <p>Lo que los juegos pueden hacer, y esto sí es real, es darte <strong>pequeños respiros</strong>. Momentos de 10, 15 minutos, en los que tu sistema nervioso descansa del peso del duelo. No para evitarlo, sino para <strong>poder volver a él con un poco más de aire</strong>. Porque el duelo es agotador. Y como todo lo agotador, necesita pausas.</p>
+
+    <p>Pensá en el duelo como una carrera de fondo. No podés correr 40 kilómetros sin parar a tomar agua. Las pausas no son abandono: son parte del camino. Los juegos, aquí, son eso: un vaso de agua en el kilómetro 20.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>A quien acompaña:</p>
+
+    <p>Sabemos que también es difícil para vos. Que muchas veces no sabés qué decir. Que querés ayudar pero no sabés cómo. Que a veces te frustrás porque "no reacciona". Que te sentís culpable por sentirte así.</p>
+
+    <p>Tu rol es central. <strong>No sos un salvador. Sos un testigo.</strong> Tu tarea es:</p>
+
+    <ul>
+      <li><strong>Estar sin invadir.</strong> A veces, la mejor compañía es el silencio compartido.</li>
+      <li><strong>No apurar el duelo.</strong> No digas "ya tendrías que estar mejor". No hay plazos.</li>
+      <li><strong>No minimizar la pérdida.</strong> Ni la de una persona, ni la de un animal, ni la de un trabajo. El dolor no se compara.</li>
+      <li><strong>Ofrecer tareas concretas.</strong> "¿Querés que te traiga algo?", "¿te acompaño a hacer el trámite?", "¿te quedás conmigo esta noche?". Más útil que "avisame si necesitás algo".</li>
+      <li><strong>Escuchar sin arreglar.</strong> No busques soluciones. El duelo no es un problema a resolver.</li>
+      <li><strong>Cuidarte vos también.</strong> El agotamiento del acompañante es real. Pedí ayuda si la necesitás.</li>
+    </ul>
+
+    <div class="callout alert">
+      <strong>⚠ Si hay riesgo, actuar</strong>
+      Si la persona menciona querer morir, autolesionarse, o desaparecer para "estar con" quien murió, <strong>no dejarla sola</strong>. Acompañarla a una guardia, llamar a una línea de crisis, o contactar a un profesional inmediatamente. En Argentina: <strong>135 (CABA) o 0800-345-1435 (línea nacional de prevención del suicidio)</strong>. También podés contactarnos directamente.
+    </div>
+
+    <p>El camino del duelo es largo, y no lo están caminando solos. Este manual es una herramienta, y nosotros estamos del otro lado del WhatsApp si necesitan orientación profesional.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y presencia,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Estás atravesando un duelo y no sabés por dónde empezar?</h3>
+      <p>Escribinos por WhatsApp. Te vamos a escuchar, orientar y, si hace falta, acompañar profesionalmente. No estás solo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20estoy%20atravesando%20un%20duelo%20y%20necesito%20orientaci%C3%B3n." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El duelo no es un problema a resolver, es un proceso a transitar.</li>
+        <li>Los juegos no curan el duelo: dan respiros para poder volver a él.</li>
+        <li>El acompañante es testigo, no salvador.</li>
+        <li>No hay plazos ni formas correctas de atravesar el duelo.</li>
+        <li>Ante signos de riesgo, buscar ayuda profesional urgente.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte conceptual. En el próximo capítulo vamos a ver qué es el duelo desde la evidencia científica: los modelos clásicos, los modelos actuales, y por qué ya no se habla de "superar" el duelo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Qué es el duelo</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Antes de hablar del protocolo, necesitamos entender qué es el duelo. Y para entenderlo, tenemos que deshacernos de algunas ideas populares que, aunque bien intencionadas, hacen más daño que bien.</p>
+
+    <h2>3.1 · Lo que el duelo NO es</h2>
+
+    <table>
+      <thead>
+        <tr><th>Creencia popular</th><th>Lo que dice la evidencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Hay que superarlo."</td><td>El duelo no se supera. Se integra. La pérdida se convierte en parte de la vida, no en algo a dejar atrás. <a href="#ref1" class="cite">Neimeyer, 2001 <span class="cite-ref">[1]</span></a></td></tr>
+        <tr><td>"Hay etapas fijas: negación, ira, negociación, depresión, aceptación."</td><td>El modelo de Kübler-Ross fue pensado para personas en fase terminal, no para el duelo general. La evidencia no respalda etapas rígidas. <a href="#ref2" class="cite">Corr, 2019 <span class="cite-ref">[2]</span></a></td></tr>
+        <tr><td>"Hay que olvidar."</td><td>El duelo saludable no es olvido: es <strong>vínculo continuo</strong>. Seguir recordando y "hablando" internamente con quien se fue puede ser adaptativo. <a href="#ref3" class="cite">Klass et al., 1996 <span class="cite-ref">[3]</span></a></td></tr>
+        <tr><td>"Durar más de un año es patológico."</td><td>La duración del duelo varía enormemente. El duelo prolongado es un cuadro específico, no la simple duración. <a href="#ref4" class="cite">Prigerson et al., 2009 <span class="cite-ref">[4]</span></a></td></tr>
+        <tr><td>"El duelo por mascotas o trabajos es menor."</td><td>El dolor no se compara. El duelo por pérdidas no humanas puede ser tan intenso como el duelo por personas. <a href="#ref5" class="cite">Archer &amp; Winchester, 1994 <span class="cite-ref">[5]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footnote">
+      <strong>¿Por qué se abandonaron las "etapas del duelo"?</strong> El modelo de Kübler-Ross (1969) fue un aporte valiosísimo en su momento, pero se basó en observaciones de pacientes terminales, no de personas en duelo general. Estudios posteriores mostraron que las personas no pasan por etapas fijas en orden. Más bien, hay <strong>oscilaciones</strong>: un día la persona está en negación, al siguiente en ira, al siguiente en tristeza, al siguiente funciona casi "normalmente". La evidencia no respalda etapas rígidas.
+    </div>
+
+    <h2>3.2 · Lo que el duelo SÍ es: el modelo de doble proceso</h2>
+    <p>El modelo más respaldado actualmente es el <strong>Modelo de Proceso Dual (DPM)</strong> de Stroebe y Schut. La idea central es que el duelo saludable consiste en <strong>oscilar</strong> entre dos orientaciones:</p>
+
+    <ul>
+      <li><strong>Orientación hacia la pérdida:</strong> momentos en los que la persona se conecta con el dolor, llora, recuerda, expresa su tristeza.</li>
+      <li><strong>Orientación hacia la restauración:</strong> momentos en los que la persona atiende sus tareas diarias, sus vínculos, sus proyectos, y "descansa" del dolor.</li>
+    </ul>
+
+    <p>Ambas orientaciones son necesarias. Si una persona está todo el tiempo orientada hacia la pérdida, se desborda. Si está todo el tiempo orientada hacia la restauración, no procesa. El duelo saludable es <strong>el ir y venir entre las dos</strong>. <a href="#ref6" class="cite">Stroebe &amp; Schut, 1999 <span class="cite-ref">[6]</span></a></p>
+
+    <div class="callout honest">
+      <strong>Por qué esto importa para este protocolo</strong>
+      Los juegos, aquí, pertenecen a la orientación hacia la restauración. No son "escape": son parte del movimiento natural de oscilación. La persona juega 15 minutos, descansa del dolor, y después vuelve a él. Eso no es evasión: es <strong>respiro</strong>. Y el respiro es parte del proceso.
+    </div>
+
+    <h2>3.3 · Modelo de tareas del duelo</h2>
+    <p>William Worden propuso que el duelo no es un proceso de "etapas" sino de <strong>tareas</strong> que la persona va realizando, sin un orden fijo:</p>
+
+    <ol>
+      <li><strong>Aceptar la realidad de la pérdida.</strong> No en el sentido de "resignarse", sino de comprender que la pérdida ocurrió.</li>
+      <li><strong>Procesar el dolor.</strong> Sentirlo. No evitarlo. No anestesiarlo.</li>
+      <li><strong>Adaptarse a un mundo sin lo perdido.</strong> Nuevos roles, nuevas rutinas, nuevas identidades.</li>
+      <li><strong>Encontrar una conexión perdurable.</strong> No olvidar, sino integrar. Seguir vinculado de otra forma.</li>
+    </ol>
+
+    <p>Estas tareas no son lineales y no tienen plazo. <a href="#ref7" class="cite">Worden, 2018 <span class="cite-ref">[7]</span></a></p>
+
+    <h2>3.4 · Duelo normal vs. duelo complicado</h2>
+    <p>La mayoría de las personas atraviesan el duelo sin necesidad de intervención profesional. Pero en un porcentaje significativo, el duelo se complica:</p>
+
+    <ul>
+      <li><strong>Duelo prolongado (Trastorno de Duelo Prolongado, DSM-5-TR):</strong> anhelo persistente y severo del fallecido, junto con deterioro funcional significativo, más de 12 meses después de la pérdida en adultos. <a href="#ref4" class="cite">Prigerson et al., 2009 <span class="cite-ref">[4]</span></a></li>
+      <li><strong>Duelo traumático:</strong> cuando la muerte fue violenta, inesperada, o presenciada.</li>
+      <li><strong>Duelo desautorizado:</strong> cuando socialmente se considera "menor" (mascota, aborto, ex pareja, trabajo).</li>
+    </ul>
+
+    <p>En estos casos, <strong>la intervención profesional es fundamental</strong>. El protocolo WineBOX puede ser un complemento, pero nunca un reemplazo.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El duelo no se "supera": se integra. La pérdida se convierte en parte de la vida.</li>
+        <li>No hay etapas fijas. El modelo actual es el de doble proceso (oscilación).</li>
+        <li>Las tareas del duelo incluyen aceptar, procesar, adaptarse y reconectar.</li>
+        <li>El duelo complicado es un cuadro específico, no la simple duración.</li>
+        <li>Los juegos son parte de la orientación hacia la restauración, y eso es adaptativo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos qué es el duelo. Ahora toca ver que no todos los duelos son iguales. En el próximo capítulo vamos a ver los distintos tipos de pérdida: persona, mascota, trabajo, salud, identidad, y por qué cada uno tiene sus particularidades.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">Tipos de pérdida: no todas duelen igual</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Cuando hablamos de duelo, muchas personas piensan automáticamente en la muerte de un ser querido. Pero el duelo es mucho más amplio. Y cada tipo de pérdida tiene sus particularidades, sus matices, y sus propios desafíos.</p>
+
+    <h2>4.1 · Pérdida de un ser querido</h2>
+    <p>Es el duelo más reconocido socialmente, y el que tiene más investigación. Pero incluso dentro de este, hay diferencias:</p>
+
+    <ul>
+      <li><strong>Pareja:</strong> el duelo del cónyuge suele ser el más intenso, según los estudios. La pérdida de la pareja implica redefinir toda la vida cotidiana, la identidad, la rutina, la cama, las comidas, las decisiones. <a href="#ref8" class="cite">Bonanno et al., 2002 <span class="cite-ref">[8]</span></a></li>
+      <li><strong>Madre o padre:</strong> a cualquier edad, la pérdida de un progenitor es un hito. Cambia la relación con el mundo, la idea de sí mismo, el lugar en la familia.</li>
+      <li><strong>Hijo:</strong> el duelo por un hijo es el más devastador según múltiples estudios. La inversión afectiva, la ruptura del orden natural de las generaciones, y el impacto social lo hacen especialmente complejo.</li>
+      <li><strong>Amigo cercano:</strong> frecuentemente es un <strong>duelo desautorizado</strong>. La sociedad no reconoce el mismo "derecho" a llorar que a un familiar. Pero el dolor es real.</li>
+    </ul>
+
+    <h2>4.2 · Pérdida de una mascota</h2>
+    <p>El duelo por un animal no es "menor". Los estudios muestran que el dolor puede ser comparable al de la pérdida de un ser humano cercano, especialmente cuando el animal era la principal fuente de compañía. <a href="#ref5" class="cite">Archer &amp; Winchester, 1994 <span class="cite-ref">[5]</span></a></p>
+
+    <p>Particularidades de este duelo:</p>
+    <ul>
+      <li><strong>Desautorización social:</strong> muchas veces la persona no puede hablar de su dolor en el trabajo o entre amigos porque "es solo un animal".</li>
+      <li><strong>Decisiones difíciles:</strong> cuando hubo que decidir la eutanasia, aparece una culpa específica que necesita ser abordada.</li>
+      <li><strong>Rutinas intensas:</strong> el animal suele estar presente en la rutina diaria. La ausencia se siente en cada momento del día.</li>
+      <li><strong>Vínculo no verbal:</strong> el vínculo con un animal es único, sin las complejidades del vínculo humano, y eso lo hace especialmente significativo.</li>
+    </ul>
+
+    <h2>4.3 · Pérdida de un trabajo o de un propósito</h2>
+    <p>El trabajo no es solo una fuente de ingresos. Es identidad, propósito, estructura, vínculos, sentido. Perderlo, ya sea por despido, jubilación, enfermedad o renuncia, es un duelo real, aunque socialmente no siempre se reconozca así.</p>
+
+    <ul>
+      <li><strong>Despido:</strong> puede producir una sensación de rechazo personal, más allá de la económica.</li>
+      <li><strong>Jubilación:</strong> muchos jubilados sienten que "ya no sirven para nada". El duelo por el rol perdido es real.</li>
+      <li><strong>Renuncia forzada:</strong> dejar un trabajo por enfermedad, cuidado de un familiar, o migración, implica un duelo por una identidad que se deja atrás.</li>
+    </ul>
+
+    <h2>4.4 · Pérdida de la salud</h2>
+    <p>Recibir un diagnóstico crónico, perder movilidad, atravesar una enfermedad grave: son formas de duelo por el cuerpo que se tenía, por las capacidades que se perdieron, por el futuro que se había imaginado.</p>
+
+    <p>Este duelo suele tener una particularidad: es <strong>un duelo continuo</strong>. No hay un momento claro de "la pérdida". La persona sigue viviendo con lo perdido todos los días. <a href="#ref9" class="cite">Kübler-Ross, 1969 <span class="cite-ref">[9]</span></a></p>
+
+    <h2>4.5 · Pérdida de una versión de uno mismo</h2>
+    <p>Dejar un país, dejar una fe, dejar una relación de años, dejar un proyecto de vida. Todas estas pérdidas implican despedirse de una versión de uno mismo. El duelo no es por algo externo, sino por una identidad que se deja atrás.</p>
+
+    <p>Este duelo suele ser solitario, porque no hay un "objeto" claramente identificable que se perdió. La persona puede sentir que "no tiene derecho" a estar de duelo, porque nadie murió. Pero el dolor es real.</p>
+
+    <h2>4.6 · Lo que todos los duelos tienen en común</h2>
+
+    <div class="callout info">
+      A pesar de las diferencias, todos los duelos comparten algunos elementos:
+      <ul style="margin-top: 10px;">
+        <li><strong>Dolor:</strong> una sensación de vacío, tristeza, y a veces rabia o culpa.</li>
+        <li><strong>Reorganización:</strong> la necesidad de reacomodar la vida sin lo perdido.</li>
+        <li><strong>Oscilación:</strong> días mejores y días peores, en vaivén.</li>
+        <li><strong>Necesidad de acompañamiento:</strong> el duelo no se transita en soledad.</li>
+        <li><strong>Posibilidad de integración:</strong> con el tiempo, la pérdida se convierte en parte de la vida, sin que desaparezca.</li>
+      </ul>
+    </div>
+
+    <div class="callout honest">
+      <strong>Un recordatorio importante</strong>
+      No compares duelos. Nunca digas a alguien "es solo un perro" o "es solo un trabajo" o "ya vas a tener otro hijo". El dolor no es cuantificable. Cada duelo tiene su propia dignidad.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El duelo por un ser querido varía según el vínculo: pareja, hijo, padre, amigo.</li>
+        <li>El duelo por una mascota es real, aunque socialmente desautorizado.</li>
+        <li>El trabajo, la salud y la identidad también generan duelos profundos.</li>
+        <li>No se comparan los duelos. Cada pérdida tiene su propia dignidad.</li>
+        <li>Todos los duelos comparten dolor, reorganización, oscilación y necesidad de acompañamiento.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya conocemos los tipos de pérdida. Ahora toca el capítulo más honesto de este libro: los límites de la terapia gameficada. En el próximo capítulo vamos a decir, con claridad, qué puede y qué no puede hacer un juego en el duelo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte II</div>
+    <h1 class="chapter-title">Los límites de la terapia gameficada</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este es el capítulo más importante de este libro. Y también el más honesto. Porque si vamos a hablar de juegos y duelo, tenemos que decir con claridad <strong>qué pueden hacer los juegos y qué no</strong>. Y en el duelo, la lista de lo que NO pueden hacer es más larga que la de lo que sí.</p>
+
+    <h2>5.1 · Lo que la terapia gameficada NO puede hacer en el duelo</h2>
+
+    <table>
+      <thead>
+        <tr><th>Lo que NO puede hacer</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Curar el duelo</strong></td><td>El duelo no es una enfermedad. No hay nada que curar. Solo hay algo que atravesar.</td></tr>
+        <tr><td><strong>Reemplazar el llanto</strong></td><td>El llanto es catártico, es fisiológico, es necesario. Ningún juego puede reemplazarlo.</td></tr>
+        <tr><td><strong>Evitar la tristeza</strong></td><td>La tristeza es parte del proceso. Evitarla es cronificarla.</td></tr>
+        <tr><td><strong>Apurar la aceptación</strong></td><td>La aceptación no se fuerza. Llega cuando llega.</td></tr>
+        <tr><td><strong>Reemplazar los rituales</strong></td><td>Velorios, entierros, aniversarios, misas, reuniones familiares: los rituales son esenciales. Ningún juego los sustituye.</td></tr>
+        <tr><td><strong>Reemplazar los vínculos</strong></td><td>El duelo se atraviesa con otros. Un juego puede ser una excusa para estar con alguien, pero no reemplaza el abrazo, la conversación, la presencia.</td></tr>
+        <tr><td><strong>Reemplazar la psicoterapia</strong></td><td>En duelo complicado o prolongado, la terapia profesional es irremplazable.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout honest">
+      <strong>La regla más importante de este libro</strong>
+      <strong>El juego nunca debe usarse para evitar el duelo.</strong> Si la persona está jugando 6 horas al día para no pensar, eso no es respiro: es evitación. Y la evitación crónica cronifica el duelo. Los juegos de este protocolo están pensados para sesiones de 10 a 20 minutos, con un inicio y un fin claros. Después, se vuelve a la vida, al dolor, a los vínculos.
+    </div>
+
+    <h2>5.2 · Lo que la terapia gameficada SÍ puede hacer en el duelo</h2>
+
+    <table>
+      <thead>
+        <tr><th>Lo que SÍ puede hacer</th><th>Cómo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Dar respiros al sistema nervioso</strong></td><td>10-20 minutos en los que la mente descansa del peso del duelo. Como una siesta en medio de una caminata larga.</td></tr>
+        <tr><td><strong>Servir de excusa para la conexión social</strong></td><td>Jugar con un amigo o familiar es una forma de bajo costo emocional de estar con otros, sin tener que hablar del dolor si no se quiere.</td></tr>
+        <tr><td><strong>Ofrecer estructura en el caos</strong></td><td>En las primeras semanas, cuando todo es caos, un juego simple da un mínimo de orden.</td></tr>
+        <tr><td><strong>Facilitar la expresión emocional</strong></td><td>Algunos juegos pueden generar emociones que abren la conversación.</td></tr>
+        <tr><td><strong>Promover la activación conductual</strong></td><td>Cuando la persona está totalmente inmovilizada, un juego puede ser la primera actividad que retoma.</td></tr>
+        <tr><td><strong>Ofrecer logros pequeños</strong></td><td>En un momento en el que todo parece perdido, ganar un juego simple puede devolver un mínimo de autoeficacia.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5.3 · Un ejemplo práctico</h2>
+
+    <p>Imaginemos que una persona perdió a su pareja hace 3 semanas. Está en la fase de mayor dolor. Un amigo le propone jugar un Breakout 15 minutos. La persona acepta.</p>
+
+    <p><strong>Lo que NO significa eso:</strong></p>
+    <ul>
+      <li>No significa que ya está "mejor".</li>
+      <li>No significa que está "evitando" el duelo.</li>
+      <li>No significa que el juego la está "curando".</li>
+      <li>No significa que puede dejar de llorar.</li>
+    </ul>
+
+    <p><strong>Lo que SÍ significa:</strong></p>
+    <ul>
+      <li>Durante esos 15 minutos, su sistema nervioso descansó del peso del duelo.</li>
+      <li>Estuvo acompañada por alguien, sin tener que conversar.</li>
+      <li>Hizo algo activo, en lugar de quedarse inmovilizada.</li>
+      <li>Vio, aunque sea por un momento, que todavía puede sostener una tarea.</li>
+      <li>Después de esos 15 minutos, volverá al duelo, pero con un poco más de aire.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>La metáfora del buceo</strong>
+      Atravesar un duelo es como bucear en aguas profundas. No podés bucear 4 horas sin salir a respirar. Necesitás subir cada tanto, tomar aire, y volver a bajar. Los juegos de este protocolo son esas subidas a la superficie. No son abandono del duelo: son parte de poder sostenerlo.
+    </div>
+
+    <h2>5.4 · Lo que la evidencia dice sobre juegos y duelo</h2>
+
+    <p>La investigación sobre juegos y duelo es limitada. Lo que sí existe es evidencia sobre el uso de videojuegos en:</p>
+
+    <ul>
+      <li><strong>Duelo infantil y adolescente:</strong> algunos estudios exploratorios muestran que los videojuegos pueden ser una vía de expresión emocional para niños y adolescentes en duelo, especialmente cuando el juego tiene elementos narrativos. <a href="#ref10" class="cite">Schott &amp; Hodgetts, 2006 <span class="cite-ref">[10]</span></a></li>
+      <li><strong>Conexión social en duelo:</strong> los juegos multijugador pueden reducir la sensación de soledad y ofrecer un espacio de pertenencia. <a href="#ref11" class="cite">Trepte et al., 2012 <span class="cite-ref">[11]</span></a></li>
+      <li><strong>Regulación emocional:</strong> los juegos pueden ofrecer un espacio seguro para experimentar y regular emociones difíciles. <a href="#ref12" class="cite">Granic et al., 2014 <span class="cite-ref">[12]</span></a></li>
+    </ul>
+
+    <p><strong>Pero no existe evidencia de que los juegos "curen" el duelo.</strong> Y pretender que lo hagan es una falta de respeto a la profundidad del proceso.</p>
+
+    <h2>5.5 · Una advertencia final</h2>
+
+    <div class="callout alert">
+      <strong>Si en algún momento el juego se vuelve la única estrategia</strong>
+      Si la persona juega para no llorar, juega para no dormir, juega para no hablar con nadie, juega para no ir a trabajar, entonces el juego dejó de ser respiro y se convirtió en evitación. En ese caso, hay que detener el protocolo y buscar ayuda profesional.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los juegos no curan el duelo. No hay nada que curar: hay algo que atravesar.</li>
+        <li>Los juegos dan respiros, ofrecen estructura, facilitan la conexión social.</li>
+        <li>El juego nunca debe usarse para evitar el duelo. La evitación cronifica.</li>
+        <li>La evidencia sobre juegos y duelo es limitada. No se puede prometer cura.</li>
+        <li>Si el juego se vuelve la única estrategia, hay que buscar ayuda profesional.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los límites claros, entramos en la parte práctica. En el próximo capítulo vas a ver la estructura general del protocolo: cómo se acompaña a alguien en duelo sin pretender curarlo, y cómo se integran los juegos como respiros.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte III</div>
+    <h1 class="chapter-title">Estructura del protocolo: no curar, acompañar</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe la estructura general del protocolo. La palabra "protocolo" puede sonar demasiado rígida para el duelo, así que la usamos con cuidado: es una <strong>guía de acompañamiento</strong>, no un tratamiento estandarizado.</p>
+
+    <h2>6.1 · Un principio rector</h2>
+
+    <div class="callout honest">
+      <strong>El principio rector</strong>
+      Este protocolo no busca modificar la trayectoria del duelo. Busca acompañarlo. No busca acelerar el proceso. Busca sostenerlo. No busca evitar el dolor. Busca ofrecer respiros para poder sostenerlo. <strong>El duelo es el trabajo. Los juegos son la pausa.</strong>
+    </div>
+
+    <h2>6.2 · Estructura temporal en cuatro momentos</h2>
+
+    <p>El duelo no tiene etapas fijas, pero sí momentos reconocibles. Este protocolo acompaña cuatro de ellos, sin pretender que sean lineales:</p>
+
+    <table>
+      <thead>
+        <tr><th>Momento</th><th>Tiempo aproximado</th><th>Foco</th><th>Rol de los juegos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Shock y refugio</strong></td><td>Días 1-7</td><td>Sobrevivir el momento</td><td>Mínimo. Presencia. Silencio.</td></tr>
+        <tr><td><strong>Tormenta y oscilación</strong></td><td>Días 8-30</td><td>Sostener las olas emocionales</td><td>Respiros cortos. 10-15 minutos.</td></tr>
+        <tr><td><strong>Reconstrucción y sentido</strong></td><td>Meses 2-6</td><td>Rearmar la vida sin lo perdido</td><td>Actividades. Vínculos. Proyectos.</td></tr>
+        <tr><td><strong>Integración y vínculos continuos</strong></td><td>Más de 6 meses</td><td>Vivir con la pérdida integrada</td><td>Ocasional. Sin forzar.</td></tr>
+      </tbody>
+    </table>
+
+    <p>Esta estructura no es rígida. Algunas personas atraviesan estos momentos en semanas, otras en años. Algunas retroceden. Otras se estancan. <strong>El tiempo del duelo es el tiempo de cada quien.</strong></p>
+
+    <h2>6.3 · Estructura de una sesión de acompañamiento</h2>
+
+    <div class="session-card">
+      <h4>Presencia sin agenda · 5-10 minutos</h4>
+      <div class="session-meta">Apertura</div>
+      <p>Se comienza con la pregunta más simple y más difícil: <em>¿Cómo estás hoy?</em> Sin apuro. Sin pretender "arreglar". Sin buscar consuelo forzado. El acompañante escucha, sostiene, y espera.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Respiro opcional · 10-20 minutos</h4>
+      <div class="session-meta">Juego</div>
+      <p>Si la persona quiere, se juega. Si no quiere, no se juega. <strong>El juego es una invitación, no una obligación.</strong> Se puede jugar en silencio, o conversando de temas triviales, o conversando de la pérdida, según lo que la persona necesite.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Vuelta al duelo · 5-10 minutos</h4>
+      <div class="session-meta">Reflexión</div>
+      <p>Después del juego, se vuelve al duelo. No como obligación, sino como parte natural del proceso. Preguntas posibles: <em>¿Cómo estuvo? ¿Extrañás a [nombre]? ¿Querés contarme algo?</em> Si la persona no quiere, se respeta.</p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Flexibilidad total</strong>
+      Algunas sesiones van a ser solo de presencia, sin juego. Otras van a ser solo de juego, sin conversación. Otras van a ser todo conversación. <strong>No hay una forma correcta.</strong> Hay una forma que funciona para esa persona, ese día.
+    </div>
+
+    <h2>6.4 · Criterios de cuidado</h2>
+
+    <table>
+      <thead>
+        <tr><th>Situación</th><th>Acción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>La persona llora sin consuelo</strong></td><td>Estar presente. No interrumpir. No apurar. El llanto es parte del proceso.</td></tr>
+        <tr><td><strong>La persona se ríe jugando</strong></td><td>Está bien. La risa no es traición a quien se fue. Es descanso.</td></tr>
+        <tr><td><strong>La persona no quiere jugar</strong></td><td>Respetar. El juego no es obligatorio.</td></tr>
+        <tr><td><strong>La persona se angustia jugando</strong></td><td>Detener. Estar. Acompañar.</td></tr>
+        <tr><td><strong>La persona juega compulsivamente</strong></td><td>Advertir. Buscar ayuda profesional. Puede ser evitación.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6.5 · Lo que el acompañante nunca debe hacer</h2>
+
+    <ul>
+      <li><strong>No decir "ya va a pasar".</strong> No es cierto y no ayuda.</li>
+      <li><strong>No decir "tenés que ser fuerte".</strong> La fortaleza no es no llorar.</li>
+      <li><strong>No decir "Dios lo quiso así" o "está en un lugar mejor".</strong> La fe es un tema personal. No se impone.</li>
+      <li><strong>No decir "ya vas a tener otro/a".</strong> Una pérdida no se reemplaza.</li>
+      <li><strong>No decir "sé cómo te sentís".</strong> A menos que hayas atravesado algo similar, y aun así, el dolor es único.</li>
+      <li><strong>No hacer comparaciones.</strong> "Podría haber sido peor". No ayuda.</li>
+      <li><strong>No apurar la vuelta a la normalidad.</strong> No hay una "normalidad" a la que volver.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Y el acompañante también se cuida</strong>
+      Acompañar a alguien en duelo es agotador. El acompañante también tiene derecho a llorar, a descansar, a pedir ayuda. Si el acompañante se agota, no puede acompañar. El autocuidado del acompañante es parte del protocolo.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Este protocolo no modifica la trayectoria del duelo, la acompaña.</li>
+        <li>El duelo tiene momentos reconocibles, no etapas fijas.</li>
+        <li>La sesión tipo es: presencia, respiro opcional, vuelta al duelo.</li>
+        <li>Flexibilidad total: no hay una forma correcta.</li>
+        <li>El acompañante nunca dice frases hechas ni apura el proceso.</li>
+        <li>El acompañante también se cuida.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la estructura clara, entramos en los cuatro momentos del duelo. En el próximo capítulo, el más delicado: los primeros días, cuando el shock y el refugio son lo único que importa.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 · DÍAS 1-7 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte IV · Días 1-7</div>
+    <h1 class="chapter-title">Shock y refugio</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Los primeros siete días son los más difíciles.</strong> Y aquí, la honestidad es total: <strong>los juegos no tienen casi ningún lugar.</strong> Lo que importa en estos días es otra cosa.</p>
+
+    <div class="callout alert">
+      <strong>Lo que importa en los primeros días</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li><strong>Presencia.</strong> Estar. Sin hablar. Sin arreglar. Sin explicar.</li>
+        <li><strong>Funcionamiento básico.</strong> Comer, dormir, hidratarse, aunque sea mínimamente.</li>
+        <li><strong>Los trámites.</strong> Velorio, entierro, avisos, documentación. Alguien tiene que organizar. A veces es la misma persona en duelo, a veces un familiar.</li>
+        <li><strong>Los rituales.</strong> Despedirse. Decir adiós. Acompañar el cuerpo, o el recuerdo, de la manera que cada cultura o familia tenga.</li>
+        <li><strong>El silencio.</strong> A veces el silencio es la mejor compañía.</li>
+      </ul>
+    </div>
+
+    <h2>7.1 · Qué pasa en el cuerpo y la mente</h2>
+
+    <p>En los primeros días, el cerebro está en un estado de <strong>shock neurobiológico</strong>. Los niveles de cortisol y adrenalina están altísimos. La persona puede sentir:</p>
+
+    <ul>
+      <li><strong>Embotamiento:</strong> sentir que "no siente nada", como si estuviera anestesiada.</li>
+      <li><strong>Irrealidad:</strong> sentir que "esto no está pasando", que es una película, que va a despertar.</li>
+      <li><strong>Hiperactivación:</strong> dificultad para dormir, para comer, para quedarse quieta.</li>
+      <li><strong>Confusión:</strong> dificultad para pensar, para recordar, para tomar decisiones simples.</li>
+      <li><strong>Síntomas físicos:</strong> opresión en el pecho, nudo en la garganta, dolor de cabeza, fatiga extrema.</li>
+    </ul>
+
+    <p>Todos estos son síntomas normales del shock. No son un problema a resolver. Son parte del proceso.</p>
+
+    <h2>7.2 · El rol del acompañante</h2>
+
+    <p>En estos días, el acompañante no tiene que "hacer" nada especial. Su rol es:</p>
+
+    <ul>
+      <li><strong>Estar presente.</strong> Físicamente. En silencio, si es necesario.</li>
+      <li><strong>Ofrecer cosas concretas.</strong> "¿Te traigo agua?", "¿te ayudo con esto?", "¿llamo a alguien por vos?". Las preguntas generales ("avisame si necesitás algo") rara vez funcionan, porque la persona en shock no sabe qué necesita.</li>
+      <li><strong>Cuidar lo básico.</strong> Asegurarse de que la persona come, bebe, duerme algo.</li>
+      <li><strong>No forzar conversaciones.</strong> No hacer preguntas profundas. No exigir explicaciones. No pedir que "cuente cómo se siente".</li>
+      <li><strong>Gestionar el entorno.</strong> Atender el teléfono, la puerta, los mensajes. La persona en duelo no tiene energía para eso.</li>
+      <li><strong>Respetar los rituales.</strong> Si la familia quiere velar, enterrar, reunirse, respetar esas decisiones sin imponer otras.</li>
+    </ul>
+
+    <div class="callout honest">
+      <strong>Por qué casi no hay juegos en esta fase</strong>
+      En los primeros días, la persona está en shock. No hay espacio mental para nada. Pretender que juegue sería una intromisión. Y también: hay cosas más importantes: los rituales, la despedida, los abrazos, los silencios. <strong>Los juegos, si aparecen, aparecen como distracción mínima.</strong> Alguien juega un solitario en el celular mientras espera en el velorio. No es "tratamiento". Es solo un momento de respiro en una situación abrumadora.
+    </div>
+
+    <h2>7.3 · La única excepción</h2>
+
+    <p>Si aparecen niños en el contexto del duelo, los juegos pueden tener un rol distinto. Los niños procesan el duelo de formas diferentes, y el juego es su lenguaje natural. Un niño puede necesitar jugar para poder procesar lo que no puede poner en palabras.</p>
+
+    <p>En ese caso, los juegos simples y repetitivos (como el Sequence, o un juego de plataformas ligero) pueden ofrecer al niño un espacio de regulación y de expresión, siempre con la presencia de un adulto que sostenga.</p>
+
+    <div class="callout info">
+      <strong>Sobre el duelo infantil</strong>
+      Los niños entienden la muerte de forma diferente según la edad. Antes de los 5-6 años, suele ser un concepto reversible o parcial. Entre 6 y 9, empiezan a comprender la finalidad. Después de los 9, comprenden la muerte como universal e irreversible. El juego, en los niños, es una forma legítima de procesar. Los adultos no deberían reprimir el juego infantil en el duelo: deberían acompañarlo. <a href="#ref13" class="cite">Webb, 2010 <span class="cite-ref">[13]</span></a>
+    </div>
+
+    <h2>7.4 · Cuidados básicos para el acompañante</h2>
+
+    <ul>
+      <li><strong>Comer y dormir.</strong> El acompañante también es humano.</li>
+      <li><strong>Repartir tareas.</strong> No cargar todo solo.</li>
+      <li><strong>Aceptar ayuda.</strong> Si alguien ofrece, aceptar.</li>
+      <li><strong>No intentar "arreglar" nada.</strong> No es posible. No es la tarea.</li>
+      <li><strong>Llorar si hace falta.</strong> El acompañante también tiene derecho a su duelo.</li>
+    </ul>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los primeros días son de shock. Los juegos casi no tienen lugar.</li>
+        <li>Lo que importa es la presencia, el funcionamiento básico, los rituales y el silencio.</li>
+        <li>El acompañante ofrece cosas concretas, no preguntas generales.</li>
+        <li>Los niños pueden necesitar jugar como forma de procesar. Se acompaña.</li>
+        <li>El acompañante también se cuida.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Pasados los primeros días, llegamos a la fase más larga y compleja: los días 8 a 30, la tormenta y la oscilación. En el próximo capítulo vas a ver cómo se acompaña esa etapa, y cómo los juegos empiezan a tener un lugar más claro.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 · DÍAS 8-30 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV · Días 8-30</div>
+    <h1 class="chapter-title">La tormenta y la oscilación</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Entre el día 8 y el día 30, el duelo empieza a manifestarse con toda su intensidad.</strong> El shock inicial se disipa, los rituales terminaron, las visitas se espaciaron. Y ahora la persona queda sola con la pérdida. Es un momento especialmente difícil.</p>
+
+    <div class="callout info">
+      <strong>Lo que caracteriza esta fase</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li><strong>Oscilación:</strong> la persona pasa de la tristeza profunda a momentos casi normales, y vuelve a la tristeza.</li>
+        <li><strong>Anhelo:</strong> extrañar intensamente a lo perdido. A veces con sensación física.</li>
+        <li><strong>Búsqueda:</strong> buscar señales, revisar redes, escuchar audios, mirar fotos.</li>
+        <li><strong>Culpa:</strong> sentir que "no hizo lo suficiente", que "debería haber estado", que "podría haber evitado algo".</li>
+        <li><strong>Ira:</strong> con la persona que murió, con el destino, con Dios, con los médicos, con uno mismo, con quien está vivo.</li>
+        <li><strong>Miedo:</strong> a olvidar, a olvidar el dolor, a seguir adelante, a no poder.</li>
+      </ul>
+    </div>
+
+    <h2>8.1 · El modelo de doble proceso en acción</h2>
+
+    <p>Este es el momento donde el <strong>Modelo de Proceso Dual</strong> se hace más visible. La persona oscila entre dos orientaciones:</p>
+
+    <ul>
+      <li><strong>Orientación hacia la pérdida:</strong> llorar, recordar, hablar de lo perdido, ir al cementerio, escuchar la música que compartían.</li>
+      <li><strong>Orientación hacia la restauración:</strong> volver al trabajo, ver amigos, hacer ejercicio, jugar, ver una serie, salir a caminar.</li>
+    </ul>
+
+    <p>Ambas orientaciones son necesarias. Y el juego, aquí, <strong>pertenece claramente a la orientación hacia la restauración</strong>. No es evasión. Es <strong>parte natural del vaivén</strong>.</p>
+
+    <div class="callout honest">
+      <strong>El principio de la oscilación</strong>
+      El duelo saludable no es estar todo el tiempo triste. Es <strong>alternar</strong> entre estar con el dolor y descansar del dolor. Si la persona se ríe viendo una serie, eso no significa que no esté de duelo. Significa que su sistema nervioso está funcionando. Si no hubiera momentos de descanso, el duelo se volvería insostenible.
+    </div>
+
+    <h2>8.2 · El rol del juego en esta fase</h2>
+
+    <p>En esta fase, los juegos pueden ocupar un lugar más claro:</p>
+
+    <ul>
+      <li><strong>Como respiro diario:</strong> 10-20 minutos al día, en un momento pactado, para que el sistema nervioso descanse.</li>
+      <li><strong>Como excusa para la conexión:</strong> invitar a un amigo a jugar, sin tener que conversar del dolor.</li>
+      <li><strong>Como reintroducción de la actividad:</strong> si la persona está totalmente inmovilizada, un juego simple puede ser el primer acto de "hacer algo".</li>
+      <li><strong>Como descanso del pensamiento:</strong> la exigencia atencional de los juegos de acción desplaza la rumiación.</li>
+    </ul>
+
+    <h2>8.3 · Ejercicios sugeridos para esta fase</h2>
+
+    <p>Los siguientes juegos pueden servir como respiros. Se eligen por su capacidad de exigir atención, pero también por su simplicidad. <strong>Se recomienda empezar por los más simples, y avanzar a los más exigentes si la persona se siente lista.</strong></p>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Respiro 1</div>
+        <div class="ex-name">Breakout</div>
+        <div class="ex-fn">Atención simple · Logro inmediato</div>
+        <div class="ex-desc">El clásico rompebloques. Simple, visual, gratificante. La atención se ancla en la pelota. No hay espacio para la rumiación mientras se juega. Ideal para los primeros respiros de esta fase.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Respiro 2</div>
+        <div class="ex-name">Solitaire</div>
+        <div class="ex-fn">Ritmo propio · Orden en el caos</div>
+        <div class="ex-desc">El clásico solitario. No tiene tiempo límite, no tiene competencia, no tiene presión. La persona juega a su ritmo, ordenando cartas. Ofrece una sensación de orden en un momento de caos.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Respiro 3</div>
+        <div class="ex-name">Sudoku</div>
+        <div class="ex-fn">Enfoque · Ritmo propio</div>
+        <div class="ex-desc">El clásico rompecabezas numérico. Sin tiempo, sin presión. La persona va llenando números a su ritmo. Ideal para las noches de insomnio, o para los momentos en los que necesita tener la mente ocupada sin exigirse.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15-20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Respiro 4</div>
+        <div class="ex-name">Pixel Leap</div>
+        <div class="ex-fn">Ritmo · Movimiento · Descarga</div>
+        <div class="ex-desc">Juego de plataformas con música. Salta de plataforma en plataforma al ritmo. Ideal para los momentos en los que la persona necesita moverse, aunque sea virtualmente. Activación corporal y ritmo.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Respiro 5</div>
+        <div class="ex-name">Voxel Quest</div>
+        <div class="ex-fn">Exploración · Atención sostenida</div>
+        <div class="ex-desc">Laberintos 3D minimalistas. Exige atención sostenida y orientación espacial. Se puede jugar solo o con alguien. La exploración da una sensación mínima de control sobre el entorno.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Respiro 6</div>
+        <div class="ex-name">Damas (con alguien)</div>
+        <div class="ex-fn">Conexión social · Estructura</div>
+        <div class="ex-desc">El clásico juego de damas. Jugarlo con alguien es una excusa de bajo costo emocional para estar con otros. No hay que hablar del dolor. Solo jugar. La presencia silenciosa es un acompañamiento poderoso.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15-20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>8.4 · Cómo acompañar los momentos difíciles</h2>
+
+    <ul>
+      <li><strong>Los aniversarios:</strong> días como el "mes" de la pérdida, cumpleaños, fechas especiales, son especialmente dolorosos. Se anticipan y se acompañan.</li>
+      <li><strong>Las noches:</strong> el insomnio es común. Un juego simple puede llenar esas horas, pero no debe reemplazar el descanso.</li>
+      <li><strong>Los lugares:</strong> la casa, el bar, la calle. Es posible que la persona quiera evitar algunos lugares, o necesite volver a ellos de a poco.</li>
+      <li><strong>Los objetos:</strong> la ropa, el perfume, las fotos. Algunas personas quieren conservarlos, otras necesitan sacarlos. No hay una forma correcta.</li>
+    </ul>
+
+    <h2>8.5 · Señales de alerta</h2>
+
+    <div class="callout alert">
+      <strong>Cuándo preocuparse</strong>
+      La mayoría de las manifestaciones de esta fase son normales. Pero hay señales que indican que la persona necesita ayuda profesional:
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li>Incapacidad total para funcionar durante más de 2 semanas.</li>
+        <li>Ideas de morir o de reunirse con el fallecido.</li>
+        <li>Consumo problemático de alcohol u otras sustancias.</li>
+        <li>Aislamiento extremo (no sale de la casa, no contesta mensajes durante semanas).</li>
+        <li>Síntomas psicóticos (ver o escuchar al fallecido de forma persistente, con pérdida de contacto con la realidad).</li>
+        <li>Negación total de la pérdida (hablar en presente del fallecido todo el tiempo, o actuar como si no hubiera muerto).</li>
+      </ul>
+      Ante cualquiera de estas señales, <strong>consultar con un profesional</strong>.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los días 8-30 son los de mayor intensidad emocional y oscilación.</li>
+        <li>La oscilación entre dolor y descanso es adaptativa, no evasión.</li>
+        <li>Los juegos pueden ocupar un lugar como respiro diario, conexión, o reintroducción de la actividad.</li>
+        <li>Los aniversarios, las noches, los lugares y los objetos requieren cuidado especial.</li>
+        <li>Hay señales de alerta que requieren intervención profesional.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Pasada la tormenta, entramos en los meses 2 a 6: la reconstrucción y la búsqueda de sentido. En el próximo capítulo vas a ver cómo se acompaña esta etapa, donde la vida empieza a rearmarse sin lo perdido.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 · MESES 2-6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte IV · Meses 2-6</div>
+    <h1 class="chapter-title">Reconstrucción y sentido</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Entre el mes 2 y el mes 6, el duelo empieza a transformarse.</strong> No desaparece. Pero ya no ocupa todo el espacio. La persona empieza a rearmar su vida, no "sin" lo perdido, sino <strong>con la ausencia integrada</strong>.</p>
+
+    <div class="callout info">
+      <strong>Lo que caracteriza esta fase</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li><strong>Retorno gradual:</strong> la persona vuelve a actividades, a vínculos, a proyectos.</li>
+        <li><strong>Reorganización:</strong> nuevas rutinas, nuevos roles, nuevas formas de ser.</li>
+        <li><strong>Búsqueda de sentido:</strong> preguntas como "¿por qué pasó?", "¿qué aprendí?", "¿qué hago con esto?".</li>
+        <li><strong>Momentos de recaída:</strong> un olor, una canción, una fecha, y de golpe el dolor vuelve como si fuera el primer día.</li>
+        <li><strong>Reconstrucción de identidad:</strong> quién soy ahora, sin lo perdido.</li>
+      </ul>
+    </div>
+
+    <h2>9.1 · La búsqueda de sentido</h2>
+
+    <p>En esta fase, la persona empieza a preguntarse por el sentido de lo ocurrido. No se trata de encontrar una "explicación" (porque muchas veces no la hay), sino de <strong>integrar la pérdida en la propia historia</strong>.</p>
+
+    <p>La <strong>reconstrucción de significado</strong> es un concepto central en el duelo. Según Neimeyer, el duelo no es solo un proceso emocional, sino también un proceso de <strong>reescritura de la narrativa de la propia vida</strong>: cómo se cuenta la historia, qué lugar ocupa lo perdido, quién se es ahora. <a href="#ref1" class="cite">Neimeyer, 2001 <span class="cite-ref">[1]</span></a></p>
+
+    <p>Algunas personas encuentran sentido en:</p>
+    <ul>
+      <li><strong>La memoria:</strong> mantener viva la memoria de lo perdido en la propia vida.</li>
+      <li><strong>El legado:</strong> hacer algo en honor a quien murió (donar, plantar un árbol, escribir, cuidar a alguien).</li>
+      <li><strong>El aprendizaje:</strong> entender qué se llevó de la relación o la experiencia.</li>
+      <li><strong>La espiritualidad o la fe:</strong> encontrar consuelo en creencias religiosas o filosóficas.</li>
+      <li><strong>La solidaridad:</strong> ayudar a otros que están atravesando lo mismo.</li>
+    </ul>
+
+    <p>Ninguna de estas formas es "correcta" o "incorrecta". Cada persona encuentra su propio camino.</p>
+
+    <div class="footnote">
+      <strong>Sobre la búsqueda de sentido</strong>
+      La búsqueda de sentido no tiene que ser una tarea activa o explícita. Muchas veces ocurre de manera silenciosa: la persona simplemente empieza a vivir de otra forma, sin proponérselo. Los estudios muestran que quienes logran encontrar un sentido a la pérdida tienen mejor ajuste a largo plazo, pero <strong>forzar la búsqueda de sentido puede ser contraproducente</strong>. El sentido, cuando aparece, aparece solo. <a href="#ref14" class="cite">Park, 2010 <span class="cite-ref">[14]</span></a>
+    </div>
+
+    <h2>9.2 · El retorno a la vida</h2>
+
+    <p>En esta fase, la persona empieza a retomar actividades. No porque ya esté "mejor", sino porque la vida sigue y hay que seguir viviendo. Los juegos pueden tener un lugar más claro:</p>
+
+    <ul>
+      <li><strong>Como actividad planificada:</strong> no solo respiro, sino algo que la persona retoma por sí misma.</li>
+      <li><strong>Como práctica de habilidades:</strong> juegos que exigen planificación, atención, memoria, pueden ser una forma de mantener la mente activa.</li>
+      <li><strong>Como reconexión con los propios gustos:</strong> ¿qué le gustaba hacer antes? ¿qué actividades placenteras puede retomar?</li>
+    </ul>
+
+    <h2>9.3 · Ejercicios sugeridos para esta fase</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 1</div>
+        <div class="ex-name">Sudoku (con progresión)</div>
+        <div class="ex-fn">Atención · Lógica · Sensación de eficacia</div>
+        <div class="ex-desc">El clásico rompecabezas numérico, ahora con niveles progresivos. La persona empieza por lo más simple y va subiendo. Ofrece logros visibles y progresivos, algo importante para reconstruir la autoeficacia.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15-20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 2</div>
+        <div class="ex-name">Naval Pixel</div>
+        <div class="ex-fn">Planificación · Estrategia · Control</div>
+        <div class="ex-desc">El clásico juego de batalla naval. Exige planificación y estrategia. Ofrece una sensación de control sobre el entorno (aunque sea ficticia). Ideal para las personas que necesitan sentir que pueden planificar y ganar algo, después de haber sentido que todo se derrumbaba.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 3</div>
+        <div class="ex-name">Rec (Grabadora)</div>
+        <div class="ex-fn">Expresión · Memoria · Reconexión</div>
+        <div class="ex-desc">La grabadora digital. Se usa para grabar recuerdos de lo perdido, o reflexiones sobre el proceso. La expresión emocional reduce la intensidad y ayuda a procesar el duelo. Escuchar la propia voz en retrospectiva también muestra la evolución.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/recorder/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir Grabadora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 4</div>
+        <div class="ex-name">Damas (con alguien)</div>
+        <div class="ex-fn">Conexión · Estrategia · Vínculos</div>
+        <div class="ex-desc">El clásico juego de damas. En esta fase, la conexión social es cada vez más importante. El juego puede ser una excusa para volver a estar con otros, retomar vínculos, y también para entrenar estrategia y tolerancia a la frustración.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15-20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 5</div>
+        <div class="ex-name">Retro Urban</div>
+        <div class="ex-fn">Planificación · Visión · Construcción</div>
+        <div class="ex-desc">Simulador de construcción de ciudades. Exige planificación, gestión de recursos, y visión a futuro. Es un juego que permite reconstruir algo desde cero. Metafóricamente, es un ejercicio de reconstruir la vida después de una pérdida.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simcity/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>9.4 · Cómo acompañar esta fase</h2>
+
+    <ul>
+      <li><strong>No apurar el "retorno".</strong> Cada persona retoma sus actividades a su ritmo. No importa si es "pronto" o "tarde".</li>
+      <li><strong>No minimizar las recaídas.</strong> Los momentos difíciles no significan que la persona esté "retrocediendo". Son parte del proceso.</li>
+      <li><strong>Ofrecer oportunidades, no exigencias.</strong> "¿Querés ir a caminar?", "¿te gustaría jugar algo?", en lugar de "deberías salir".</li>
+      <li><strong>Respetar la tristeza.</strong> La persona puede estar mejor y a la vez triste. Ambas cosas pueden coexistir.</li>
+      <li><strong>Estar disponible.</strong> La persona puede necesitar más distancia en esta fase, o menos. Respetar.</li>
+    </ul>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Entre el mes 2 y el 6, el duelo se transforma: ya no ocupa todo el espacio.</li>
+        <li>La búsqueda de sentido es un proceso central, pero no debe forzarse.</li>
+        <li>La persona retoma gradualmente actividades y vínculos.</li>
+        <li>Los juegos pueden ser actividad planificada, no solo respiro.</li>
+        <li>Las recaídas son parte del proceso, no retrocesos.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Pasados los primeros 6 meses, entramos en la etapa más larga: la integración. En el próximo capítulo vas a ver cómo se vive con la pérdida integrada, y qué significa "vínculo continuo".</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 · DESPUÉS -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte IV · Después</div>
+    <h1 class="chapter-title">Integración y vínculos continuos</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>El duelo no termina.</strong> Esta es la verdad más difícil de aceptar, y también la más liberadora. No hay un día en el que uno "deja de estar de duelo". Lo que hay es una <strong>integración progresiva</strong>: la pérdida se convierte en parte de la vida, sin que desaparezca.</p>
+
+    <div class="callout honest">
+      <strong>Un cambio de paradigma</strong>
+      Durante mucho tiempo se pensó que el duelo "terminaba" cuando la persona "dejaba atrás" al fallecido. Hoy sabemos que esto no es así. El duelo saludable <strong>no es olvido, sino vínculo continuo</strong>: la persona sigue vinculada con quien se fue, pero de otra forma. Recuerda, habla, se inspira, mantiene su memoria. Y eso no es patológico: es adaptativo. <a href="#ref3" class="cite">Klass et al., 1996 <span class="cite-ref">[3]</span></a>
+    </div>
+
+    <h2>10.1 · El concepto de vínculo continuo</h2>
+
+    <p>El <strong>vínculo continuo</strong> es la idea de que la relación con quien murió no desaparece, sino que se transforma. La persona puede:</p>
+
+    <ul>
+      <li>Hablar internamente con quien murió, cuando necesita hacerlo.</li>
+      <li>Recordar con cariño los momentos compartidos, sin que el recuerdo duela.</li>
+      <li>Sentir la presencia de quien murió en algunos momentos (una canción, un olor, un paisaje).</li>
+      <li>Hacer cosas "en honor a" o "en memoria de" quien murió.</li>
+      <li>Sentir que la persona sigue siendo parte de su vida, aunque ya no esté físicamente.</li>
+    </ul>
+
+    <p>Todas estas formas de vínculo son adaptativas, siempre que no impidan a la persona vivir su vida actual.</p>
+
+    <h2>10.2 · Los aniversarios y las fechas especiales</h2>
+
+    <p>Con el tiempo, algunos días vuelven a doler: el aniversario de la muerte, el cumpleaños del fallecido, las fiestas, el día en que se conocieron. Estas fechas suelen reactivar el duelo, incluso años después.</p>
+
+    <p>Esto no es un retroceso. Es la naturaleza del duelo. La persona puede prepararse para estos días, planificar qué hacer, con quién estar, y permitirse sentir.</p>
+
+    <h2>10.3 · La reconstrucción de la identidad</h2>
+
+    <p>A largo plazo, el duelo transforma a la persona. No se vuelve "el mismo de antes". Se vuelve <strong>alguien nuevo</strong>, con la pérdida integrada. Muchas personas describen:</p>
+
+    <ul>
+      <li>Una mayor apreciación de la vida y de los vínculos.</li>
+      <li>Una mayor comprensión de la fragilidad y del valor del tiempo.</li>
+      <li>Un cambio en las prioridades: menos cosas que antes importaban, más importancia a otras.</li>
+      <li>Una mayor empatía hacia otros que atraviesan pérdidas.</li>
+      <li>Una mayor capacidad de tolerar el dolor y la incertidumbre.</li>
+    </ul>
+
+    <p>Este fenómeno se conoce como <strong>crecimiento postraumático</strong>: la idea de que, en algunos casos, atravesar una pérdida profunda puede generar un crecimiento personal significativo. <a href="#ref15" class="cite">Tedeschi &amp; Calhoun, 2004 <span class="cite-ref">[15]</span></a></p>
+
+    <div class="footnote">
+      <strong>Importante:</strong> el crecimiento postraumático <strong>no justifica la pérdida</strong>. No se trata de decir "fue bueno que pasara". Se trata de reconocer que, aun en medio del dolor, algunas personas encuentran formas de crecer. No es un deber, no es una obligación, y no ocurre en todos los casos. Pero puede ocurrir.
+    </div>
+
+    <h2>10.4 · El rol de los juegos en esta fase</h2>
+
+    <p>En esta fase, los juegos ya no tienen un rol "terapéutico". Son simplemente <strong>juegos</strong>: una actividad que la persona puede disfrutar, compartir, y que puede formar parte de su vida normal. Si la persona quiere jugar, juega. Si no, no.</p>
+
+    <p>Los juegos pueden servir para:</p>
+    <ul>
+      <li>Mantener la mente activa.</li>
+      <li>Compartir momentos con otros.</li>
+      <li>Disfrutar de algo simple, sin pretensiones.</li>
+      <li>Reconectar con gustos previos o descubrir nuevos.</li>
+    </ul>
+
+    <h2>10.5 · Cuando el duelo se complica</h2>
+
+    <div class="callout alert">
+      <strong>Trastorno de Duelo Prolongado</strong>
+      En algunos casos, el duelo no se integra y se convierte en un cuadro clínico específico llamado <strong>Trastorno de Duelo Prolongado</strong> (incluido en el DSM-5-TR y la CIE-11). Se caracteriza por:
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li>Anhelo persistente e intenso del fallecido, casi todos los días, durante más de 12 meses (en adultos).</li>
+        <li>Dificultad para aceptar la muerte.</li>
+        <li>Evitación de recordatorios de la pérdida.</li>
+        <li>Embotamiento emocional, dificultad para conectar con otros.</li>
+        <li>Sentido de la vida vacío o sin propósito.</li>
+        <li>Deterioro funcional significativo.</li>
+      </ul>
+      Este cuadro requiere <strong>intervención profesional específica</strong>. El protocolo WineBOX puede ser complementario, pero no es suficiente.
+    </div>
+
+    <h2>10.6 · Un cierre, no un final</h2>
+
+    <p>El duelo no cierra. Se integra. Y con la integración, la persona puede volver a vivir, a amar, a reír, a soñar. No "a pesar de" la pérdida, sino <strong>con la pérdida</strong>. Llevando consigo lo perdido, de otra forma.</p>
+
+    <blockquote>
+      <p>«Los muertos no se van. Se quedan con nosotros, en los gestos, en las palabras, en las decisiones que tomamos. La tarea no es olvidarlos, sino aprender a vivir con su ausencia, llevándolos en el corazón.»</p>
+      <cite>— Reflexión sobre el duelo contemporáneo</cite>
+    </blockquote>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El duelo no termina: se integra.</li>
+        <li>El vínculo con lo perdido se transforma, pero no desaparece.</li>
+        <li>Los aniversarios reactivan el duelo, y eso es normal.</li>
+        <li>El duelo puede generar crecimiento personal, pero no es obligatorio.</li>
+        <li>El Trastorno de Duelo Prolongado es un cuadro clínico que requiere intervención profesional.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con las cuatro fases vistas, entramos en la parte de registro. En el próximo capítulo vas a ver cómo sistematizar la observación y cómo dejar constancia del consentimiento informado.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 11 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap11">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 11 · Parte V</div>
+    <h1 class="chapter-title">Seguimiento y consentimiento informado</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Un protocolo sin registro es solo una serie de buenas intenciones. Lo que convierte al protocolo WineBOX Duelo en una herramienta útil es su <strong>sistema de observación y seguimiento</strong>. Pero, aquí, la observación es diferente: no se trata de "medir síntomas", sino de <strong>acompañar la trayectoria del duelo</strong>.</p>
+
+    <h2>11.1 · Ficha de seguimiento</h2>
+    <p>Instrumento de observación ecológica. Se completa con la persona, no sobre la persona.</p>
+
+    <table>
+      <thead>
+        <tr><th>Fecha</th><th>¿Cómo te sentís hoy?</th><th>¿Qué hiciste?</th><th>¿Qué te ayudó?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Semana 1</td><td>Triste, embotado</td><td>Caminar, llorar, estar con mi hermana</td><td>El silencio de mi hermana</td></tr>
+        <tr><td>Semana 2</td><td>Irritable, cansado</td><td>Jugué 15 minutos al Breakout</td><td>Un respiro del dolor</td></tr>
+        <tr><td>Semana 3</td><td>Con altibajos</td><td>Volví a trabajar</td><td>La rutina</td></tr>
+        <tr><td>Semana 4</td><td>Más estable</td><td>Vi a un amigo, jugamos damas</td><td>Estar con alguien sin hablar del tema</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Escala de bienestar subjetivo (1 a 10)</h3>
+    <div class="scale-row">
+      <span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span>
+    </div>
+    <p style="font-size: 13px; color: var(--muted); font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: -6px;">1 = Muy mal · 10 = Muy bien</p>
+
+    <p><strong>Importante:</strong> la escala no se usa para "medir progreso". Se usa para que la persona pueda ver, con el tiempo, la oscilación natural. Sube y baja. Y eso es esperable.</p>
+
+    <h2>11.2 · Qué observar en la trayectoria del duelo</h2>
+    <table>
+      <thead>
+        <tr><th>Aspecto</th><th>Pregunta guía</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Presencia del dolor</strong></td><td>¿El dolor está presente todos los días, o hay momentos de respiro?</td></tr>
+        <tr><td><strong>Frecuencia del llanto</strong></td><td>¿Llora? ¿Cuándo? ¿Después se siente mejor?</td></tr>
+        <tr><td><strong>Vínculos</strong></td><td>¿Se relaciona con otros? ¿O se aisló?</td></tr>
+        <tr><td><strong>Funcionamiento</strong></td><td>¿Come? ¿Duerme? ¿Trabaja? ¿Se cuida?</td></tr>
+        <tr><td><strong>Sentido</strong></td><td>¿Encuentra algún sentido a lo que está pasando?</td></tr>
+        <tr><td><strong>Riesgo</strong></td><td>¿Aparecen pensamientos de muerte o autolesión?</td></tr>
+      </tbody>
+    </table>
+
+    <h2>11.3 · Consentimiento informado</h2>
+    <p>Toda intervención requiere consentimiento informado por escrito del paciente o su representante legal. Modelo disponible en el Cuaderno del Duelo (Hoja 3). El documento debe incluir:</p>
+    <ul>
+      <li>Datos del paciente.</li>
+      <li>Descripción del protocolo y sus alcances.</li>
+      <li>Aclaración de que no sustituye tratamiento psicológico o psiquiátrico.</li>
+      <li>Autorización para realizar los ejercicios y los registros.</li>
+      <li>Firma y fecha.</li>
+    </ul>
+
+    <div class="callout alert">
+      <strong>🚩 Recordatorio</strong>
+      Este protocolo no reemplaza el juicio clínico. Si hay señales de duelo complicado (Trastorno de Duelo Prolongado, ideación suicida, síntomas psicóticos), <strong>derivar a un profesional</strong>. El protocolo WineBOX es complementario, nunca suficiente.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La ficha de seguimiento se completa con la persona, no sobre la persona.</li>
+        <li>La escala de bienestar subjetivo no mide "progreso", registra oscilación.</li>
+        <li>Se observan dolor, llanto, vínculos, funcionamiento, sentido, y riesgo.</li>
+        <li>El consentimiento informado por escrito es obligatorio.</li>
+        <li>Si hay señales de duelo complicado, derivar a profesional.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el registro claro, llegamos al cierre. En el próximo capítulo vas a encontrar el Decálogo del Duelo: doce principios para atravesarlo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 12 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap12">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 12 · Parte VI</div>
+    <h1 class="chapter-title">Decálogo del duelo</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Llegaste al final del protocolo. Si llegaste hasta acá, hiciste algo enorme: <strong>leíste sobre el duelo sin huir</strong>. Eso ya es un paso. Y si lo estás atravesando, atravesaste también el primer tramo de un camino que no tiene atajos.</p>
+
+    <blockquote>
+      <p>«El duelo no es un problema a resolver. Es un proceso a transitar. No hay que apurarlo, no hay que disfrazarlo, no hay que evitar el dolor. Solo hay que atravesarlo, con la ayuda que cada uno necesite.»</p>
+      <cite>— Principio central del acompañamiento en duelo</cite>
+    </blockquote>
+
+    <h2>Decálogo del duelo</h2>
+    <ol>
+      <li><strong>Permitite sentir.</strong> La tristeza, la ira, la culpa, el alivio. Todas las emociones son válidas. No hay emociones "malas".</li>
+      <li><strong>No te apures.</strong> No hay un plazo para atravesar el duelo. Cada persona tiene su tiempo. Y no es lineal.</li>
+      <li><strong>No te compares.</strong> Cada duelo es único. El dolor no se cuantifica. No hay pérdidas "menores".</li>
+      <li><strong>No uses los juegos para evitar el dolor.</strong> Los juegos son respiros, no escapes. Si te das cuenta de que estás evitando, parar y buscar ayuda.</li>
+      <li><strong>Aceptá los respiros.</strong> Los momentos de descanso no son traición. Son parte del proceso.</li>
+      <li><strong>Buscá compañía.</strong> El duelo no se transita en soledad. Aunque sea una presencia silenciosa, ayuda.</li>
+      <li><strong>Cuidá lo básico.</strong> Comer, dormir, hidratarse, aunque no tengas ganas. El cuerpo sostiene la mente.</li>
+      <li><strong>Hablá de lo perdido.</strong> Recordar no es malo. Hablar del fallecido, del animal, del trabajo, ayuda a integrar la pérdida.</li>
+      <li><strong>No fuerces el sentido.</strong> Si en algún momento aparece un sentido, va a aparecer solo. No hay que buscarlo afanosamente.</li>
+      <li><strong>Reconocé las recaídas.</strong> Un olor, una canción, una fecha, pueden hacer que el dolor vuelva con toda su fuerza. No es retroceso. Es duelo.</li>
+      <li><strong>Pedí ayuda cuando la necesites.</strong> No es debilidad. Es estrategia. Y si hay riesgo, buscá ayuda urgente.</li>
+      <li><strong>Recordá: no estás solo.</strong> Aunque en este momento no lo sientas, hay personas que te quieren y profesionales que te pueden acompañar.</li>
+    </ol>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>A quien está atravesando un duelo:</em> gracias por la valentía de seguir atravesándolo.<br>
+    <em>A quien acompaña:</em> gracias por estar, aunque no sepas qué decir.</p>
+
+    <p>Este manual y la plataforma WineBOX representan un ecosistema de acompañamiento que respeta el dolor, el ritmo y la profundidad del duelo humano. <strong>No pretendemos curar lo que no es una enfermedad. Pretendemos acompañar lo que es un proceso.</strong></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>"No se trata de olvidar. Se trata de aprender a recordar sin que duela. Y a veces, incluso, con una sonrisa."</em></p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si estás atravesando un duelo, o si sos profesional y querés implementar el protocolo, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20estoy%20atravesando%20un%20duelo%20y%20quiero%20acompa%C3%B1amiento%20profesional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El duelo no se apura. Cada persona tiene su tiempo.</li>
+        <li>Los juegos son respiros, no escapes.</li>
+        <li>La compañía y el cuidado básico son esenciales.</li>
+        <li>El sentido, cuando aparece, aparece solo.</li>
+        <li>Si hay riesgo, buscar ayuda urgente.</li>
+        <li>No estás solo.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS BIBLIOGRÁFICAS COMENTADAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este eBook</strong>, para que puedas volver al capítulo correspondiente si querés profundizar. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Neimeyer, R. A. (2001).</span>
+        <span class="ref-title">Meaning reconstruction and the experience of loss.</span>
+        <span class="ref-source">American Psychological Association.</span>
+        <span class="ref-context">Cap. 3, 9. Obra central sobre la reconstrucción de significado en el duelo. Fundamenta que el duelo no se "supera", se integra.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Corr, C. A. (2019).</span>
+        <span class="ref-title">The "five stages" of dying and grief: A critique.</span>
+        <span class="ref-source">OMEGA - Journal of Death and Dying, 82(1), 147-152.</span>
+        <span class="ref-context">Cap. 3. Crítica al modelo de etapas de Kübler-Ross. Explica por qué la evidencia no respalda etapas rígidas.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">Klass, D., Silverman, P. R., &amp; Nickman, S. L. (Eds.). (1996).</span>
+        <span class="ref-title">Continuing bonds: New understandings of grief.</span>
+        <span class="ref-source">Taylor &amp; Francis.</span>
+        <span class="ref-context">Cap. 3, 10. Obra fundacional del concepto de "vínculo continuo". Muestra que el duelo saludable no implica olvido, sino transformación del vínculo.</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Prigerson, H. G., Horowitz, M. J., Jacobs, S. C., Parkes, C. M., Aslan, M., Goodkin, K., ... &amp; Maciejewski, P. K. (2009).</span>
+        <span class="ref-title">Prolonged grief disorder: Psychometric validation of criteria proposed for DSM-V and ICD-11.</span>
+        <span class="ref-source">PLoS Medicine, 6(8), e1000121.</span>
+        <span class="ref-context">Cap. 3, 10. Estudio que validó los criterios del Trastorno de Duelo Prolongado, incluido en el DSM-5-TR y la CIE-11.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Archer, J., &amp; Winchester, G. (1994).</span>
+        <span class="ref-title">Bereavement following death of a pet.</span>
+        <span class="ref-source">British Journal of Psychology, 85(2), 259-271.</span>
+        <span class="ref-context">Cap. 3, 4. Estudio pionero sobre el duelo por mascotas. Muestra que el dolor es comparable al duelo por personas cercanas.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Stroebe, M., &amp; Schut, H. (1999).</span>
+        <span class="ref-title">The dual process model of coping with bereavement: Rationale and description.</span>
+        <span class="ref-source">Death Studies, 23(3), 197-224.</span>
+        <span class="ref-context">Cap. 3, 8. Modelo central del duelo contemporáneo. Explica la oscilación entre orientación hacia la pérdida y hacia la restauración.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Worden, J. W. (2018).</span>
+        <span class="ref-title">Grief counseling and grief therapy: A handbook for the mental health practitioner (5th ed.).</span>
+        <span class="ref-source">Springer.</span>
+        <span class="ref-context">Cap. 3. Modelo de tareas del duelo: aceptar, procesar, adaptarse, reconectar.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Bonanno, G. A., Wortman, C. B., Lehman, D. R., Tweed, R. G., Haring, M., Sonnega, J., ... &amp; Nesse, R. M. (2002).</span>
+        <span class="ref-title">Resilience to loss and chronic grief: A prospective study from preloss to 18-months postloss.</span>
+        <span class="ref-source">Journal of Personality and Social Psychology, 83(5), 1150-1164.</span>
+        <span class="ref-context">Cap. 4. Estudio clásico que muestra que la mayoría de las personas son resilientes al duelo, aunque un porcentaje significativo desarrolla duelo crónico.</span>
+      </li>
+
+      <li id="ref9">
+        <span class="ref-num">[9]</span>
+        <span class="ref-authors">Kübler-Ross, E. (1969).</span>
+        <span class="ref-title">On death and dying.</span>
+        <span class="ref-source">Macmillan.</span>
+        <span class="ref-context">Cap. 4. Obra histórica que introdujo el modelo de etapas (pensado para pacientes terminales, no para el duelo general). Citado por su importancia histórica y por el contraste con los modelos actuales.</span>
+      </li>
+
+      <li id="ref10">
+        <span class="ref-num">[10]</span>
+        <span class="ref-authors">Schott, G., &amp; Hodgetts, D. (2006).</span>
+        <span class="ref-title">Health and digital gaming: The benefits of a community of practice.</span>
+        <span class="ref-source">Journal of Health Psychology, 11(2), 309-316.</span>
+        <span class="ref-context">Cap. 5. Estudio exploratorio sobre el uso de videojuegos en contextos de salud, incluyendo duelo en jóvenes.</span>
+      </li>
+
+      <li id="ref11">
+        <span class="ref-num">[11]</span>
+        <span class="ref-authors">Trepte, S., Reinecke, L., &amp; Juechems, K. (2012).</span>
+        <span class="ref-title">The social side of gaming: How playing online computer games creates online and offline social support.</span>
+        <span class="ref-source">Computers in Human Behavior, 28(3), 832-839.</span>
+        <span class="ref-context">Cap. 5. Estudio sobre juegos multijugador y apoyo social. Fundamenta el uso de juegos como excusa para la conexión en duelo.</span>
+      </li>
+
+      <li id="ref12">
+        <span class="ref-num">[12]</span>
+        <span class="ref-authors">Granic, I., Lobel, A., &amp; Engels, R. C. (2014).</span>
+        <span class="ref-title">The benefits of playing video games.</span>
+        <span class="ref-source">American Psychologist, 69(1), 66-78.</span>
+        <span class="ref-context">Cap. 5. Revisión de los beneficios cognitivos y emocionales de los videojuegos.</span>
+      </li>
+
+      <li id="ref13">
+        <span class="ref-num">[13]</span>
+        <span class="ref-authors">Webb, N. B. (Ed.). (2010).</span>
+        <span class="ref-title">Helping bereaved children: A handbook for practitioners (3rd ed.).</span>
+        <span class="ref-source">Guilford Press.</span>
+        <span class="ref-context">Cap. 7. Obra de referencia sobre el duelo infantil y el rol del juego como forma de expresión y procesamiento.</span>
+      </li>
+
+      <li id="ref14">
+        <span class="ref-num">[14]</span>
+        <span class="ref-authors">Park, C. L. (2010).</span>
+        <span class="ref-title">Making sense of the meaning literature: An integrative review of meaning making and its effects on adjustment to stressful life events.</span>
+        <span class="ref-source">Psychological Bulletin, 136(2), 257-301.</span>
+        <span class="ref-context">Cap. 9. Revisión exhaustiva sobre la búsqueda de sentido tras eventos estresantes, incluyendo el duelo.</span>
+      </li>
+
+      <li id="ref15">
+        <span class="ref-num">[15]</span>
+        <span class="ref-authors">Tedeschi, R. G., &amp; Calhoun, L. G. (2004).</span>
+        <span class="ref-title">Posttraumatic growth: Conceptual foundations and empirical evidence.</span>
+        <span class="ref-source">Psychological Inquiry, 15(1), 1-18.</span>
+        <span class="ref-context">Cap. 10. Obra fundacional del concepto de crecimiento postraumático: la idea de que algunas personas crecen tras atravesar pérdidas profundas.</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-blue); border-left-color: var(--primary);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar, PubMed o el sitio web de las revistas. Si querés profundizar en alguna, podés buscarla por el título o el DOI. Si tenés dificultades para acceder a algún artículo, escribinos y te orientamos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Los juegos de este protocolo están disponibles de forma gratuita en la plataforma WineBOX. Recordá: son respiros, no escapes. Usalos con cuidado, con moderación, y siempre al servicio de atravesar el duelo, no de evitarlo.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DEL DUELO -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno del duelo · Hojas imprimibles</div>
+    <h2>Anexos, fichas y consentimiento</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse con cuidado. No son para "medir" el duelo. Son para registrar la trayectoria, con honestidad y sin juicio.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, selecciona "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Ficha de seguimiento -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Trayectoria</div>
+      <h3>📋 Ficha de Trayectoria del Duelo</h3>
+    </div>
+    <p class="sheet-intro">Instrumento de observación ecológica. Se completa con la persona, no sobre la persona. El objetivo no es "medir progreso", es registrar la trayectoria.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Nombre:</label><div class="line"></div></div>
+      <div class="form-field"><label>Tipo de pérdida:</label><div class="line"></div></div>
+      <div class="form-field"><label>Fecha de la pérdida:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>¿Cómo te sentís hoy?</th><th>¿Qué hiciste?</th><th>¿Qué te ayudó?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Bienestar subjetivo (1 · 10):</label>
+        <div class="scale-row"><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field"><label>Observaciones:</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Carta al ser perdido -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Carta</div>
+      <h3>✉️ Carta a lo que se fue</h3>
+    </div>
+    <p class="sheet-intro">Una hoja para escribir una carta a la persona, mascota, trabajo o versión de vos mismo que se perdió. No tiene que ser enviada. No tiene que ser leída por nadie. Es para vos.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Para:</label><div class="line"></div></div>
+      <div class="form-field"><label>Querido/a:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Quiero decirte que:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Lo que más extraño es:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Lo que me hubiera gustado decirte:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Lo que me llevo de vos:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Con cariño,</label><div class="line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Consentimiento informado -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Consentimiento</div>
+      <h3>📝 Consentimiento Informado</h3>
+    </div>
+    <p class="sheet-intro">Modelo de consentimiento escrito para uso clínico.</p>
+    <div class="sheet-body">
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Yo, ______________________________________, con DNI ____________________, manifiesto haber sido informado/a sobre los alcances del <strong>Protocolo WineBOX Duelo</strong>.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Comprendo que este protocolo <strong>no sustituye el tratamiento psicológico o psiquiátrico prescrito</strong>, y que su aplicación es una herramienta de acompañamiento complementaria.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Comprendo que <strong>los juegos de este protocolo son respiros, no tratamientos</strong>, y que el trabajo principal del duelo es el duelo mismo.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 30px;">Otorgo mi consentimiento para participar en las sesiones y para que se realicen los registros correspondientes, con estricta confidencialidad.</p>
+
+      <div class="form-field" style="margin-top: 40px;"><label>Firma:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Aclaración:</label><div class="line"></div></div>
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+
+      <div class="callout warning" style="margin-top: 30px; font-size: 14px;">
+        <strong>⚠ Protección de datos</strong>
+        Los registros deben guardarse en un entorno seguro y confidencial, conforme a la Ley 26.529 de derechos del paciente y la Ley 25.326 de Protección de Datos Personales.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Decálogo del duelo -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Decálogo</div>
+      <h3>🕯️ Decálogo del Duelo</h3>
+    </div>
+    <p class="sheet-intro">Pegá esta hoja en un lugar visible. Es tu brújula para los días difíciles.</p>
+    <div class="sheet-body">
+      <ol style="font-size: 15.5px; line-height: 1.8; margin-left: 1.2em;">
+        <li>Permitite sentir.</li>
+        <li>No te apures.</li>
+        <li>No te compares.</li>
+        <li>No uses los juegos para evitar el dolor.</li>
+        <li>Aceptá los respiros.</li>
+        <li>Buscá compañía.</li>
+        <li>Cuidá lo básico.</li>
+        <li>Hablá de lo perdido.</li>
+        <li>No fuerces el sentido.</li>
+        <li>Reconocé las recaídas.</li>
+        <li>Pedí ayuda cuando la necesites.</li>
+        <li>Recordá: no estás solo.</li>
+      </ol>
+      <div class="callout tip" style="margin-top: 24px; font-size: 14.5px;">
+        <strong>💚 Recordatorio</strong>
+        No se trata de olvidar. Se trata de aprender a recordar sin que duela. Y eso lleva tiempo. Pero se puede. Y no estás solo en el camino.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este libro y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el tratamiento de la ansiedad, los trastornos del estado de ánimo, la estimulación cognitiva, y el acompañamiento en procesos de duelo y pérdida.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Acompañamiento en Duelo</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, y con la honestidad de reconocer los límites de las herramientas terapéuticas. El duelo, como la vida, no es un problema a resolver: es un proceso a transitar.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás orientación profesional?</h3>
+      <p>Si estás atravesando un duelo, o si sos profesional y querés implementar el protocolo, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20Protocolo%20WineBOX%20Duelo%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🕯️ WineBOX · Protocolo Duelo<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con honestidad y presencia · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

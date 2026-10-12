@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · Protocolo Post-ICTUS</title>
+
+<meta name="dc:title" content="Método WineBOX · Protocolo Post-ICTUS">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Protocolo de Estimulación y Rehabilitación Cognitiva Asistida por Videojuegos de Baja Fidelidad Visual. Guía clínica de adaptación post-daño cerebral con acceso directo a los 30 juegos del protocolo.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #2E5266;
+    --primary-dark: #1E3A4A;
+    --primary-light: #4A7589;
+    --accent: #D98E4A;
+    --accent-dark: #B87333;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #EAF0F3;
+    --soft-green: #E8F3EC;
+    --soft-amber: #FBF1E2;
+    --soft-rose: #F7E9E9;
+    --alert: #B85450;
+    --play: #2E8B57;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 45%, var(--primary-light) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(217,142,74,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 760px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: var(--accent); display: block; font-size: 0.8em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.92; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(217,142,74,0.5); border-radius: 20px; color: var(--accent); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-rose); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--alert); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--alert); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--accent-dark); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--primary); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--primary); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-blue) 100%); border-left: 4px solid var(--primary); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid #2E8B57; }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--accent); }
+  .callout.warning strong { color: var(--accent-dark); }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.exercise { background: var(--soft-rose); border-left: 4px solid #B85450; }
+  .callout.exercise strong { color: #8B3A36; }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--primary); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS (con botón de juego) */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.7;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(46,82,102,0.14); border-color: var(--primary); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: #1F6B41; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+  .ex-card .no-play {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--soft-blue); color: var(--primary-dark);
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* WEEK CARD */
+  .week-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .week-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .week-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+  .week-card .week-games { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .week-card .week-game-tag {
+    display: inline-block; background: var(--primary); color: white;
+    padding: 5px 12px; border-radius: 14px; text-decoration: none;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.5px; transition: background 0.2s;
+  }
+  .week-card .week-game-tag:hover { background: var(--accent-dark); }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(217,142,74,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--primary-dark);
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); color: #fff; }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--primary); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 14px; }
+  .sheet-body table th { font-size: 10.5px; padding: 9px 11px; }
+  .sheet-body table td { padding: 12px 11px; height: 36px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  .checkbox-list { list-style: none; margin-left: 0; }
+  .checkbox-list li { padding: 12px 10px 12px 40px; position: relative; border-bottom: 1px dashed #cbd5e1; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14.5px; }
+  .checkbox-list li::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1.5px solid var(--primary-dark); border-radius: 3px; }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--accent); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(217,142,74,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cream); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(46,82,102,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--accent) !important; }
+    .cover-tags span { color: var(--accent) !important; border-color: var(--accent) !important; }
+    .cover-brand, .cover-author { color: var(--accent) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-rose) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .week-card, .summary, .next-step, .ex-card { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .ex-card .play-btn::before { content: '🔗 '; }
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+    .checkbox-list li { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--accent) !important; }
+    .cta-box { background: rgba(217,142,74,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: var(--primary-dark) !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Clínica</div>
+    <h1>Método<br><em>WineBOX</em></h1>
+    <p class="cover-subtitle">Protocolo de Estimulación y Rehabilitación Cognitiva Post-ICTUS<br>Asistida por Videojuegos de Baja Fidelidad Visual</p>
+    <p class="cover-audience">Guía clínica · 8 semanas · 30 ejercicios · Juegos accesibles desde el eBook</p>
+    <div class="cover-tags">
+      <span>Neuropsicología</span><span>Rehabilitación</span><span>Funciones Ejecutivas</span><span>Basado en Evidencia</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia Clínica y Criterios de Seguridad</div>
+    <h2>Leer antes de aplicar el protocolo</h2>
+    <p><strong>Este protocolo NO debe utilizarse como única intervención en pacientes con daño cerebral adquirido.</strong> Debe integrarse en un plan de rehabilitación multidisciplinar coordinado por un equipo cualificado de neurología, fonoaudiología y terapia ocupacional.</p>
+    <p>La fatiga cognitiva, la labilidad emocional y las fluctuaciones atencionales post-ictus exigen pausas frecuentes. Ante signos de sobrecarga o desregulación, <strong>suspenda la sesión inmediatamente</strong>.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Banderas rojas para suspender la tarea</h3>
+    <ol>
+      <li>Aparición de cefalea pulsátil, mareo o visión borrosa.</li>
+      <li>Incremento brusco de tensión muscular o sincinesias en el hemicuerpo afectado.</li>
+      <li>Labilidad o frustración desbordada recurrente.</li>
+      <li>Caída abrupta del rendimiento atencional tras 5 a 8 minutos de sesión.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y estimulación cognitiva. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento médico o neuropsicológico prescrito por un especialista.</strong> Su aplicación en daño cerebral adquirido es una adaptación clínica razonada.</p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX. Las marcas citadas pertenecen a sus titulares respectivos.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado y estricta confidencialidad de las fichas de seguimiento clínico, según la normativa de derechos del paciente (Ley 26.529 y Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y responsabilidad</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Introducción</span>Cap. 1 Bienvenida al Método WineBOX</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Introducción</span>Cap. 2 Carta al paciente y a la familia</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Fundamentos</span>Cap. 3 Fundamentos del Método (para el profesional)</a></li>
+      <li><a href="#cap4"><span class="part">Parte III · Aplicación</span>Cap. 4 Protocolo de aplicación y progresión clínica</a></li>
+      <li><a href="#cap5"><span class="part">Parte IV · Los 4 dominios</span>Cap. 5 Dominio 1 · Atención sostenida (Semanas 1-2)</a></li>
+      <li><a href="#cap6"><span class="part">Parte IV · Los 4 dominios</span>Cap. 6 Dominio 2 · Control de impulsos (Semanas 3-4)</a></li>
+      <li><a href="#cap7"><span class="part">Parte IV · Los 4 dominios</span>Cap. 7 Dominio 3 · Planificación ejecutiva (Semanas 5-6)</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · Los 4 dominios</span>Cap. 8 Dominio 4 · Flexibilidad cognitiva (Semanas 7-8)</a></li>
+      <li><a href="#cap9"><span class="part">Parte V · Registro clínico</span>Cap. 9 Seguimiento, medidas y consentimiento</a></li>
+      <li><a href="#cap10"><span class="part">Parte VI · Cierre</span>Cap. 10 El nuevo comienzo y el decálogo de mantenimiento</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno clínico</span>Hojas imprimibles y anexos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida al Método WineBOX</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay un momento, después del ictus, en el que el mundo se detiene. El cuerpo vuelve a casa, pero la mente todavía está buscando el camino de regreso. Las palabras se pierden, la atención se dispersa, las tareas que antes eran automáticas ahora requieren un esfuerzo consciente y agotador.</p>
+
+    <p>Este manual nace de ese momento. Nace de la certeza de que el cerebro no ha perdido su capacidad de aprender: solo está buscando nuevos caminos. Y de la convicción de que la rehabilitación cognitiva no tiene por qué ser árida ni frustrante.</p>
+
+    <blockquote>
+      <p>«Imagina que un sendero en el bosque se ha bloqueado. Al principio, caminar por la maleza es lento y cansado. Pero con cada paso que das, con cada ejercicio que completas, estás limpiando ese sendero y creando uno nuevo, más fuerte y más ancho.»</p>
+      <cite>— Mensaje al paciente, Método WineBOX</cite>
+    </blockquote>
+
+    <h2>Qué es el Método WineBOX</h2>
+    <p>El Método WineBOX es un <strong>protocolo estructurado de estimulación y rehabilitación cognitiva</strong> que utiliza videojuegos de baja fidelidad visual como vehículo terapéutico. Está diseñado específicamente para pacientes con daño cerebral adquirido (ictus, TEC, otras lesiones) que presentan alteraciones en funciones ejecutivas: atención, control de impulsos, planificación y flexibilidad cognitiva.</p>
+
+    <p>El protocolo se organiza en <strong>8 semanas, 32 sesiones de 18 minutos, 30 ejercicios</strong> agrupados en cuatro dominios clínicos. Cada sesión está calibrada para no inducir fatiga cognitiva y maximizar la consolidación mnémica.</p>
+
+    <div class="callout tip">
+      <strong>🕹️ Nuevo: los juegos están a un clic</strong>
+      Cada ejercicio de este eBook tiene un botón <strong>▶ Jugar ahora</strong> que abre directamente el juego en tu navegador. No hace falta instalar nada, ni buscar el juego en otro sitio. Y si querés explorar los más de 150 juegos disponibles, al final del libro tenés acceso a la plataforma completa.
+    </div>
+
+    <h2>Por qué videojuegos de baja fidelidad</h2>
+    <p>Los videojuegos comerciales contemporáneos abruman con estímulos visuales hiperrealistas, efectos, música, notificaciones. En el cerebro post-ictus, esta sobrecarga colapsa los recursos atencionales disponibles. La <strong>baja fidelidad visual</strong> de WineBOX (estilo pixel art y 8-bits) libera capacidad de trabajo para el control ejecutivo y la metacognición.</p>
+
+    <p>El paciente no juega para ganar. Juega para observar cómo piensa, cómo decide, cómo reacciona ante el error. El objetivo terapéutico radica en <strong>cómo juega</strong>, no en el puntaje que alcanza.</p>
+
+    <div class="callout info">
+      <strong>Regla de oro del método</strong>
+      El software es un catalizador para la observación conductual y el andamiaje reflexivo entre terapeuta y paciente. No es el fin, es el medio.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El Método WineBOX es un protocolo clínico estructurado de 8 semanas con 30 ejercicios.</li>
+        <li>Utiliza videojuegos de baja fidelidad visual para reducir la carga cognitiva extrínseca.</li>
+        <li>El objetivo terapéutico está en <em>cómo</em> juega el paciente, no en el puntaje.</li>
+        <li>Los juegos son accesibles directamente desde este eBook con un solo clic.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en los fundamentos técnicos, queremos dirigirnos directamente a quien está atravesando esto: al paciente y a su familia. En el próximo capítulo vas a encontrar una carta escrita para vos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta al paciente y a la familia</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para quien está atravesando el proceso, y para quien lo acompaña. Si sos terapeuta, leelo también: te va a recordar por qué hacemos lo que hacemos.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido paciente:</p>
+
+    <p>Lo que te pasó no tiene nombre fácil. Un día estabas haciendo tu vida, y al siguiente el mundo se dio vuelta. El cuerpo se quedó quieto, las palabras se perdieron, los pensamientos empezaron a llegar desordenados. Y ahora estás acá, intentando reconstruirte, con un mapa que nadie te dio completo.</p>
+
+    <p>Quiero que sepas algo antes de empezar: <strong>tu cerebro no ha perdido su capacidad de aprender</strong>. Está buscando nuevos caminos. Las conexiones que se perdieron no vuelven mágicamente, pero se pueden crear otras. Nuevas rutas. Nuevos atajos. Formas distintas de hacer lo mismo. Eso se llama <strong>neuroplasticidad</strong>, y es la razón por la que este método funciona.</p>
+
+    <blockquote>
+      <p>«Recuperar una función no es volver al punto exacto donde estabas antes del ictus; es construir una nueva forma de habitar tu mente, más sabia, más paciente y más consciente de tus propios ritmos.»</p>
+      <cite>— Método WineBOX</cite>
+    </blockquote>
+
+    <p>Este protocolo está pensado para que avances a tu ritmo. Cada sesión dura entre 15 y 18 minutos, porque sabemos que la fatiga cognitiva es real y que forzar solo empeora las cosas. <strong>La consistencia diaria vence al agotamiento heroico.</strong> Mejor 15 minutos todos los días que dos horas un domingo.</p>
+
+    <p>Vas a jugar. Sí, jugar. Vas a resolver Sudokus, vas a explorar mundos de pixeles, vas a ordenar cartas, vas a disparar a naves. Y mientras jugás, tu cerebro va a estar entrenando funciones que la vida diaria te va a pedir después: sostener la atención, frenar un impulso, planificar varios pasos, adaptarse cuando algo cambia.</p>
+
+    <p>No importa si te equivocás. De hecho, <strong>equivocarse es parte del entrenamiento</strong>. Cada error es información. Cada frustración tolerada es una victoria real de tu plasticidad cerebral. Y cada respiración antes de mover una pieza es un acto de recuperación.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>A la familia, al cuidador, al que está al lado:</p>
+
+    <p>Sabemos que también es agotador para vos. Que muchas veces no sabés qué decir, cuándo insistir, cuándo dejar descansar. Que a veces la frustración se te escapa y después te sentís culpable. Que hay días en los que todo parece retroceder, y otros en los que una pequeña victoria te llena el alma.</p>
+
+    <p>Tu rol en este método es central. <strong>No sos un observador pasivo. Sos el andamiaje.</strong> Tu tarea es:</p>
+
+    <ul>
+      <li><strong>Celebrar el intento, no el resultado.</strong> No importa si resolvió el Sudoku: importa que se sentó, que lo intentó, que toleró la frustración.</li>
+      <li><strong>Fomentar la pausa de 3 segundos antes de actuar.</strong> Esa pausa es la diferencia entre la impulsividad y la reflexión.</li>
+      <li><strong>Permitir que el paciente experimente el error como información segura.</strong> No corrijas de inmediato. Dejalo procesar. Después preguntale qué haría distinto.</li>
+      <li><strong>Respetar los tiempos.</strong> 18 minutos son 18 minutos. No más. La fatiga cognitiva post-ictus es real y no se negocia.</li>
+      <li><strong>Observar sin diagnosticar.</strong> Anotá lo que ves (los tiempos, las estrategias, las emociones), pero la interpretación clínica es tarea del profesional.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Atención a las banderas rojas</strong>
+      Si aparece cefalea pulsátil, mareo, visión borrosa, aumento brusco de la tensión muscular o frustración desbordada recurrente, <strong>detené la sesión inmediatamente</strong>. No es un fracaso: es una señal del cuerpo que hay que escuchar.
+    </div>
+
+    <p>El camino es largo, pero no lo están caminando solos. Este manual es una herramienta, y nosotros estamos del otro lado del WhatsApp si necesitan orientación profesional.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y esperanza,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Están atravesando esto y no saben por dónde empezar?</h3>
+      <p>Escribinos por WhatsApp. Te vamos a escuchar, orientar y, si hace falta, acompañar profesionalmente. No estás solo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20necesito%20orientaci%C3%B3n%20para%20un%20caso%20de%20rehabilitaci%C3%B3n%20post-ictus." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La neuroplasticidad es real: el cerebro puede crear nuevos caminos.</li>
+        <li>Recuperar no es volver al punto exacto anterior, es construir una nueva forma.</li>
+        <li>La consistencia diaria vence al agotamiento heroico.</li>
+        <li>El error es información, no fracaso.</li>
+        <li>La familia es el andamiaje: celebra el intento, no el resultado.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte técnica. En el próximo capítulo vamos a los fundamentos del método: por qué funciona, en qué evidencia se apoya, y qué lo diferencia de otros protocolos de rehabilitación cognitiva.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Fundamentos del Método</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Para el profesional. Si sos paciente o familiar, podés saltear este capítulo o leerlo con calma: da contexto sobre por qué hacemos lo que hacemos.</em></p>
+
+    <h2>3.1 · El problema de la validez ecológica</h2>
+    <p>Las pruebas psicométricas de escritorio (Torre de Londres, CPT, Wisconsin) ofrecen una validez empírica estandarizada, pero su <strong>validez ecológica en la vida diaria es con frecuencia modesta</strong> (Barkley, 1997; Burgess et al., 2006). Un paciente puede resolver laberintos en papel pero fatigarse al ordenar la cocina o gestionar sus citas médicas.</p>
+
+    <p>El Método WineBOX parte de esa brecha: propone un entrenamiento que, sin abandonar el rigor, se parece más a la vida real. Los juegos exigen sostener la atención, frenar impulsos, planificar pasos, adaptarse al cambio. Todas esas son funciones que el paciente necesita recuperar para su vida cotidiana.</p>
+
+    <h2>3.2 · Marco teórico: reducción de carga cognitiva extrínseca</h2>
+    <p>Los videojuegos comerciales contemporáneos abruman con estímulos visuales hiperrealistas. En el cerebro post-ictus, esta sobrecarga colapsa los recursos atencionales. La baja fidelidad visual de WineBOX (estilo pixel art y 8-bits) libera capacidad de trabajo para el control ejecutivo y la metacognición (Sweller, 2010; Mayer & Moreno, 2003).</p>
+
+    <div class="callout info">
+      <strong>Carga cognitiva extrínseca vs. intrínseca</strong>
+      La carga extrínseca es el esfuerzo mental impuesto por el diseño (colores, animaciones, notificaciones). La carga intrínseca es el esfuerzo de la tarea en sí. WineBOX minimiza la extrínseca para maximizar la intrínseca.
+    </div>
+
+    <h2>3.3 · Bases en terapia ocupacional y neuropsicología</h2>
+    <p>El protocolo sintetiza cuatro pilares fundamentales:</p>
+
+    <ol>
+      <li><strong>Modelo jerárquico atencional</strong> (Sohlberg & Mateer, 2001): progresión escalonada desde atención sostenida hasta alternante.</li>
+      <li><strong>Modelo dinámico interaccional</strong> (Toglia, 2011): interacción persona-tarea-entorno lúdico.</li>
+      <li><strong>Entrenamiento en gestión de metas</strong> (Levine et al., 2000): verbalización, pausa activa y chequeo del plan.</li>
+      <li><strong>Terapia cognitivo-conductual</strong> (Beck, 1979): reestructuración cognitiva del error y manejo de la autoexigencia.</li>
+    </ol>
+
+    <h2>3.4 · WineBOX como herramienta de observación conductual</h2>
+    <p>WineBOX no es solo un entrenador: es un <strong>instrumento de observación sistematizada</strong>. La plataforma estructura la observación en cuatro dominios: atención, control de impulsos, planificación y flexibilidad. La correlación intraclase ICC(2,1) = 0,79 respalda su valor como instrumento de seguimiento.</p>
+
+    <table>
+      <thead>
+        <tr><th>Dominio</th><th>Función observada</th><th>Indicador conductual</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Atención sostenida</td><td>Mantener el foco en la tarea</td><td>Tiempo hasta la primera distracción, errores por fatiga</td></tr>
+        <tr><td>Control de impulsos</td><td>Frenar la respuesta automática</td><td>Uso del "undo", latencia antes del clic</td></tr>
+        <tr><td>Planificación ejecutiva</td><td>Anticipar pasos y organizar</td><td>Movimientos óptimos vs. ejecutados</td></tr>
+        <tr><td>Flexibilidad cognitiva</td><td>Adaptarse al cambio de reglas</td><td>Costo de cambio, perseveración</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3.5 · Alcance y limitaciones clínicas</h2>
+    <p>Los límites del protocolo deben considerarse en toda aplicación:</p>
+    <ul>
+      <li>No es una intervención validada en fase aguda; requiere estabilidad hemodinámica.</li>
+      <li>No reemplaza el plan interdisciplinario formal.</li>
+      <li>El objetivo terapéutico radica en cómo juega el paciente, no en el puntaje alcanzado.</li>
+    </ul>
+
+    <div class="callout alert">
+      <strong>🚩 Regla de oro</strong>
+      El software es un catalizador para la observación conductual y el andamiaje reflexivo entre terapeuta y paciente. No es el tratamiento, es la herramienta.
+    </div>
+
+    <h2>Nota preliminar: niveles de evidencia</h2>
+    <p>Para garantizar la transparencia científica de la intervención, se distinguen tres niveles:</p>
+    <ol>
+      <li><strong>Nivel 1 — Técnicas de rehabilitación cognitiva (base teórica comprobada).</strong> Reentrenamiento atencional jerárquico (Sohlberg & Mateer, 2001), inhibición de respuesta go/no-go (Logan et al., 1997), gestión de metas (Levine et al., 2000) y modelo dinámico interaccional (Toglia, 2011; Katz, 2011).</li>
+      <li><strong>Nivel 2 — Plataforma WineBOX (vehículo de baja fidelidad visual).</strong> Reducción de la carga cognitiva extrínseca (Sweller, 1988, 2010; Mayer & Moreno, 2003) mediante gráficos minimalistas. Investigación previa en población clínica demostró concordancia interjueces ICC ≥ 0,74.</li>
+      <li><strong>Nivel 3 — Adaptación al daño cerebral post-ictus (objeto de este manual).</strong> Propuesta asistencial que dosifica la dificultad en 8 semanas (32 sesiones de 18 min) y brinda pautas de observación conductual para el terapeuta.</li>
+    </ol>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La validez ecológica de las pruebas tradicionales es limitada; WineBOX apunta a la vida real.</li>
+        <li>La baja fidelidad visual reduce la carga cognitiva extrínseca y libera recursos ejecutivos.</li>
+        <li>El método integra cuatro pilares: atención, dinámica interaccional, metas y TCC.</li>
+        <li>La ICC(2,1) = 0,79 respalda su valor como instrumento de seguimiento.</li>
+        <li>Hay tres niveles de evidencia claramente distinguidos: teoría, plataforma y adaptación post-ictus.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los fundamentos claros, entramos en el protocolo de aplicación. En el próximo capítulo vas a ver la estructura completa: las 4 fases de 8 semanas, la sesión tipo de 18 minutos, los criterios de progresión y cómo manejar el estancamiento cognitivo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte III</div>
+    <h1 class="chapter-title">Protocolo de aplicación y progresión clínica</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe el corazón operativo del método. Es la parte que responde a la pregunta: <strong>¿cómo se aplica el protocolo semana a semana?</strong></p>
+
+    <h2>4.1 · Estructura temporal en cuatro fases (8 semanas)</h2>
+
+    <table>
+      <thead>
+        <tr><th>Fase</th><th>Semanas</th><th>Dominio</th><th>Ejercicios</th><th>Meta clínica</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>I</strong></td><td>1-2</td><td>Atención sostenida</td><td>1 a 7</td><td>Tolerancia a la tarea, hábito diario, reducir fatiga</td></tr>
+        <tr><td><strong>II</strong></td><td>3-4</td><td>Control de impulsos</td><td>8 a 14</td><td>Inhibir respuesta automática; regla de los 3 segundos</td></tr>
+        <tr><td><strong>III</strong></td><td>5-6</td><td>Planificación ejecutiva</td><td>15 a 21</td><td>Anticipar consecuencias; organizar pasos secuenciales</td></tr>
+        <tr><td><strong>IV</strong></td><td>7-8</td><td>Flexibilidad cognitiva</td><td>22 a 30</td><td>Adaptación al cambio de reglas; metacognición activa</td></tr>
+      </tbody>
+    </table>
+
+    <p>El orden no es azaroso. Cada fase prepara la siguiente. No se puede entrenar control de impulsos sin una atención mínimamente sostenida. No se puede entrenar flexibilidad sin capacidad de planificación. La jerarquía es clínica, no decorativa.</p>
+
+    <h2>4.2 · Estructura de la sesión tipo (18 minutos)</h2>
+
+    <div class="session-card">
+      <h4>Calentamiento · 3 minutos</h4>
+      <div class="session-meta">Activación</div>
+      <p>Se comienza con un ejercicio dominado previamente. La función es activar la red atencional sin exigirla, y generar una experiencia de éxito temprana.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Ejercicio principal · 12 minutos</h4>
+      <div class="session-meta">Foco clínico</div>
+      <p>Se aplica el ejercicio correspondiente a la fase actual, con observación de <strong>latencias</strong> (cuánto tarda en responder) y <strong>perseveraciones</strong> (repetición de un patrón que ya no funciona). El terapeuta registra lo que observa, no lo que interpreta.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Cierre metacognitivo · 3 minutos</h4>
+      <div class="session-meta">Reflexión</div>
+      <p>Preguntas guía: <em>¿Qué notaste hoy? ¿Qué estrategia te ayudó? ¿Qué harías distinto la próxima?</em> Este cierre es tan importante como el ejercicio mismo: consolida el aprendizaje y entrena la autoconciencia.</p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Principio de sesión única diaria</strong>
+      Se recomienda enfocar la atención en un solo ejercicio central por día para favorecer la consolidación mnémica sin inducir sobrecarga atencional.
+    </div>
+
+    <h2>4.3 · Criterios objetivos de progresión</h2>
+    <p>El protocolo establece tres escenarios claros:</p>
+
+    <table>
+      <thead>
+        <tr><th>Criterio</th><th>Indicador</th><th>Acción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Avanzar</strong></td><td>≥ 8/10 ensayos exitosos con ayuda mínima. Fatiga &lt; 5/10.</td><td>Pasar al siguiente ejercicio o subir dificultad.</td></tr>
+        <tr><td><strong>Mantener</strong></td><td>5 a 7 ensayos. Requiere andamiaje.</td><td>Repetir 1-2 sesiones más.</td></tr>
+        <tr><td><strong>Retroceder</strong></td><td>&lt; 5 ensayos o fatiga &gt; 7. Bloqueo.</td><td>Reducir tiempo, bajar dificultad, cambiar ejercicio dentro del dominio.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4.4 · Manejo del estancamiento cognitivo</h2>
+    <p>Cuando el paciente se bloquea, la respuesta no es insistir. La respuesta es diagnosticar la causa:</p>
+
+    <ul>
+      <li><strong>Revisar la carga cognitiva extrínseca.</strong> Eliminar ruido ambiental, regular brillo de pantalla, apagar notificaciones.</li>
+      <li><strong>Reducir la demanda temporal.</strong> Fraccionar la tarea en bloques de 5 minutos con pausas.</li>
+      <li><strong>Cambiar de juego dentro del dominio.</strong> Evaluar si el bloqueo obedece a la motricidad o al proceso mental.</li>
+      <li><strong>Revisar el sueño y la medicación.</strong> El estancamiento cognitivo a veces es fisiológico, no psicológico.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Principio de realidad</strong>
+      Ningún protocolo reemplaza el juicio clínico. Si el paciente está en fase hiperaguda (&lt; 2 semanas post-ictus), si hay epilepsia fotosensible no controlada, o si hay fatiga mental severa, el protocolo debe diferirse o adaptarse. Ver Anexo C en el Cuaderno Clínico.
+    </div>
+
+    <div class="cta-box">
+      <h3>¿Querés implementar este protocolo con un paciente?</h3>
+      <p>Si sos profesional y querés orientación sobre cómo adaptar el protocolo a un caso particular, o si querés coordinar una evaluación neurocognitiva, escribinos. Te acompañamos.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20soy%20profesional%20y%20quiero%20consultar%20por%20el%20M%C3%A9todo%20WineBOX%20ICTUS." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El protocolo se organiza en 4 fases de 2 semanas cada una, con una jerarquía clínica clara.</li>
+        <li>La sesión tipo dura 18 minutos: 3 de calentamiento, 12 de foco, 3 de cierre metacognitivo.</li>
+        <li>Los criterios de progresión (avanzar, mantener, retroceder) evitan forzar y previenen el bloqueo.</li>
+        <li>El estancamiento cognitivo se diagnostica, no se ignora.</li>
+        <li>El juicio clínico siempre prevalece sobre el protocolo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el protocolo claro, entramos en los cuatro dominios. En los próximos cuatro capítulos vas a ver, uno por uno, los 30 ejercicios con su fundamento clínico, su guía empática para el paciente, sus pautas de observación para el terapeuta, y un acceso directo para jugar.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 · DOMINIO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte IV · Dominio 1</div>
+    <h1 class="chapter-title">Atención sostenida · Semanas 1-2</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivos de la fase:</strong></p>
+    <ul>
+      <li>Establecer el hábito diario de 15 minutos sin fatiga.</li>
+      <li>Entrenar el bucle fonológico y la memoria operativa secuencial.</li>
+      <li>Detectar tempranamente negligencia espacial o rastreo desordenado.</li>
+    </ul>
+
+    <p>La atención sostenida es la puerta de entrada a todas las demás funciones ejecutivas. Sin ella, no hay control de impulsos, no hay planificación, no hay flexibilidad. Por eso el protocolo empieza acá: construyendo la base.</p>
+
+    <h2>Los 7 ejercicios del Dominio 1</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 1</div>
+        <div class="ex-name">Sequence</div>
+        <div class="ex-fn">Memoria de trabajo · Atención sostenida</div>
+        <div class="ex-desc">Recuerdo secuencial progresivo con luces y sonidos. El paciente debe reproducir la secuencia antes de tocar la pantalla.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 2</div>
+        <div class="ex-name">Voxel Quest</div>
+        <div class="ex-fn">Atención visual · Orientación espacial</div>
+        <div class="ex-desc">Exploración y mapeo espacial 3D minimalista. Evalúa y trata negligencia espacial unilateral.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 3</div>
+        <div class="ex-name">Sudoku Cognitivo</div>
+        <div class="ex-fn">Atención selectiva · Razonamiento lógico</div>
+        <div class="ex-desc">Resolución numérica estructurada. Activa redes frontoparietales sin ansiedad estética.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 4</div>
+        <div class="ex-name">Winemine</div>
+        <div class="ex-fn">Atención focalizada · Deducción</div>
+        <div class="ex-desc">Inferencia lógica bajo incertidumbre controlada. Razonamiento probabilístico.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/winemine.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 5</div>
+        <div class="ex-name">Sopa de Letras</div>
+        <div class="ex-fn">Búsqueda visual · Memoria semántica</div>
+        <div class="ex-desc">Rastreo visual serial y acceso léxico. Entrena exploración organizada.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sopa/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 6</div>
+        <div class="ex-name">Pixel Leap</div>
+        <div class="ex-fn">Atención sostenida · Coordinación ojo-mano</div>
+        <div class="ex-desc">Sincronía visomotora fina. Evalúa temblores y sincinesias en brazo parético.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 7 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 7</div>
+        <div class="ex-name">Rec (Grabadora)</div>
+        <div class="ex-fn">Bucle fonológico · Memoria auditiva</div>
+        <div class="ex-desc">Retención fonológica y repetición. Reentrenamiento auditivo-verbal para seguir instrucciones médicas.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/recorder/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 1 · Sequence</h3>
+    <p><strong>Fundamento clínico:</strong> adapta la técnica de reentrenamiento de memoria de trabajo auditiva y visual de Sohlberg & Mateer (2001). Focaliza la retención sin distracciones visuales.</p>
+    <p><strong>Guía empática:</strong> <em>"Vas a ver y escuchar una secuencia de luces y sonidos. Antes de tocar la pantalla, repítela en voz alta. Cada intento cuenta."</em></p>
+    <p><strong>Observación clínica:</strong> observe si el paciente agrupa en bloques (chunking) o subvocaliza. Note a partir de qué elemento surge la falla.</p>
+
+    <h3>Ejercicio 2 · Voxel Quest</h3>
+    <p><strong>Fundamento clínico:</strong> navegación minimalista 3D para evaluar y tratar la negligencia espacial unilateral (Zoltan, 2007).</p>
+    <p><strong>Guía empática:</strong> <em>"Eres un explorador. Antes de girar una esquina, detente y dime en voz alta qué ves. Paciencia ante todo."</em></p>
+    <p><strong>Observación clínica:</strong> evalúe si ignora sistemáticamente el lado izquierdo del campo visual o muestra apraxia de construcción.</p>
+
+    <h3>Ejercicio 3 · Sudoku Cognitivo</h3>
+    <p><strong>Fundamento clínico:</strong> resolución de problemas estructurados (Owen, 1997). Activa redes frontoparietales sin ansiedad estética.</p>
+    <p><strong>Guía empática:</strong> <em>"Este rompecabezas entrena la lógica. No es matemáticas, es paciencia. Busquemos la fila más completa."</em></p>
+    <p><strong>Observación clínica:</strong> registre la latencia antes de colocar un número y si el paciente verifica antes de confirmar la respuesta.</p>
+
+    <h3>Ejercicio 4 · Winemine (Buscaminas)</h3>
+    <p><strong>Fundamento clínico:</strong> deducción bajo incertidumbre controlada y razonamiento probabilístico (Zoltan, 2007).</p>
+    <p><strong>Guía empática:</strong> <em>"Somos detectives. Antes de tocar una casilla, explica por qué crees que es segura."</em></p>
+    <p><strong>Observación clínica:</strong> observe si el paciente se paraliza tras un error o si reorganiza la información de forma constructiva.</p>
+
+    <h3>Ejercicio 5 · Sopa de Letras</h3>
+    <p><strong>Fundamento clínico:</strong> exploración visual organizada y acceso léxico (Sohlberg & Mateer, 2001).</p>
+    <p><strong>Guía empática:</strong> <em>"Busquemos palabras de una categoría. Traza con el dedo antes de marcar. La organización es tu aliada."</em></p>
+    <p><strong>Observación clínica:</strong> registre si el rastreo es fila por fila o desordenado, y si hay anomia o parafasias semánticas.</p>
+
+    <h3>Ejercicio 6 · Pixel Leap</h3>
+    <p><strong>Fundamento clínico:</strong> sincronización visomotora fina entre corteza visual y motriz (Zoltan, 2007).</p>
+    <p><strong>Guía empática:</strong> <em>"Mantén la mirada suave en el centro. No tenses el cuerpo. Cuenta los saltos para llevar el ritmo."</em></p>
+    <p><strong>Observación clínica:</strong> evalúe temblores o dificultad de cálculo motor. Registre presencia de sincinesias en brazo parético.</p>
+
+    <h3>Ejercicio 7 · Rec (Grabadora)</h3>
+    <p><strong>Fundamento clínico:</strong> reentrenamiento auditivo-verbal para seguir instrucciones médicas (Sohlberg & Mateer, 2001).</p>
+    <p><strong>Guía empática:</strong> <em>"Escucha una frase con los ojos cerrados. Luego grábala con tu propia voz y escuchémosla juntos."</em></p>
+    <p><strong>Observación clínica:</strong> evalúe omisiones o sustituciones de palabras. Registre articulación y posible presencia de disartria.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la fase 1</strong>
+      No busques rendimiento. Buscá hábito. El objetivo de las dos primeras semanas es que el paciente se siente todos los días, sin fatiga, y empiece a confiar en el proceso.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La atención sostenida es la base de todas las funciones ejecutivas.</li>
+        <li>El Dominio 1 entrena el bucle fonológico, la memoria operativa y la exploración visual.</li>
+        <li>Cada ejercicio tiene un fundamento clínico, una guía empática y pautas de observación.</li>
+        <li>El objetivo de la fase 1 no es el rendimiento, es el hábito.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la atención sostenida entrenada, el protocolo avanza al control de impulsos. En el próximo capítulo vas a ver los 7 ejercicios del Dominio 2, incluida la regla de los 3 segundos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 · DOMINIO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte IV · Dominio 2</div>
+    <h1 class="chapter-title">Control de impulsos · Semanas 3-4</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Definición clínica:</strong> <em>capacidad de frenar una respuesta automática inmediata para esperar el momento adecuado y actuar con reflexión</em> (Barkley, 1997; Logan et al., 1997).</p>
+
+    <p>En el cerebro post-ictus, la inhibición de respuesta suele ser una de las funciones más comprometidas. El paciente actúa antes de pensar, no porque no sepa, sino porque la corteza prefrontal no logra frenar a tiempo la señal de la amígdala. Esta fase del protocolo entrena exactamente esa pausa.</p>
+
+    <div class="callout info">
+      <strong>La regla de los 3 segundos</strong>
+      Es el principio rector de este dominio: antes de tocar la pantalla, el paciente retira las manos y cuenta hasta tres. Esa pausa mínima es la diferencia entre el impulso y la reflexión.
+    </div>
+
+    <h2>Los 7 ejercicios del Dominio 2</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 8</div>
+        <div class="ex-name">Solitaire</div>
+        <div class="ex-fn">Inhibición motriz · Pausa reflexiva</div>
+        <div class="ex-desc">La regla de los tres segundos aplicada al movimiento de cartas. Se registra el uso del "undo" como indicador del impulso no filtrado.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 9</div>
+        <div class="ex-name">BlockMatrix</div>
+        <div class="ex-fn">Regulación emocional · Tolerancia</div>
+        <div class="ex-desc">Inoculación al estrés ante demandas de tiempo aceleradas. El paciente marca el ritmo y decide cuándo pausar.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 10</div>
+        <div class="ex-name">Breakout Retro</div>
+        <div class="ex-fn">Control motor fino · Suavidad</div>
+        <div class="ex-desc">Modulación de fuerza y trayectoria en extremidad superior. Vale más la suavidad que los puntos.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 11</div>
+        <div class="ex-name">Clumsy Bird</div>
+        <div class="ex-fn">Inhibición de respuesta · Stop-signal</div>
+        <div class="ex-desc">Paradigma go/no-go. El juego incita a tocar sin parar: el reto es tocar solo en el momento justo.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 5 minutos</span></div>
+        <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 12</div>
+        <div class="ex-name">Spider Solitaire</div>
+        <div class="ex-fn">Memoria de trabajo · Planificación</div>
+        <div class="ex-desc">Planificación secuencial de múltiples columnas simultáneas. Pensar dos movimientos hacia adelante.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/spider.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 13</div>
+        <div class="ex-name">Damas</div>
+        <div class="ex-fn">Inhibición táctica · Estrategia</div>
+        <div class="ex-desc">Inhibir la captura inmediata que expone a una pérdida mayor. Anticipación de intención ajena.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 14</div>
+        <div class="ex-name">Prehistorik</div>
+        <div class="ex-fn">Tolerancia a la frustración</div>
+        <div class="ex-desc">Transformación del fallo en información. Reestructuración cognitiva ante el error repetido.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/prehistorik/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 8 · La regla de los tres segundos (Solitaire)</h3>
+    <p><strong>Fundamento clínico:</strong> pausa reflexiva y auto-monitorización (Levine et al., 2000). Inhibe el movimiento automático de cartas.</p>
+    <p><strong>Guía empática:</strong> <em>"Antes de tocar la pantalla, retira las manos y cuenta hasta tres: ¿Si muevo esta, qué pasa después?"</em></p>
+    <p><strong>Observación clínica:</strong> registre la cantidad de veces que usa "undo". Ese dato mide el impulso no filtrado.</p>
+
+    <h3>Ejercicio 9 · Calma ante la aceleración externa (BlockMatrix)</h3>
+    <p><strong>Fundamento clínico:</strong> inoculación al estrés y regulación ante demandas de tiempo aceleradas (Cicerone et al., 2011).</p>
+    <p><strong>Guía empática:</strong> <em>"No buscamos récords. Si las piezas caen rápido, hacemos tres respiraciones. Tú marcas el ritmo."</em></p>
+    <p><strong>Observación clínica:</strong> observe respiración superficial o tensión muscular. Detecte si pide pausa voluntaria antes del colapso.</p>
+
+    <h3>Ejercicio 11 · Timing e inhibición Go/No-Go (Clumsy Bird)</h3>
+    <p><strong>Fundamento clínico:</strong> paradigma go/no-go y señal de stop (Logan et al., 1997). Frenar el toque compulsivo continuo.</p>
+    <p><strong>Guía empática:</strong> <em>"El juego te incita a tocar sin parar. Sé más astuto: toca solo en el momento justo."</em></p>
+    <p><strong>Observación clínica:</strong> mida si la respuesta es refleja (&lt; 200 ms) o si logra esperar la brecha. Evalúe tolerancia al reinicio.</p>
+
+    <h3>Ejercicio 13 · Teoría de la mente y anticipación (Damas)</h3>
+    <p><strong>Fundamento clínico:</strong> inhibir captura inmediata que expone a una pérdida mayor. Anticipación de intención ajena (Owen, 1997).</p>
+    <p><strong>Guía empática:</strong> <em>"Antes de mover, dime: '¿Qué haré yo si mueves ahí?'. Protege tus fichas antes de atacar."</em></p>
+    <p><strong>Observación clínica:</strong> evalúe si reconoce las amenazas del oponente o si tiene visión en túnel centrada solo en su ataque.</p>
+
+    <h3>Ejercicio 14 · Transformación del fallo en información (Prehistorik)</h3>
+    <p><strong>Fundamento clínico:</strong> reestructuración cognitiva ante el error repetido (Cicerone et al., 2011).</p>
+    <p><strong>Guía empática:</strong> <em>"Si caes, no es fracaso: es información. Pregúntate: ¿Qué aprendí de este obstáculo?"</em></p>
+    <p><strong>Observación clínica:</strong> evalúe escala de frustración (0-10) y si hay verbalizaciones negativas o capacidad de reajustar el plan.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la fase 2</strong>
+      El objetivo no es eliminar el impulso, es crear una pausa mínima entre el impulso y la acción. Esa pausa es el músculo que se entrena.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El control de impulsos es una de las funciones más comprometidas tras un ictus.</li>
+        <li>La regla de los 3 segundos es el principio rector del dominio 2.</li>
+        <li>Los ejercicios entrenan inhibición motriz, regulación emocional y tolerancia a la frustración.</li>
+        <li>El "undo" y la latencia de respuesta son indicadores clínicos clave.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el control de impulsos entrenado, el protocolo entra en la planificación ejecutiva. En el próximo capítulo vas a ver los 7 ejercicios del Dominio 3, incluidos los simuladores tipo Torre de Londres.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 · DOMINIO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte IV · Dominio 3</div>
+    <h1 class="chapter-title">Planificación ejecutiva · Semanas 5-6</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Definición clínica:</strong> <em>capacidad de anticipar, organizar pasos, gestionar recursos y ejecutar una estrategia para alcanzar una meta en actividades diarias</em> (Katz, 2011; Owen, 1997).</p>
+
+    <p>Este es el dominio que más transferencia tiene a la vida diaria. Planificar una compra, gestionar una medicación, organizar una salida: todas son tareas que requieren formular un plan, dividirlo en pasos y ajustarlo sobre la marcha. El protocolo entrena eso, con juegos que exigen simulaciones mentales complejas.</p>
+
+    <h2>Los 7 ejercicios del Dominio 3</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 15</div>
+        <div class="ex-name">Naval Pixel</div>
+        <div class="ex-fn">Deducción lógica · Mapeo mental</div>
+        <div class="ex-desc">Formulación y descarte de hipótesis. Planificación deductiva y actualización del modelo mental ante feedback.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 16</div>
+        <div class="ex-name">Retro Urban</div>
+        <div class="ex-fn">Toma de decisiones · Visión de futuro</div>
+        <div class="ex-desc">Jerarquización de recursos y gestión de prioridades. Primero carreteras y agua, luego casas.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simcity/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 17</div>
+        <div class="ex-name">8bits Realms</div>
+        <div class="ex-fn">Multitarea controlada · Estrategia</div>
+        <div class="ex-desc">División del foco y priorización. Alternancia de metas concurrentes: recolectar, construir, defender.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/war/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 18</div>
+        <div class="ex-name">Box World (Sokoban)</div>
+        <div class="ex-fn">Planificación espacial · Torre de Londres</div>
+        <div class="ex-desc">Simulación mental de movimientos. Prevenir bloqueos irreversibles. Trazar el camino antes de empujar.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/boxworld.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 19</div>
+        <div class="ex-name">Pathfinder</div>
+        <div class="ex-fn">Secuenciación · Causa y efecto</div>
+        <div class="ex-desc">Coordinación y cadenas causales. Comprender que una acción requiere una condición previa indispensable.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/pathfinders/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 20</div>
+        <div class="ex-name">ToDO</div>
+        <div class="ex-fn">Planificación ecológica en el hogar</div>
+        <div class="ex-desc">Generalización a la vida diaria. Escribir tres tareas y ordenarlas del 1 al 3 por urgencia real.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/todo.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir ToDO
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 21</div>
+        <div class="ex-name">La Máquina Increíble</div>
+        <div class="ex-fn">Razonamiento causal físico</div>
+        <div class="ex-desc">Predicción en sistemas complejos. Simulación mental de procesos mecánicos y anticipación de resultados.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/machine/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 15 · Naval Pixel</h3>
+    <p><strong>Fundamento clínico:</strong> planificación deductiva y actualización de modelo mental ante feedback (Zoltan, 2007).</p>
+    <p><strong>Guía empática:</strong> <em>"No dispares al azar. Explica tu lógica: 'Disparo aquí porque ya descarté los bordes'."</em></p>
+    <p><strong>Observación clínica:</strong> observe si recuerda las coordenadas previas o repite casillas fallidas por falla en memoria de trabajo.</p>
+
+    <h3>Ejercicio 16 · Retro Urban</h3>
+    <p><strong>Fundamento clínico:</strong> gestión de recursos y jerarquización de prioridades (Goal Management, Levine et al., 2000).</p>
+    <p><strong>Guía empática:</strong> <em>"Eres el alcalde. Primero carreteras y agua, luego casas. Establezcamos las prioridades juntos."</em></p>
+    <p><strong>Observación clínica:</strong> observe si construye al azar hasta colapsar el presupuesto o si planifica infraestructura previa.</p>
+
+    <h3>Ejercicio 17 · 8bits Realms</h3>
+    <p><strong>Fundamento clínico:</strong> alternancia de focos de atención y gestión de metas concurrentes (Monsell, 2003).</p>
+    <p><strong>Guía empática:</strong> <em>"Hagamos un plan en papel: recolectar madera, luego construir defensa. Un paso por vez."</em></p>
+    <p><strong>Observación clínica:</strong> registre si la multitarea provoca abandono o si logra mantener la meta rectora activa en mente.</p>
+
+    <h3>Ejercicio 18 · Box World (Sokoban)</h3>
+    <p><strong>Fundamento clínico:</strong> anticipación mental pura tipo Torre de Londres (Owen, 1997). Prevenir bloqueos irreversibles.</p>
+    <p><strong>Guía empática:</strong> <em>"Traza el camino con el dedo antes de empujar la caja. Si no hay salida, no des el paso."</em></p>
+    <p><strong>Observación clínica:</strong> evalúe si simula mentalmente 2 a 3 pasos o si procede por ensayo y error impulsivo hasta trabar el juego.</p>
+
+    <h3>Ejercicio 19 · Pathfinder</h3>
+    <p><strong>Fundamento clínico:</strong> comprensión de secuencias causa-efecto interdependientes en actividades de la vida diaria (Katz, 2011).</p>
+    <p><strong>Guía empática:</strong> <em>"Asignemos roles antes de que avancen: uno cava, otro construye puente. El orden es la clave."</em></p>
+    <p><strong>Observación clínica:</strong> evalúe si comprende que una acción requiere una condición previa indispensable.</p>
+
+    <h3>Ejercicio 20 · ToDO</h3>
+    <p><strong>Fundamento clínico:</strong> transferencia ecológica de habilidades ejecutivas a las actividades cotidianas (Toglia, 2011).</p>
+    <p><strong>Guía empática:</strong> <em>"Escribe tres tareas importantes para mañana y ordénalas del 1 al 3 según su verdadera urgencia."</em></p>
+    <p><strong>Observación clínica:</strong> observe si prioriza lo secundario o si logra jerarquizar tareas vitales (medicación, citas médicas).</p>
+
+    <h3>Ejercicio 21 · La Máquina Increíble</h3>
+    <p><strong>Fundamento clínico:</strong> simulación mental de procesos mecánicos y anticipación de resultados (Owen, 1997).</p>
+    <p><strong>Guía empática:</strong> <em>"Antes de pulsar 'iniciar', cierra los ojos y predice el recorrido de la pelota. Comprobemos tu hipótesis."</em></p>
+    <p><strong>Observación clínica:</strong> registre si identifica el eslabón débil de la cadena o si se desorienta ante múltiples engranajes.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la fase 3</strong>
+      La planificación no se enseña, se practica. El terapeuta no da la respuesta: pregunta <em>"¿qué crees que va a pasar si hacés eso?"</em> y deja que el paciente simule mentalmente.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La planificación ejecutiva es el dominio con más transferencia a la vida diaria.</li>
+        <li>Los ejercicios entrenan desde deducción lógica hasta simulación mental tipo Torre de Londres.</li>
+        <li>El Ejercicio 20 (ToDO) es clave para la transferencia ecológica.</li>
+        <li>El terapeuta pregunta, no responde: la simulación mental la hace el paciente.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Llegamos al último dominio: la flexibilidad cognitiva. En el próximo capítulo vas a ver los 9 ejercicios de las semanas 7-8, incluido el Diario ABCDE y la inversión de roles.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 · DOMINIO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV · Dominio 4</div>
+    <h1 class="chapter-title">Flexibilidad cognitiva · Semanas 7-8</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Definición clínica:</strong> <em>capacidad de adaptar el pensamiento y la conducta a nuevas reglas o imprevistos, abandonando estrategias obsoletas</em> (Monsell, 2003; Miyake et al., 2000).</p>
+
+    <p>Este es el dominio más exigente y el más transformador. Requiere que el paciente pueda no solo planificar, sino también <strong>abandonar el plan</strong> cuando deja de funcionar. En la vida post-ictus, esto significa aceptar que algunas cosas se hacen distintas, y que está bien.</p>
+
+    <h2>Los 9 ejercicios del Dominio 4</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 22</div>
+        <div class="ex-name">Truco / Chinchón</div>
+        <div class="ex-fn">Flexibilidad de set mental</div>
+        <div class="ex-desc">Reajuste dinámico de reglas. A mitad de la partida se cambia una regla: el reto es adaptarse sin frustración.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/truco/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar Truco
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 23</div>
+        <div class="ex-name">Retrocraft / VoxelBox</div>
+        <div class="ex-fn">Creatividad · Adaptación</div>
+        <div class="ex-desc">Modificación de metas abiertas. Empezaste una casa: ahora transformala en un barco con lo que ya tenés.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/retrocraft/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 24</div>
+        <div class="ex-name">Simio Salvaje</div>
+        <div class="ex-fn">Rotación mental · Cognición social</div>
+        <div class="ex-desc">Perspectiva espacial ajena. Describir el obstáculo desde el punto de vista del otro, no del propio.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simio/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 25</div>
+        <div class="ex-name">Rivals</div>
+        <div class="ex-fn">Toma de decisiones · Flexibilidad</div>
+        <div class="ex-desc">Generación rápida de alternativas. Ante un movimiento inesperado, dar dos opciones antes de elegir una.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/rivals/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 26</div>
+        <div class="ex-name">Robotrivia 8Bit</div>
+        <div class="ex-fn">Switch cost · Memoria semántica</div>
+        <div class="ex-desc">Costo de cambio categorial. Las preguntas cambian de tema sin aviso: cambiar de canal sin quedar pegado.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/robotrivia/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 27</div>
+        <div class="ex-name">99 Noches en el Bosque</div>
+        <div class="ex-fn">Flexibilidad emocional</div>
+        <div class="ex-desc">Reformulación constructiva del error. Transformar el lamento ("no sirvo") en un plan ("me faltó planificar").</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/99noches/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 28</div>
+        <div class="ex-name">Diario de la Calma (ABCDE)</div>
+        <div class="ex-fn">Reestructuración metacognitiva</div>
+        <div class="ex-desc">Modelo cognitivo ABCDE para resignificar el déficit y regular la autoexigencia. Se completa en el cuaderno clínico.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <span class="no-play">📝 En el cuaderno</span>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 29</div>
+        <div class="ex-name">Rec (Grabadora)</div>
+        <div class="ex-fn">Autoconciencia · Memoria episódica</div>
+        <div class="ex-desc">Bitácora semanal y logros. Grabar un mensaje de un minuto contando lo que se pudo lograr esta semana.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/recorder/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir Grabadora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Ejercicio 30</div>
+        <div class="ex-name">Elección libre</div>
+        <div class="ex-fn">Consolidación · Empoderamiento</div>
+        <div class="ex-desc">Inversión de roles: el paciente maestro. Elegir el juego favorito y enseñarle al terapeuta cómo se juega.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 20 minutos</span></div>
+        <a href="https://winebox.cloud" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Elegir juego
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios clave</h2>
+
+    <h3>Ejercicio 22 · Reajuste dinámico de reglas (Truco / Chinchón)</h3>
+    <p><strong>Fundamento clínico:</strong> modificación de reglas en curso para entrenar alternancia cognitiva (Monsell, 2003).</p>
+    <p><strong>Guía empática:</strong> <em>"A mitad de la partida cambiaremos una regla: 'ahora el 4 vale más'. El reto es adaptarse sin frustración."</em></p>
+    <p><strong>Observación clínica:</strong> observe perseveración: ¿sigue jugando con la regla anterior a pesar de conocer la nueva?</p>
+
+    <h3>Ejercicio 24 · Perspectiva espacial ajena (Simio Salvaje)</h3>
+    <p><strong>Fundamento clínico:</strong> adopción de perspectiva visual ajena y teoría de la mente espacial (Zoltan, 2007).</p>
+    <p><strong>Guía empática:</strong> <em>"Imagina que estoy parado frente a ti. Descríbeme el obstáculo desde mi punto de vista, no del tuyo."</em></p>
+    <p><strong>Observación clínica:</strong> registre egocentrismo espacial: si confunde izquierda/derecha cuando describe desde la perspectiva del otro.</p>
+
+    <h3>Ejercicio 26 · Costo de cambio categorial (Robotrivia 8Bit)</h3>
+    <p><strong>Fundamento clínico:</strong> medición y entrenamiento del costo de cambio entre categorías de conocimiento (Monsell, 2003).</p>
+    <p><strong>Guía empática:</strong> <em>"Las preguntas cambian de tema sin aviso. Es como cambiar de canal: déjalo ir y pasa al nuevo tema."</em></p>
+    <p><strong>Observación clínica:</strong> mida el tiempo de latencia tras un cambio abrupto de categoría (de historia a geografía).</p>
+
+    <h3>Ejercicio 27 · Reformulación constructiva del error (99 Noches en el Bosque)</h3>
+    <p><strong>Fundamento clínico:</strong> aplicación de reestructuración cognitiva ante la pérdida de recursos (Cicerone et al., 2011).</p>
+    <p><strong>Guía empática:</strong> <em>"Si tu personaje cae, escribe: 'La próxima guardaré más madera'. Transforma el lamento en un plan."</em></p>
+    <p><strong>Observación clínica:</strong> evalúe si el diálogo interno es autodespreciativo ("no sirvo") o adaptativo ("me faltó planificar").</p>
+
+    <h3>Ejercicio 28 · Diario ABCDE y metacognición</h3>
+    <p><strong>Fundamento clínico:</strong> modelo cognitivo ABCDE para resignificar el déficit y regular la autoexigencia (Toglia, 2011).</p>
+    <p><strong>Guía empática:</strong> <em>"Anotemos: A (Qué pasó), B (Qué pensé), C (Cómo me sentí), D (Discusión lógica), E (Nueva calma)."</em></p>
+    <p><strong>Observación clínica:</strong> observe cuánto andamiaje necesita para pasar de la creencia irracional a la reformulación funcional.</p>
+
+    <h3>Ejercicio 30 · Inversión de roles: el paciente maestro</h3>
+    <p><strong>Fundamento clínico:</strong> consolidación de redes ejecutivas mediante la enseñanza y transmisión de reglas (Toglia, 2011).</p>
+    <p><strong>Guía empática:</strong> <em>"Hoy tú eres el maestro. Elige tu juego favorito y enséñame a jugar. Explícame las reglas paso a paso."</em></p>
+    <p><strong>Observación clínica:</strong> evaluación cualitativa final: organización del discurso, seguridad personal y empoderamiento.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la fase 4</strong>
+      El objetivo de esta fase no es que el paciente "haga bien" el ejercicio, sino que tolere el cambio. Que pueda soltar la estrategia vieja sin sentirse fracasado. Eso es lo que se entrena.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La flexibilidad cognitiva es el dominio más exigente y el más transformador.</li>
+        <li>Los ejercicios entrenan reajuste de reglas, rotación de perspectiva, switch cost y reestructuración emocional.</li>
+        <li>El Diario ABCDE es una herramienta clave de metacognición.</li>
+        <li>La inversión de roles consolida el aprendizaje y empodera al paciente.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los 30 ejercicios vistos, entramos en la parte de registro clínico. En el próximo capítulo vas a ver cómo sistematizar la observación, qué medidas cuantitativas tomar y cómo dejar constancia del consentimiento informado.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte V</div>
+    <h1 class="chapter-title">Registro clínico y seguimiento</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Un protocolo sin registro es solo una serie de ejercicios sueltos. Lo que convierte al Método WineBOX en un instrumento clínico es su <strong>sistema de observación y seguimiento</strong>. Este capítulo describe cómo registrar, qué medir y cómo interpretar.</p>
+
+    <h2>9.1 · Ficha clínica de seguimiento semanal</h2>
+    <p>Instrumento de observación ecológica para terapeutas y cuidadores. Se completa una fila por sesión.</p>
+
+    <table>
+      <thead>
+        <tr><th>Día</th><th>Juego y nivel</th><th>Tiempo / intentos</th><th>Criterio</th><th>Observación conductual</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lunes</td><td>Sequence (Nivel 4)</td><td>18 min / 4 intentos</td><td>☐ Sí ☐ No</td><td>Leve fatiga en min 14</td></tr>
+        <tr><td>Martes</td><td>Voxel Quest (Mapeo)</td><td>18 min / 3 salas</td><td>☐ Sí ☐ No</td><td>Buena orientación espacial</td></tr>
+        <tr><td>Miércoles</td><td>Sudoku (4×4 guiado)</td><td>15 min / 2 paneles</td><td>☐ Sí ☐ No</td><td>Sin signos de frustración</td></tr>
+        <tr><td>Jueves</td><td>Winemine (Lógica)</td><td>18 min / 5 partidas</td><td>☐ Sí ☐ No</td><td>Mayor tiempo de reflexión</td></tr>
+        <tr><td>Viernes</td><td>Sopa de Letras</td><td>16 min / 8 palabras</td><td>☐ Sí ☐ No</td><td>Rastreo organizado I→D</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Escala subjetiva de fatiga post-sesión (1 a 10)</h3>
+    <div class="scale-row">
+      <span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span>
+    </div>
+    <p style="font-size: 13px; color: var(--muted); font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: -6px;">1 = Plena energía · 10 = Agotamiento extremo</p>
+
+    <h2>9.2 · Medidas de resultado cuantitativas</h2>
+    <p>Métricas funcionales estandarizadas pre y post intervención (8 semanas):</p>
+
+    <h3>Métrica A · Tiempo medio de reacción inhibitoria (TMRI)</h3>
+    <p>Milisegundos transcurridos entre la aparición del distractor y la inhibición del clic (ej. Clumsy Bird).</p>
+    <p><em>Línea de base: ______ ms · Semana 4: ______ ms · Semana 8 (Post): ______ ms · Delta: ______ %</em></p>
+
+    <h3>Métrica B · Índice de eficiencia en planificación (IEP)</h3>
+    <p>Relación entre movimientos óptimos calculados vs. movimientos ejecutados en Pathfinder y Box World.</p>
+    <p><em>Línea de base: ______ · Semana 4: ______ · Semana 8 (Post): ______ · Delta: ______ %</em></p>
+
+    <h3>Métrica C · Costo de cambio categorial (CCC)</h3>
+    <p>Diferencia temporal en segundos entre ensayos homogéneos y con alternancia de reglas en Robotrivia.</p>
+    <p><em>Línea de base: ______ s · Semana 4: ______ s · Semana 8 (Post): ______ s · Delta: ______ %</em></p>
+
+    <div class="callout info">
+      <strong>Registro longitudinal pre-post</strong>
+      Consignar las puntuaciones en semanas 1, 4 y 8 para graficar la curva de recuperación y presentar en ateneos clínicos interdisciplinarios.
+    </div>
+
+    <h2>9.3 · Consentimiento informado</h2>
+    <p>Toda intervención requiere consentimiento informado por escrito. Modelo disponible en el Cuaderno Clínico (Anexo B). El documento debe incluir:</p>
+    <ul>
+      <li>Datos del paciente o representante legal.</li>
+      <li>Descripción del protocolo y sus alcances.</li>
+      <li>Aclaración de que no sustituye tratamiento médico o neurológico.</li>
+      <li>Autorización para realizar los ejercicios y los registros clínicos.</li>
+      <li>Firma y fecha.</li>
+    </ul>
+
+    <h2>9.4 · Cribado clínico y banderas rojas (Anexo C)</h2>
+
+    <table>
+      <thead>
+        <tr><th>Condición clínica</th><th>Criterio de evaluación</th><th>Acción inmediata</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Epilepsia fotosensible</td><td>¿Antecedentes de crisis ante pantallas?</td><td>Requiere autorización de neurología.</td></tr>
+        <tr><td>Fase hiperaguda (&lt; 2 semanas)</td><td>¿Evento vascular en últimos 14 días?</td><td>Suspender y priorizar reposo clínico.</td></tr>
+        <tr><td>Fatiga mental severa</td><td>Puntuación &gt; 8 en escala de fatiga</td><td>Reducir sesión a 8 min o diferir.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout alert">
+      <strong>🚩 Recordatorio</strong>
+      Este protocolo no reemplaza el juicio clínico. Ante cualquier duda sobre la elegibilidad de un paciente, consultar con el equipo de neurología o rehabilitación tratante antes de iniciar.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La ficha semanal sistematiza la observación ecológica.</li>
+        <li>Las medidas cuantitativas (TMRI, IEP, CCC) permiten evaluar la evolución objetiva.</li>
+        <li>El consentimiento informado por escrito es obligatorio antes de iniciar.</li>
+        <li>El cribado clínico previene riesgos en poblaciones vulnerables.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el registro claro, llegamos al cierre. En el próximo capítulo vas a encontrar el epílogo terapéutico y el decálogo de mantenimiento funcional a largo plazo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte VI</div>
+    <h1 class="chapter-title">El nuevo comienzo y el decálogo de mantenimiento</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Llegaste al final del protocolo. Ocho semanas, treinta ejercicios, treinta y dos sesiones. Si llegaste hasta acá, hiciste algo enorme: <strong>entrenaste tu cerebro todos los días</strong>, aun cuando no tenías ganas, aun cuando te frustrabas, aun cuando parecía que no avanzabas.</p>
+
+    <blockquote>
+      <p>«Recuperar una función no es volver al punto exacto donde estabas antes del ictus; es construir una nueva forma de habitar tu mente, más sabia, más paciente y más consciente de tus propios ritmos. Cada segundo que toleraste la frustración frente a un pixel, cada respiración antes de mover una pieza, fue una victoria real de tu plasticidad cerebral.»</p>
+      <cite>— Epílogo terapéutico, Método WineBOX</cite>
+    </blockquote>
+
+    <h2>Decálogo de mantenimiento funcional a largo plazo</h2>
+    <ol>
+      <li><strong>Mantené la regla de los tres segundos</strong> en tus decisiones cotidianas: compras, conversaciones, cruzar la calle.</li>
+      <li><strong>Sesión lúdica semanal:</strong> dedicá 1 o 2 días por semana a resolver un Sudoku o jugar al Breakout como gimnasia mental.</li>
+      <li><strong>Protegé el descanso nocturno:</strong> la consolidación sináptica requiere 7-8 horas de sueño reparador.</li>
+      <li><strong>Registrá tus logros:</strong> mantené tu grabadora o cuaderno de avances para recordar lo lejos que llegaste.</li>
+      <li><strong>Respetá tu fatiga:</strong> si el cuerpo pide pausa, la pausa no es debilidad, es estrategia.</li>
+      <li><strong>Celebrá el intento, no el resultado.</strong> El intento es el músculo, el resultado es la consecuencia.</li>
+      <li><strong>Compartí lo aprendido.</strong> Enseñar consolida. Explicar a alguien lo que practicaste refuerza tus propias redes.</li>
+      <li><strong>Volvé al protocolo cuando lo necesites.</strong> Si atravesás una etapa de estrés o recaída, no empieces de cero: retomá.</li>
+      <li><strong>Consultá a tu equipo tratante.</strong> El protocolo acompaña, no reemplaza. Tu neurólogo, tu terapeuta y tu familia son parte del proceso.</li>
+      <li><strong>Tené paciencia con vos mismo.</strong> La neuroplasticidad no tiene fecha de caducidad. Cada día es una nueva oportunidad.</li>
+    </ol>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>A los profesionales de la salud:</em> gracias por sistematizar la esperanza con evidencia.<br>
+    <em>A los pacientes y a sus familias:</em> gracias por la valentía de cada intento.</p>
+
+    <p>Este manual y la plataforma WineBOX representan un ecosistema de recuperación que respeta la dignidad, el ritmo y la capacidad de cambio del cerebro humano.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>"No se trata de la velocidad a la que viajas, sino de la dirección en la que avanzas."</em></p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional para el próximo paso?</h3>
+      <p>Terminaste las 8 semanas. Ahora toca el mantenimiento, y quizás una evaluación más profunda o un ajuste terapéutico. Estamos para acompañar. Escribinos por WhatsApp y te orientamos sin compromiso.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20termin%C3%A9%20el%20M%C3%A9todo%20WineBOX%20ICTUS%20y%20quiero%20acompa%C3%B1amiento%20profesional." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El final del protocolo es el comienzo del mantenimiento.</li>
+        <li>El decálogo sistematiza las claves para sostener los logros a largo plazo.</li>
+        <li>La neuroplasticidad no tiene fecha de caducidad.</li>
+        <li>El acompañamiento profesional sigue siendo importante después del protocolo.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Todos los ejercicios de este protocolo, y muchos más, están disponibles de forma gratuita en la plataforma WineBOX. Filtrá por área cognitiva, encontrá nuevos desafíos, y entrená desde cualquier dispositivo con o sin conexión.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO CLÍNICO -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno clínico · Hojas imprimibles</div>
+    <h2>Anexos, fichas y consentimiento</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse en cada sesión. Guárdalas en la carpeta clínica del paciente. No hay respuestas correctas o incorrectas — solo observación honesta y rigurosa.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Clínico
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, selecciona "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Ficha de seguimiento semanal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Seguimiento</div>
+      <h3>📋 Ficha de Seguimiento Semanal</h3>
+    </div>
+    <p class="sheet-intro">Instrumento de observación ecológica. Completar una fila por sesión.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Paciente:</label><div class="line"></div></div>
+      <div class="form-field"><label>Semana N.º:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego y nivel</th><th>Tiempo / intentos</th><th>☐ Sí ☐ No</th><th>Observación conductual</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Martes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Miércoles</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Jueves</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Viernes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Sábado</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Domingo</td><td></td><td></td><td>☐</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Escala subjetiva de fatiga post-sesión (1 · 10):</label>
+        <div class="scale-row"><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field"><label>Observaciones generales de la semana:</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Medidas cuantitativas -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Métricas</div>
+      <h3>📊 Medidas de Resultado Cuantitativas</h3>
+    </div>
+    <p class="sheet-intro">Métricas funcionales estandarizadas pre y post intervención (8 semanas).</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Medida</th><th>Línea Base (Sem 1)</th><th>Semana 4</th><th>Semana 8</th><th>Delta %</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tiempo medio de reacción inhibitoria (ms)</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Índice de eficiencia en planificación</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Costo de cambio categorial (s)</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Escala de fatiga percibida (0-10)</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Tasa de errores por impulso (%)</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Reintentos tras error (recuperación)</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Notas del profesional:</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Consentimiento informado -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Anexo B</div>
+      <h3>📝 Consentimiento Informado</h3>
+    </div>
+    <p class="sheet-intro">Modelo de consentimiento escrito para uso clínico.</p>
+    <div class="sheet-body">
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Yo, ______________________________________, con DNI ____________________, en calidad de paciente / representante legal, manifiesto haber sido informado/a sobre los alcances del <strong>Método WineBOX</strong>.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Comprendo que este protocolo <strong>no sustituye el tratamiento neurológico ni médico prescrito</strong>, y que su aplicación es una herramienta de estimulación cognitiva complementaria.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 30px;">Otorgo mi consentimiento para participar en las sesiones de estimulación cognitiva y para que se realicen los registros clínicos correspondientes, con estricta confidencialidad.</p>
+
+      <div class="form-field" style="margin-top: 40px;"><label>Firma del paciente / tutor:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Aclaración:</label><div class="line"></div></div>
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+
+      <div class="callout warning" style="margin-top: 30px; font-size: 14px;">
+        <strong>⚠ Protección de datos</strong>
+        Los registros clínicos deben guardarse en un entorno seguro y confidencial, conforme a la Ley 26.529 de derechos del paciente y la Ley 25.326 de Protección de Datos Personales.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Cribado clínico -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Anexo C</div>
+      <h3>🚩 Cribado Clínico de Seguridad</h3>
+    </div>
+    <p class="sheet-intro">Verificar antes de iniciar el protocolo. Ante cualquier criterio positivo, diferir y consultar con el equipo tratante.</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Condición clínica</th><th>Criterio de evaluación</th><th>☐</th><th>Acción inmediata</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Epilepsia fotosensible</td><td>¿Antecedentes de crisis ante pantallas?</td><td>☐</td><td>Requiere autorización de neurología.</td></tr>
+          <tr><td>Fase hiperaguda (&lt; 2 semanas)</td><td>¿Evento vascular en últimos 14 días?</td><td>☐</td><td>Suspender y priorizar reposo clínico.</td></tr>
+          <tr><td>Fatiga mental severa</td><td>Puntuación &gt; 8 en escala de fatiga</td><td>☐</td><td>Reducir sesión a 8 min o diferir.</td></tr>
+          <tr><td>Cefalea pulsátil o mareo</td><td>¿Aparece durante la sesión?</td><td>☐</td><td>Detener inmediatamente.</td></tr>
+          <tr><td>Labilidad emocional desbordada</td><td>¿Frustración recurrente sin recuperación?</td><td>☐</td><td>Pausa, contención, reevaluar.</td></tr>
+          <tr><td>Caída abrupta del rendimiento</td><td>¿Tras 5-8 min de sesión?</td><td>☐</td><td>Reducir tiempo y frecuencia.</td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Observaciones del cribado:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Firma del profesional que autoriza inicio:</label><div class="line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 5: Diario ABCDE -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 5 · Diario ABCDE</div>
+      <h3>🔤 Diario de la Calma · Modelo ABCDE</h3>
+    </div>
+    <p class="sheet-intro">Modelo cognitivo para resignificar el error y regular la autoexigencia. Completar cada vez que aparezca frustración significativa.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+      <div class="form-field"><label>A · Activador (¿qué pasó?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>B · Creencia (¿qué pensé?):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>C · Consecuencia (¿cómo me sentí? Emoción + sensación corporal):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>D · Discusión (¿hay otra explicación posible? ¿qué le diría a un amigo?):</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>E · Efecto (nueva emoción, más equilibrada):</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 6: Bitácora semanal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 6 · Bitácora</div>
+      <h3>🎙️ Bitácora Semanal de Logros</h3>
+    </div>
+    <p class="sheet-intro">Narración en primera persona para reforzar autoeficacia y memoria episódica. Podés escribirla o grabarla.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Semana N.º:</label><div class="line"></div></div>
+      <div class="form-field"><label>Tres cosas que logré esta semana (por pequeñas que parezcan):</label><div class="big-line"></div><div class="big-line"></div><div class="big-line"></div></div>
+      <div class="form-field"><label>Un momento en que toleré la frustración sin derrumbarme:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Una cosa que quiero intentar la próxima semana:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué le diría hoy a la persona que empezó este camino hace 8 semanas?</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 7: Decálogo de mantenimiento -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 7 · Mantenimiento</div>
+      <h3>📆 Decálogo de Mantenimiento Funcional</h3>
+    </div>
+    <p class="sheet-intro">Pegá esta hoja en un lugar visible. Es tu brújula para los próximos meses.</p>
+    <div class="sheet-body">
+      <ol style="font-size: 15.5px; line-height: 1.8; margin-left: 1.2em;">
+        <li>Mantener la regla de los tres segundos en decisiones cotidianas.</li>
+        <li>Sesión lúdica semanal: 1-2 días de Sudoku, Breakout u otro juego.</li>
+        <li>Proteger el descanso nocturno (7-8 horas de sueño).</li>
+        <li>Registrar logros (grabadora o cuaderno de avances).</li>
+        <li>Respetar la fatiga: la pausa es estrategia, no debilidad.</li>
+        <li>Celebrar el intento, no solo el resultado.</li>
+        <li>Compartir lo aprendido: enseñar consolida.</li>
+        <li>Volver al protocolo cuando sea necesario, sin culpa.</li>
+        <li>Consultar al equipo tratante ante cualquier cambio significativo.</li>
+        <li>Tener paciencia. La neuroplasticidad no tiene fecha de caducidad.</li>
+      </ol>
+      <div class="callout tip" style="margin-top: 24px; font-size: 14.5px;">
+        <strong>💚 Recordatorio</strong>
+        Cinco minutos al día sostienen mejor el progreso que una hora una vez por semana. La consistencia vence al agotamiento.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Clínico Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este libro y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el tratamiento de la ansiedad, los trastornos del neurodesarrollo y la neurorrehabilitación de funciones ejecutivas en adultos con daño cerebral adquirido.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Estimulación Cognitiva</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, diseñando herramientas accesibles que invitan a reconectar con la fuerza interior y a encontrar la propia calma.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás orientación profesional?</h3>
+      <p>Si estás acompañando un proceso de rehabilitación post-ictus, o si sos profesional y querés implementar el protocolo, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20M%C3%A9todo%20WineBOX%20ICTUS%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🧠 WineBOX · Método ICTUS<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y corazón · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice
+  document.querySelectorAll('nav.toc a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

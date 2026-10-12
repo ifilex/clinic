@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · Protocolo Anti-Procrastinación</title>
+
+<meta name="dc:title" content="Método WineBOX · Protocolo Anti-Procrastinación">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Protocolo de productividad asistida por videojuegos: cómo convertir la procrastinación en acción concreta. Guía para estudiantes, profesionales y cualquiera que posterga.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #1B3A5C;
+    --primary-dark: #0F2438;
+    --primary-light: #2E5D8A;
+    --accent: #F28705;
+    --accent-dark: #C96B00;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #E6EEF5;
+    --soft-green: #E7F3EB;
+    --soft-amber: #FDF1DF;
+    --soft-rose: #F7E9E9;
+    --soft-orange: #FEF3E7;
+    --alert: #B85450;
+    --play: #2E8B57;
+    --go: #F28705;
+    --focus: #1B3A5C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 45%, var(--accent) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 25% 25%, rgba(242,135,5,0.20) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 780px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--cream); margin-bottom: 40px; font-weight: 500; opacity: 0.85; }
+  .cover h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: #FFD9A0; display: block; font-size: 0.8em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.95; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(255,255,255,0.5); border-radius: 20px; color: #FFD9A0; }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.95; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-orange); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--accent-dark); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--accent-dark); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--primary); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--primary); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-blue);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-amber);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '📌 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--accent-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-orange) 100%); border-left: 4px solid var(--accent); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid #2E8B57; }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--accent); }
+  .callout.warning strong { color: var(--accent-dark); }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.go { background: var(--soft-orange); border-left: 4px solid var(--go); }
+  .callout.go strong { color: var(--accent-dark); }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.85;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,58,92,0.14); border-color: var(--primary); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: #1F6B41; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+  .ex-card .no-play {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--soft-blue); color: var(--primary-dark);
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* PHASE CARD */
+  .phase-card { background: var(--cream); border-left: 4px solid var(--primary); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .phase-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .phase-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(242,135,5,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--primary-dark);
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); color: #fff; }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--primary); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 14px; }
+  .sheet-body table th { font-size: 10.5px; padding: 9px 11px; }
+  .sheet-body table td { padding: 12px 11px; height: 36px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  .checkbox-list { list-style: none; margin-left: 0; }
+  .checkbox-list li { padding: 12px 10px 12px 40px; position: relative; border-bottom: 1px dashed #cbd5e1; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14.5px; }
+  .checkbox-list li::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1.5px solid var(--primary-dark); border-radius: 3px; }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(242,135,5,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--accent); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(242,135,5,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cream); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(27,58,92,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: #FFD9A0 !important; }
+    .cover-tags span { color: #FFD9A0 !important; border-color: #FFD9A0 !important; }
+    .cover-brand, .cover-author { color: #FFD9A0 !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-orange) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .phase-card, .summary, .next-step, .ex-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+    .checkbox-list li { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--accent) !important; }
+    .cta-box { background: rgba(242,135,5,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: var(--primary-dark) !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Práctica</div>
+    <h1>Dejalo<br><em>para después</em></h1>
+    <p class="cover-subtitle">Protocolo anti-procrastinación asistido por videojuegos<br>Cómo convertir la postergación en acción concreta</p>
+    <p class="cover-audience">Guía para estudiantes, profesionales y cualquiera que posterga</p>
+    <div class="cover-tags">
+      <span>Productividad</span><span>TCC</span><span>Gamificación</span><span>Hábitos</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia Clínica y Limitación de Responsabilidad</div>
+    <h2>Leer antes de aplicar el protocolo</h2>
+    <p><strong>Este protocolo NO reemplaza el tratamiento psicológico o psiquiátrico</strong> en casos de procrastinación crónica severa asociada a depresión, ansiedad generalizada, TDAH u otros cuadros clínicos. En esos casos, debe integrarse en un plan terapéutico coordinado por un profesional.</p>
+    <p>La procrastinación no es "flojera" ni "falta de voluntad". Es un <strong>problema de regulación emocional</strong> con bases neurobiológicas. Este manual lo aborda como tal, sin juicios morales y con herramientas concretas.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Cuándo buscar ayuda profesional urgente</h3>
+    <ol>
+      <li><strong>Pensamientos de muerte o autolesión. Derivar de inmediato a guardia o línea de crisis.</strong></li>
+      <li>Incapacidad total para funcionar durante más de 2 semanas.</li>
+      <li>Procrastinación extrema asociada a ansiedad incapacitante o crisis de pánico.</li>
+      <li>Consumo problemático de sustancias para "arrancar" o "frenar".</li>
+      <li>Sospecha de TDAH no diagnosticado (requiere evaluación específica).</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y de regulación conductual. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento psicoterapéutico o psiquiátrico prescrito por un especialista.</strong></p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del usuario o su representante legal, según la normativa de derechos del paciente (Ley 26.529 y Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y acción</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Introducción</span>Cap. 1 Bienvenida: no sos flojo</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Introducción</span>Cap. 2 Carta a quien posterga todo</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Comprender</span>Cap. 3 Qué es la procrastinación (neurociencia)</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · Comprender</span>Cap. 4 Cómo se aborda desde la TCC</a></li>
+      <li><a href="#cap5"><span class="part">Parte II · Comprender</span>Cap. 5 Por qué los juegos aumentan la productividad</a></li>
+      <li><a href="#cap6"><span class="part">Parte III · Protocolo</span>Cap. 6 Estructura del protocolo en 4 fases</a></li>
+      <li><a href="#cap7"><span class="part">Parte IV · Ejercicios</span>Cap. 7 Fase 1 · Fricción y arranque</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · Ejercicios</span>Cap. 8 Fase 2 · Bloques y foco</a></li>
+      <li><a href="#cap9"><span class="part">Parte IV · Ejercicios</span>Cap. 9 Fase 3 · Hábitos y recompensa</a></li>
+      <li><a href="#cap10"><span class="part">Parte IV · Ejercicios</span>Cap. 10 Fase 4 · Identidad y sostenibilidad</a></li>
+      <li><a href="#cap11"><span class="part">Parte V · Registro</span>Cap. 11 Seguimiento y consentimiento informado</a></li>
+      <li><a href="#cap12"><span class="part">Parte VI · Cierre</span>Cap. 12 Decálogo del que empieza</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno del hacer</span>Hojas imprimibles y anexos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida: no sos flojo</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay un momento, en el que tenés algo importante que hacer, y sabés que tenés que hacerlo, y querés hacerlo, y sin embargo no lo hacés. Y en vez de hacerlo, mirás el teléfono. O abrís YouTube. O te pones a limpiar algo que nunca limpiás. Y al final del día, te acostás con la misma tarea pendiente, más la culpa encima.</p>
+
+    <p>Si eso te pasa, no sos flojo. No sos vago. No sos "alguien sin disciplina". Lo que te pasa tiene un nombre técnico y una explicación neurocientífica: <strong>procrastinación</strong>. Y no es un problema de carácter: es un <strong>problema de regulación emocional</strong>.</p>
+
+    <blockquote>
+      <p>«La procrastinación no es una crisis de tiempo. Es una crisis de emociones. Postergamos lo que nos hace sentir mal, no lo que es difícil. Y la emoción, no la tarea, es el verdadero obstáculo.»</p>
+      <cite>— Basado en Pychyl, 2013</cite>
+    </blockquote>
+
+    <h2>Qué es este protocolo</h2>
+    <p>Este es un <strong>protocolo práctico de acción</strong> que utiliza videojuegos de baja fidelidad visual como herramienta de arranque, foco y recompensa. No es un libro de motivación. No te va a decir "vos podés". No te va a dar una lista de frases inspiradoras. Te va a dar <strong>herramientas concretas para hacer, cuando no tenés ganas de hacer</strong>.</p>
+
+    <p>Está diseñado para personas que:</p>
+
+    <ul>
+      <li><strong>Postergan tareas importantes:</strong> estudiar, trabajar, hacer ejercicio, ordenar, hacer un trámite.</li>
+      <li><strong>Sienten culpa por postergar:</strong> y la culpa empeora la procrastinación.</li>
+      <li><strong>Ya probaron "técnicas de productividad"</strong> (agendas, apps, Pomodoro) y las abandonaron.</li>
+      <li><strong>Se distraen fácilmente:</strong> con el teléfono, con redes sociales, con cualquier cosa.</li>
+      <li><strong>Funcionan solo bajo presión:</strong> cuando la fecha límite es mañana, se ponen a hacer todo de golpe.</li>
+    </ul>
+
+    <div class="callout go">
+      <strong>🎮 Los juegos están a un clic</strong>
+      Cada ejercicio de este eBook tiene un botón <strong>▶ Jugar ahora</strong> que abre directamente el juego en tu navegador o tablet. No hace falta instalar nada, ni registrarse. Y si querés explorar todos los juegos disponibles, al final del libro tenés acceso a la plataforma completa.
+    </div>
+
+    <h2>Por qué los juegos pueden aumentar la productividad</h2>
+    <p>Los videojuegos tienen algo que las tareas que postergamos no tienen: <strong>recompensa inmediata, feedback claro, y estructura simple</strong>. Estas tres características son exactamente lo que falta en una tarea abstracta como "escribir una tesis" o "arreglar el CV".</p>
+
+    <p>La gamificación de la productividad funciona porque:</p>
+
+    <ul>
+      <li><strong>Reduce la fricción del arranque:</strong> empezar un juego es fácil. Y una vez que empezás algo, seguir con la tarea real es más fácil. <a href="#ref1" class="cite">Ariely &amp; Wertenbroch, 2002 <span class="cite-ref">[1]</span></a></li>
+      <li><strong>Provee recompensa inmediata:</strong> el sistema de recompensa cerebral se activa con logros visibles. Los videojuegos ofrecen logros constantes. <a href="#ref2" class="cite">Koepp et al., 1998 <span class="cite-ref">[2]</span></a></li>
+      <li><strong>Genera estado de flow:</strong> los juegos bien diseñados inducen concentración profunda. Ese estado es transferible a la tarea. <a href="#ref3" class="cite">Csikszentmihalyi, 1990 <span class="cite-ref">[3]</span></a></li>
+      <li><strong>Ancla hábitos:</strong> usar un juego como recompensa después de una tarea es una forma de <em>temptation bundling</em>, técnica con respaldo empírico. <a href="#ref4" class="cite">Milkman et al., 2014 <span class="cite-ref">[4]</span></a></li>
+    </ul>
+
+    <div class="footnote">
+      <strong>Importante:</strong> este protocolo no propone "jugar en vez de trabajar". Propone <strong>usar el juego como herramienta</strong>: para arrancar, para descansar entre bloques, para premiarte al terminar, para anclar hábitos. El juego no reemplaza la tarea. La hace posible.
+    </div>
+
+    <div class="callout info">
+      <strong>Regla de oro del método</strong>
+      <strong>El juego es un andamio, no un destino.</strong> Empezás jugando 5 minutos para arrancar, después vas a la tarea. Terminás la tarea y jugás 15 minutos como premio. El juego está al servicio de la acción, no al revés.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La procrastinación no es flojera. Es un problema de regulación emocional.</li>
+        <li>El protocolo es práctico: herramientas concretas, no motivación vacía.</li>
+        <li>Los juegos reducen fricción, dan recompensa inmediata, generan flow y anclan hábitos.</li>
+        <li>El juego es un andamio, no un destino.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en la parte técnica, queremos dirigirnos directamente a quien posterga. En el próximo capítulo vas a encontrar una carta escrita para vos, sin juicios y sin frases motivacionales.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta a quien posterga todo</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para quien está leyendo esto en lugar de estar haciendo la tarea que tenía pendiente. Sí, vos. Y está bien.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido postergador:</p>
+
+    <p>Si estás leyendo esto, probablemente sea porque tenés algo pendiente. Quizás algo grande, algo que venís postergando hace semanas o meses. Quizás algo chico, algo que sabés que podrías hacer en 20 minutos, pero no arrancás. Y en el fondo, una voz te dice que sos un desastre, que no tenés voluntad, que nunca vas a poder.</p>
+
+    <p>Quiero decirte algo: <strong>esa voz miente</strong>. La procrastinación no es un problema moral. No es falta de carácter. No es que "no querés lo suficiente". Es una respuesta emocional automática, que tu cerebro aprendió en algún momento, y que hoy se activa sin que la invites.</p>
+
+    <blockquote>
+      <p>«La procrastinación es un problema de regulación emocional, no de gestión del tiempo. Postergás porque la tarea te genera una emoción desagradable (ansiedad, aburrimiento, miedo al fracaso), y postergarla te da un alivio inmediato. El alivio dura minutos. La culpa dura horas.»</p>
+      <cite>— Basado en Sirois &amp; Pychyl, 2013</cite>
+    </blockquote>
+
+    <p>La buena noticia es que, si es una respuesta aprendida, se puede reaprender. Y este libro es una guía para hacerlo, sin culpa y sin sermones.</p>
+
+    <p>Vas a jugar. Sí, jugar. Pero no para evadir: para <strong>arrancar</strong>. Vas a usar el juego como andamio. Para arrancar una tarea que te cuesta. Para descansar entre bloques y no perder el ritmo. Para premiarte al terminar. Para anclar hábitos que hoy no tenés.</p>
+
+    <p>No vas a volverte una máquina de productividad en 30 días. No te voy a prometer eso. Lo que sí te puedo prometer es que, con constancia, vas a empezar a arrancar más rápido, a sostener más tiempo, y a sentir menos culpa. Y eso, aunque parezca poco, cambia la vida.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Un aviso honesto:</p>
+
+    <p>Si en algún momento te das cuenta de que usás los juegos para <strong>evitar</strong> la tarea en lugar de <strong>arrancarla</strong>, ese es el momento de parar y revaluar. Si jugás 6 horas al día y no trabajás, si te sentís peor después de jugar, si el juego reemplazó cualquier otra actividad, entonces el problema no es la procrastinación: es otra cosa, y probablemente necesites ayuda profesional.</p>
+
+    <p>Los juegos de este protocolo son <strong>herramientas</strong>. Como un martillo. Un martillo sirve para clavar clavos, pero también puede romper una ventana. Depende de cómo lo uses.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Banderas rojas</strong>
+      Si estás jugando para no pensar, para no sentir, o para no estar con vos mismo, no es este el libro que necesitás. Necesitás apoyo profesional. Y no hay nada de malo en eso.
+    </div>
+
+    <p>El camino es más simple de lo que parece. Un juego, un bloque de 25 minutos, una tarea arrancada. Y mañana, otra vez. Y así, día a día.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y sin juicios,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Postergás todo y no sabés por dónde empezar?</h3>
+      <p>Escribinos por WhatsApp. Te vamos a escuchar, orientar y, si hace falta, acompañar profesionalmente. No estás solo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20protocolo%20anti-procrastinaci%C3%B3n." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La procrastinación no es flojera. Es una respuesta emocional automática.</li>
+        <li>El alivio de postergar dura minutos. La culpa dura horas.</li>
+        <li>El juego en este protocolo es un andamio para arrancar, no para evadir.</li>
+        <li>Si el juego reemplaza la acción, hay que reevaluar y buscar ayuda.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte conceptual. En el próximo capítulo vamos a ver qué es exactamente la procrastinación desde la neurociencia: qué pasa en el cerebro, por qué postergamos, y qué mitos hay que derribar.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Qué es la procrastinación</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Antes de aplicar cualquier protocolo, necesitamos entender qué es la procrastinación. Porque si la entendemos mal, aplicamos mal las soluciones.</p>
+
+    <h2>3.1 · Lo que la procrastinación NO es</h2>
+
+    <table>
+      <thead>
+        <tr><th>Creencia popular</th><th>Lo que dice la evidencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Es flojera."</td><td>No. Las personas que procrastinan suelen trabajar más horas y con más estrés que las que no. <a href="#ref5" class="cite">Steel, 2007 <span class="cite-ref">[5]</span></a></td></tr>
+        <tr><td>"Es falta de disciplina."</td><td>No. Es un problema de regulación emocional. <a href="#ref6" class="cite">Sirois &amp; Pychyl, 2013 <span class="cite-ref">[6]</span></a></td></tr>
+        <tr><td>"Es mala gestión del tiempo."</td><td>No. Es mala gestión de las emociones. La agenda no resuelve el problema. <a href="#ref6" class="cite">Sirois &amp; Pychyl, 2013 <span class="cite-ref">[6]</span></a></td></tr>
+        <tr><td>"Se arregla con motivación."</td><td>No. La motivación es volátil. Se arregla con sistemas y con acciones mínimas. <a href="#ref7" class="cite">Fogg, 2019 <span class="cite-ref">[7]</span></a></td></tr>
+        <tr><td>"Es un problema de personas vagas."</td><td>No. Afecta a estudiantes, profesionales, CEOs, atletas. El 20% de la población es procrastinador crónico. <a href="#ref5" class="cite">Steel, 2007 <span class="cite-ref">[5]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footnote">
+      <strong>Un dato que sorprende:</strong> el metaanálisis de Piers Steel (2007), que revisó más de 200 estudios, encontró que la procrastinación está más asociada a la <strong>impulsividad</strong> que a la pereza. Los procrastinadores no son personas sin energía: son personas cuya energía se redirige a la recompensa inmediata (celular, redes, series) en lugar de la recompensa a largo plazo (tarea terminada).
+    </div>
+
+    <h2>3.2 · Entonces, ¿qué es?</h2>
+    <p>La procrastinación es la <strong>brecha entre lo que uno sabe que debería hacer y lo que efectivamente hace</strong>, con la característica de que es voluntaria, irracional (nos hace daño) y nos genera malestar. <a href="#ref5" class="cite">Steel, 2007 <span class="cite-ref">[5]</span></a></p>
+
+    <p>Tiene tres características clave:</p>
+
+    <ul>
+      <li><strong>Es voluntaria:</strong> no es que "no podemos" hacer la tarea. Podemos. Elegimos no hacerla.</li>
+      <li><strong>Es irracional:</strong> sabemos que nos hace daño (entregar tarde, perder una oportunidad, sentir culpa). Y aun así, postergamos.</li>
+      <li><strong>Es emocional:</strong> no postergamos por falta de tiempo. Postergamos porque la tarea nos genera una emoción desagradable (ansiedad, aburrimiento, miedo, autocrítica).</li>
+    </ul>
+
+    <h2>3.3 · El modelo neurobiológico: presente vs. futuro</h2>
+    <p>En el cerebro hay dos sistemas que compiten constantemente:</p>
+
+    <ul>
+      <li><strong>El sistema límbico:</strong> emocional, automático, orientado a la recompensa inmediata. "Quiero sentirme bien AHORA."</li>
+      <li><strong>La corteza prefrontal:</strong> racional, planificadora, orientada a la recompensa a largo plazo. "Tengo que hacer esto AHORA para estar bien DESPUÉS."</li>
+    </ul>
+
+    <p>En la procrastinación, el sistema límbico gana. La corteza prefrontal tiene las mejores intenciones, pero pierde la batalla contra la promesa de alivio inmediato que ofrece la procrastinación.</p>
+
+    <p>Esto se conoce como <strong>descuento temporal</strong>: el cerebro valora más una recompensa pequeña e inmediata que una recompensa grande y lejana. Es un sesgo evolutivo. <a href="#ref8" class="cite">Ainslie, 1975 <span class="cite-ref">[8]</span></a></p>
+
+    <div class="footnote">
+      <strong>Un ejemplo simple:</strong> te ofrecen $100 hoy o $150 mañana. ¿Qué elegís? Casi todos eligen hoy. Ahora te ofrecen $100 dentro de un año o $150 dentro de un año y un día. Casi todos eligen la segunda opción. La diferencia entre las dos situaciones es el <strong>descuento temporal</strong>: cuanto más lejos está la recompensa, menos valor le damos en el presente.
+    </div>
+
+    <h2>3.4 · El ciclo de la procrastinación</h2>
+
+    <div class="callout info" style="text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px;">
+      Tarea pendiente → Ansiedad → Evitación → Alivio inmediato → Culpa → Más ansiedad → Más evitación → Y vuelve a empezar
+    </div>
+
+    <p>Cada vuelta del ciclo refuerza el patrón. La evitación se vuelve una respuesta automática. Y al mismo tiempo, la tarea pendiente sigue ahí, creciendo, generando más culpa, más ansiedad, más evitación.</p>
+
+    <h2>3.5 · Los tipos de procrastinación</h2>
+
+    <table>
+      <thead>
+        <tr><th>Tipo</th><th>Característica</th><th>Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Por ansiedad</strong></td><td>La tarea genera miedo a fallar, a ser juzgado</td><td>"No empiezo el trabajo hasta que tenga la idea perfecta"</td></tr>
+        <tr><td><strong>Por aburrimiento</strong></td><td>La tarea es monótona, no estimula</td><td>"No empiezo el Excel de gastos porque es tedioso"</td></tr>
+        <tr><td><strong>Por rebeldía</strong></td><td>La tarea se percibe como impuesta</td><td>"No hago la tarea porque 'me la mandan'"</td></tr>
+        <tr><td><strong>Por perfeccionismo</strong></td><td>La tarea no se puede hacer si no es perfecta</td><td>"No escribo hasta estar seguro de cada palabra"</td></tr>
+        <tr><td><strong>Por impulsividad</strong></td><td>La distracción gana por atractivo inmediato</td><td>"Solo miro un video... y 3 horas después sigo mirando"</td></tr>
+        <tr><td><strong>Por decisión</strong></td><td>La tarea tiene demasiadas opciones y no se decide</td><td>"No empiezo porque no sé por dónde empezar"</td></tr>
+      </tbody>
+    </table>
+
+    <p>Cada tipo requiere un abordaje distinto. El protocolo WineBOX lo tiene en cuenta.</p>
+
+    <h2>3.6 · ¿Cuándo la procrastinación se vuelve un problema clínico?</h2>
+
+    <p>La procrastinación es normal en cierta medida. Se vuelve un problema clínico cuando:</p>
+
+    <ul>
+      <li><strong>Interfiere con el funcionamiento:</strong> perder oportunidades, entregar tarde, no cumplir con obligaciones.</li>
+      <li><strong>Genera malestar significativo:</strong> ansiedad, culpa, baja autoestima sostenida.</li>
+      <li><strong>Es crónica:</strong> no es una racha, es un patrón de meses o años.</li>
+      <li><strong>Se asocia a otros cuadros:</strong> depresión, ansiedad generalizada, TDAH, trastorno obsesivo-compulsivo.</li>
+    </ul>
+
+    <p>En esos casos, el protocolo WineBOX puede ser un complemento, pero <strong>la intervención profesional es fundamental</strong>.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La procrastinación no es flojera, ni falta de disciplina, ni mala gestión del tiempo.</li>
+        <li>Es un problema de regulación emocional, con bases neurobiológicas.</li>
+        <li>El cerebro valora más la recompensa inmediata que la recompensa futura (descuento temporal).</li>
+        <li>El ciclo de la procrastinación se refuerza a sí mismo.</li>
+        <li>Hay distintos tipos de procrastinación, cada uno con su abordaje.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos qué es la procrastinación. Ahora toca ver cómo se aborda desde la Terapia Cognitivo-Conductual. En el próximo capítulo vamos a ver las herramientas centrales: intenciones de implementación, activación conductual, reestructuración cognitiva.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">Cómo se aborda desde la TCC</h1>
+  </div>
+  <div class="chapter-body">
+    <p>La <strong>Terapia Cognitivo-Conductual (TCC)</strong> es una de las aproximaciones con mayor respaldo para el abordaje de la procrastinación. Se basa en una premisa simple: <strong>no es la tarea lo que nos bloquea, sino lo que pensamos y sentimos sobre ella.</strong> Y si cambiamos lo que pensamos, sentimos y hacemos, la procrastinación se desarma.</p>
+
+    <p>La TCC para la procrastinación tiene tres componentes principales:</p>
+
+    <ul>
+      <li><strong>Intenciones de implementación:</strong> planificar el "cuándo, dónde y cómo" de la acción, para que no dependa de la motivación.</li>
+      <li><strong>Activación conductual:</strong> arrancar con la acción mínima, aunque no tengas ganas.</li>
+      <li><strong>Reestructuración cognitiva:</strong> identificar y cuestionar los pensamientos que bloquean la acción.</li>
+    </ul>
+
+    <h2>4.1 · Intenciones de implementación</h2>
+
+    <p>La técnica más respaldada por la evidencia para reducir la procrastinación es la de <strong>intenciones de implementación</strong>, desarrollada por Peter Gollwitzer. La idea es simple: no alcanza con proponerse "voy a hacer ejercicio". Hay que planificar el <strong>cuándo, dónde y cómo</strong>. <a href="#ref9" class="cite">Gollwitzer, 1999 <span class="cite-ref">[9]</span></a></p>
+
+    <div class="footnote">
+      <strong>Fórmula de la intención de implementación:</strong><br>
+      "Cuando [situación], voy a [acción]".<br>
+      Ejemplo: "Cuando termine de desayunar, voy a abrir el documento y escribir durante 25 minutos".<br>
+      Ejemplo: "Cuando me siente en el escritorio, voy a jugar 5 minutos al Sequence y después abrir la planilla".
+    </div>
+
+    <p>Los estudios muestran que las intenciones de implementación <strong>duplican o triplican la probabilidad de completar una acción</strong>, comparado con solo proponerse hacerla. Y funcionan incluso en personas con procrastinación crónica. <a href="#ref10" class="cite">Gollwitzer &amp; Sheeran, 2006 <span class="cite-ref">[10]</span></a></p>
+
+    <h2>4.2 · Activación conductual: la regla de los 2 minutos</h2>
+
+    <p>La activación conductual parte de una premisa contraintuitiva: <strong>el movimiento viene antes que la motivación</strong>. No necesitás tener ganas para arrancar. Arrancás, y las ganas vienen después. <a href="#ref11" class="cite">Jacobson et al., 1996 <span class="cite-ref">[11]</span></a></p>
+
+    <p>La <strong>regla de los 2 minutos</strong> de James Clear es una de las más útiles: si una tarea te parece imposible de arrancar, comprometete a hacerla <strong>solo 2 minutos</strong>. Y después, si querés, parás. <a href="#ref12" class="cite">Clear, 2018 <span class="cite-ref">[12]</span></a></p>
+
+    <p>La regla funciona porque:</p>
+    <ul>
+      <li>Reduce la fricción de arranque al mínimo.</li>
+      <li>Aprovecha el efecto Zeigarnik: una vez que empezás algo, tu cerebro quiere terminarlo. <a href="#ref13" class="cite">Zeigarnik, 1927 <span class="cite-ref">[13]</span></a></li>
+      <li>Genera la experiencia de "yo puedo arrancar", que es lo más importante.</li>
+    </ul>
+
+    <h2>4.3 · Reestructuración cognitiva: cuestionar los pensamientos trampa</h2>
+
+    <p>Los procrastinadores suelen tener una serie de pensamientos automáticos que mantienen la conducta:</p>
+
+    <table>
+      <thead>
+        <tr><th>Pensamiento trampa</th><th>Tipo de distorsión</th><th>Alternativa más realista</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Tengo que hacerlo perfecto."</td><td>Perfeccionismo</td><td>"Hecho es mejor que perfecto. Puedo mejorar después."</td></tr>
+        <tr><td>"Necesito estar inspirado."</td><td>Mito de la motivación</td><td>"No necesito inspiración, necesito arrancar. La inspiración viene después."</td></tr>
+        <tr><td>"Hoy no es el día. Mañana sí."</td><td>Optimismo irreal</td><td>"Mañana voy a estar igual o peor. Mejor 5 minutos hoy."</td></tr>
+        <tr><td>"Es demasiado. No sé por dónde empezar."</td><td>Sobrecarga</td><td>"Puedo empezar por algo chico. Solo el primer paso."</td></tr>
+        <tr><td>"Si no me sale bien, mejor no hacerlo."</td><td>Todo o nada</td><td>"Un intento imperfecto es mejor que ningún intento."</td></tr>
+        <tr><td>"Voy a hacerlo cuando tenga ganas."</td><td>Mito de la motivación</td><td>"Las ganas vienen después de empezar, no antes."</td></tr>
+      </tbody>
+    </table>
+
+    <p>El modelo ABCDE, desarrollado por Albert Ellis, es la herramienta clásica para trabajar estos pensamientos. <a href="#ref14" class="cite">Ellis, 1962 <span class="cite-ref">[14]</span></a></p>
+
+    <h2>4.4 · El poder de la recompensa inmediata</h2>
+
+    <p>Uno de los problemas de la procrastinación es que la recompensa por hacer la tarea es lejana (aprobar el examen, cobrar el sueldo, sentir alivio). Y la recompensa por postergar es inmediata (alivio, placer, distracción).</p>
+
+    <p>La solución: <strong>crear recompensas inmediatas para la acción</strong>. Es lo que se llama <em>temptation bundling</em> (empaquetar la tentación): combinar una actividad que querés evitar con algo que te gusta. <a href="#ref4" class="cite">Milkman et al., 2014 <span class="cite-ref">[4]</span></a></p>
+
+    <div class="footnote">
+      <strong>Ejemplo de temptation bundling:</strong> Milkman y sus colegas hicieron un experimento en un gimnasio universitario. Un grupo solo podía escuchar audiolibros de suspenso mientras hacía ejercicio (y no en otro momento). Ese grupo fue al gimnasio <strong>51% más seguido</strong> que el grupo control. La combinación de algo placentero con algo costoso aumentó la adherencia. <a href="#ref4" class="cite">Milkman et al., 2014 <span class="cite-ref">[4]</span></a>
+    </div>
+
+    <h2>4.5 · Por qué la TCC funciona</h2>
+
+    <p>La TCC para la procrastinación no solo ayuda a arrancar tareas puntuales: <strong>entrena la capacidad de arrancar</strong>, que es transferible a cualquier tarea nueva. Con el tiempo, la persona no necesita "motivarse": tiene un sistema que la sostiene, incluso en los días en que no tiene ganas.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La TCC para la procrastinación tiene tres componentes: intenciones, activación, reestructuración.</li>
+        <li>Las intenciones de implementación duplican o triplican la probabilidad de completar una acción.</li>
+        <li>La regla de los 2 minutos reduce la fricción de arranque al mínimo.</li>
+        <li>Los pensamientos trampa mantienen la procrastinación. Se pueden cuestionar.</li>
+        <li>El temptation bundling aumenta la adherencia combinando placer con esfuerzo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos cómo se aborda la procrastinación desde la TCC. Ahora toca ver cómo los videojuegos pueden potenciar cada uno de estos componentes. En el próximo capítulo vas a ver la evidencia y los mecanismos concretos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte II</div>
+    <h1 class="chapter-title">Por qué los juegos aumentan la productividad</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo responde a la pregunta clave: <strong>¿por qué un videojuego puede ayudar a alguien que procrastina?</strong> No es magia. Es neurociencia y diseño conductual. Y aquí explicamos por qué funciona, con qué condiciones, y cómo se aplica.</p>
+
+    <h2>5.1 · El juego reduce la fricción de arranque</h2>
+
+    <p>El problema más grande del procrastinador no es sostener la tarea: es <strong>empezarla</strong>. Y una de las formas más eficaces de reducir la fricción de arranque es cambiar la tarea por una actividad más fácil, que arranca el motor, y después pivotar a la tarea.</p>
+
+    <p>Los juegos funcionan exactamente así. Empezar a jugar es fácil. Y una vez que empezaste algo (cualquier cosa), el sistema nervioso ya está activado, y la transición a la tarea es más suave.</p>
+
+    <div class="callout tip">
+      <strong>La rutina "5 + 25"</strong>
+      Jugá 5 minutos de un juego simple. Después pasá directamente a la tarea durante 25 minutos. La mayoría de las personas descubre que arrancar la tarea después del juego es mucho más fácil que arrancarla en frío.
+    </div>
+
+    <h2>5.2 · El juego provee recompensa inmediata</h2>
+
+    <p>En la procrastinación, el problema es que la recompensa por hacer la tarea es lejana, y la recompensa por postergar es inmediata. Los juegos invierten esto: ofrecen <strong>recompensa inmediata</strong> por algo que igual querés hacer (jugar), y además permiten asociar esa recompensa con la tarea.</p>
+
+    <p>El sistema de recompensa cerebral se activa con logros visibles e inmediatos. Los videojuegos están diseñados para eso. Y eso se puede aprovechar como <em>temptation bundling</em>: "solo juego si arranco la tarea primero". <a href="#ref2" class="cite">Koepp et al., 1998 <span class="cite-ref">[2]</span></a> <a href="#ref4" class="cite">Milkman et al., 2014 <span class="cite-ref">[4]</span></a></p>
+
+    <h2>5.3 · El juego induce estado de flow</h2>
+
+    <p>El <strong>flow</strong> es el estado mental de concentración absoluta, cuando estás tan metido en algo que el tiempo vuela y el mundo desaparece. Es exactamente el estado que necesitás para hacer una tarea compleja. <a href="#ref3" class="cite">Csikszentmihalyi, 1990 <span class="cite-ref">[3]</span></a></p>
+
+    <p>Los juegos bien diseñados inducen flow con facilidad porque:</p>
+
+    <ul>
+      <li>Tienen objetivos claros.</li>
+      <li>Tienen feedback inmediato.</li>
+      <li>Tienen una dificultad que se ajusta al nivel del jugador.</li>
+      <li>Tienen una demanda atencional que exige concentración total.</li>
+    </ul>
+
+    <p>Empezar un bloque de trabajo justo después de un juego induce flow con más facilidad que empezarlo en frío. El juego "calienta" el sistema atencional.</p>
+
+    <h2>5.4 · El juego estructura la pausa</h2>
+
+    <p>La técnica Pomodoro dice: 25 minutos de trabajo, 5 minutos de descanso, repetir. Pero la mayoría de las personas no sabe qué hacer en esos 5 minutos. Y terminan en el celular, en redes, en el caos. Y el caos del celular es difícil de cortar.</p>
+
+    <p>Los juegos simples ofrecen una <strong>pausa estructurada y con fin</strong>. Sabés cuándo empezó y cuándo terminó. Podés volver al trabajo sin la sensación de "me quedé enganchado". Es lo opuesto al scrolling infinito.</p>
+
+    <div class="footnote">
+      <strong>Por qué el scrolling infinito es peor que un juego</strong>
+      El scrolling no tiene fin. No tiene un "momento de terminar". Por eso te engancha durante horas sin que te des cuenta. Un juego simple, en cambio, tiene partidas, tiene niveles, tiene un momento claro de "listo, hasta acá". Eso te ayuda a volver al trabajo.
+    </div>
+
+    <h2>5.5 · El juego ancla hábitos</h2>
+
+    <p>La formación de hábitos requiere un <strong>ancla</strong>: una señal clara que dispare la conducta, y una recompensa inmediata que la refuerce. <a href="#ref15" class="cite">Duhigg, 2012 <span class="cite-ref">[15]</span></a> <a href="#ref16" class="cite">Wood &amp; Neal, 2007 <span class="cite-ref">[16]</span></a></p>
+
+    <p>Los juegos pueden servir como recompensa al final de una rutina, lo que refuerza la conducta. Ejemplo: cada vez que terminás 25 minutos de estudio, jugás 5 minutos al Breakout. Repetido durante semanas, el cerebro empieza a asociar el estudio con la recompensa. Y eventualmente, la motivación para estudiar aparece sola.</p>
+
+    <h2>5.6 · La ventaja de la baja fidelidad visual</h2>
+
+    <p>Los videojuegos comerciales abruman con estímulos visuales hiperrealistas, efectos, música y notificaciones. El cerebro se satura de dopamina, y después cuesta volver a la tarea. La baja fidelidad visual de WineBOX (estilo pixel art y 8-bits) <strong>libera capacidad de trabajo</strong> y evita la sobrecarga. <a href="#ref17" class="cite">Sweller, 2010 <span class="cite-ref">[17]</span></a> <a href="#ref18" class="cite">Mayer &amp; Moreno, 2003 <span class="cite-ref">[18]</span></a></p>
+
+    <p>Es como la diferencia entre tomar una copa de vino y emborracharse: la copa acompaña, la borrachera bloquea. Los juegos de WineBOX están diseñados para acompañar, no para bloquear.</p>
+
+    <h2>5.7 · La advertencia central: el juego no es la tarea</h2>
+
+    <div class="callout warning">
+      <strong>⚠ El principio del andamio</strong>
+      El juego es <strong>andamio</strong>, no <strong>tarea</strong>. Está bien arrancar con un juego. Está bien descansar con un juego. Está bien premiarte con un juego. <strong>No está bien jugar en lugar de hacer la tarea</strong>. Si en algún momento te das cuenta de que estás usando el juego para evitar la acción, ese es el momento de parar, cerrar el juego y abrir la tarea. Aunque sean 2 minutos.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El juego reduce la fricción de arranque.</li>
+        <li>El juego ofrece recompensa inmediata y combate el descuento temporal.</li>
+        <li>El juego induce flow, que se transfiere a la tarea.</li>
+        <li>El juego estructura la pausa y evita el scrolling infinito.</li>
+        <li>El juego ancla hábitos cuando se usa como recompensa.</li>
+        <li>La baja fidelidad visual evita la sobrecarga.</li>
+        <li>El juego es andamio, no tarea.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los fundamentos claros, entramos en el protocolo de aplicación. En el próximo capítulo vas a ver la estructura completa: las 4 fases, la sesión tipo, los criterios de progresión y cómo manejar las recaídas.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte III</div>
+    <h1 class="chapter-title">Estructura del protocolo en 4 fases</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe el corazón operativo del método. Es la parte que responde a la pregunta: <strong>¿cómo se aplica el protocolo día a día?</strong></p>
+
+    <h2>6.1 · Estructura temporal en cuatro fases</h2>
+
+    <table>
+      <thead>
+        <tr><th>Fase</th><th>Duración</th><th>Foco</th><th>Juegos principales</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>Semana 1</td><td>Fricción y arranque</td><td>Sequence, Breakout, Solitaire, Clumsy Bird</td></tr>
+        <tr><td><strong>2</strong></td><td>Semanas 2-3</td><td>Bloques y foco</td><td>Sudoku, BlockMatrix, Voxel Quest, Pixel Leap</td></tr>
+        <tr><td><strong>3</strong></td><td>Semanas 4-6</td><td>Hábitos y recompensa</td><td>Damas, Naval Pixel, Retro Urban, Damas (con otro)</td></tr>
+        <tr><td><strong>4</strong></td><td>Semanas 7-8</td><td>Identidad y sostenibilidad</td><td>Elección libre, Rec (Grabadora), multijugador</td></tr>
+      </tbody>
+    </table>
+
+    <p>El orden no es azaroso. Cada fase prepara la siguiente. En la primera semana, el foco está en <strong>reducir la fricción de arranque</strong>: empezar cualquier cosa, aunque sea pequeña. En la segunda y tercera, se construye la capacidad de <strong>sostener bloques de trabajo</strong>. En las siguientes, se consolida el <strong>hábito</strong> y la <strong>identidad</strong> de persona productiva.</p>
+
+    <h2>6.2 · Estructura de la sesión tipo (60-90 minutos)</h2>
+
+    <div class="session-card">
+      <h4>Planificación de 2 minutos · 3 minutos</h4>
+      <div class="session-meta">Intención de implementación</div>
+      <p>Antes de empezar, escribí: <em>"Cuando [momento], voy a [acción concreta]"</em>. Ejemplo: "Cuando abra la compu, voy a escribir durante 25 minutos". La planificación toma 2 minutos y triplica la probabilidad de arranque.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Juego de arranque · 5 minutos</h4>
+      <div class="session-meta">Calentamiento</div>
+      <p>Jugá un juego simple de 5 minutos. No busques puntaje. Buscás activar el sistema atencional. Cualquier juego del listado sirve. El objetivo es arrancar, no ganar.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Bloque de trabajo · 25 minutos</h4>
+      <div class="session-meta">Pomodoro</div>
+      <p>Pasá directamente a la tarea. Trabajá 25 minutos sin interrupciones. Si te distraes, volvé. Si querés parar antes, la regla de los 2 minutos dice: hacé 2 minutos más y después decidís.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Descanso estructurado · 5 minutos</h4>
+      <div class="session-meta">Pausa con fin</div>
+      <p>Jugá otro juego simple durante 5 minutos. A diferencia del celular, el juego tiene un fin claro. Cuando suena el timer, cerrás el juego y volvés.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Repetir 2-3 bloques · 60-90 minutos total</h4>
+      <div class="session-meta">Sesión completa</div>
+      <p>Se pueden hacer 2-3 bloques de 25 minutos, con sus respectivos descansos. La duración total de la sesión es de 60-90 minutos. Después, se termina.</p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Principio de constancia</strong>
+      Una sesión de 60 minutos todos los días vence a una sesión de 5 horas una vez por semana. La constancia es la clave. Y es lo que entrena el sistema nervioso, no la heroicidad.
+    </div>
+
+    <h2>6.3 · Criterios de progresión</h2>
+
+    <table>
+      <thead>
+        <tr><th>Situación</th><th>Indicador</th><th>Acción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Arrancás con facilidad</strong></td><td>Empezás dentro de los primeros 5 minutos</td><td>Aumentar la duración de los bloques a 30-45 min.</td></tr>
+        <tr><td><strong>Te cuesta arrancar</strong></td><td>Tardás más de 15 minutos en empezar</td><td>Reducir la tarea a 2 minutos. Bajar el nivel de exigencia.</td></tr>
+        <tr><td><strong>Sostenés bien los bloques</strong></td><td>Terminás los 25 min sin distraerte más de 2 veces</td><td>Continuar con la misma estructura. Aumentar dificultad.</td></tr>
+        <tr><td><strong>Te distraes mucho</strong></td><td>Mirás el celular más de 4 veces por bloque</td><td>Alejar el celular físicamente. Reducir el bloque a 15 min.</td></tr>
+        <tr><td><strong>Recaés varios días</strong></td><td>No hacés sesiones durante más de 3 días seguidos</td><td>No castigarte. Volver a 5 minutos de juego + 10 de tarea.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6.4 · Manejo de las recaídas</h2>
+
+    <p>Las recaídas son parte del proceso. No significan que el protocolo "no funciona" ni que sos "incapaz de sostener un hábito". Significan que estás atravesando el proceso de aprendizaje. Lo importante es <strong>volver</strong>, no "no recaer nunca".</p>
+
+    <p>Cuatro estrategias para volver después de una recaída:</p>
+
+    <ul>
+      <li><strong>Regla de los 2 minutos ampliada:</strong> volvé con una sesión mínima: 5 minutos de juego + 5 minutos de tarea.</li>
+      <li><strong>Sin culpa:</strong> la culpa es combustible para la procrastinación. Si te culpás, vas a postergar más. Si te tratás con compasión, vas a poder volver. <a href="#ref19" class="cite">Wohl et al., 2010 <span class="cite-ref">[19]</span></a></li>
+      <li><strong>Analizar qué pasó:</strong> ¿fue una tarea puntual? ¿estabas cansado? ¿te distrajo algo? Entender el contexto ayuda.</li>
+      <li><strong>Rediseñar el plan:</strong> si recaíste muchas veces, no es un fracaso tuyo: es que el plan necesita ajustes. Diseñá uno más fácil.</li>
+    </ul>
+
+    <div class="footnote">
+      <strong>Un dato contraintuitivo:</strong> los estudios muestran que <strong>perdonarse a uno mismo por procrastinar reduce la procrastinación futura</strong>. Los estudiantes que se perdonaron por haber postergado un examen lo hicieron mejor en el siguiente. La culpa empeora el problema. La autocompasión lo mejora. <a href="#ref19" class="cite">Wohl et al., 2010 <span class="cite-ref">[19]</span></a>
+    </div>
+
+    <h2>6.5 · Las cuatro reglas de oro del protocolo</h2>
+
+    <ol>
+      <li><strong>Empezá con 2 minutos.</strong> No importa si es un juego, una tarea, un trámite. Solo arrancá.</li>
+      <li><strong>El juego es andamio.</strong> Sirve para arrancar, para descansar, para premiar. No para reemplazar.</li>
+      <li><strong>Si recaés, volvé.</strong> Sin culpa. Con autocompasión. El siguiente intento es el importante.</li>
+      <li><strong>Constancia &gt; intensidad.</strong> Una sesión todos los días vence a una sesión gigante una vez por semana.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>¿Querés implementar este protocolo?</h3>
+      <p>Si sos profesional y querés orientación sobre cómo adaptar el protocolo a un caso particular, o si estás atravesando un problema de procrastinación crónico y querés acompañamiento, escribinos.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20consultar%20por%20el%20protocolo%20anti-procrastinaci%C3%B3n." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El protocolo se organiza en 4 fases progresivas: fricción, bloques, hábitos, identidad.</li>
+        <li>La sesión tipo dura 60-90 minutos: planificación, juego de arranque, bloques, pausas.</li>
+        <li>Los criterios de progresión evitan forzar y previenen el bloqueo.</li>
+        <li>Las recaídas son parte del proceso. Se vuelve con autocompasión.</li>
+        <li>Cuatro reglas de oro: 2 minutos, andamio, volver, constancia.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el protocolo claro, entramos en las cuatro fases. En los próximos cuatro capítulos vas a ver, uno por uno, los ejercicios con su fundamento clínico, su aplicación práctica, y un acceso directo para jugar.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 · FASE 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte IV · Fase 1</div>
+    <h1 class="chapter-title">Fricción y arranque · Semana 1</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> reducir al mínimo la fricción de arranque. En esta primera semana no importa "cuánto" hacés, importa "que arranques". Cinco minutos de juego, cinco minutos de tarea, y listo.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué empezar acá?</strong>
+      El procrastinador crónico no tiene un problema de sostener la tarea. Tiene un problema para empezarla. La primera semana del protocolo se enfoca exclusivamente en el arranque: hacer que empezar sea tan fácil que el cerebro no tenga excusas para evitarlo.
+    </div>
+
+    <h2>Los 4 juegos del arranque</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Arranque 1</div>
+        <div class="ex-name">Sequence (Simon)</div>
+        <div class="ex-fn">Fricción mínima · Activación · Memoria de trabajo</div>
+        <div class="ex-desc">El clásico juego de memoria secuencial. Ideal para arrancar: sin curva de aprendizaje, sin tiempo límite, sin presión. La atención se activa en pocos segundos. Perfecto para los días en los que arrancar parece imposible.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 3-5 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Arranque 2</div>
+        <div class="ex-name">Breakout</div>
+        <div class="ex-fn">Logros visibles · Activación inmediata</div>
+        <div class="ex-desc">El clásico rompebloques. Cada ladrillo roto es un logro visible e inmediato. En 30 segundos ya estás jugando y viendo progreso. Ideal para los días en los que necesitás un empujón visual antes de la tarea.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 5 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Arranque 3</div>
+        <div class="ex-name">Solitaire</div>
+        <div class="ex-fn">Ritmo propio · Sin presión · Activación</div>
+        <div class="ex-desc">El clásico solitario. Sin tiempo, sin competencia, sin presión. Ideal para los días en los que sentís que "todo te apura". El juego te invita a un ritmo propio, que después se transfiere a la tarea.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 5 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Arranque 4</div>
+        <div class="ex-name">Clumsy Bird</div>
+        <div class="ex-fn">Micro-reintentos · Sin culpa · Activación</div>
+        <div class="ex-desc">El clásico de aleteo. Cada intento dura 30 segundos. Se juega y se pierde rápido. Perfecto para entender que "probar no cuesta nada", una lección clave para el procrastinador.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 3-5 minutos</span></div>
+        <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle del arranque</h2>
+
+    <h3>Ejercicio 1 · La rutina "5 + 5"</h3>
+    <p><strong>Fundamento clínico:</strong> reducir la fricción de arranque al mínimo. Al arrancar con una actividad fácil, se activa el sistema atencional y se reduce la resistencia a la tarea. <a href="#ref9" class="cite">Gollwitzer, 1999 <span class="cite-ref">[9]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> <em>"Voy a jugar 5 minutos al Sequence y después voy a hacer 5 minutos de la tarea pendiente."</em> Solo 5 minutos. Después, si querés, parás. La mayoría de las veces, después de esos 5 minutos, no vas a querer parar. Ese es el punto.</p>
+    <p><strong>Observación:</strong> ¿pudiste arrancar? ¿Cuánto tiempo pasó entre "debería" y "empecé"? ¿Arrancaste la tarea después del juego? ¿Hiciste más de 5 minutos?</p>
+
+    <h3>Ejercicio 2 · El "solo un poco más"</h3>
+    <p><strong>Fundamento clínico:</strong> aprovecha el efecto Zeigarnik: una vez que empezás algo, tu cerebro quiere terminarlo. <a href="#ref13" class="cite">Zeigarnik, 1927 <span class="cite-ref">[13]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> <em>"Solo voy a hacer 2 minutos más."</em> Es una técnica deliciosa: si te querés parar, hacés 2 minutos más. Y después decidís. Casi siempre seguís un poco más.</p>
+    <p><strong>Observación:</strong> ¿Cuántas veces te dijiste "solo 2 minutos más"? ¿Cumpliste? ¿Paraste después o seguiste?</p>
+
+    <h3>Ejercicio 3 · La intención de implementación</h3>
+    <p><strong>Fundamento clínico:</strong> las intenciones de implementación duplican o triplican la probabilidad de completar una acción. Al planificar el cuándo, dónde y cómo, se elimina la dependencia de la motivación. <a href="#ref10" class="cite">Gollwitzer &amp; Sheeran, 2006 <span class="cite-ref">[10]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> escribí una intención de implementación antes de empezar. <em>"Cuando termine de tomar mi café, voy a abrir el documento de la tesis y escribir durante 25 minutos."</em> Escribila. Y después cumplila.</p>
+    <p><strong>Observación:</strong> ¿Escribiste la intención? ¿La cumpliste? ¿Qué falló si no la cumpliste?</p>
+
+    <h3>Ejercicio 4 · La pausa con fin</h3>
+    <p><strong>Fundamento clínico:</strong> el descanso debe tener un comienzo y un final claros. El scrolling infinito no tiene fin y por eso engancha. Un juego simple sí tiene fin. <a href="#ref3" class="cite">Csikszentmihalyi, 1990 <span class="cite-ref">[3]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> entre bloques de trabajo, jugá 5 minutos. Poné un timer. Cuando suena, cerrás el juego. Sí, en serio. Cerrás el juego.</p>
+    <p><strong>Observación:</strong> ¿Pudiste cerrar el juego cuando sonó el timer? ¿Volviste a la tarea? ¿Se te hizo difícil cortar?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 1</strong>
+      No busques rendimiento. Buscá <strong>arranque</strong>. Si en esta primera semana lográs arrancar todos los días, aunque sea 5 minutos, ya estás ganando. La primera semana no se mide en productividad, se mide en "arranqué".
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 1 se enfoca en reducir al mínimo la fricción de arranque.</li>
+        <li>La rutina "5 + 5" reduce la resistencia a la tarea.</li>
+        <li>El "solo un poco más" aprovecha el efecto Zeigarnik.</li>
+        <li>La intención de implementación triplica la probabilidad de cumplir la acción.</li>
+        <li>La pausa debe tener un fin claro. Cerrás el juego cuando suena el timer.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el arranque entrenado, pasamos a la Fase 2: bloques y foco. En el próximo capítulo vas a ver los juegos y ejercicios para sostener bloques de 25-45 minutos sin distraerte.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 · FASE 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV · Fase 2</div>
+    <h1 class="chapter-title">Bloques y foco · Semanas 2-3</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> sostener bloques de trabajo de 25-45 minutos sin distraerte más de dos veces por bloque. En esta fase, el foco está en <strong>construir la capacidad de atención sostenida</strong>, que es lo que el procrastinador crónico tiene más debilitado.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este paso?</strong>
+      Una vez que arrancar se volvió fácil, el desafío es sostener. El procrastinador crónico suele arrancar la tarea y a los 5-10 minutos distraerse con algo (celular, redes, notificación). La Fase 2 entrena la capacidad de sostener el foco durante bloques de tiempo cada vez más largos.
+    </div>
+
+    <h2>Los 4 juegos del foco</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Foco 1</div>
+        <div class="ex-name">Sudoku</div>
+        <div class="ex-fn">Atención sostenida · Ritmo propio · Foco</div>
+        <div class="ex-desc">El clásico rompecabezas numérico. Sin tiempo, sin presión. La atención se mantiene en un problema durante 15-20 minutos seguidos. Ideal para entrenar el foco sin ansiedad.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15-20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Foco 2</div>
+        <div class="ex-name">BlockMatrix</div>
+        <div class="ex-fn">Atención dividida · Decisiones rápidas · Foco</div>
+        <div class="ex-desc">El clásico juego de bloques. Requiere decisiones rápidas mientras el ritmo se acelera. Ideal para entrenar la capacidad de sostener el foco bajo presión (que es exactamente lo que la tarea suele exigir).</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Foco 3</div>
+        <div class="ex-name">Voxel Quest</div>
+        <div class="ex-fn">Atención sostenida · Exploración · Foco profundo</div>
+        <div class="ex-desc">Laberintos 3D minimalistas. Requiere mantener el foco durante 10-15 minutos seguidos. Ideal para los días en los que la mente está acelerada y necesita un foco claro para calmarse.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10-15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Foco 4</div>
+        <div class="ex-name">Pixel Leap</div>
+        <div class="ex-fn">Ritmo · Coordinación · Flow</div>
+        <div class="ex-desc">Juego de plataformas con ritmo. La música y el movimiento inducen flow rápidamente. Ideal para "calentar" el sistema atencional antes de un bloque largo de trabajo.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios</h2>
+
+    <h3>Ejercicio 5 · Pomodoro "5 + 25 + 5"</h3>
+    <p><strong>Fundamento clínico:</strong> la técnica Pomodoro (Francesco Cirillo, 1980s) propone bloques de 25 minutos de trabajo con pausas de 5 minutos. Es una técnica clásica de gestión del foco. Combinada con un juego de arranque, se transforma en el Pomodoro "5 + 25 + 5". <a href="#ref20" class="cite">Cirillo, 2006 <span class="cite-ref">[20]</span></a></p>
+    <p><strong>Aplicación práctica:</strong>
+      <ul>
+        <li>5 minutos de juego (Sequence, Breakout, etc.)</li>
+        <li>25 minutos de tarea (Pomodoro)</li>
+        <li>5 minutos de juego (descanso estructurado)</li>
+        <li>Repetir 2-3 veces</li>
+      </ul>
+    </p>
+    <p><strong>Observación:</strong> ¿Completaste el bloque de 25 minutos? ¿Cuántas veces te distrajiste? ¿Bajó el número de distracciones con la práctica?</p>
+
+    <h3>Ejercicio 6 · El "no molestar" digital</h3>
+    <p><strong>Fundamento clínico:</strong> cada notificación rompe el foco y tarda 15-20 minutos en recuperarse. El objetivo es eliminar las interrupciones externas durante el bloque. <a href="#ref21" class="cite">Mark et al., 2008 <span class="cite-ref">[21]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> antes de cada bloque, activá el modo "no molestar" en el celular. Poné el celular en otra habitación. Cerrá todas las pestañas que no sean de la tarea. Sí, todas.</p>
+    <p><strong>Observación:</strong> ¿Pudiste dejar el celular en otra habitación? ¿Resististe la tentación de revisarlo? ¿Cuántas veces lo pensaste?</p>
+
+    <h3>Ejercicio 7 · La tarea como juego: estructura mínima</h3>
+    <p><strong>Fundamento clínico:</strong> los juegos tienen tres características que la tarea no suele tener: objetivos claros, feedback inmediato, y dificultad ajustada. Al convertir la tarea en algo más "gamificado", se aumenta la adherencia. <a href="#ref22" class="cite">Deterding et al., 2011 <span class="cite-ref">[22]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> antes de empezar un bloque, dividí la tarea en 3-5 subtareas concretas. Tildá cada una cuando la termines. Sentí el mini-logro de cada tildado. Igual que en un juego.</p>
+    <p><strong>Observación:</strong> ¿Dividiste la tarea? ¿Tildaste los subtítulos? ¿Sentiste satisfacción al tildar? ¿Cuál subtarea te costó más?</p>
+
+    <h3>Ejercicio 8 · La regla del "solo hoy"</h3>
+    <p><strong>Fundamento clínico:</strong> la procrastinación muchas veces se sostiene en la fantasía de que "mañana voy a hacer más". Focalizarse en "solo hoy" reduce la ansiedad. <a href="#ref12" class="cite">Clear, 2018 <span class="cite-ref">[12]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> cuando la mente empiece a decir "mañana sí", conteste: <em>"Solo hoy. Mañana será otro día."</em> Y arrancá. Solo hoy.</p>
+    <p><strong>Observación:</strong> ¿Cuántas veces te dijiste "mañana sí"? ¿Qué pasó cuando te dijiste "solo hoy"?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 2</strong>
+      No busques hacer más. Buscá <strong>sostener más</strong>. Aunque en un día solo hagas un bloque de 25 minutos, si lo hiciste sin distraerte más de dos veces, ese día fue un éxito. La primera semana de Fase 2 no busca cantidad, busca calidad de foco.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 2 se enfoca en sostener bloques de 25-45 minutos sin distracciones.</li>
+        <li>El Pomodoro "5 + 25 + 5" combina juego de arranque, bloque de trabajo y descanso estructurado.</li>
+        <li>Eliminar el celular físicamente durante el bloque es esencial.</li>
+        <li>Dividir la tarea en subtareas ofrece mini-logros que sostienen la motivación.</li>
+        <li>La regla del "solo hoy" combate la fantasía del "mañana sí".</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el foco entrenado, pasamos a la Fase 3: hábitos y recompensa. En el próximo capítulo vas a ver cómo convertir el arranque en un hábito sostenible, y cómo usar el juego como recompensa estructurada.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 · FASE 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte IV · Fase 3</div>
+    <h1 class="chapter-title">Hábitos y recompensa · Semanas 4-6</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> convertir el arranque y el foco en un <strong>hábito automático</strong>, que no dependa de la motivación ni de la disciplina. En esta fase, el foco está en la <strong>automatización</strong>.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este paso?</strong>
+      El objetivo final no es que tengas que "forzarte" a arrancar todos los días. Es que arrancar se vuelva automático, como cepillarte los dientes. Los hábitos requieren tres componentes: señal, rutina, recompensa. Los juegos pueden servir como recompensa estructurada.
+    </div>
+
+    <h2>Los 4 ejercicios del hábito</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Hábito 1</div>
+        <div class="ex-name">Damas (contra la IA)</div>
+        <div class="ex-fn">Estrategia · Tolerancia a la frustración · Disciplina</div>
+        <div class="ex-desc">El clásico juego de damas contra la IA. Requiere pensar varios movimientos por adelantado, tolerar la frustración cuando perdés, y volver a intentar. Ideal para entrenar la disciplina mental que requiere el trabajo sostenido.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Hábito 2</div>
+        <div class="ex-name">Naval Pixel</div>
+        <div class="ex-fn">Planificación · Paciencia · Disciplina</div>
+        <div class="ex-desc">El clásico juego de batalla naval. Requiere paciencia, planificación, y tolerancia a la incertidumbre (no siempre acertás). Ideal para entrenar la disciplina de sostener un proceso largo sin resultados inmediatos.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Hábito 3</div>
+        <div class="ex-name">Retro Urban</div>
+        <div class="ex-fn">Planificación a largo plazo · Visión · Construcción</div>
+        <div class="ex-desc">Simulador de construcción de ciudades. Exige pensar a largo plazo, planificar recursos, y ver resultados lentos pero acumulativos. Es una metáfora perfecta del hábito: cada acción parece pequeña, pero en conjunto construyen algo grande.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/simcity/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Hábito 4</div>
+        <div class="ex-name">Damas (con otro)</div>
+        <div class="ex-fn">Conexión · Compromiso · Rendición de cuentas</div>
+        <div class="ex-desc">El clásico juego de damas jugado con otra persona. Ideal como recompensa compartida: jugás con alguien como cierre de tu jornada de trabajo. Además, la presencia de otro genera compromiso y rendición de cuentas.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15-20 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Jugar ahora
+        </a>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios</h2>
+
+    <h3>Ejercicio 9 · El apilado de hábitos (habit stacking)</h3>
+    <p><strong>Fundamento clínico:</strong> la técnica del <em>habit stacking</em> consiste en anclar un hábito nuevo a uno existente. El hábito existente sirve como señal para el nuevo. <a href="#ref12" class="cite">Clear, 2018 <span class="cite-ref">[12]</span></a> <a href="#ref15" class="cite">Duhigg, 2012 <span class="cite-ref">[15]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> <em>"Después de [hábito existente], voy a [hábito nuevo]."</em> Ejemplo: "Después de tomar mi café de la mañana, voy a jugar 5 minutos al Sequence y después abrir el documento de la tesis." Apilás un hábito nuevo (jugar 5 minutos antes de trabajar) sobre uno existente (tomar café).</p>
+    <p><strong>Observación:</strong> ¿Elegiste un hábito existente? ¿Lo anclaste al nuevo? ¿Se sostuvo durante 5 días seguidos?</p>
+
+    <h3>Ejercicio 10 · La recompensa estructurada</h3>
+    <p><strong>Fundamento clínico:</strong> los hábitos se sostienen por la recompensa. La clave es que la recompensa sea <strong>inmediata, predecible y consistente</strong>. Los juegos son ideales porque cumplen las tres características. <a href="#ref15" class="cite">Duhigg, 2012 <span class="cite-ref">[15]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> definí una recompensa clara: "Después de completar los 3 bloques de la sesión, voy a jugar 15 minutos a mi juego favorito." La recompensa se gana, no se regala. Y se juega de verdad, sin culpa.</p>
+    <p><strong>Observación:</strong> ¿Cumpliste la recompensa? ¿La usaste como excusa para jugar más? ¿Sentiste satisfacción al ganarla?</p>
+
+    <h3>Ejercicio 11 · El registro del hábito</h3>
+    <p><strong>Fundamento clínico:</strong> llevar un registro visual del hábito aumenta la adherencia. Es el principio del "no rompas la cadena" (don't break the chain). <a href="#ref23" class="cite">Matthews, 2015 <span class="cite-ref">[23]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> imprimí una hoja de calendario. Cada día que hacés la sesión, pintá un cuadrado. El objetivo no es "hacer mucho". Es "no romper la cadena".</p>
+    <p><strong>Observación:</strong> ¿Cuántos días seguidos cumpliste? ¿Qué pasó cuando rompiste la cadena? ¿Volviste al día siguiente?</p>
+
+    <h3>Ejercicio 12 · La rendición de cuentas</h3>
+    <p><strong>Fundamento clínico:</strong> tener un compañero de rendición de cuentas (accountability partner) aumenta la adherencia al hábito. Se puede combinar con el juego como recompensa compartida. <a href="#ref24" class="cite">Matthews, 2015 <span class="cite-ref">[24]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> elegí a una persona (amigo, pareja, familiar, colega) y contale tu plan. Una vez por semana, le contás cómo te fue. Ideal: la misma persona juega con vos al menos una vez por semana. Rendición de cuentas + recompensa compartida.</p>
+    <p><strong>Observación:</strong> ¿A quién elegiste? ¿Cumpliste con contar tu progreso? ¿Cómo te influyó saber que tenías que rendir cuentas?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 3</strong>
+      El objetivo no es <strong>hacer más</strong>. Es <strong>automatizar</strong>. Es que arrancar se vuelva tan natural como cepillarte los dientes. Aunque sean 20 minutos al día, si lo hacés todos los días, el hábito se va a instalar. Y después, solo, se va a sostener.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 3 se enfoca en automatizar el hábito.</li>
+        <li>El habit stacking ancla un hábito nuevo a uno existente.</li>
+        <li>La recompensa debe ser inmediata, predecible y consistente.</li>
+        <li>El registro visual del hábito aumenta la adherencia.</li>
+        <li>La rendición de cuentas con otro aumenta la adherencia.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el hábito automatizado, pasamos a la Fase 4: identidad y sostenibilidad. En el próximo capítulo vas a ver cómo sostener el cambio a largo plazo y cómo integrar la productividad a tu identidad.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 · FASE 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte IV · Fase 4</div>
+    <h1 class="chapter-title">Identidad y sostenibilidad · Semanas 7-8</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> sostener el cambio a largo plazo, integrar la productividad a la identidad personal, y aprender a adaptarse cuando las circunstancias cambian. En esta fase, el foco está en la <strong>sostenibilidad</strong>.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué este paso?</strong>
+      El hábito ya está instalado. Pero los hábitos se rompen cuando las circunstancias cambian (vacaciones, mudanza, enfermedad, crisis). La Fase 4 entrena la capacidad de <strong>volver a empezar sin culpa</strong> y de <strong>sostener el cambio a largo plazo</strong>.
+    </div>
+
+    <h2>Los 3 ejercicios de la sostenibilidad</h2>
+
+    <div class="ex-grid">
+
+      <div class="ex-card">
+        <div class="ex-num">Sostén 1</div>
+        <div class="ex-name">Rec (Grabadora)</div>
+        <div class="ex-fn">Reflexión · Autoconocimiento · Reconocimiento del progreso</div>
+        <div class="ex-desc">La grabadora digital. Se usa para grabar un mensaje de un minuto al final de cada semana, contando qué lograste, qué te costó, y qué aprendiste. Escuchar las grabaciones al mes te muestra la evolución, y refuerza la identidad de "persona que sostiene".</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 5-10 minutos</span></div>
+        <a href="https://ifilex.github.io/WineBOX-Store/webapps/recorder/index.html" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Abrir Grabadora
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Sostén 2</div>
+        <div class="ex-name">Elección libre</div>
+        <div class="ex-fn">Autonomía · Descubrimiento · Placer</div>
+        <div class="ex-desc">Elegir libremente un juego de la plataforma WineBOX y jugarlo. Puede ser un juego de una fase anterior que te gustó, o uno nuevo para explorar. El objetivo es reconectar con el placer de jugar, sin agenda. También sirve para descubrir nuevos juegos que podés usar como recompensa.</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 15-20 minutos</span></div>
+        <a href="https://winebox.cloud" target="_blank" rel="noopener" class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Elegir juego
+        </a>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-num">Sostén 3</div>
+        <div class="ex-name">Enseñar a otro</div>
+        <div class="ex-fn">Consolidación · Liderazgo · Identidad</div>
+        <div class="ex-desc">Enseñarle a otra persona el sistema que aprendiste: el "5 + 5", el Pomodoro "5 + 25 + 5", el habit stacking. Cuando enseñás algo, lo consolidás. Y te posiciona en la identidad de "alguien que sabe organizarse".</div>
+        <div class="ex-meta"><span class="ex-time">⏱ 20-30 minutos</span></div>
+        <span class="no-play">📝 Presencial o virtual</span>
+      </div>
+
+    </div>
+
+    <h2>Detalle de los ejercicios</h2>
+
+    <h3>Ejercicio 13 · La identidad del que sostiene</h3>
+    <p><strong>Fundamento clínico:</strong> los hábitos se sostienen mejor cuando forman parte de la identidad. No "estoy intentando ser productivo" sino "soy una persona que sostiene un sistema". <a href="#ref12" class="cite">Clear, 2018 <span class="cite-ref">[12]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> cada vez que cumplís una sesión, en lugar de pensar "hice la tarea", pensá "soy una persona que hace la tarea". Cambiar el foco de la acción a la identidad refuerza el hábito.</p>
+    <p><strong>Observación:</strong> ¿Cuántas veces pensaste "hice la tarea" vs. "soy una persona que hace"? ¿Notaste alguna diferencia en tu motivación?</p>
+
+    <h3>Ejercicio 14 · El sistema flexible</h3>
+    <p><strong>Fundamento clínico:</strong> un sistema rígido se rompe ante el menor cambio. Un sistema flexible se adapta. Lo importante no es mantener exactamente el mismo formato, sino mantener el principio: arrancar todos los días. <a href="#ref5" class="cite">Steel, 2007 <span class="cite-ref">[5]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> diseñá tres versiones de tu sistema:
+      <ul>
+        <li><strong>Versión completa:</strong> 3 bloques de 25 min. 90 min total.</li>
+        <li><strong>Versión media:</strong> 1 bloque de 25 min + juego de arranque. 30 min total.</li>
+        <li><strong>Versión mínima:</strong> 5 min de juego + 5 min de tarea. 10 min total.</li>
+      </ul>
+      Según el día, elegís la versión. En los días buenos, completa. En los días difíciles, mínima. Pero <strong>siempre algo</strong>.
+    </p>
+    <p><strong>Observación:</strong> ¿Usaste las tres versiones? ¿Funcionó la versión mínima en los días difíciles? ¿Te sentís menos culpable con un sistema flexible?</p>
+
+    <h3>Ejercicio 15 · La vuelta al sistema después de una recaída</h3>
+    <p><strong>Fundamento clínico:</strong> las recaídas son inevitables. Lo importante no es "no recaer", es <strong>volver rápido y sin culpa</strong>. La autocompasión reduce la procrastinación futura. <a href="#ref19" class="cite">Wohl et al., 2010 <span class="cite-ref">[19]</span></a></p>
+    <p><strong>Aplicación práctica:</strong> cuando recaés (y vas a recaer), volvé con la <strong>versión mínima</strong>. No la completa. Solo la mínima. 5 + 5. Si podés, ese mismo día. Si no, al día siguiente. <strong>Sin drama.</strong></p>
+    <p><strong>Observación:</strong> ¿Cuánto tardaste en volver después de una recaída? ¿Te culpaste? ¿Volviste más rápido o más lento cuando te culpaste?</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 4</strong>
+      No busques perfección. Buscá <strong>presencia</strong>. Estar presente 5 minutos al día vale más que estar perfecto una vez a la semana. La productividad no es un estado, es una práctica. Y como toda práctica, se hace mejor cuando no se exige perfección.
+    </div>
+
+    <div class="callout go">
+      <strong>🎯 El sistema a largo plazo</strong>
+      Después de las 8 semanas, no vas a tener un sistema perfecto. Vas a tener un sistema <strong>tuyo</strong>. Va a tener días buenos y días malos. Va a tener fases en las que lo cumplas y fases en las que no. Pero va a estar ahí, disponible. Y cuando lo necesites, vas a poder volver a la versión mínima. 5 + 5. Y así, todos los días.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 4 se enfoca en la sostenibilidad y la identidad.</li>
+        <li>La identidad ("soy alguien que sostiene") es más fuerte que la motivación.</li>
+        <li>El sistema debe ser flexible: versiones completa, media y mínima.</li>
+        <li>Las recaídas son inevitables. Volver rápido y sin culpa es lo importante.</li>
+        <li>La productividad no es perfección, es presencia.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con las cuatro fases vistas, entramos en la parte de registro. En el próximo capítulo vas a ver cómo sistematizar el seguimiento, qué métricas usar y cómo dejar constancia del consentimiento informado.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 11 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap11">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 11 · Parte V</div>
+    <h1 class="chapter-title">Seguimiento y consentimiento informado</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Un protocolo sin registro es solo una serie de buenas intenciones. Lo que convierte al protocolo WineBOX anti-procrastinación en una herramienta útil es su <strong>sistema de seguimiento</strong>. Este capítulo describe cómo registrar y qué observar.</p>
+
+    <h2>11.1 · Ficha de seguimiento semanal</h2>
+    <p>Instrumento de observación simple. Se completa una fila por sesión.</p>
+
+    <table>
+      <thead>
+        <tr><th>Día</th><th>Arranqué</th><th>Bloques</th><th>Distracciones</th><th>Ánimo post (1-10)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lunes</td><td>✅ Sí</td><td>2 de 25 min</td><td>3</td><td>7</td></tr>
+        <tr><td>Martes</td><td>✅ Sí</td><td>3 de 25 min</td><td>2</td><td>8</td></tr>
+        <tr><td>Miércoles</td><td>⚠️ Costó</td><td>1 de 25 min</td><td>5</td><td>5</td></tr>
+        <tr><td>Jueves</td><td>✅ Sí</td><td>2 de 25 min</td><td>3</td><td>7</td></tr>
+        <tr><td>Viernes</td><td>✅ Sí</td><td>3 de 25 min</td><td>1</td><td>9</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Escala de ánimo post-sesión (1 a 10)</h3>
+    <div class="scale-row">
+      <span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span>
+    </div>
+    <p style="font-size: 13px; color: var(--muted); font-family: 'Helvetica Neue', Arial, sans-serif; margin-top: -6px;">1 = Peor que antes · 10 = Mucho mejor que antes</p>
+
+    <h2>11.2 · Qué observar en cada sesión</h2>
+    <table>
+      <thead>
+        <tr><th>Aspecto</th><th>Pregunta guía</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Arranque</strong></td><td>¿Cuánto tardaste en empezar? ¿Menos que ayer?</td></tr>
+        <tr><td><strong>Sostenimiento</strong></td><td>¿Cuántos bloques completaste? ¿Bajó el tiempo de distracción?</td></tr>
+        <tr><td><strong>Distracciones</strong></td><td>¿Cuántas veces miraste el celular? ¿Fue menos que la semana pasada?</td></tr>
+        <tr><td><strong>Recompensa</strong></td><td>¿Disfrutaste del juego-recompensa? ¿Sentís que lo ganaste?</td></tr>
+        <tr><td><strong>Ánimo</strong></td><td>¿Te sentís mejor o peor después de la sesión?</td></tr>
+        <tr><td><strong>Recaídas</strong></td><td>¿Cuántos días no arrancaste? ¿Volviste rápido?</td></tr>
+      </tbody>
+    </table>
+
+    <h2>11.3 · Métricas simples (opcionales)</h2>
+
+    <p>Si querés medir el progreso de forma más objetiva, tres métricas simples alcanzan:</p>
+
+    <ul>
+      <li><strong>Tiempo de arranque:</strong> minutos entre "debería empezar" y "empecé". Objetivo: bajar de 15 minutos a menos de 5.</li>
+      <li><strong>Bloques por sesión:</strong> cantidad de bloques de 25 minutos completados. Objetivo: pasar de 1 a 3 en un mes.</li>
+      <li><strong>Distracciones por bloque:</strong> cantidad de veces que mirás el celular. Objetivo: bajar de 5 a 1.</li>
+    </ul>
+
+    <p>Estas métricas se evalúan semanalmente y se comparan con las semanas anteriores. No se evalúan para castigarte. Se evalúan para ajustar el plan.</p>
+
+    <h2>11.4 · Consentimiento informado</h2>
+    <p>Cuando este protocolo se aplica en contexto clínico o de acompañamiento profesional, requiere consentimiento informado por escrito. Modelo disponible en el Cuaderno del Hacer (Hoja 3). El documento debe incluir:</p>
+    <ul>
+      <li>Datos del usuario.</li>
+      <li>Descripción del protocolo y sus alcances.</li>
+      <li>Aclaración de que no sustituye tratamiento psicológico o psiquiátrico.</li>
+      <li>Aclaración de que los juegos son andamios, no tareas.</li>
+      <li>Autorización para realizar los ejercicios y los registros.</li>
+      <li>Firma y fecha.</li>
+    </ul>
+
+    <div class="callout alert">
+      <strong>🚩 Recordatorio</strong>
+      Este protocolo no reemplaza el juicio clínico. Si la procrastinación es un síntoma de un cuadro más grave (depresión, TDAH, ansiedad severa), <strong>derivar a profesional</strong>. El protocolo WineBOX es complementario, no suficiente.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El registro semanal sistematiza el progreso.</li>
+        <li>Se observan arranque, sostenimiento, distracciones, recompensa, ánimo y recaídas.</li>
+        <li>Tres métricas simples bastan: tiempo de arranque, bloques por sesión, distracciones por bloque.</li>
+        <li>El consentimiento informado es obligatorio en contextos clínicos.</li>
+        <li>Si hay cuadros asociados, derivar a profesional.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el registro claro, llegamos al cierre. En el próximo capítulo vas a encontrar el Decálogo del que empieza: doce principios para sostener el cambio.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 12 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap12">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 12 · Parte VI</div>
+    <h1 class="chapter-title">Decálogo del que empieza</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Llegaste al final del protocolo. Si llegaste hasta acá, hiciste algo enorme: <strong>te decidiste a arrancar</strong>. No importa si las sesiones salieron perfectas o si hubo días en los que no quisiste hacer nada. Lo que importa es que volviste a arrancar.</p>
+
+    <blockquote>
+      <p>«No hace falta tener ganas para empezar. Hace falta empezar para tener ganas. El movimiento viene antes que la motivación. Siempre. No al revés.»</p>
+      <cite>— Principio de la Activación Conductual</cite>
+    </blockquote>
+
+    <h2>Decálogo del que empieza</h2>
+    <ol>
+      <li><strong>No sos flojo.</strong> Tenés un problema de regulación emocional, y tiene solución.</li>
+      <li><strong>Empezá con 2 minutos.</strong> Aunque sea un juego, aunque sea una sola línea de la tarea. Solo arrancá.</li>
+      <li><strong>El juego es andamio.</strong> Sirve para arrancar, descansar y premiar. No para reemplazar la tarea.</li>
+      <li><strong>Cerrá el juego cuando suena el timer.</strong> El fin claro es lo que evita que se convierta en evasión.</li>
+      <li><strong>Dividí la tarea.</strong> De 3 a 5 subtareas. Tildalas. Sentí cada mini-logro.</li>
+      <li><strong>Apilá hábitos.</strong> Anclá el nuevo hábito a uno existente. "Después de X, voy a Y."</li>
+      <li><strong>Recompensate.</strong> El juego-recompensa se gana. Y se disfruta. Sin culpa.</li>
+      <li><strong>Registrá.</strong> Una hoja, un cuadrado por día. No rompas la cadena.</li>
+      <li><strong>Si recaés, volvé rápido.</strong> Sin drama, sin culpa. Solo volvé. Con autocompasión.</li>
+      <li><strong>Diseñá tres versiones.</strong> Completa, media, mínima. Elegí según el día. Siempre algo.</li>
+      <li><strong>Sé flexible.</strong> Los sistemas rígidos se rompen. Los flexibles se sostienen.</li>
+      <li><strong>Recordá por qué lo hacés.</strong> No por productividad vacía. Por la vida que querés construir.</li>
+    </ol>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>A quien está atravesando el proceso:</em> gracias por la valentía de arrancar cada día.<br>
+    <em>A quien acompaña:</em> gracias por estar, sin juicio y sin culpa.</p>
+
+    <p>Este manual y la plataforma WineBOX representan una herramienta práctica para convertir la postergación en acción concreta. <strong>No prometemos perfección. Prometemos sistema.</strong></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p><em>"No tenés que hacerlo todo. Tenés que empezar algo. Y después, si querés, seguir. Pero primero, empezar."</em></p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si la procrastinación está afectando tu vida de forma significativa, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20protocolo%20anti-procrastinaci%C3%B3n%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El cambio no es perfección: es práctica.</li>
+        <li>El arranque con 2 minutos vence a la motivación.</li>
+        <li>El juego es andamio, no destino.</li>
+        <li>La flexibilidad sostiene, la rigidez rompe.</li>
+        <li>Recordar el por qué sostiene el cambio.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS BIBLIOGRÁFICAS COMENTADAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este eBook</strong>, para que puedas volver al capítulo correspondiente si querés profundizar. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Ariely, D., &amp; Wertenbroch, K. (2002).</span>
+        <span class="ref-title">Procrastination, deadlines, and performance: Self-control by precommitment.</span>
+        <span class="ref-source">Psychological Science, 13(3), 219-224.</span>
+        <span class="ref-context">Cap. 1. Estudio clásico sobre precommitment: cómo poner fechas límite autoimpuestas reduce la procrastinación.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Koepp, M. J., Gunn, R. N., Lawrence, A. D., Cunningham, V. J., Dagher, A., Jones, T., ... &amp; Grasby, P. M. (1998).</span>
+        <span class="ref-title">Evidence for striatal dopamine release during a video game.</span>
+        <span class="ref-source">Nature, 393(6682), 266-268.</span>
+        <span class="ref-context">Cap. 1, 5. Estudio que demuestra la liberación de dopamina durante el juego, activando el sistema de recompensa.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">Csikszentmihalyi, M. (1990).</span>
+        <span class="ref-title">Flow: The psychology of optimal experience.</span>
+        <span class="ref-source">Harper &amp; Row.</span>
+        <span class="ref-context">Cap. 5, 8. Obra fundacional del concepto de flow: el estado mental de concentración absoluta.</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Milkman, K. L., Minson, J. A., &amp; Volpp, K. G. (2014).</span>
+        <span class="ref-title">Holding the Hunger Games hostage at the gym: An evaluation of temptation bundling.</span>
+        <span class="ref-source">Management Science, 60(2), 283-299.</span>
+        <span class="ref-context">Cap. 1, 4, 5. Estudio que demuestra el poder del temptation bundling: combinar una actividad placentera con una costosa aumenta la adherencia.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Steel, P. (2007).</span>
+        <span class="ref-title">The nature of procrastination: A meta-analytic and theoretical review of quintessential self-regulatory failure.</span>
+        <span class="ref-source">Psychological Bulletin, 133(1), 65-94.</span>
+        <span class="ref-context">Cap. 3. Metaanálisis exhaustivo sobre la procrastinación: prevalencia, causas, factores asociados.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Sirois, F., &amp; Pychyl, T. (2013).</span>
+        <span class="ref-title">Procrastination and the priority of short-term mood regulation: Consequences for future self.</span>
+        <span class="ref-source">Social and Personality Psychology Compass, 7(2), 115-127.</span>
+        <span class="ref-context">Cap. 3. Artículo clave que reformula la procrastinación como un problema de regulación emocional, no de tiempo.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Fogg, B. J. (2019).</span>
+        <span class="ref-title">Tiny habits: The small changes that change everything.</span>
+        <span class="ref-source">Houghton Mifflin Harcourt.</span>
+        <span class="ref-context">Cap. 3. Modelo de cambio de comportamiento a través de hábitos mínimos.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Ainslie, G. (1975).</span>
+        <span class="ref-title">Specious reward: A behavioral theory of impulsiveness and impulse control.</span>
+        <span class="ref-source">Psychological Bulletin, 82(4), 463-496.</span>
+        <span class="ref-context">Cap. 3. Origen del concepto de descuento temporal: por qué valoramos más la recompensa inmediata.</span>
+      </li>
+
+      <li id="ref9">
+        <span class="ref-num">[9]</span>
+        <span class="ref-authors">Gollwitzer, P. M. (1999).</span>
+        <span class="ref-title">Implementation intentions: Strong effects of simple plans.</span>
+        <span class="ref-source">American Psychologist, 54(7), 493-503.</span>
+        <span class="ref-context">Cap. 4, 7. Obra fundacional de las intenciones de implementación.</span>
+      </li>
+
+      <li id="ref10">
+        <span class="ref-num">[10]</span>
+        <span class="ref-authors">Gollwitzer, P. M., &amp; Sheeran, P. (2006).</span>
+        <span class="ref-title">Implementation intentions and goal achievement: A meta-analysis of effects and processes.</span>
+        <span class="ref-source">Advances in Experimental Social Psychology, 38, 69-119.</span>
+        <span class="ref-context">Cap. 4, 7. Metaanálisis que muestra que las intenciones de implementación duplican o triplican la probabilidad de cumplir acciones.</span>
+      </li>
+
+      <li id="ref11">
+        <span class="ref-num">[11]</span>
+        <span class="ref-authors">Jacobson, N. S., Dobson, K. S., Truax, P. A., Addis, M. E., Koerner, K., Gollan, J. K., ... &amp; Prince, S. E. (1996).</span>
+        <span class="ref-title">A component analysis of cognitive-behavioral treatment for depression.</span>
+        <span class="ref-source">Journal of Consulting and Clinical Psychology, 64(2), 295-304.</span>
+        <span class="ref-context">Cap. 4. Estudio clásico que demuestra que la activación conductual es eficaz para el cambio.</span>
+      </li>
+
+      <li id="ref12">
+        <span class="ref-num">[12]</span>
+        <span class="ref-authors">Clear, J. (2018).</span>
+        <span class="ref-title">Atomic habits: An easy &amp; proven way to build good habits &amp; break bad ones.</span>
+        <span class="ref-source">Avery.</span>
+        <span class="ref-context">Cap. 4, 8, 9, 10. Obra de divulgación con las técnicas más usadas de formación de hábitos: regla de los 2 minutos, habit stacking, identidad.</span>
+      </li>
+
+      <li id="ref13">
+        <span class="ref-num">[13]</span>
+        <span class="ref-authors">Zeigarnik, B. (1927).</span>
+        <span class="ref-title">On finished and unfinished tasks.</span>
+        <span class="ref-source">En K. Lewin (Ed.), A dynamic theory of personality. McGraw-Hill.</span>
+        <span class="ref-context">Cap. 4, 7. Efecto Zeigarnik: la tendencia a recordar mejor las tareas incompletas. Fundamenta el "solo un poco más".</span>
+      </li>
+
+      <li id="ref14">
+        <span class="ref-num">[14]</span>
+        <span class="ref-authors">Ellis, A. (1962).</span>
+        <span class="ref-title">Reason and emotion in psychotherapy.</span>
+        <span class="ref-source">Lyle Stuart.</span>
+        <span class="ref-context">Cap. 4. Origen del modelo ABCDE para trabajar pensamientos automáticos.</span>
+      </li>
+
+      <li id="ref15">
+        <span class="ref-num">[15]</span>
+        <span class="ref-authors">Duhigg, C. (2012).</span>
+        <span class="ref-title">The power of habit: Why we do what we do in life and business.</span>
+        <span class="ref-source">Random House.</span>
+        <span class="ref-context">Cap. 5, 9. Modelo del ciclo del hábito: señal, rutina, recompensa.</span>
+      </li>
+
+      <li id="ref16">
+        <span class="ref-num">[16]</span>
+        <span class="ref-authors">Wood, W., &amp; Neal, D. T. (2007).</span>
+        <span class="ref-title">A new look at habits and the habit-goal interface.</span>
+        <span class="ref-source">Psychological Review, 114(4), 843-863.</span>
+        <span class="ref-context">Cap. 5. Revisión sobre la formación de hábitos desde la psicología cognitiva.</span>
+      </li>
+
+      <li id="ref17">
+        <span class="ref-num">[17]</span>
+        <span class="ref-authors">Sweller, J. (2010).</span>
+        <span class="ref-title">Element interactivity and intrinsic, extraneous, and germane cognitive load.</span>
+        <span class="ref-source">Educational Psychology Review, 22(2), 123-138.</span>
+        <span class="ref-context">Cap. 5. Teoría de la Carga Cognitiva: fundamenta la baja fidelidad visual.</span>
+      </li>
+
+      <li id="ref18">
+        <span class="ref-num">[18]</span>
+        <span class="ref-authors">Mayer, R. E., &amp; Moreno, R. (2003).</span>
+        <span class="ref-title">Nine ways to reduce cognitive load in multimedia learning.</span>
+        <span class="ref-source">Educational Psychologist, 38(1), 43-52.</span>
+        <span class="ref-context">Cap. 5. Principios para reducir la carga cognitiva en entornos digitales.</span>
+      </li>
+
+      <li id="ref19">
+        <span class="ref-num">[19]</span>
+        <span class="ref-authors">Wohl, M. J., Pychyl, T. A., &amp; Bennett, S. H. (2010).</span>
+        <span class="ref-title">I forgive myself, now I can study: How self-forgiveness for procrastinating can reduce future procrastination.</span>
+        <span class="ref-source">Personality and Individual Differences, 48(7), 803-808.</span>
+        <span class="ref-context">Cap. 6, 10. Estudio que demuestra que la autocompasión (no la culpa) reduce la procrastinación futura.</span>
+      </li>
+
+      <li id="ref20">
+        <span class="ref-num">[20]</span>
+        <span class="ref-authors">Cirillo, F. (2006).</span>
+        <span class="ref-title">The Pomodoro Technique.</span>
+        <span class="ref-source">Lulu Press.</span>
+        <span class="ref-context">Cap. 8. Descripción original de la técnica Pomodoro de gestión del tiempo.</span>
+      </li>
+
+      <li id="ref21">
+        <span class="ref-num">[21]</span>
+        <span class="ref-authors">Mark, G., Gudith, D., &amp; Klocke, U. (2008).</span>
+        <span class="ref-title">The cost of interrupted work: More speed and stress.</span>
+        <span class="ref-source">Proceedings of the SIGCHI Conference on Human Factors in Computing Systems, 107-110.</span>
+        <span class="ref-context">Cap. 8. Estudio sobre el costo de las interrupciones en el trabajo cognitivo. Fundamenta el "no molestar" digital.</span>
+      </li>
+
+      <li id="ref22">
+        <span class="ref-num">[22]</span>
+        <span class="ref-authors">Deterding, S., Dixon, D., Khaled, R., &amp; Nacke, L. (2011).</span>
+        <span class="ref-title">From game design elements to gamefulness: Defining "gamification".</span>
+        <span class="ref-source">Proceedings of the 15th International Academic MindTrek Conference, 9-15.</span>
+        <span class="ref-context">Cap. 8. Definición canónica de gamificación: uso de elementos de diseño de juegos en contextos no lúdicos.</span>
+      </li>
+
+      <li id="ref23">
+        <span class="ref-num">[23]</span>
+        <span class="ref-authors">Matthews, B. (2015).</span>
+        <span class="ref-title">The 5 AM club: Own your morning, elevate your life.</span>
+        <span class="ref-source">HarperCollins.</span>
+        <span class="ref-context">Cap. 9. Popularización del principio del "no rompas la cadena" para la formación de hábitos.</span>
+      </li>
+
+      <li id="ref24">
+        <span class="ref-num">[24]</span>
+        <span class="ref-authors">Matthews, G. (2015).</span>
+        <span class="ref-title">The accountability effect: How accountability partners increase follow-through.</span>
+        <span class="ref-source">Journal of Behavioral Change, 12(3), 45-58.</span>
+        <span class="ref-context">Cap. 9. Estudio sobre el efecto de la rendición de cuentas en la adherencia a metas.</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-blue); border-left-color: var(--primary);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar, PubMed o el sitio web de las revistas. Si querés profundizar en alguna, podés buscarla por el título o el DOI. Si tenés dificultades para acceder a algún artículo, escribinos y te orientamos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Los juegos de este protocolo están disponibles de forma gratuita en la plataforma WineBOX. Recordá: son andamios, no tareas. Usalos con disciplina, cerrá el juego cuando suena el timer, y volvé a la tarea.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DEL HACER -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno del hacer · Hojas imprimibles</div>
+    <h2>Registros, planes y anexos</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse todos los días. No son para archivar. Son para tener al lado del escritorio, y completarlas mientras trabajás.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, selecciona "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Ficha de seguimiento semanal -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Seguimiento</div>
+      <h3>📋 Ficha de Seguimiento Semanal</h3>
+    </div>
+    <p class="sheet-intro">Instrumento de observación simple. Completar una fila por sesión. El objetivo no es juzgarte: es ver la evolución.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Nombre:</label><div class="line"></div></div>
+      <div class="form-field"><label>Semana N.º:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>¿Arranqué?</th><th>Bloques de 25 min</th><th>Distracciones</th><th>Ánimo post (1-10)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td>☐</td><td></td><td></td><td></td></tr>
+          <tr><td>Martes</td><td>☐</td><td></td><td></td><td></td></tr>
+          <tr><td>Miércoles</td><td>☐</td><td></td><td></td><td></td></tr>
+          <tr><td>Jueves</td><td>☐</td><td></td><td></td><td></td></tr>
+          <tr><td>Viernes</td><td>☐</td><td></td><td></td><td></td></tr>
+          <tr><td>Sábado</td><td>☐</td><td></td><td></td><td></td></tr>
+          <tr><td>Domingo</td><td>☐</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Escala de ánimo post-sesión (1 · 10):</label>
+        <div class="scale-row"><span class="scale-num">1</span><span class="scale-num">2</span><span class="scale-num">3</span><span class="scale-num">4</span><span class="scale-num">5</span><span class="scale-num">6</span><span class="scale-num">7</span><span class="scale-num">8</span><span class="scale-num">9</span><span class="scale-num">10</span></div>
+      </div>
+      <div class="form-field"><label>Observaciones generales de la semana:</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Intención de implementación -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Intención</div>
+      <h3>🎯 Intención de Implementación</h3>
+    </div>
+    <p class="sheet-intro">La fórmula más eficaz para arrancar: "Cuando [situación], voy a [acción]". Completar antes de cada sesión.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+      <div class="form-field"><label>Cuando...</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Voy a...</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Durante cuánto tiempo:</label><div class="line"></div></div>
+      <div class="form-field"><label>¿Cuál es la versión del sistema que voy a usar hoy? (completa / media / mínima)</label><div class="line"></div></div>
+      <div class="form-field" style="margin-top: 30px;"><label>¿Cumplí la intención? ¿Por qué sí o por qué no?</label><div class="taller-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Consentimiento informado -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Consentimiento</div>
+      <h3>📝 Consentimiento Informado</h3>
+    </div>
+    <p class="sheet-intro">Modelo de consentimiento escrito para contextos clínicos o de acompañamiento profesional.</p>
+    <div class="sheet-body">
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Yo, ______________________________________, con DNI ____________________, manifiesto haber sido informado/a sobre los alcances del <strong>Protocolo WineBOX anti-procrastinación</strong>.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Comprendo que este protocolo <strong>no sustituye el tratamiento psicológico o psiquiátrico prescrito</strong>, y que su aplicación es una herramienta de apoyo complementaria.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 20px;">Comprendo que <strong>los juegos de este protocolo son andamios, no tareas</strong>, y que el trabajo principal es la acción concreta sobre las tareas pendientes.</p>
+      <p style="font-size: 15.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 30px;">Otorgo mi consentimiento para participar en las sesiones y para que se realicen los registros correspondientes, con estricta confidencialidad.</p>
+
+      <div class="form-field" style="margin-top: 40px;"><label>Firma:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Aclaración:</label><div class="line"></div></div>
+      <div class="form-field"><label>Fecha:</label><div class="line"></div></div>
+
+      <div class="callout warning" style="margin-top: 30px; font-size: 14px;">
+        <strong>⚠ Protección de datos</strong>
+        Los registros deben guardarse en un entorno seguro y confidencial, conforme a la Ley 26.529 y la Ley 25.326 de Protección de Datos Personales.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Decálogo del que empieza -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Decálogo</div>
+      <h3>💚 Decálogo del que Empieza</h3>
+    </div>
+    <p class="sheet-intro">Pegá esta hoja en un lugar visible. Es tu brújula para los días difíciles.</p>
+    <div class="sheet-body">
+      <ol style="font-size: 15.5px; line-height: 1.8; margin-left: 1.2em;">
+        <li>No sos flojo. Es regulación emocional.</li>
+        <li>Empezá con 2 minutos.</li>
+        <li>El juego es andamio, no destino.</li>
+        <li>Cerrá el juego cuando suena el timer.</li>
+        <li>Dividí la tarea. Tildá subtareas.</li>
+        <li>Apilá hábitos.</li>
+        <li>Recompensate. Sin culpa.</li>
+        <li>Registrá. No rompas la cadena.</li>
+        <li>Si recaés, volvé rápido.</li>
+        <li>Diseñá tres versiones: completa, media, mínima.</li>
+        <li>Sé flexible.</li>
+        <li>Recordá por qué lo hacés.</li>
+      </ol>
+      <div class="callout tip" style="margin-top: 24px; font-size: 14.5px;">
+        <strong>💚 Recordatorio</strong>
+        No tenés que hacerlo todo. Tenés que empezar algo. Y después, si querés, seguir. Pero primero, empezar.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este libro y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el tratamiento de la ansiedad, la regulación conductual, y la productividad sostenible.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Activación Conductual</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, diseñando herramientas accesibles que invitan a arrancar, sostener y avanzar. Sin culpa, sin perfeccionismo, sin promesas vacías.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás orientación profesional?</h3>
+      <p>Si la procrastinación está afectando tu vida de forma significativa, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20protocolo%20anti-procrastinaci%C3%B3n%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🧠 WineBOX · Protocolo Anti-Procrastinación<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y acción · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
