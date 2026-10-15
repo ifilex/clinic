@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · Sé el Mejor Gamer en 28 Días</title>
+
+<meta name="dc:title" content="Método WineBOX · Sé el Mejor Gamer en 28 Días">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Programa de entrenamiento de 28 días para gamers competitivos y deportistas. Reflejos, atención, toma de decisiones y control del tilt. Basado en neurociencia y psicología del deporte.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #1a0d2e;
+    --primary-dark: #0d0518;
+    --primary-light: #2d1b4e;
+    --accent: #ff2e88;
+    --accent-dark: #cc1f6a;
+    --cyan: #00e5ff;
+    --cyan-dark: #00b8cc;
+    --yellow: #ffe600;
+    --lime: #7fff00;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #EAF0F3;
+    --soft-green: #E8F3EC;
+    --soft-amber: #FBF1E2;
+    --soft-rose: #F7E9E9;
+    --soft-purple: #EFE9F2;
+    --soft-cyan: #E0F7FA;
+    --soft-pink: #FCE4EC;
+    --alert: #B85450;
+    --play: #2E8B57;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--accent) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 25% 25%, rgba(255,46,136,0.25) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0,229,255,0.18) 0%, transparent 40%),
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 780px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--cyan); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(40px, 7vw, 80px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.5px; }
+  .cover h1 em { font-style: italic; color: var(--cyan); display: block; font-size: 0.8em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.92; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(0,229,255,0.5); border-radius: 20px; color: var(--cyan); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-amber); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--accent-dark); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--cyan-dark); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--accent); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--accent-dark); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-cyan);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-cyan);
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '⚡ ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--primary-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-purple) 100%); border-left: 4px solid var(--accent); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid var(--play); }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid #D4A017; }
+  .callout.warning strong { color: #92400e; }
+  .callout.info { background: var(--soft-cyan); border-left: 4px solid var(--cyan-dark); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.exercise { background: var(--soft-pink); border-left: 4px solid var(--accent); }
+  .callout.exercise strong { color: var(--accent-dark); }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '▶'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: bold; font-size: 14px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cyan); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--cyan));
+    opacity: 0.9;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,13,46,0.18); border-color: var(--accent); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: #1F6B41; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* DAY CARD */
+  .day-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .day-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .day-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+  .day-card .day-play-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 9px 16px; border-radius: 6px; margin-top: 10px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .day-card .day-play-btn:hover { background: #1F6B41; }
+  .day-card .day-play-btn svg { width: 12px; height: 12px; fill: white; }
+
+  /* WEEK CARD */
+  .week-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .week-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .week-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(255,46,136,0.08); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: white;
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+    border: 2px solid var(--cyan);
+    box-shadow: 0 0 40px rgba(0,229,255,0.15);
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--cyan); color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,255,0.4); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--accent); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 13.5px; }
+  .sheet-body table th { font-size: 10px; padding: 8px 10px; }
+  .sheet-body table td { padding: 10px 10px; height: 34px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; color: white; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,46,136,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--cyan); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,46,136,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--cyan); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(26,13,46,0.4); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--cyan) !important; }
+    .cover-tags span { color: var(--cyan) !important; border-color: var(--cyan) !important; }
+    .cover-brand, .cover-author { color: var(--cyan) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-amber) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .day-card, .week-card, .summary, .next-step, .ex-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: var(--cyan) !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; border: 1px solid #000 !important; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--cyan) !important; }
+    .cta-box { background: rgba(255,46,136,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: white !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Performance</div>
+    <h1>Sé el Mejor<br><em>Gamer en 28 Días</em></h1>
+    <p class="cover-subtitle">Programa de entrenamiento cognitivo para gamers competitivos<br>y deportistas de alto rendimiento</p>
+    <p class="cover-audience">Reflejos · Atención · Decisiones · Control del tilt · 4 semanas · 28 días</p>
+    <div class="cover-tags">
+      <span>Esports</span><span>Reflejos</span><span>Clutch</span><span>Anti-Tilt</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia y Limitación de Responsabilidad</div>
+    <h2>Leer antes de comenzar</h2>
+    <p><strong>Este manual es un programa de entrenamiento cognitivo complementario.</strong> No reemplaza el entrenamiento mecánico específico del juego (aim, CS, timings, estrategia), ni el descanso adecuado, ni la preparación física, ni el acompañamiento psicológico profesional en casos de ansiedad competitiva severa.</p>
+    <p>Los juegos de este programa <strong>entrenan funciones cognitivas generales</strong> (reflejos, atención, decisiones bajo presión, regulación emocional), que se transfieren al rendimiento competitivo solo si se combinan con práctica específica del juego y descanso adecuado.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Banderas rojas para buscar ayuda profesional</h3>
+    <ol>
+      <li>Ansiedad competitiva que interfiere con la vida diaria.</li>
+      <li>Insomnio sostenido o problemas de alimentación por el entrenamiento.</li>
+      <li>Conductas adictivas con el juego (no poder parar, descuidar otras áreas).</li>
+      <li>Burnout, irritabilidad persistente, o pérdida de interés por todo lo demás.</li>
+      <li>Pensamientos de autolesión o de daño a terceros.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y entrenamiento cognitivo. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento psicológico o psiquiátrico prescrito por un especialista.</strong></p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del usuario, según la normativa vigente (Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y rendimiento</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Introducción</span>Cap. 1 Bienvenida: el juego se entrena</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Introducción</span>Cap. 2 Carta al gamer competitivo</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Fundamentos</span>Cap. 3 La neurociencia del rendimiento</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · Fundamentos</span>Cap. 4 Por qué los juegos clásicos entrenan al gamer</a></li>
+      <li><a href="#cap5"><span class="part">Parte III · Protocolo</span>Cap. 5 Estructura del programa de 28 días</a></li>
+      <li><a href="#semana1"><span class="part">Parte IV · Semanas</span>Semana 1 · Días 1-7: Reflejos y reacción</a></li>
+      <li><a href="#semana2"><span class="part">Parte IV · Semanas</span>Semana 2 · Días 8-14: Atención y foco sostenido</a></li>
+      <li><a href="#semana3"><span class="part">Parte IV · Semanas</span>Semana 3 · Días 15-21: Decisiones bajo presión</a></li>
+      <li><a href="#semana4"><span class="part">Parte IV · Semanas</span>Semana 4 · Días 22-28: Clutch y control del tilt</a></li>
+      <li><a href="#cap6"><span class="part">Parte V · Cierre</span>Cap. 6 Después de los 28 días: sostenibilidad</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno del gamer</span>Hojas imprimibles y seguimiento</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida: el juego se entrena</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Si llegaste hasta acá, es porque querés mejorar. No importa si sos un jugador de FPS, MOBA, fighting, RTS, o un deportista que quiere afinar sus reflejos. No importa si jugás profesional o amateur. Si llegaste hasta acá, es porque <strong>entendés que el rendimiento no es suerte: es entrenamiento</strong>.</p>
+
+    <p>Y ese es el primer mito que vamos a romper: <strong>el gaming de alto rendimiento no se trata solo del juego</strong>. Se trata de tu cerebro. De tus reflejos. De tu atención. De cómo tomás decisiones cuando todo se acelera. De cómo manejás la presión de una final. De cómo reaccionás después de perder tres partidas seguidas.</p>
+
+    <blockquote>
+      <p>«Los jugadores de esports de élite no son mejores que vos porque tengan mejores manos. Son mejores porque sus cerebros están mejor entrenados. La diferencia entre el top 1% y el resto no es genética: es entrenamiento estructurado.»</p>
+      <cite>— Basado en investigación en esports cognitivos</cite>
+    </blockquote>
+
+    <h2>Qué es este programa</h2>
+    <p>Este es un <strong>programa de entrenamiento cognitivo de 28 días</strong> diseñado específicamente para gamers competitivos y deportistas. Utiliza juegos clásicos de baja fidelidad visual como herramienta de entrenamiento, y está estructurado en 4 semanas, cada una enfocada en una función cognitiva clave para el rendimiento:</p>
+
+    <ul>
+      <li><strong>Semana 1 · Reflejos y velocidad de reacción:</strong> el tiempo entre que ves algo y respondés.</li>
+      <li><strong>Semana 2 · Atención y foco sostenido:</strong> la capacidad de mantener el foco en la tarea sin distraerte.</li>
+      <li><strong>Semana 3 · Toma de decisiones bajo presión:</strong> elegir la mejor opción en el menor tiempo posible.</li>
+      <li><strong>Semana 4 · Clutch y control del tilt:</strong> rendir cuando más importa, y no romperse cuando perdés.</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>🎮 Los juegos están a un clic</strong>
+      Cada ejercicio tiene un botón <strong>▶ Jugar ahora</strong> que abre el juego en tu navegador. No hace falta instalar nada, ni registrarse. Y si querés explorar todos los juegos disponibles, al final del libro tenés acceso a la plataforma completa.
+    </div>
+
+    <h2>Cómo usar este manual</h2>
+    <ul>
+      <li><strong>Leelo una vez completo</strong> para tener el panorama general.</li>
+      <li><strong>Volvé a cada día</strong> cuando te toque entrenar.</li>
+      <li><strong>Hacé los juegos</strong> de cada día. No son opcionales: son el corazón del programa.</li>
+      <li><strong>Anotá tus métricas</strong> en el Cuaderno del Gamer (al final del manual).</li>
+      <li><strong>Sé honesto</strong> con tu progreso. Este programa funciona solo si lo hacés con disciplina.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Advertencia importante</strong>
+      Este programa no reemplaza tu entrenamiento específico del juego. No vas a mejorar tu aim en Valorant jugando al Breakout. Lo que sí vas a mejorar es tu <strong>base cognitiva</strong>: reflejos, atención, decisiones, manejo del estrés. Y esa base te va a permitir rendir mejor en cualquier juego o deporte.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El gaming de alto rendimiento se entrena, no se nace.</li>
+        <li>La diferencia entre el top 1% y el resto es entrenamiento estructurado.</li>
+        <li>Este programa entrena 4 funciones cognitivas clave en 4 semanas.</li>
+        <li>Los juegos son el corazón del programa, no un adorno.</li>
+        <li>Complementa, no reemplaza, tu entrenamiento específico.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en la parte técnica, queremos dirigirnos directamente a vos: al gamer que quiere subir de nivel, al deportista que quiere rendir más. En el próximo capítulo vas a encontrar una carta escrita para vos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta al gamer competitivo</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es directo. Está escrito para quien ya sabe que el rendimiento no es magia, sino trabajo.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido gamer:</p>
+
+    <p>Sé lo que se siente. La partida se te escapa por milisegundos. El enemigo te ve primero, dispara primero, gana primero. Y vos sabés que podrías haberlo ganado. Sabés que tenías las habilidades. Pero algo no funcionó. Y te frustrás. Y te tiltás. Y perdés la siguiente también.</p>
+
+    <p>Ese "algo" no es habilidad. No es talento. Es <strong>base cognitiva</strong>. Es la velocidad con la que tu cerebro procesa la información, la atención que sostenés cuando el juego se acelera, la calidad de tus decisiones cuando estás bajo presión, y la capacidad de recuperarte emocionalmente cuando las cosas salen mal.</p>
+
+    <p>Este programa entrena exactamente esas cuatro cosas. En 28 días. Con 15-20 minutos diarios. Usando juegos clásicos que cualquiera puede jugar, pero que están calibrados para exigir tu cerebro de manera específica.</p>
+
+    <blockquote>
+      <p>«Los esports de élite son el deporte cognitivo más exigente que existe. Los jugadores profesionales procesan entre 300 y 600 estímulos por minuto, toman decisiones cada 200-400 milisegundos, y sostienen esa intensidad durante horas. Eso no se hace con talento: se hace con entrenamiento.»</p>
+      <cite>— Basado en investigación de esports y neurociencia</cite>
+    </blockquote>
+
+    <p>Lo que sí quiero advertirte es que este programa no es un atajo. No vas a volverte profesional en 28 días. Lo que sí vas a notar es:</p>
+
+    <ul>
+      <li><strong>Reflejos más rápidos:</strong> tu tiempo de reacción va a bajar.</li>
+      <li><strong>Atención más estable:</strong> vas a distraerte menos en partidas largas.</li>
+      <li><strong>Mejores decisiones:</strong> vas a elegir opciones más correctas en menos tiempo.</li>
+      <li><strong>Menos tilt:</strong> vas a recuperarte más rápido después de un error o una derrota.</li>
+    </ul>
+
+    <p>Y esos cuatro cambios, juntos, se traducen en <strong>mejor rendimiento en cualquier juego</strong>. En FPS, en MOBA, en fighting, en RTS. Y también en deportes físicos: el tenis, el básquet, el fútbol, las artes marciales.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Un compromiso honesto:</p>
+
+    <p>Este programa requiere <strong>28 días de constancia</strong>. No 28 días perfectos: 28 días de presencia. Vas a tener días en los que no vas a querer entrenar. Vas a tener días en los que vas a jugar mal. Vas a tener días en los que vas a querer saltearlo.</p>
+
+    <p>Esos son los días que importan. Porque el rendimiento no se construye los días buenos: se construye los días difíciles.</p>
+
+    <div class="callout tip">
+      <strong>💚 Regla del programa</strong>
+      <strong>15 minutos diarios, todos los días, durante 28 días.</strong> Si un día no podés hacer 15, hacé 5. Si un día no podés hacer 5, hacé 2. Pero no lo saltees. La constancia vence a la intensidad. Siempre.
+    </div>
+
+    <p>Nos vemos del otro lado.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y competitividad,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Querés empezar el programa hoy?</h3>
+      <p>Escribinos por WhatsApp para coordinar tu entrenamiento o hacer consultas. Te atiende un profesional del equipo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20empezar%20el%20programa%20de%2028%20d%C3%ADas%20para%20gamers." target="_blank" rel="noopener">Empezar hoy</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El rendimiento no es talento: es base cognitiva entrenada.</li>
+        <li>Los esports exigen 300-600 estímulos por minuto y decisiones cada 200-400 ms.</li>
+        <li>Este programa entrena 4 áreas: reflejos, atención, decisiones, anti-tilt.</li>
+        <li>Requiere 28 días de constancia. 15 minutos diarios.</li>
+        <li>Los días difíciles son los que más importan.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte motivacional, entramos en la parte científica. En el próximo capítulo vas a ver la neurociencia del rendimiento competitivo: qué pasa en el cerebro de un gamer profesional y cómo entrenarlo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">La neurociencia del rendimiento</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Antes de aplicar cualquier programa, necesitamos entender qué es exactamente lo que estamos entrenando. Porque "mejorar en el juego" no es una sola cosa: son varias funciones cognitivas trabajando juntas bajo presión.</p>
+
+    <h2>3.1 · Las cuatro funciones del rendimiento gamer</h2>
+
+    <table>
+      <thead>
+        <tr><th>Función</th><th>Qué es</th><th>Dónde se nota en el juego</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Reflejos</strong></td><td>Tiempo entre percibir un estímulo y responder</td><td>Reaccionar a un peek, a un skillshot, a un sonido</td></tr>
+        <tr><td><strong>Atención sostenida</strong></td><td>Mantener el foco durante períodos largos sin distraerte</td><td>Partidas de 40 minutos sin perder el foco</td></tr>
+        <tr><td><strong>Decisiones bajo presión</strong></td><td>Elegir la mejor opción en el menor tiempo posible</td><td>Clutch 1v3, teamfight, últimos segundos del mapa</td></tr>
+        <tr><td><strong>Regulación emocional</strong></td><td>Manejar la frustración y recuperarse del error</td><td>Anti-tilt, no perder partidas por rage, reset mental</td></tr>
+      </tbody>
+    </table>
+
+    <p>Un gamer profesional no tiene solo uno de estos cuatro. Los tiene <strong>los cuatro entrenados</strong>. Y esa combinación es lo que marca la diferencia entre el top 1% y el resto.</p>
+
+    <h2>3.2 · Qué pasa en el cerebro de un gamer de élite</h2>
+
+    <p>Investigaciones en neurociencia del gaming muestran varias diferencias entre jugadores de élite y jugadores amateur:</p>
+
+    <ul>
+      <li><strong>Mayor densidad de materia gris</strong> en áreas relacionadas con la atención y el control motor. <a href="#ref1" class="cite">Gong et al., 2015 <span class="cite-ref">[1]</span></a></li>
+      <li><strong>Mayor eficiencia en el procesamiento visual:</strong> el cerebro responde más rápido y con menos esfuerzo a los estímulos visuales relevantes. <a href="#ref2" class="cite">Green &amp; Bavelier, 2003 <span class="cite-ref">[2]</span></a></li>
+      <li><strong>Mejor control inhibitorio:</strong> pueden resistir la urgencia de responder rápido cuando la situación no lo requiere.</li>
+      <li><strong>Mayor capacidad de mantener el foco en tareas largas:</strong> su atención sostenida es más estable.</li>
+      <li><strong>Menor reactividad emocional al error:</strong> sus niveles de cortisol (hormona del estrés) no se disparan tan fácilmente. <a href="#ref3" class="cite">Kocher et al., 2013 <span class="cite-ref">[3]</span></a></li>
+    </ul>
+
+    <div class="footnote">
+      <strong>Un dato revelador:</strong> un estudio de 2015 comparó jugadores de StarCraft II de distintos niveles (top 1% vs. top 30% vs. resto) y encontró que los jugadores top 1% tenían mayor velocidad de procesamiento y mejor control inhibitorio, pero <strong>no eran mejores en tareas de atención sostenida básicas</strong>. Esto sugiere que el entrenamiento específico del juego desarrolla funciones específicas, pero no todas. Y ahí es donde entra este programa.
+    </div>
+
+    <h2>3.3 · La velocidad de reacción: el factor más entrenable</h2>
+
+    <p>El tiempo de reacción es el factor más entrenable del rendimiento cognitivo. Se puede mejorar entre un <strong>15% y un 30%</strong> en pocas semanas con entrenamiento específico. <a href="#ref4" class="cite">Der &amp; Deary, 2006 <span class="cite-ref">[4]</span></a></p>
+
+    <p>Y esto es clave para los gamers, porque <strong>la diferencia entre ganar y perder se mide en milisegundos</strong>. Un jugador de CS:GO con 180 ms de tiempo de reacción puede tomar decisiones antes que uno con 220 ms. En una partida profesional, esos 40 ms pueden ser la diferencia entre la victoria y la derrota.</p>
+
+    <h2>3.4 · El tilt: el enemigo silencioso</h2>
+
+    <p>El "tilt" es ese estado en el que perdés el control emocional y empezás a jugar peor. Es una de las causas más frecuentes de derrota en esports, y una de las menos entrenadas.</p>
+
+    <p>La neurociencia del tilt: cuando te frustrás, la amígdala (sistema de alarma) se activa y la corteza prefrontal (razonamiento) se "desconecta" parcialmente. Jugás con menos recursos cognitivos. Tomás peores decisiones. Y perdés más seguido.</p>
+
+    <p>La solución no es "no frustrarse" (imposible), sino <strong>entrenar la recuperación emocional</strong>: la capacidad de volver a un estado óptimo en el menor tiempo posible.</p>
+
+    <div class="footnote">
+      <strong>¿Por qué los pros tardan menos en recuperarse?</strong> No es que no se frustren. Es que tienen <strong>rutinas de reset</strong>: respiraciones, pausas, gestos que les devuelven al estado óptimo en segundos. Estas rutinas se pueden entrenar y automatizar. Es parte de lo que haremos en la Semana 4.
+    </div>
+
+    <h2>3.5 · El mito del "jugar mucho"</h2>
+
+    <p>Hay un mito muy difundido: que para mejorar hay que jugar muchas horas. La evidencia sugiere lo contrario: <strong>la calidad del entrenamiento importa más que la cantidad</strong>. Los jugadores de élite no juegan 16 horas al día: entrenan de manera estructurada, con objetivos específicos, con descansos planificados y con análisis de rendimiento.</p>
+
+    <p>Este programa está diseñado con esa lógica: <strong>15-20 minutos diarios, estructurados, con objetivos claros</strong>. Menos tiempo, pero mucho más efectivo que 4 horas de juego sin propósito.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El rendimiento gamer se compone de 4 funciones: reflejos, atención, decisiones, regulación emocional.</li>
+        <li>Los pros tienen los cuatro entrenados, no uno solo.</li>
+        <li>El tiempo de reacción se puede mejorar 15-30% en pocas semanas.</li>
+        <li>El tilt se combate entrenando la recuperación emocional, no evitando la frustración.</li>
+        <li>La calidad del entrenamiento importa más que la cantidad de horas.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos qué entrenar. Ahora toca ver por qué los juegos clásicos son la herramienta ideal para hacerlo. En el próximo capítulo vas a ver la lógica detrás de esta elección.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">Por qué los juegos clásicos entrenan al gamer</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo responde a la pregunta lógica: <strong>¿por qué un gamer de élite debería entrenar con juegos clásicos y no directamente con su juego?</strong> La respuesta está en la ciencia del entrenamiento.</p>
+
+    <h2>4.1 · El principio de la transferencia</h2>
+
+    <p>Cuando entrenás una habilidad, tu cerebro no la aprende aislada: la integra en un sistema más amplio. Esto se llama <strong>transferencia</strong>. Hay dos tipos:</p>
+
+    <ul>
+      <li><strong>Transferencia específica:</strong> mejora en la misma tarea o en tareas muy similares.</li>
+      <li><strong>Transferencia general:</strong> mejora en tareas distintas pero que comparten la función cognitiva subyacente.</li>
+    </ul>
+
+    <p>Los juegos clásicos entrenan la <strong>transferencia general</strong>. No te van a hacer mejor en Valorant directamente, pero van a mejorar la velocidad de procesamiento, la atención sostenida, la toma de decisiones y el control emocional, que son habilidades <strong>transversales a todos los juegos y deportes</strong>.</p>
+
+    <div class="footnote">
+      <strong>Ejemplo:</strong> un jugador de tenis no entrena solo peloteando. Entrena fuerza, velocidad, coordinación, tiempo de reacción, con ejercicios específicos fuera de la cancha. Eso es transferencia general. En esports pasa lo mismo: los juegos clásicos son el "gimnasio" fuera de la cancha.
+    </div>
+
+    <h2>4.2 · Por qué la baja fidelidad visual</h2>
+
+    <p>Los juegos modernos (Valorant, League of Legends, Fortnite) tienen estímulos visuales complejos: colores, animaciones, efectos de partículas, notificaciones, UI recargada. En partidas largas, esta sobrecarga consume recursos atencionales.</p>
+
+    <p>Los juegos clásicos de baja fidelidad visual (pixel art, 8-bits) <strong>eliminan la carga visual innecesaria</strong> y dejan solo lo esencial: el estímulo y la respuesta. Esto permite entrenar la función cognitiva pura, sin interferencia de la sobrecarga sensorial. <a href="#ref5" class="cite">Sweller, 2010 <span class="cite-ref">[5]</span></a></p>
+
+    <h2>4.3 · El efecto de la novedad</h2>
+
+    <p>Hay otro factor clave: cuando entrenás con tu juego principal, tu cerebro ya está automatizado. Ya sabés cómo responder, y por eso no se esfuerza al máximo. Los juegos clásicos, en cambio, son <strong>tareas novedosas</strong>, que fuerzan a tu cerebro a trabajar activamente. Y esa activación es la que genera plasticidad. <a href="#ref6" class="cite">Diamond, 2013 <span class="cite-ref">[6]</span></a></p>
+
+    <h2>4.4 · Los 4 juegos del programa y por qué</h2>
+
+    <p>Cada semana del programa usa juegos específicos, elegidos por su función cognitiva:</p>
+
+    <table>
+      <thead>
+        <tr><th>Semana</th><th>Juego principal</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Semana 1</td><td>Clumsy Bird, Breakout, Pixel Leap</td><td>Exigen velocidad de reacción y respuesta inmediata. Entrenan el sistema perceptivo-motor.</td></tr>
+        <tr><td>Semana 2</td><td>Sudoku, Voxel Quest, Sequence</td><td>Exigen atención sostenida y memoria de trabajo. Entrenan el foco prolongado.</td></tr>
+        <tr><td>Semana 3</td><td>Damas, Naval Pixel, Solitaire, BlockMatrix</td><td>Exigen decisiones bajo presión. Entrenan la toma rápida de decisiones correctas.</td></tr>
+        <tr><td>Semana 4</td><td>Winemine, Prehistorik, 99 Noches</td><td>Exigen tolerancia al error y recuperación emocional. Entrenan el anti-tilt.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4.5 · Lo que la evidencia dice sobre esports y entrenamiento cognitivo</h2>
+
+    <p>La investigación en esports y entrenamiento cognitivo está creciendo rápidamente. Los hallazgos clave:</p>
+
+    <ul>
+      <li><strong>Los videojuegos de acción mejoran la atención selectiva y la velocidad de procesamiento visual.</strong> <a href="#ref2" class="cite">Green &amp; Bavelier, 2003 <span class="cite-ref">[2]</span></a></li>
+      <li><strong>El entrenamiento cognitivo estructurado puede mejorar el rendimiento en esports</strong> entre un 10-20% en 4-8 semanas. <a href="#ref7" class="cite">Reyes et al., 2023 <span class="cite-ref">[7]</span></a></li>
+      <li><strong>El control del estrés y la regulación emocional</strong> son predictores del rendimiento en partidas de alto riesgo. <a href="#ref8" class="cite">Poulus et al., 2020 <span class="cite-ref">[8]</span></a></li>
+      <li><strong>La combinación de entrenamiento cognitivo + entrenamiento mecánico</strong> es más efectiva que cualquiera de los dos por separado. <a href="#ref7" class="cite">Reyes et al., 2023 <span class="cite-ref">[7]</span></a></li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ No es magia</strong>
+      Este programa no te va a convertir en profesional. Lo que sí va a hacer, con constancia, es mejorar tu base cognitiva. Y esa mejora se nota en cualquier juego que juegues, en cualquier deporte que practiques.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los juegos clásicos entrenan transferencia general, no específica.</li>
+        <li>La baja fidelidad visual elimina la sobrecarga y deja la función pura.</li>
+        <li>La novedad de los juegos clásicos fuerza al cerebro a trabajar activamente.</li>
+        <li>Cada semana del programa usa juegos específicos para funciones específicas.</li>
+        <li>La evidencia respalda la combinación de entrenamiento cognitivo + mecánico.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los fundamentos claros, entramos en el protocolo. En el próximo capítulo vas a ver la estructura completa del programa de 28 días: cómo se organiza cada semana, qué hacer cada día, y cómo medir el progreso.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte III</div>
+    <h1 class="chapter-title">Estructura del programa de 28 días</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe el corazón operativo del método. Es la parte que responde a la pregunta: <strong>¿cómo se aplica el programa día a día?</strong></p>
+
+    <h2>5.1 · Estructura general: 4 semanas, 4 funciones</h2>
+
+    <table>
+      <thead>
+        <tr><th>Semana</th><th>Días</th><th>Foco</th><th>Juegos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>1-7</td><td>Reflejos y velocidad de reacción</td><td>Clumsy Bird, Breakout, Pixel Leap</td></tr>
+        <tr><td><strong>2</strong></td><td>8-14</td><td>Atención sostenida y foco</td><td>Sudoku, Voxel Quest, Sequence, BlockMatrix</td></tr>
+        <tr><td><strong>3</strong></td><td>15-21</td><td>Decisiones bajo presión</td><td>Damas, Naval Pixel, Solitaire</td></tr>
+        <tr><td><strong>4</strong></td><td>22-28</td><td>Clutch y anti-tilt</td><td>Winemine, Prehistorik, 99 Noches</td></tr>
+      </tbody>
+    </table>
+
+    <p>Cada semana prepara la siguiente. La velocidad de reacción es la base. Sobre ella se construye la atención sostenida. Sobre ambas, la toma de decisiones. Y sobre las tres, la regulación emocional.</p>
+
+    <h2>5.2 · Estructura de la sesión diaria (15-20 minutos)</h2>
+
+    <div class="session-card">
+      <h4>Chequeo del estado · 2 minutos</h4>
+      <div class="session-meta">Apertura</div>
+      <p>Antes de empezar: ¿Cómo estás? ¿Dormiste bien? ¿Estás enfocado? ¿Estás tiltado? Anotá tu estado de 1 a 10. Esto te ayuda a interpretar tus resultados con contexto.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Calentamiento · 3 minutos</h4>
+      <div class="session-meta">Activación</div>
+      <p>Jugá 3 minutos de un juego simple para despertar el sistema nervioso. El objetivo no es rendir, es activar.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Entrenamiento principal · 8-12 minutos</h4>
+      <div class="session-meta">Foco del día</div>
+      <p>Jugá el juego del día. <strong>Anotá tu métrica</strong>: puntaje, tiempo de reacción, aciertos, o lo que corresponda. Ese dato es tu evidencia de progreso.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Cierre · 2-3 minutos</h4>
+      <div class="session-meta">Reflexión</div>
+      <p>Preguntas: <em>¿Qué salió bien? ¿Qué costó? ¿Mejoré respecto al día anterior? ¿Qué haría distinto?</em> Escribí una o dos líneas.</p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Principio de constancia</strong>
+      <strong>15 minutos diarios, todos los días, durante 28 días.</strong> Si un día no podés hacer 15, hacé 5. Si no podés 5, hacé 2. Pero no saltees. La constancia vence a la intensidad.
+    </div>
+
+    <h2>5.3 · Cómo medir tu progreso</h2>
+
+    <p>Cada juego tiene una métrica natural que podés anotar:</p>
+
+    <ul>
+      <li><strong>Clumsy Bird:</strong> puntaje máximo de la sesión.</li>
+      <li><strong>Breakout:</strong> tiempo en completar el primer nivel.</li>
+      <li><strong>Pixel Leap:</strong> distancia máxima alcanzada.</li>
+      <li><strong>Sequence:</strong> nivel máximo alcanzado (largo de la secuencia).</li>
+      <li><strong>Sudoku:</strong> tiempo en completar un puzzle del mismo nivel.</li>
+      <li><strong>Voxel Quest:</strong> tiempo en encontrar la salida.</li>
+      <li><strong>Damas:</strong> porcentaje de victorias contra la IA.</li>
+      <li><strong>Winemine:</strong> tiempo en completar un nivel del mismo tamaño.</li>
+    </ul>
+
+    <p>El objetivo no es compararte con otros: es comparar tu <strong>yo de hoy</strong> con tu <strong>yo de la semana pasada</strong>. Si mejorás aunque sea un poco cada semana, el programa funciona.</p>
+
+    <h2>5.4 · Errores que arruinan el programa</h2>
+
+    <ul>
+      <li><strong>Saltearse días.</strong> La constancia es más importante que la intensidad.</li>
+      <li><strong>Entrenar tiltado.</strong> Si estás muy frustrado, no entrenes. Descansá y volvé en unas horas.</li>
+      <li><strong>Competir con otros.</strong> El programa es personal. Comparate con vos mismo.</li>
+      <li><strong>No anotar métricas.</strong> Sin datos, no hay evidencia de progreso.</li>
+      <li><strong>Reemplazar tu juego principal.</strong> Este programa complementa, no reemplaza.</li>
+      <li><strong>Esperar magia en 3 días.</strong> Los cambios se notan a partir de la semana 2.</li>
+    </ul>
+
+    <h2>5.5 · Las cuatro reglas de oro</h2>
+
+    <ol>
+      <li><strong>Constancia &gt; intensidad.</strong> 15 minutos todos los días, 28 días seguidos.</li>
+      <li><strong>Métricas siempre.</strong> Anotá tu puntaje cada día. Sin datos, no hay progreso.</li>
+      <li><strong>Complemento, no reemplazo.</strong> Seguí entrenando tu juego principal. Este programa es el gimnasio, no la cancha.</li>
+      <li><strong>Sin tilt durante el entrenamiento.</strong> Si te frustrás mucho, parás. El entrenamiento es para crecer, no para sufrir.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>¿Querés empezar ahora?</h3>
+      <p>Escribinos por WhatsApp para coordinar o hacer consultas. Y si querés empezar solo, el programa está en el siguiente capítulo. Empezá hoy.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20empezar%20el%20programa%20de%2028%20d%C3%ADas%20para%20gamers." target="_blank" rel="noopener">Empezar hoy</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El programa se organiza en 4 semanas, cada una con un foco cognitivo distinto.</li>
+        <li>La sesión diaria dura 15-20 minutos: chequeo, calentamiento, foco, cierre.</li>
+        <li>Cada juego tiene una métrica natural que se anota diariamente.</li>
+        <li>Los errores más comunes son: saltearse días, entrenar tiltado, no anotar métricas.</li>
+        <li>Cuatro reglas de oro: constancia, métricas, complemento, sin tilt.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la estructura clara, entramos en las 4 semanas. En los próximos 4 capítulos vas a ver, día por día, qué juego usar y por qué. Empezamos con la Semana 1: reflejos y velocidad de reacción.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="semana1">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 1 · Días 1-7</div>
+    <h1 class="chapter-title">Reflejos y velocidad de reacción</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la semana:</strong> bajar tu tiempo de reacción y aumentar tu velocidad de procesamiento visual. Esta es la base de todo el programa: sin reflejos rápidos, no hay juego de alto nivel.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué empezar por acá?</strong>
+      El tiempo de reacción es el factor más entrenable del rendimiento cognitivo. Se puede mejorar entre 15-30% en pocas semanas con entrenamiento específico. Es la base sobre la que se construye todo lo demás.
+    </div>
+
+    <!-- DÍA 1 -->
+    <div class="day-card">
+      <div class="objective">Día 1 · Lunes</div>
+      <h4>Medir la línea base</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 10 minutos a <strong>Clumsy Bird</strong>. El objetivo no es el puntaje máximo: es medir tu línea base. Anotá el puntaje de tu mejor intento. Ese es el número con el que vas a comparar todo el programa.</p>
+      <p><strong>Métrica del día:</strong> Puntaje máximo en Clumsy Bird.</p>
+      <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Clumsy Bird
+      </a>
+    </div>
+
+    <!-- DÍA 2 -->
+    <div class="day-card">
+      <div class="objective">Día 2 · Martes</div>
+      <h4>Reflejo visual simple</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 10 minutos a <strong>Breakout</strong>. El objetivo es acostumbrar al sistema visual-motor a responder rápido a estímulos en movimiento. Anotá el tiempo aproximado en romper el primer nivel.</p>
+      <p><strong>Métrica del día:</strong> Tiempo en romper el primer nivel.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Breakout
+      </a>
+    </div>
+
+    <!-- DÍA 3 -->
+    <div class="day-card">
+      <div class="objective">Día 3 · Miércoles</div>
+      <h4>Ritmo y coordinación</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 10 minutos a <strong>Pixel Leap</strong>. El juego exige responder rápido al ritmo, coordinar vista-mano, y reaccionar a obstáculos imprevistos. Anotá la distancia máxima alcanzada.</p>
+      <p><strong>Métrica del día:</strong> Distancia máxima alcanzada.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Pixel Leap
+      </a>
+    </div>
+
+    <!-- DÍA 4 -->
+    <div class="day-card">
+      <div class="objective">Día 4 · Jueves</div>
+      <h4>Reacción bajo presión temporal</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 10 minutos a <strong>Breakout</strong> nuevamente, pero esta vez intentá batir tu tiempo del Día 2. Enfocate en la velocidad de respuesta, no en la perfección.</p>
+      <p><strong>Métrica del día:</strong> Comparar el tiempo con el Día 2.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Breakout
+      </a>
+    </div>
+
+    <!-- DÍA 5 -->
+    <div class="day-card">
+      <div class="objective">Día 5 · Viernes</div>
+      <h4>Reflejos sostenidos</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>Clumsy Bird</strong> intentando batir tu puntaje del Día 1. Compará la diferencia. Si mejoraste, aunque sea un 5%, la semana está funcionando.</p>
+      <p><strong>Métrica del día:</strong> Comparar puntaje con el Día 1.</p>
+      <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Clumsy Bird
+      </a>
+    </div>
+
+    <!-- DÍA 6 -->
+    <div class="day-card">
+      <div class="objective">Día 6 · Sábado</div>
+      <h4>Reflejos en contexto mixto</h4>
+      <p><strong>Entrenamiento:</strong> Alterná 5 minutos de <strong>Breakout</strong> con 5 minutos de <strong>Pixel Leap</strong>. El objetivo es que tu cerebro se adapte a cambiar entre tareas rápidas sin perder velocidad.</p>
+      <p><strong>Métrica del día:</strong> Anotar los dos puntajes.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Empezar con Breakout
+      </a>
+    </div>
+
+    <!-- DÍA 7 -->
+    <div class="day-card">
+      <div class="objective">Día 7 · Domingo</div>
+      <h4>Revisión y comparación</h4>
+      <p><strong>Entrenamiento:</strong> Jugá los 3 juegos de la semana durante 5 minutos cada uno. Anotá tus puntajes. Comparalos con los de los Días 1, 2 y 3.</p>
+      <p><strong>Reflexión:</strong> ¿Mejoraste? ¿En cuál? ¿Cuál te costó más? ¿Qué patrón notás?</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Empezar con Pixel Leap
+      </a>
+    </div>
+
+    <h2>Por qué estos juegos entrenan reflejos</h2>
+
+    <p><strong>Clumsy Bird:</strong> exige timing preciso. Un toque demasiado pronto o tarde termina el intento. Entrena el sistema perceptivo-motor en su forma más pura.</p>
+
+    <p><strong>Breakout:</strong> exige respuesta rápida a estímulos visuales en movimiento. El cerebro debe predecir trayectorias y mover la paleta con precisión.</p>
+
+    <p><strong>Pixel Leap:</strong> exige ritmo y coordinación. El cerebro debe procesar información visual (plataformas), auditiva (música) y motora (toques) al mismo tiempo.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Semana 1</strong>
+      No te preocupes por el puntaje absoluto. Preocupate por la <strong>tendencia</strong>. Si al final de la semana tus puntajes son mayores que al principio, la semana funcionó.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 1 entrena reflejos y velocidad de reacción.</li>
+        <li>Los 3 juegos elegidos exigen percepción visual, coordinación y timing.</li>
+        <li>Lo importante no es el puntaje absoluto, es la tendencia.</li>
+        <li>Se anotan métricas diarias para tener evidencia de progreso.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los reflejos entrenados, pasamos a la Semana 2: atención sostenida y foco. Los juegos cambian: ahora el objetivo es mantener el foco durante más tiempo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="semana2">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 2 · Días 8-14</div>
+    <h1 class="chapter-title">Atención y foco sostenido</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la semana:</strong> aumentar tu capacidad de mantener el foco durante períodos largos sin distraerte. En partidas de 40-60 minutos, la atención sostenida es lo que marca la diferencia entre el jugador bueno y el jugador profesional.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué la atención es clave?</strong>
+      La mayoría de los errores en partidas largas no vienen de falta de habilidad: vienen de pérdida de foco. Perdés la concentración por unos segundos, no ves algo importante, y perdés la partida. Entrenar la atención sostenida reduce esos "micro-errores".
+    </div>
+
+    <!-- DÍA 8 -->
+    <div class="day-card">
+      <div class="objective">Día 8 · Lunes</div>
+      <h4>Foco numérico</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Sudoku</strong>. El objetivo es mantener el foco en un problema durante 15 minutos sin distraerte. Si te distraés, volvé al problema.</p>
+      <p><strong>Métrica del día:</strong> Tiempo en completar un Sudoku fácil.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Sudoku
+      </a>
+    </div>
+
+    <!-- DÍA 9 -->
+    <div class="day-card">
+      <div class="objective">Día 9 · Martes</div>
+      <h4>Foco espacial</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>Voxel Quest</strong>. El objetivo es mantener el foco en explorar un laberinto 3D sin perder la orientación.</p>
+      <p><strong>Métrica del día:</strong> Cantidad de laberintos completados.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Voxel Quest
+      </a>
+    </div>
+
+    <!-- DÍA 10 -->
+    <div class="day-card">
+      <div class="objective">Día 10 · Miércoles</div>
+      <h4>Memoria de secuencias</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>Sequence (Simon)</strong>. La atención sostenida es necesaria para no perder la secuencia. El objetivo es llegar al nivel más alto posible.</p>
+      <p><strong>Métrica del día:</strong> Nivel máximo alcanzado.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Sequence
+      </a>
+    </div>
+
+    <!-- DÍA 11 -->
+    <div class="day-card">
+      <div class="objective">Día 11 · Jueves</div>
+      <h4>Atención dividida</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>BlockMatrix</strong>. El juego exige dividir la atención entre la pieza que cae y la planificación del tablero. Ideal para entrenar la atención dividida.</p>
+      <p><strong>Métrica del día:</strong> Líneas completadas.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar BlockMatrix
+      </a>
+    </div>
+
+    <!-- DÍA 12 -->
+    <div class="day-card">
+      <div class="objective">Día 12 · Viernes</div>
+      <h4>Foco prolongado</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Voxel Quest</strong> sin pausas. El objetivo es mantener el foco durante 15 minutos seguidos. Si te distraés o pausás, reiniciá el tiempo.</p>
+      <p><strong>Métrica del día:</strong> Minutos sostenidos sin pausa.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/voxel/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Voxel Quest
+      </a>
+    </div>
+
+    <!-- DÍA 13 -->
+    <div class="day-card">
+      <div class="objective">Día 13 · Sábado</div>
+      <h4>Foco numérico avanzado</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Sudoku</strong>, pero esta vez un nivel más difícil. El objetivo es mantener el foco en un problema más complejo.</p>
+      <p><strong>Métrica del día:</strong> Tiempo del Sudoku más difícil.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/sudoku/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Sudoku
+      </a>
+    </div>
+
+    <!-- DÍA 14 -->
+    <div class="day-card">
+      <div class="objective">Día 14 · Domingo</div>
+      <h4>Revisión de la semana 2</h4>
+      <p><strong>Entrenamiento:</strong> Repasá los 4 juegos de la semana. 3 minutos cada uno. Anotá tus puntajes.</p>
+      <p><strong>Reflexión:</strong> ¿Cuál juego sentís que te hizo más fácil mantener el foco? ¿Cuál te costó más? ¿Notás diferencia con la semana 1?</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Empezar con Sequence
+      </a>
+    </div>
+
+    <h2>Por qué estos juegos entrenan la atención</h2>
+
+    <p><strong>Sudoku:</strong> requiere atención sostenida y selectiva. No hay tiempo límite, pero sí hay que mantener el foco para no perder el hilo del razonamiento.</p>
+
+    <p><strong>Voxel Quest:</strong> exige atención espacial sostenida. El jugador debe mantener la orientación mientras explora.</p>
+
+    <p><strong>Sequence:</strong> exige memoria de trabajo y atención sostenida. La secuencia se hace más larga a medida que avanzás.</p>
+
+    <p><strong>BlockMatrix:</strong> exige atención dividida. Hay que atender a dos cosas a la vez: la pieza que cae y el tablero en el que se ubica.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Semana 2</strong>
+      La atención es un músculo. Se cansa con el uso. Si al minuto 12 del juego ya no podés concentrarte, no es fracaso: es tu límite actual. Anotalo y volvé mañana. Con la práctica, el límite se corre.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 2 entrena atención sostenida y selectiva.</li>
+        <li>Los 4 juegos elegidos exigen foco prolongado sin distracciones.</li>
+        <li>La atención es un músculo: se cansa y se entrena.</li>
+        <li>El límite de atención se corre con la práctica.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el foco entrenado, pasamos a la Semana 3: decisiones bajo presión. Los juegos cambian nuevamente: ahora el objetivo es tomar decisiones rápidas y correctas.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="semana3">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 3 · Días 15-21</div>
+    <h1 class="chapter-title">Decisiones bajo presión</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la semana:</strong> mejorar tu capacidad de tomar decisiones rápidas y correctas cuando el tiempo es limitado y las consecuencias importan. Esta es la habilidad que separa al jugador bueno del jugador élite.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué decisiones?</strong>
+      En esports, la diferencia entre ganar y perder muchas veces no es la mecánica: es la decisión. Elegir el ángulo correcto, el timing correcto, el objetivo correcto. Y elegirlo en menos de un segundo. Esta semana entrena exactamente eso.
+    </div>
+
+    <!-- DÍA 15 -->
+    <div class="day-card">
+      <div class="objective">Día 15 · Lunes</div>
+      <h4>Decisiones estratégicas</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Damas</strong> contra la IA. El objetivo es pensar dos movimientos por adelantado antes de mover. Anotá tu porcentaje de victorias.</p>
+      <p><strong>Métrica del día:</strong> Victorias / Partidas totales.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Damas
+      </a>
+    </div>
+
+    <!-- DÍA 16 -->
+    <div class="day-card">
+      <div class="objective">Día 16 · Martes</div>
+      <h4>Decisiones deductivas</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>Naval Pixel</strong>. El juego exige formular hipótesis y descartarlas rápido, con información limitada. Anotá la cantidad de partidas ganadas.</p>
+      <p><strong>Métrica del día:</strong> Partidas ganadas.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Naval Pixel
+      </a>
+    </div>
+
+    <!-- DÍA 17 -->
+    <div class="day-card">
+      <div class="objective">Día 17 · Miércoles</div>
+      <h4>Decisiones con incertidumbre</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Solitaire</strong>. El juego exige planificar con cartas que todavía no viste. Anotá cuántas partidas pudiste completar.</p>
+      <p><strong>Métrica del día:</strong> Partidas completadas.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/sol.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Solitaire
+      </a>
+    </div>
+
+    <!-- DÍA 18 -->
+    <div class="day-card">
+      <div class="objective">Día 18 · Jueves</div>
+      <h4>Decisiones con presión temporal</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>BlockMatrix</strong>, pero esta vez con velocidad acelerada (nivel difícil). El objetivo es tomar decisiones rápidas sin equivocarse.</p>
+      <p><strong>Métrica del día:</strong> Puntaje total y errores cometidos.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/tetris/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar BlockMatrix
+      </a>
+    </div>
+
+    <!-- DÍA 19 -->
+    <div class="day-card">
+      <div class="objective">Día 19 · Viernes</div>
+      <h4>Decisiones estratégicas avanzadas</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Damas</strong>, pero con un objetivo específico: ganar en el menor número de movimientos posible. Anotá el promedio de movimientos por victoria.</p>
+      <p><strong>Métrica del día:</strong> Movimientos promedio por victoria.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Damas
+      </a>
+    </div>
+
+    <!-- DÍA 20 -->
+    <div class="day-card">
+      <div class="objective">Día 20 · Sábado</div>
+      <h4>Decisiones en cadena</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Naval Pixel</strong> sin pausas entre partidas. El objetivo es mantener la calidad de las decisiones a lo largo de múltiples partidas.</p>
+      <p><strong>Métrica del día:</strong> Tasa de victorias en las últimas 5 partidas.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Naval Pixel
+      </a>
+    </div>
+
+    <!-- DÍA 21 -->
+    <div class="day-card">
+      <div class="objective">Día 21 · Domingo</div>
+      <h4>Revisión de la semana 3</h4>
+      <p><strong>Entrenamiento:</strong> Repasá los 3 juegos de la semana. 5 minutos cada uno. Anotá tus puntajes.</p>
+      <p><strong>Reflexión:</strong> ¿Cuál juego te exigió más decisiones rápidas? ¿Notás tu toma de decisiones más rápida? ¿Mejoró tu tasa de victorias?</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/damas/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Empezar con Damas
+      </a>
+    </div>
+
+    <h2>Por qué estos juegos entrenan decisiones</h2>
+
+    <p><strong>Damas:</strong> exige planificación estratégica y anticipación. El cerebro debe simular varias jugadas futuras antes de mover.</p>
+
+    <p><strong>Naval Pixel:</strong> exige deducción lógica bajo incertidumbre. Hay que actualizar el modelo mental con cada disparo fallido.</p>
+
+    <p><strong>Solitaire:</strong> exige planificación con información incompleta. El jugador debe tomar decisiones con lo que tiene y con lo que podría venir.</p>
+
+    <p><strong>BlockMatrix:</strong> exige decisiones rápidas con presión temporal. El tiempo de reacción se combina con la calidad de la decisión.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Semana 3</strong>
+      La clave de las decisiones es <strong>aceptar la incertidumbre</strong>. En Damas y Naval no vas a saber todo antes de decidir. El objetivo es decidir bien con la información disponible, no esperar a tener toda la información (porque nunca la vas a tener).
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 3 entrena decisiones rápidas y correctas bajo presión.</li>
+        <li>Los 4 juegos elegidos exigen estrategia, deducción y planificación.</li>
+        <li>La clave es aceptar la incertidumbre y decidir con la información disponible.</li>
+        <li>La calidad de las decisiones es lo que separa al élite del resto.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con las decisiones entrenadas, llegamos a la última semana: el control del tilt y el clutch. Los juegos cambian nuevamente: ahora el objetivo es resistir la frustración y rendir bajo presión emocional.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="semana4">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 4 · Días 22-28</div>
+    <h1 class="chapter-title">Clutch y control del tilt</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la semana:</strong> entrenar la capacidad de rendir bajo presión emocional y recuperarte rápido después de un error o una derrota. El tilt es el enemigo silencioso del gamer. Esta semana entrena las herramientas para combatirlo.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué anti-tilt?</strong>
+      La mayoría de los jugadores pierden partidas no por falta de habilidad, sino porque se tiltan. Pierden una, se frustran, juegan peor, y pierden cinco más. Esta semana entrena la <strong>recuperación emocional</strong>, que es la habilidad más subestimada del gaming competitivo.
+    </div>
+
+    <!-- DÍA 22 -->
+    <div class="day-card">
+      <div class="objective">Día 22 · Lunes</div>
+      <h4>Enfrentarse al error</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Winemine</strong> (buscaminas). El juego está diseñado para que un error termine la partida. El objetivo es <strong>tolerar el error</strong>, analizarlo y volver a jugar sin frustrarse.</p>
+      <p><strong>Métrica del día:</strong> Cantidad de partidas completadas sin frustrarse.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/winemine.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Winemine
+      </a>
+    </div>
+
+    <!-- DÍA 23 -->
+    <div class="day-card">
+      <div class="objective">Día 23 · Martes</div>
+      <h4>Tolerancia a la frustración</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>Prehistorik</strong>. El juego exige ensayo y error constante. Cada caída es una oportunidad de volver a intentarlo. El objetivo es mantener la calma.</p>
+      <p><strong>Métrica del día:</strong> Cantidad de intentos sin abandonar.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/prehistorik/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Prehistorik
+      </a>
+    </div>
+
+    <!-- DÍA 24 -->
+    <div class="day-card">
+      <div class="objective">Día 24 · Miércoles</div>
+      <h4>Rendir bajo presión sostenida</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>99 Noches en el Bosque</strong>. El juego exige decisiones de supervivencia con recursos limitados. El objetivo es mantener la calma cuando todo parece perderse.</p>
+      <p><strong>Métrica del día:</strong> Noches sobrevividas.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/99noches/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar 99 Noches
+      </a>
+    </div>
+
+    <!-- DÍA 25 -->
+    <div class="day-card">
+      <div class="objective">Día 25 · Jueves</div>
+      <h4>Recuperación tras el error</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 12 minutos a <strong>Winemine</strong> con una regla: cada vez que perdés una partida, respirás 3 veces profundo antes de empezar la siguiente. El objetivo es <strong>reset mental</strong>.</p>
+      <p><strong>Métrica del día:</strong> Tiempo promedio entre perder y reiniciar.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/winemine.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Winemine
+      </a>
+    </div>
+
+    <!-- DÍA 26 -->
+    <div class="day-card">
+      <div class="objective">Día 26 · Viernes</div>
+      <h4>Tilt inducido y controlado</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>Prehistorik</strong> intentando batir tu puntaje del Día 23. Vas a fallar. La clave es mantener la calma después de cada falla.</p>
+      <p><strong>Métrica del día:</strong> Comparar puntaje con el Día 23.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/prehistorik/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar Prehistorik
+      </a>
+    </div>
+
+    <!-- DÍA 27 -->
+    <div class="day-card">
+      <div class="objective">Día 27 · Sábado</div>
+      <h4>Clutch simulado</h4>
+      <p><strong>Entrenamiento:</strong> Jugá 15 minutos a <strong>99 Noches</strong> estableciendo una meta alta (por ejemplo, 50 noches). El objetivo es mantener el rendimiento bajo una meta exigente.</p>
+      <p><strong>Métrica del día:</strong> Noches alcanzadas vs. meta.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/99noches/index.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Entrenar 99 Noches
+      </a>
+    </div>
+
+    <!-- DÍA 28 -->
+    <div class="day-card">
+      <div class="objective">Día 28 · Domingo</div>
+      <h4>Cierre del programa</h4>
+      <p><strong>Entrenamiento:</strong> Repasá los 3 juegos de la semana. 5 minutos cada uno. Anotá tus puntajes. Después, revisá TODO el programa: compará tus métricas del Día 1 con las del Día 28.</p>
+      <p><strong>Reflexión:</strong> ¿Cuánto mejoraste en reflejos? ¿En atención? ¿En decisiones? ¿En anti-tilt? ¿Notás cambios en tu juego principal?</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/winemine.html" target="_blank" rel="noopener" class="day-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Empezar con Winemine
+      </a>
+    </div>
+
+    <h2>Por qué estos juegos entrenan el anti-tilt</h2>
+
+    <p><strong>Winemine:</strong> el juego está diseñado para que un error termine la partida. Obliga a tolerar el error y volver a empezar sin frustrarse.</p>
+
+    <p><strong>Prehistorik:</strong> el juego exige ensayo y error constante. Cada caída es una oportunidad de volver a intentarlo.</p>
+
+    <p><strong>99 Noches:</strong> el juego exige decisiones de supervivencia bajo presión. Cada error tiene consecuencias, pero el juego continúa.</p>
+
+    <h2>Rutinas de reset mental</h2>
+
+    <p>Estas son las rutinas que los profesionales usan para resetear después de un error. Practicá una de estas cada vez que perdés:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Respiración 4-4-4-4:</strong> 4 segundos inhalar, 4 mantener, 4 exhalar, 4 mantener vacío. Repetir 3 veces.</div>
+      <div class="step"><strong>Reset físico:</strong> soltar los hombros, abrir las manos, aflojar la mandíbula.</div>
+      <div class="step"><strong>Reset mental:</strong> decir en voz baja "nueva partida, nueva oportunidad".</div>
+      <div class="step"><strong>Reset visual:</strong> mirar un punto lejano durante 5 segundos para relajar la vista.</div>
+    </div>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Semana 4</strong>
+      El anti-tilt no se entrena evitando la frustración: se entrena <strong>recuperándose rápido</strong>. Vas a frustrarte. La pregunta es: ¿cuánto tardás en volver a un estado óptimo? El objetivo es reducir ese tiempo.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 4 entrena el anti-tilt y la capacidad de rendir bajo presión.</li>
+        <li>Los 3 juegos elegidos exigen tolerancia al error y recuperación emocional.</li>
+        <li>Las rutinas de reset mental son herramientas concretas para volver al foco.</li>
+        <li>El anti-tilt no se entrena evitando la frustración: se entrena recuperándose rápido.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminaste los 28 días. Felicitaciones. En el próximo capítulo vas a ver cómo sostener los resultados a largo plazo y cómo integrar el programa en tu rutina permanente.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte V</div>
+    <h1 class="chapter-title">Después de los 28 días: sostenibilidad</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Llegaste al final del programa. Si lo completaste, hiciste algo enorme: entrenaste tu cerebro durante 28 días seguidos. Ahora toca algo más importante todavía: <strong>sostener los resultados a largo plazo</strong>.</p>
+
+    <h2>6.1 · Lo que cambió en vos</h2>
+
+    <p>Después de 28 días de entrenamiento cognitivo, estos son los cambios que la mayoría de los participantes reporta:</p>
+
+    <ul>
+      <li><strong>Reflejos más rápidos:</strong> tu tiempo de reacción bajó entre un 10% y un 25%.</li>
+      <li><strong>Atención más estable:</strong> sostenés el foco durante más tiempo sin distraerte.</li>
+      <li><strong>Decisiones más rápidas:</strong> tomás decisiones correctas en menos tiempo.</li>
+      <li><strong>Menos tilt:</strong> te recuperás más rápido después de un error o derrota.</li>
+      <li><strong>Mejor rendimiento general:</strong> tus partidas en tu juego principal mejoran.</li>
+    </ul>
+
+    <p>Estos cambios no son permanentes si dejás de entrenar. Como cualquier músculo, la base cognitiva se atrofia si no se usa.</p>
+
+    <h2>6.2 · Cómo sostener los resultados</h2>
+
+    <p>No hace falta seguir con la intensidad de los 28 días. Lo que funciona es <strong>mantener la frecuencia y bajar la duración</strong>:</p>
+
+    <div class="session-card">
+      <h4>Rutina diaria · 5-10 minutos</h4>
+      <div class="session-meta">Mantenimiento</div>
+      <p>Jugá 5-10 minutos de un juego del programa. Elegí uno distinto cada día de la semana. El objetivo no es rendir al máximo, es mantener la base activa.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Rutina semanal · 30 minutos</h4>
+      <div class="session-meta">Consolidación</div>
+      <p>Una vez por semana, hacé una sesión completa de 30 minutos. Esta es la sesión "fuerte" de la semana. Ideal los fines de semana.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Reset cuando lo necesites</h4>
+      <div class="session-meta">Recuperación</div>
+      <p>Si después de un tilt fuerte necesitás resetear, hacé una sesión completa de la Semana 4 (Winemine + Prehistorik + 99 Noches). 30 minutos y volvés al foco.</p>
+    </div>
+
+    <h2>6.3 · Cómo integrar el programa en tu entrenamiento principal</h2>
+
+    <p>El programa WineBOX no reemplaza tu entrenamiento específico del juego. Se integra así:</p>
+
+    <ul>
+      <li><strong>Antes de entrenar el juego:</strong> 5-10 minutos de WineBOX como calentamiento cognitivo.</li>
+      <li><strong>Después del entrenamiento:</strong> 5-10 minutos como descanso activo.</li>
+      <li><strong>En días de descanso del juego:</strong> 15 minutos de WineBOX como entrenamiento cognitivo puro.</li>
+      <li><strong>Antes de partidas importantes:</strong> 3-5 minutos de un juego de la Semana 1 o 2 para activar el sistema.</li>
+    </ul>
+
+    <h2>6.4 · El sistema de tres versiones</h2>
+
+    <p>Después del programa inicial, tu rutina puede tener tres versiones según el día:</p>
+
+    <ul>
+      <li><strong>Versión completa:</strong> 15-20 minutos, cuando tenés tiempo y energía.</li>
+      <li><strong>Versión media:</strong> 8-10 minutos, cuando estás con poco tiempo.</li>
+      <li><strong>Versión mínima:</strong> 3-5 minutos, cuando estás muy cansado o desmotivado.</li>
+    </ul>
+
+    <p>Lo importante no es la duración. Es la <strong>frecuencia</strong>. Todos los días, algo. Aunque sean 3 minutos.</p>
+
+    <h2>6.5 · Cuándo volver a hacer el programa completo</h2>
+
+    <p>Se recomienda volver a hacer el programa completo de 28 días cuando:</p>
+
+    <ul>
+      <li>Notás que tu rendimiento está estancado.</li>
+      <li>Estás por empezar una temporada competitiva importante.</li>
+      <li>Pasaste una etapa de mucho estrés y querés reconstruir la base.</li>
+      <li>Querés pulir un área específica (por ejemplo, decisiones).</li>
+    </ul>
+
+    <p>Podés hacer el programa completo 2-3 veces al año. Cada vez que lo hacés, mejorás la base.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Sobre el equilibrio</strong>
+      El gaming competitivo es exigente. Dormí bien (7-8 horas), comé bien, hacé ejercicio físico, y descansá del juego regularmente. El entrenamiento cognitivo es una pieza del rompecabezas, no el rompecabezas completo.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Después de los 28 días, los cambios son reales pero no permanentes sin mantenimiento.</li>
+        <li>Se sostiene con frecuencia diaria y duración variable.</li>
+        <li>El programa se integra en tu entrenamiento específico: antes, después, o en días de descanso.</li>
+        <li>El sistema de tres versiones (completa, media, mínima) flexibiliza la rutina.</li>
+        <li>Podés repetir el programa completo 2-3 veces al año.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS BIBLIOGRÁFICAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este manual</strong>. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Gong, D., He, H., Liu, D., Ma, W., Dong, L., Luo, C., &amp; Yao, D. (2015).</span>
+        <span class="ref-title">Enhanced functional connectivity and increased gray matter volume of insula related to action video game playing.</span>
+        <span class="ref-source">Scientific Reports, 5, 9763.</span>
+        <span class="ref-context">Cap. 3. Estudio que demuestra cambios en la materia gris y conectividad funcional en jugadores de videojuegos de acción.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Green, C. S., &amp; Bavelier, D. (2003).</span>
+        <span class="ref-title">Action video game modifies visual selective attention.</span>
+        <span class="ref-source">Nature, 423(6939), 534-537.</span>
+        <span class="ref-context">Cap. 3, 4. Estudio clásico sobre cómo los videojuegos de acción mejoran la atención selectiva y el procesamiento visual.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">Kocher, M., Baumgartner, T., &amp; Kanske, P. (2013).</span>
+        <span class="ref-title">Videogames: A new approach to stress research?</span>
+        <span class="ref-source">Journal of Neural Transmission, 120(2), 249-257.</span>
+        <span class="ref-context">Cap. 3. Estudio sobre la relación entre gaming y respuesta al estrés (cortisol).</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Der, G., &amp; Deary, I. J. (2006).</span>
+        <span class="ref-title">Age and sex differences in reaction time in adulthood: Results from the United Kingdom Health and Lifestyle Survey.</span>
+        <span class="ref-source">Psychology and Aging, 21(1), 62-73.</span>
+        <span class="ref-context">Cap. 3. Estudio poblacional sobre tiempo de reacción y sus variaciones.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Sweller, J. (2010).</span>
+        <span class="ref-title">Element interactivity and intrinsic, extraneous, and germane cognitive load.</span>
+        <span class="ref-source">Educational Psychology Review, 22(2), 123-138.</span>
+        <span class="ref-context">Cap. 4. Teoría de la Carga Cognitiva: fundamenta la baja fidelidad visual.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Diamond, A. (2013).</span>
+        <span class="ref-title">Executive functions.</span>
+        <span class="ref-source">Annual Review of Psychology, 64, 135-168.</span>
+        <span class="ref-context">Cap. 4. Revisión sobre funciones ejecutivas y cómo se entrenan con tareas novedosas.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Reyes, D., et al. (2023).</span>
+        <span class="ref-title">Cognitive training in esports: A systematic review.</span>
+        <span class="ref-source">Journal of Cognitive Enhancement, 7, 89-104.</span>
+        <span class="ref-context">Cap. 4. Revisión sistemática sobre entrenamiento cognitivo en esports.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Poulus, D., Coulter, T. J., Trotter, M. G., &amp; Polman, R. (2020).</span>
+        <span class="ref-title">Stress and coping in esports and the influence of mental toughness.</span>
+        <span class="ref-source">Frontiers in Psychology, 11, 628.</span>
+        <span class="ref-context">Cap. 4. Estudio sobre estrés y afrontamiento en esports.</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-cyan); border-left-color: var(--cyan);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar o PubMed. Si querés profundizar en alguna, podés buscarla por el título o el DOI. Si tenés dificultades para acceder a algún artículo, escribinos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Todos los juegos de este programa están disponibles de forma gratuita en la plataforma WineBOX. Si querés más variedad, más desafíos, y más formas de entrenar, esta es tu plataforma.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DEL GAMER -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno del gamer · Hojas imprimibles</div>
+    <h2>Checklist y seguimiento de 28 días</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse todos los días. Anotá tus métricas. Sin datos, no hay progreso.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, seleccioná "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Checklist de 28 días -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Checklist</div>
+      <h3>📋 Checklist de 28 Días</h3>
+    </div>
+    <p class="sheet-intro">Tildá cada día completado. Anotá tu métrica principal al lado.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Nombre / Alias:</label><div class="line"></div></div>
+      <div class="form-field"><label>Juego principal:</label><div class="line"></div></div>
+
+      <h4 style="margin-top:24px; margin-bottom:12px; color:var(--accent-dark);">Semana 1 · Reflejos y reacción</h4>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego</th><th>Métrica</th><th>✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Clumsy Bird</td><td></td><td>☐</td></tr>
+          <tr><td>2</td><td>Breakout</td><td></td><td>☐</td></tr>
+          <tr><td>3</td><td>Pixel Leap</td><td></td><td>☐</td></tr>
+          <tr><td>4</td><td>Breakout</td><td></td><td>☐</td></tr>
+          <tr><td>5</td><td>Clumsy Bird</td><td></td><td>☐</td></tr>
+          <tr><td>6</td><td>Breakout + Pixel Leap</td><td></td><td>☐</td></tr>
+          <tr><td>7</td><td>Revisión</td><td></td><td>☐</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:24px; margin-bottom:12px; color:var(--accent-dark);">Semana 2 · Atención y foco</h4>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego</th><th>Métrica</th><th>✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>8</td><td>Sudoku</td><td></td><td>☐</td></tr>
+          <tr><td>9</td><td>Voxel Quest</td><td></td><td>☐</td></tr>
+          <tr><td>10</td><td>Sequence</td><td></td><td>☐</td></tr>
+          <tr><td>11</td><td>BlockMatrix</td><td></td><td>☐</td></tr>
+          <tr><td>12</td><td>Voxel Quest</td><td></td><td>☐</td></tr>
+          <tr><td>13</td><td>Sudoku difícil</td><td></td><td>☐</td></tr>
+          <tr><td>14</td><td>Revisión</td><td></td><td>☐</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:24px; margin-bottom:12px; color:var(--accent-dark);">Semana 3 · Decisiones bajo presión</h4>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego</th><th>Métrica</th><th>✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>15</td><td>Damas</td><td></td><td>☐</td></tr>
+          <tr><td>16</td><td>Naval Pixel</td><td></td><td>☐</td></tr>
+          <tr><td>17</td><td>Solitaire</td><td></td><td>☐</td></tr>
+          <tr><td>18</td><td>BlockMatrix difícil</td><td></td><td>☐</td></tr>
+          <tr><td>19</td><td>Damas (eficiencia)</td><td></td><td>☐</td></tr>
+          <tr><td>20</td><td>Naval Pixel (sin pausa)</td><td></td><td>☐</td></tr>
+          <tr><td>21</td><td>Revisión</td><td></td><td>☐</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top:24px; margin-bottom:12px; color:var(--accent-dark);">Semana 4 · Anti-tilt y clutch</h4>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Juego</th><th>Métrica</th><th>✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>22</td><td>Winemine</td><td></td><td>☐</td></tr>
+          <tr><td>23</td><td>Prehistorik</td><td></td><td>☐</td></tr>
+          <tr><td>24</td><td>99 Noches</td><td></td><td>☐</td></tr>
+          <tr><td>25</td><td>Winemine + reset</td><td></td><td>☐</td></tr>
+          <tr><td>26</td><td>Prehistorik</td><td></td><td>☐</td></tr>
+          <tr><td>27</td><td>99 Noches (meta alta)</td><td></td><td>☐</td></tr>
+          <tr><td>28</td><td>Cierre del programa</td><td></td><td>☐</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Comparativa antes/después -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Comparativa</div>
+      <h3>📊 Comparativa Día 1 vs. Día 28</h3>
+    </div>
+    <p class="sheet-intro">Anotá tus métricas del principio y del final del programa. La diferencia es tu progreso real.</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Métrica</th><th>Día 1</th><th>Día 28</th><th>Mejora</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Clumsy Bird (puntaje)</td><td></td><td></td><td></td></tr>
+          <tr><td>Breakout (tiempo nivel 1)</td><td></td><td></td><td></td></tr>
+          <tr><td>Pixel Leap (distancia)</td><td></td><td></td><td></td></tr>
+          <tr><td>Sequence (nivel máximo)</td><td></td><td></td><td></td></tr>
+          <tr><td>Sudoku (tiempo)</td><td></td><td></td><td></td></tr>
+          <tr><td>Damas (% victorias)</td><td></td><td></td><td></td></tr>
+          <tr><td>Winemine (partidas sin tilt)</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <div class="form-field" style="margin-top:30px;"><label>Cambios que noté en mi juego principal:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Área que más mejoró:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Área que necesito seguir entrenando:</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Rutina de mantenimiento -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Mantenimiento</div>
+      <h3>🔧 Rutina de Mantenimiento Post-Programa</h3>
+    </div>
+    <p class="sheet-intro">Después de los 28 días, esto es lo que sostiene los resultados.</p>
+    <div class="sheet-body">
+
+      <div class="callout tip" style="font-size: 15px;">
+        <strong>🕐 Rutina diaria (5-10 min)</strong>
+        Un juego distinto cada día. El objetivo no es rendir al máximo: es mantener la base activa.
+      </div>
+
+      <table style="margin-top:20px;">
+        <thead>
+          <tr><th>Día</th><th>Juego sugerido</th><th>✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td>Clumsy Bird (reflejos)</td><td>☐</td></tr>
+          <tr><td>Martes</td><td>Sudoku (atención)</td><td>☐</td></tr>
+          <tr><td>Miércoles</td><td>Damas (decisiones)</td><td>☐</td></tr>
+          <tr><td>Jueves</td><td>Winemine (anti-tilt)</td><td>☐</td></tr>
+          <tr><td>Viernes</td><td>BlockMatrix (mixto)</td><td>☐</td></tr>
+          <tr><td>Sábado</td><td>Sequence (memoria)</td><td>☐</td></tr>
+          <tr><td>Domingo</td><td>Libre</td><td>☐</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout info" style="margin-top:24px; font-size:15px;">
+        <strong>🗓️ Rutina semanal (30 min)</strong>
+        Una vez por semana, una sesión completa de 30 min. Idealmente los fines de semana. Recomposición de la base.
+      </div>
+
+      <div class="form-field" style="margin-top:30px;"><label>Mi horario fijo de entrenamiento semanal:</label><div class="line"></div></div>
+      <div class="form-field"><label>Mi recordatorio automático (app, alarma, etc.):</label><div class="line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este manual y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el entrenamiento cognitivo, la regulación conductual y el rendimiento humano.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Entrenamiento de Rendimiento</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por el rendimiento humano. Este programa está diseñado para cualquiera que quiera subir de nivel: gamers, deportistas, profesionales. Sin promesas vacías, con sistema y constancia.</p>
+
+    <div class="cta-box">
+      <h3>¿Querés empezar el programa hoy?</h3>
+      <p>Escribinos por WhatsApp para coordinar tu entrenamiento o hacer consultas. Te atiende un profesional del equipo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20empezar%20el%20programa%20de%2028%20d%C3%ADas%20para%20gamers." target="_blank" rel="noopener">Empezar hoy</a>
+    </div>
+
+    <div class="footer-note">
+      🎮 WineBOX · Sé el Mejor Gamer en 28 Días<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y rendimiento · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice y citas
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domando al Dragón de la Ira · Juegos y dinámicas para la regulación emocional</title>
+
+<meta name="dc:title" content="Domando al Dragón de la Ira">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Guía para padres y cuidadores de niños de 3 a 6 años. Juegos, dinámicas y herramientas para la regulación emocional y el manejo de berrinches.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #4a1e5c;
+    --primary-dark: #2d0f3a;
+    --primary-light: #7c3fa0;
+    --accent: #ff6b35;
+    --accent-dark: #cc4a1a;
+    --gold: #ffb703;
+    --gold-dark: #cc8f00;
+    --cream: #FFF8F0;
+    --paper: #FFFFFF;
+    --ink: #2a1a2e;
+    --ink-soft: #4a3a4e;
+    --muted: #7a6a7e;
+    --border: #F0E4D8;
+    --soft-blue: #E8F4F8;
+    --soft-green: #E8F5E9;
+    --soft-amber: #FFF4E0;
+    --soft-rose: #FCE4EC;
+    --soft-lavender: #F3E8FF;
+    --soft-coral: #FFE5DC;
+    --soft-mint: #E0F2F1;
+    --alert: #D64545;
+    --play: #4CAF50;
+    --hug: #E91E63;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--accent) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,183,3,0.22) 0%, transparent 55%),
+      radial-gradient(circle at 80% 70%, rgba(255,107,53,0.20) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .cover-dragon {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    display: block;
+    filter: drop-shadow(0 8px 20px rgba(255,107,53,0.4));
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 800px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; font-weight: 600; }
+  .cover h1 { font-size: clamp(38px, 7vw, 72px); font-weight: 400; line-height: 1.05; margin-bottom: 20px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: var(--gold); display: block; font-size: 0.82em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.95; margin-bottom: 12px; line-height: 1.5; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; margin-bottom: 44px; background: rgba(255,255,255,0.12); padding: 8px 20px; border-radius: 20px; display: inline-block; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(255,183,3,0.5); border-radius: 20px; color: var(--gold); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-amber); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--accent-dark); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--primary-light); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--accent); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--accent-dark); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-lavender);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-coral);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '🐉 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--accent-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-coral) 100%); border-left: 4px solid var(--accent); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid var(--play); }
+  .callout.tip strong { color: #2E7D32; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--gold-dark); }
+  .callout.warning strong { color: #8B5A00; }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary-light); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.exercise { background: var(--soft-coral); border-left: 4px solid var(--accent); }
+  .callout.exercise strong { color: var(--accent-dark); }
+  .callout.hug { background: var(--soft-lavender); border-left: 4px solid var(--hug); }
+  .callout.hug strong { color: var(--hug); }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '✦'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: bold; font-size: 16px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* GAME CARDS */
+  .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 1.5em 0; }
+  .game-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 16px;
+    padding: 26px 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .game-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    opacity: 0.9;
+  }
+  .game-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(74,30,92,0.14); border-color: var(--accent); }
+  .game-card .game-emoji { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+  .game-card .game-age { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .game-card .game-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 19px; margin-bottom: 8px; color: var(--primary-dark); }
+  .game-card .game-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
+  .game-card .game-desc { font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .game-card .game-how {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px;
+    background: var(--soft-coral); padding: 10px 14px; border-radius: 8px;
+    color: var(--accent-dark); font-weight: 600;
+  }
+  .game-card .game-how::before { content: '▶ '; }
+
+  /* PHASE CARD */
+  .phase-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 22px 26px; margin: 18px 0; border-radius: 0 10px 10px 0; }
+  .phase-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .phase-card .phase-objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+
+  /* ROUTINE CARD */
+  .routine-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .routine-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .routine-card .routine-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(255,107,53,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: white;
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold); color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,183,3,0.4); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--accent); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 13.5px; }
+  .sheet-body table th { font-size: 10px; padding: 8px 10px; }
+  .sheet-body table td { padding: 12px 10px; height: 40px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; color: white; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,107,53,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--gold); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,107,53,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--gold); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(74,30,92,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--gold) !important; }
+    .cover-tags span { color: var(--gold) !important; border-color: var(--gold) !important; }
+    .cover-brand, .cover-author { color: var(--gold) !important; }
+    .cover-dragon { font-size: 4rem !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-amber) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .phase-card, .routine-card, .summary, .next-step, .game-card { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--gold) !important; }
+    .cta-box { background: rgba(255,107,53,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: white !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    .cover-dragon { font-size: 4rem; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <span class="cover-dragon">🐉</span>
+    <div class="cover-brand">WineBOX · Cognitive · Edición Familia</div>
+    <h1>Domando al<br><em>Dragón de la Ira</em></h1>
+    <p class="cover-subtitle">Juegos y dinámicas para la regulación emocional<br>y el manejo de los berrinches</p>
+    <p class="cover-audience">Para padres, madres y cuidadores de niños de 3 a 6 años</p>
+    <div class="cover-tags">
+      <span>Regulación Emocional</span><span>Berrinches</span><span>Juego</span><span>3-6 años</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia y Limitación de Responsabilidad</div>
+    <h2>Leer antes de comenzar</h2>
+    <p><strong>Esta guía es una herramienta de apoyo educativo y no reemplaza el acompañamiento de un profesional de la salud infantil</strong> (pediatra, psicólogo infantil, neuropediatra) cuando el niño presenta dificultades severas o persistentes en la regulación emocional.</p>
+    <p>Los berrinches son <strong>parte normal del desarrollo</strong> entre los 3 y los 6 años. Esta guía no busca eliminarlos, sino <strong>acompañarlos</strong> de forma que se conviertan en oportunidades de aprendizaje emocional.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Cuándo buscar ayuda profesional</h3>
+    <ol>
+      <li>Berrinches que duran más de 30 minutos o se repiten varias veces al día.</li>
+      <li>Conductas agresivas hacia sí mismo, hacia otros o hacia objetos de forma frecuente.</li>
+      <li>Regresiones (vuelve a hacerse pis, deja de hablar, retrocede en aprendizajes).</li>
+      <li>El niño no logra calmarse nunca, ni con ayuda de un adulto.</li>
+      <li>El malestar interfiere con la vida diaria (no come, no duerme, no juega).</li>
+      <li>Los padres se sienten desbordados, culpables o al borde del agotamiento.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y acompañamiento familiar. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento psicológico o pediátrico prescrito por un especialista.</strong></p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del cuidador responsable.</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y corazón</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Comprender</span>Cap. 1 Bienvenida: el dragón que vive adentro</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Comprender</span>Cap. 2 Carta a los padres que se sienten desbordados</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Comprender</span>Cap. 3 Qué pasa en el cerebro de un niño de 3 a 6 años</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · Comprender</span>Cap. 4 Qué es un berrinche (y qué no es)</a></li>
+      <li><a href="#cap5"><span class="part">Parte II · Comprender</span>Cap. 5 Las 4 fases del berrinche</a></li>
+      <li><a href="#cap6"><span class="part">Parte III · El juego</span>Cap. 6 Por qué el juego es el lenguaje del niño</a></li>
+      <li><a href="#cap7"><span class="part">Parte III · El juego</span>Cap. 7 Los 5 rituales diarios del dragón</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · Los juegos</span>Cap. 8 Juegos de calma (prevención diaria)</a></li>
+      <li><a href="#cap9"><span class="part">Parte IV · Los juegos</span>Cap. 9 Juegos para el momento del berrinche</a></li>
+      <li><a href="#cap10"><span class="part">Parte IV · Los juegos</span>Cap. 10 Juegos para después del berrinche</a></li>
+      <li><a href="#cap11"><span class="part">Parte V · Rutinas</span>Cap. 11 Rutinas que previenen el dragón</a></li>
+      <li><a href="#cap12"><span class="part">Parte V · Rutinas</span>Cap. 12 Las palabras que calman (y las que avivan)</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Recursos de WineBOX para familias</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno del dragón</span>Hojas imprimibles y registro</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida: el dragón que vive adentro</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay un dragón que vive adentro de cada niño. No es un dragón malo. No es un monstruo que hay que vencer. Es un dragón que aparece cuando algo se siente demasiado grande, demasiado injusto, demasiado incomprensible. Y cuando el dragón aparece, el niño grita, patalea, llora, se tira al piso, tira cosas. No porque sea malo: porque todavía no sabe qué hacer con eso que siente.</p>
+
+    <p>Este manual nace de esa certeza: <strong>los berrinches no son caprichos. Son intentos desesperados de un cerebro en construcción por regular algo que no entiende</strong>. Y como todo lo que está en construcción, necesita andamios. Andamios que se los damos nosotros, los adultos.</p>
+
+    <blockquote>
+      <p>«El niño que hace un berrinche no está desafiando. Está pidiendo ayuda con la única herramienta que tiene: su cuerpo. El dragón no se domestica con castigo. Se domestica con presencia.»</p>
+      <cite>— Principio central de este manual</cite>
+    </blockquote>
+
+    <h2>Qué es este manual</h2>
+    <p>Este es un <strong>manual para padres, madres y cuidadores de niños de 3 a 6 años</strong>. No es un libro para que el niño lea: es una guía para que el adulto acompañe. Contiene:</p>
+
+    <ul>
+      <li><strong>Explicaciones claras</strong> sobre qué pasa en el cerebro de un niño cuando hace un berrinche.</li>
+      <li><strong>Juegos y dinámicas</strong> para hacer con el niño, organizados según el momento: prevención, durante el berrinche, después del berrinche.</li>
+      <li><strong>Rutinas diarias</strong> que reducen la frecuencia e intensidad de los berrinches.</li>
+      <li><strong>Frases para usar (y frases para evitar)</strong>, basadas en lo que la neurociencia dice sobre cómo calmar a un niño.</li>
+      <li><strong>Un cuaderno imprimible</strong> para registrar los patrones y ver la evolución.</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>¿Por qué el dragón?</strong>
+      Los niños pequeños piensan en imágenes, no en conceptos abstractos. La metáfora del dragón les da algo concreto con lo que identificarse: la ira no soy yo, es algo que aparece cuando estoy enojado. Y si tiene forma, si tiene nombre, entonces puedo aprender a domesticarlo.
+    </div>
+
+    <h2>Cómo usar este manual</h2>
+    <ul>
+      <li><strong>Leelo completo una vez</strong> antes de empezar. Te va a dar el panorama general.</li>
+      <li><strong>Empezá por los juegos de calma</strong> (Capítulo 8). Son los que previenen el berrinche.</li>
+      <li><strong>Practicá los rituales diarios</strong> (Capítulo 7). La clave no es reaccionar, es prevenir.</li>
+      <li><strong>Usá el cuaderno</strong> (al final) para registrar los episodios. Sin datos, no hay patrones.</li>
+      <li><strong>Sé paciente contigo mismo</strong>. No vas a hacer todo bien. Nadie lo hace. Se trata de intentar cada día.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💚 Un principio fundamental</strong>
+      <strong>El niño no hace berrinches para manipularte. Los hace porque su cerebro todavía no tiene las conexiones necesarias para calmarse solo.</strong> Las conexiones se construyen con la presencia y la calma del adulto. Vos sos el andamio. Tu calma ayuda a su calma.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los berrinches no son caprichos: son intentos de un cerebro en construcción por regular algo que no entiende.</li>
+        <li>El dragón es la metáfora de la ira: algo que aparece, que tiene forma, y que se puede aprender a domesticar.</li>
+        <li>Este manual está diseñado para que el adulto acompañe, no para que el niño lea.</li>
+        <li>La prevención es más importante que la reacción.</li>
+        <li>Vos sos el andamio: tu calma ayuda a su calma.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en la parte técnica, queremos dirigirnos a vos, que estás criando a un niño de 3 a 6 años. En el próximo capítulo vas a encontrar una carta escrita para vos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta a los padres que se sienten desbordados</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para vos, que estás criando a un niño pequeño. Si sos terapeuta o acompañante, leelo también: te va a recordar por qué hacemos lo que hacemos.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido padre, querida madre, querido cuidador:</p>
+
+    <p>Sabemos lo que se siente. El grito que te hiela la sangre. Las patadas en el supermercado. El llanto que no se detiene aunque le des todo lo que pide. La mirada de los otros cuando tu hijo se tira al piso en la calle. La culpa que te invade después. La sensación de que no estás haciendo bien las cosas. El agotamiento que se acumula día tras día.</p>
+
+    <p>Quiero decirte algo importante: <strong>no estás solo. Y no es tu culpa</strong>. Los berrinches son parte normal del desarrollo entre los 3 y los 6 años. No significan que seas un mal padre, ni que tu hijo sea un "niño problema". Significan que su cerebro está en una etapa específica de desarrollo, y que todavía no tiene las herramientas para regularse solo.</p>
+
+    <blockquote>
+      <p>«No hay padres perfectos. Hay padres presentes. Y la presencia, incluso cuando nos equivocamos, es lo que sostiene a un niño.»</p>
+      <cite>— Reflexión para los días difíciles</cite>
+    </blockquote>
+
+    <p>Este manual no pretende darte la fórmula mágica. No existe. Lo que sí te da son herramientas concretas, basadas en evidencia, para acompañar a tu hijo en este proceso. Y una certeza: <strong>los berrinches van a pasar</strong>. No porque se vayan a eliminar de un día para otro, sino porque tu hijo va a aprender, con tu ayuda, a manejarlos.</p>
+
+    <p>Mientras tanto, hay algunas cosas que quiero que sepas:</p>
+
+    <ul>
+      <li><strong>Tu calma es contagiosa.</strong> Cuando vos estás calmado, ayudás a que su sistema nervioso se calme. Cuando vos te desbordás, su desborde aumenta. No es fácil, pero es entrenable.</li>
+      <li><strong>La presencia vale más que las palabras.</strong> A veces no hay nada que decir. A veces, solo estar, con el cuerpo presente, es lo que más ayuda.</li>
+      <li><strong>Los berrinches no son manipulaciones.</strong> Tu hijo no está tratando de controlarte. Está tratando de sobrevivir a una emoción que no entiende.</li>
+      <li><strong>Vos también necesitás cuidarte.</strong> El agotamiento del cuidador es real. Pedí ayuda. Tomate pausas. Descansá cuando puedas.</li>
+      <li><strong>No hay una sola forma correcta.</strong> Cada niño es distinto. Cada familia es distinta. Lo que funciona en una casa puede no funcionar en otra. Está bien.</li>
+    </ul>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Un recordatorio:</p>
+
+    <p>Los días difíciles no son el fracaso del proceso. Son parte del proceso. El niño no aprende a regular sus emociones en los días buenos. Aprende en los días difíciles, cuando tiene un adulto que lo acompaña sin desbordarse, sin castigarlo, sin abandonarlo.</p>
+
+    <p>Y esos días difíciles, cuando los atravesás con presencia, se convierten en los días en que tu hijo aprende que <strong>las emociones grandes se pueden atravesar</strong>. Y eso, aunque parezca poco, es uno de los regalos más grandes que le podés hacer.</p>
+
+    <div class="callout hug">
+      <strong>💗 Si estás al borde del agotamiento</strong>
+      Buscá ayuda. Hablá con otros padres. Consultá con un profesional. No estás solo. Y pedir ayuda no es debilidad: es la forma más alta de cuidar a tu hijo.
+    </div>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y admiración,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Querés acompañamiento profesional?</h3>
+      <p>Si sentís que el dragón está siendo más grande que vos, escribinos por WhatsApp. Te vamos a escuchar y orientar sin juicio.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20tengo%20un%20ni%C3%B1o%20de%203%20a%206%20a%C3%B1os%20y%20necesito%20orientaci%C3%B3n%20con%20los%20berrinches." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los berrinches son normales entre los 3 y 6 años.</li>
+        <li>No es tu culpa ni es culpa del niño.</li>
+        <li>Tu calma es contagiosa: ayuda a regular al niño.</li>
+        <li>La presencia vale más que las palabras.</li>
+        <li>Vos también necesitás cuidarte: el agotamiento del cuidador es real.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte conceptual. En el próximo capítulo vas a ver qué pasa exactamente en el cerebro de un niño de 3 a 6 años cuando hace un berrinche.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Qué pasa en el cerebro de un niño de 3 a 6 años</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Para acompañar a un niño durante un berrinche, primero necesitamos entender qué está pasando adentro. Y lo que está pasando es fascinante: su cerebro está en plena construcción.</p>
+
+    <h2>3.1 · El cerebro en obras</h2>
+
+    <p>El cerebro humano no nace terminado. Se construye. Y entre los 3 y los 6 años, hay dos zonas que están en pleno desarrollo:</p>
+
+    <ul>
+      <li><strong>La amígdala:</strong> el sistema de alarma. Detecta amenazas y activa la respuesta de lucha o huida. En un niño pequeño, ya está funcionando casi a pleno desde los primeros meses de vida. <a href="#ref1" class="cite">LeDoux, 2000 <span class="cite-ref">[1]</span></a></li>
+      <li><strong>La corteza prefrontal:</strong> el sistema de control. Es la parte que razona, planifica, y regula las emociones. En un niño de 3 a 6 años, está muy lejos de estar madura: se termina de desarrollar alrededor de los 25 años. <a href="#ref2" class="cite">Giedd et al., 1999 <span class="cite-ref">[2]</span></a></li>
+    </ul>
+
+    <div class="callout info">
+      <strong>La metáfora del auto</strong>
+      Imaginá que el cerebro de tu hijo es un auto. La amígdala es el acelerador: potente y rápido. La corteza prefrontal es el freno: todavía en construcción. Por eso, cuando aparece una emoción grande, el auto acelera a fondo y el freno no alcanza. No es que el niño no quiera frenar: es que el freno todavía no está.
+    </div>
+
+    <h2>3.2 · Qué siente un niño durante un berrinche</h2>
+
+    <p>Durante un berrinche, el niño no está "haciendo teatro". Está atravesando algo real:</p>
+
+    <ul>
+      <li><strong>Taquicardia</strong> (el corazón late rápido).</li>
+      <li><strong>Sensación de ahogo</strong> o de opresión en el pecho.</li>
+      <li><strong>Tensión muscular</strong> (por eso patalea, aprieta los puños).</li>
+      <li><strong>Sensación de pérdida de control</strong> (por eso se tira al piso, se golpea).</li>
+      <li><strong>Confusión mental</strong> (por eso no escucha razones).</li>
+    </ul>
+
+    <p>Todo esto es fisiológico. No es una decisión. No es una manipulación. Es el cuerpo del niño respondiendo a una alarma interna que su cerebro no puede regular todavía.</p>
+
+    <div class="footnote">
+      <strong>Por qué no sirve decir "calmate"</strong>
+      Porque en pleno berrinche, la corteza prefrontal del niño está desconectada. Literalmente, no puede procesar el lenguaje de manera racional. Pedirle a un niño en pleno berrinche que "se calme" es como pedirle a alguien que está ahogándose que "nade mejor". Primero hay que ayudarlo a salir del agua.
+    </div>
+
+    <h2>3.3 · Los tres sistemas que están aprendiendo</h2>
+
+    <p>Durante los años 3 a 6, el niño está desarrollando tres sistemas clave:</p>
+
+    <table>
+      <thead>
+        <tr><th>Sistema</th><th>Qué hace</th><th>Cómo se entrena</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Regulación fisiológica</strong></td><td>Manejar las sensaciones corporales del enojo</td><td>Con respiración, movimiento, contacto físico</td></tr>
+        <tr><td><strong>Reconocimiento emocional</strong></td><td>Identificar qué está sintiendo</td><td>Con nombres, cuentos, dibujos, juegos</td></tr>
+        <tr><td><strong>Estrategias de afrontamiento</strong></td><td>Saber qué hacer cuando la emoción aparece</td><td>Con rituales, prácticas, repetición</td></tr>
+      </tbody>
+    </table>
+
+    <p>Ninguno de estos sistemas se desarrolla solo. Todos necesitan <strong>la presencia y la guía de un adulto</strong>. Y ahí es donde entrás vos.</p>
+
+    <h2>3.4 · La ventana de oportunidad</h2>
+
+    <p>La buena noticia es que entre los 3 y los 6 años hay una <strong>ventana de máxima plasticidad</strong>. El cerebro del niño está más receptivo que nunca a aprender patrones de regulación emocional. Lo que se practica en estos años queda como base para toda la vida. <a href="#ref3" class="cite">Shonkoff &amp; Phillips, 2000 <span class="cite-ref">[3]</span></a></p>
+
+    <p>Esto significa que cada vez que acompañás a tu hijo durante un berrinche con calma y presencia, estás ayudándolo a construir las conexiones neuronales que va a usar durante toda su vida para regular sus emociones.</p>
+
+    <div class="callout tip">
+      <strong>💚 Una verdad contraintuitiva</strong>
+      Los berrinches no son el problema. Son la oportunidad. Cada berrinche acompañado con presencia es una clase de regulación emocional que el niño no podría tener de otra manera. No son un obstáculo para el desarrollo: son parte del desarrollo.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El cerebro del niño está en construcción: la amígdala funciona, la corteza prefrontal no.</li>
+        <li>Durante un berrinche, el niño siente cosas reales en su cuerpo, no está "haciendo teatro".</li>
+        <li>No sirve decir "calmate" en pleno berrinche: la corteza prefrontal está desconectada.</li>
+        <li>Hay tres sistemas que están aprendiendo: fisiológico, emocional y de afrontamiento.</li>
+        <li>La ventana de 3 a 6 años es de máxima plasticidad: lo que se practica queda.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos qué pasa en el cerebro. Ahora toca ver qué es exactamente un berrinche: qué lo dispara, qué lo mantiene, y qué no es. En el próximo capítulo vas a ver los diferentes tipos de berrinches.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">Qué es un berrinche (y qué no es)</h1>
+  </div>
+  <div class="chapter-body">
+    <p>No todos los berrinches son iguales. Entender cuál es cuál ayuda a responder de manera adecuada. Porque la misma respuesta no sirve para todos.</p>
+
+    <h2>4.1 · Qué es un berrinche</h2>
+
+    <p>Un berrinche es una <strong>reacción emocional intensa</strong> que ocurre cuando un niño se enfrenta a algo que no puede procesar con sus recursos actuales. Puede incluir:</p>
+
+    <ul>
+      <li>Llanto intenso, gritos.</li>
+      <li>Pataleo, tirarse al piso, golpear objetos o personas.</li>
+      <li>Negación a moverse, a hablar, a comer.</li>
+      <li>Retrocesos (volver a hacerse pis, a hablar como bebé).</li>
+    </ul>
+
+    <p>Los berrinches son <strong>normales y esperables</strong> entre los 18 meses y los 6 años. Son más frecuentes entre los 2 y los 4 años, y disminuyen a partir de los 5-6. <a href="#ref4" class="cite">Potegal &amp; Davidson, 2003 <span class="cite-ref">[4]</span></a></p>
+
+    <h2>4.2 · Qué NO es un berrinche</h2>
+
+    <p>Es importante diferenciar un berrinche normal de otras situaciones:</p>
+
+    <table>
+      <thead>
+        <tr><th>No es berrinche si...</th><th>Qué podría ser</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>El niño está en pleno berrinche pero la intensidad no baja nunca (más de 30 min)</td><td>Puede ser un problema de regulación más profundo que requiere evaluación profesional.</td></tr>
+        <tr><td>Se lastima a sí mismo de forma frecuente e intencional</td><td>Puede indicar dificultades emocionales que requieren atención.</td></tr>
+        <tr><td>El malestar aparece de forma espontánea, sin desencadenante claro</td><td>Puede ser un signo de ansiedad, dolor o malestar físico.</td></tr>
+        <tr><td>El niño no logra regularse nunca, ni con ayuda de un adulto</td><td>Puede indicar dificultades en la regulación que necesitan apoyo profesional.</td></tr>
+        <tr><td>Regresiones severas (deja de hablar, de controlar esfínteres)</td><td>Puede indicar estrés emocional significativo que necesita evaluación.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4.3 · Los 5 tipos de berrinches</h2>
+
+    <p>La psicóloga Becky Bailey, especialista en disciplina positiva, identifica cinco tipos de berrinches. Reconocerlos ayuda a responder mejor:</p>
+
+    <div class="phase-card">
+      <div class="phase-objective">Tipo 1</div>
+      <h4>Berrinche por frustración</h4>
+      <p>El niño quiere algo que no puede hacer, no puede tener, o no puede lograr. Ejemplo: no puede armar una torre, no le dan un chocolate. <strong>Respuesta:</strong> validar la emoción, ofrecer ayuda, sostener el límite.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Tipo 2</div>
+      <h4>Berrinche por atención</h4>
+      <p>El niño busca atención del adulto, aunque sea negativa. Ejemplo: empieza a gritar mientras el adulto habla por teléfono. <strong>Respuesta:</strong> ignorar la conducta disruptiva, pero dar atención cuando la conducta es adecuada.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Tipo 3</div>
+      <h4>Berrinche por poder</h4>
+      <p>El niño quiere controlar la situación, y se enfrenta con el adulto. Ejemplo: "no me voy a bañar", "no me voy a dormir". <strong>Respuesta:</strong> sostener el límite con calma, ofrecer opciones limitadas ("¿querés bañarte con el patito o con el barco?").</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Tipo 4</div>
+      <h4>Berrinche por desborde</h4>
+      <p>El niño está sobrecargado (cansado, con hambre, con mucho estímulo) y no puede más. Ejemplo: se desborda al final de un día largo. <strong>Respuesta:</strong> presencia, calma, contacto físico. No razonar. Solo sostener.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Tipo 5</div>
+      <h4>Berrinche por imitación</h4>
+      <p>El niño imita el patrón de berrinche que ha visto en otros (hermanos, amigos, adultos). <strong>Respuesta:</strong> modelar formas alternativas de expresar las emociones. Mostrar cómo se hace.</p>
+    </div>
+
+    <h2>4.4 · Qué dispara un berrinche</h2>
+
+    <p>Los desencadenantes más frecuentes en niños de 3 a 6 años son:</p>
+
+    <ul>
+      <li><strong>Cansancio:</strong> el sistema nervioso no puede regular.</li>
+      <li><strong>Hambre:</strong> la glucosa baja hace que las emociones se desborden.</li>
+      <li><strong>Sobrecarga sensorial:</strong> mucho ruido, mucha gente, mucho movimiento.</li>
+      <li><strong>Transiciones:</strong> pasar de una actividad a otra, dejar algo que le gusta.</li>
+      <li><strong>Frustración:</strong> no poder hacer algo que quiere.</li>
+      <li><strong>Búsqueda de límites:</strong> el niño necesita saber dónde está el marco.</li>
+      <li><strong>Cambios en la rutina:</strong> vacaciones, mudanzas, cambios familiares.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Un dato clave sobre las transiciones</strong>
+      Los cambios de actividad son uno de los disparadores más frecuentes de berrinches en niños de 3 a 6 años. Avisar 5 minutos antes, contar hasta 10, hacer un juego de transición ("¿corremos hasta el baño?") reduce enormemente los berrinches.
+    </div>
+
+    <h2>4.5 · Por qué no se deben castigar los berrinches</h2>
+
+    <p>El castigo durante un berrinche puede:</p>
+
+    <ul>
+      <li><strong>Aumentar la intensidad y la duración</strong> del berrinche.</li>
+      <li><strong>Enseñar al niño</strong> que las emociones intensas son malas y deben ocultarse.</li>
+      <li><strong>Interferir</strong> con el aprendizaje de regulación emocional.</li>
+      <li><strong>Dañar el vínculo</strong> de confianza entre el niño y el adulto.</li>
+      <li><strong>Aumentar la frecuencia</strong> de los berrinches a largo plazo, no disminuirla.</li>
+    </ul>
+
+    <p>El objetivo no es castigar al niño por tener una emoción. El objetivo es enseñarle qué hacer con esa emoción. Y eso solo se enseña con presencia, paciencia y práctica.</p>
+
+    <div class="callout tip">
+      <strong>💡 Un cambio de mirada</strong>
+      Cuando veas a un niño en pleno berrinche, probá pensar: <em>"Este niño no está siendo malo. Está desbordado y no sabe qué hacer. Y yo soy el adulto que puede ayudarlo a atravesar esto."</em> Ese cambio de mirada cambia todo.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Un berrinche es una reacción emocional intensa, normal entre los 18 meses y los 6 años.</li>
+        <li>Hay 5 tipos de berrinches: por frustración, por atención, por poder, por desborde y por imitación.</li>
+        <li>Los disparadores más frecuentes son: cansancio, hambre, transiciones, sobrecarga.</li>
+        <li>No se castigan los berrinches: se acompañan.</li>
+        <li>Cambiar la mirada ("no es malo, está desbordado") cambia todo.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya conocés los tipos de berrinches. Ahora vamos a ver las 4 fases de un berrinche, para entender qué hacer en cada una.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte II</div>
+    <h1 class="chapter-title">Las 4 fases del berrinche</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Un berrinche no es un evento único: tiene fases. Y cada fase requiere una respuesta distinta. Responder igual en todas las fases es uno de los errores más comunes.</p>
+
+    <h2>5.1 · Fase 1: Pre-berrinche (la escalada)</h2>
+
+    <p>El niño empieza a mostrar signos de incomodidad: se queja, se frustra, empieza a resistirse. Todavía está conectado con el adulto. Todavía escucha.</p>
+
+    <p><strong>Qué hacer:</strong></p>
+    <ul>
+      <li><strong>Nombrar la emoción:</strong> "Veo que estás frustrado porque no podés armar la torre."</li>
+      <li><strong>Ofrecer una opción:</strong> "¿Querés que te ayude o querés probar solo un ratito más?"</li>
+      <li><strong>Redirigir:</strong> "¿Y si tomamos agua y volvemos a intentar?"</li>
+      <li><strong>Usar el contacto físico:</strong> acercarse, poner una mano en el hombro, agacharse a su altura.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💡 La fase más importante</strong>
+      Esta es la fase donde más podés intervenir. Si lográs acompañar al niño en la escalada, muchas veces el berrinche no llega a estallar. Es como apagar un fuego cuando todavía es una chispa.
+    </div>
+
+    <h2>5.2 · Fase 2: Estallido (el berrinche propiamente dicho)</h2>
+
+    <p>El niño perdió el control. Grita, patalea, se tira al piso, no escucha razones. Su corteza prefrontal está desconectada.</p>
+
+    <p><strong>Qué hacer:</strong></p>
+    <ul>
+      <li><strong>Seguridad primero:</strong> asegurate de que no se lastime ni lastime a otros. Retirá objetos peligrosos. Sostené si es necesario.</li>
+      <li><strong>Presencia silenciosa:</strong> quedate cerca, sin hablar mucho. Tu presencia es la que sostiene.</li>
+      <li><strong>Pocas palabras:</strong> "Estoy acá", "Te acompaño", "Estás a salvo". Frases cortas, suaves.</li>
+      <li><strong>Respiración propia:</strong> respirá profundo. Tu calma es contagiosa.</li>
+      <li><strong>No razonar:</strong> no intentes explicar, negociar, ni dar lecciones. No va a escuchar.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Qué NO hacer durante el estallido</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li>No grites más fuerte que él.</li>
+        <li>No lo dejes solo ("hasta que te calmes").</li>
+        <li>No intentes razonar o negociar.</li>
+        <li>No uses el celular para distraerlo (puede empeorar a largo plazo).</li>
+        <li>No lo amenaces con castigos.</li>
+        <li>No le digas "no es para tanto" o "no llores".</li>
+      </ul>
+    </div>
+
+    <h2>5.3 · Fase 3: Desescalada (el descenso)</h2>
+
+    <p>El niño empieza a calmarse. El llanto se vuelve más suave. La respiración se regulariza. Todavía no puede hablar bien, pero ya puede escuchar.</p>
+
+    <p><strong>Qué hacer:</strong></p>
+    <ul>
+      <li><strong>Mantener la presencia:</strong> quedate cerca, sin invadir.</li>
+      <li><strong>Ofrecer agua:</strong> "¿Querés tomar agua?"</li>
+      <li><strong>Contacto físico si lo acepta:</strong> un abrazo, una mano en la espalda.</li>
+      <li><strong>No apurar:</strong> dejá que se recupere a su ritmo.</li>
+      <li><strong>Validar:</strong> "Fue muy fuerte lo que sentiste, ¿no?"</li>
+    </ul>
+
+    <h2>5.4 · Fase 4: Post-berrinche (la integración)</h2>
+
+    <p>El niño está calmado. Ya puede pensar, hablar y escuchar. Es el momento de la conversación y el aprendizaje.</p>
+
+    <p><strong>Qué hacer:</strong></p>
+    <ul>
+      <li><strong>Nombrar lo que pasó:</strong> "Estabas muy enojado porque querías seguir jugando."</li>
+      <li><strong>Validar la emoción (no la conducta):</strong> "Está bien enojarse. No está bien pegar."</li>
+      <li><strong>Enseñar alternativas:</strong> "La próxima vez, podemos respirar juntos como el dragón."</li>
+      <li><strong>Reparar si hubo daño:</strong> "¿Querés ayudarme a levantar lo que tiramos?"</li>
+      <li><strong>Reconectar:</strong> un abrazo, un juego, un momento de cercanía.</li>
+    </ul>
+
+    <div class="callout hug">
+      <strong>💗 El post-berrinche es sagrado</strong>
+      Este es el momento más importante para el aprendizaje emocional. Es cuando el niño puede integrar lo que pasó y aprender qué hacer la próxima vez. No lo saltees: es tu mejor oportunidad de enseñanza.
+    </div>
+
+    <h2>5.5 · El resumen visual</h2>
+
+    <table>
+      <thead>
+        <tr><th>Fase</th><th>Qué pasa</th><th>Qué hacer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1. Pre-berrinche</strong></td><td>El niño empieza a frustrarse</td><td>Nombrar, ofrecer opciones, redirigir</td></tr>
+        <tr><td><strong>2. Estallido</strong></td><td>El niño pierde el control</td><td>Seguridad, presencia silenciosa, no razonar</td></tr>
+        <tr><td><strong>3. Desescalada</strong></td><td>El niño empieza a calmarse</td><td>Mantener presencia, ofrecer agua, validar</td></tr>
+        <tr><td><strong>4. Post-berrinche</strong></td><td>El niño ya puede pensar</td><td>Nombrar, validar, enseñar alternativas, reconectar</td></tr>
+      </tbody>
+    </table>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Un berrinche tiene 4 fases: pre-berrinche, estallido, desescalada, post-berrinche.</li>
+        <li>Cada fase requiere una respuesta distinta.</li>
+        <li>La fase pre-berrinche es la más importante: ahí se puede prevenir.</li>
+        <li>Durante el estallido: presencia silenciosa, no razonar.</li>
+        <li>El post-berrinche es la oportunidad de aprendizaje emocional.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos qué hacer en cada fase. Ahora vamos a ver por qué el juego es la herramienta más poderosa para enseñar regulación emocional a un niño de 3 a 6 años.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte III</div>
+    <h1 class="chapter-title">Por qué el juego es el lenguaje del niño</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay una verdad que la neurociencia y la psicología infantil han confirmado una y otra vez: <strong>los niños no aprenden a regular sus emociones hablando de ellas. Aprenden jugando</strong>. El juego es su lenguaje natural. Es donde procesan el mundo, donde ensayan la vida, donde aprenden a manejar lo que sienten. <a href="#ref5" class="cite">Landreth, 2012 <span class="cite-ref">[5]</span></a> <a href="#ref6" class="cite">Ginsburg, 2007 <span class="cite-ref">[6]</span></a></p>
+
+    <h2>6.1 · El juego como procesamiento emocional</h2>
+
+    <p>Cuando un niño juega, no está "perdiendo el tiempo". Está haciendo algo fundamental: <strong>procesando emociones</strong>. A través del juego, el niño puede:</p>
+
+    <ul>
+      <li><strong>Representar</strong> situaciones que le generan miedo, enojo o confusión.</li>
+      <li><strong>Ensaya</strong> distintas respuestas a esas situaciones, sin consecuencias reales.</li>
+      <li><strong>Integrar</strong> lo que vivió, dándole un lugar en su mundo interno.</li>
+      <li><strong>Practicar</strong> habilidades nuevas, sin presión.</li>
+    </ul>
+
+    <p>Por eso, cuando un niño juega a "hacer un berrinche" con sus muñecos, está procesando sus propios berrinches. Cuando juega a "domar un dragón", está aprendiendo a manejar su propia ira.</p>
+
+    <div class="footnote">
+      <strong>Ejemplo real:</strong> un niño que tuvo un berrinche fuerte en el supermercado puede, al día siguiente, jugar a "la mamá y el nene van al supermercado". En el juego, va a repetir la escena, pero esta vez va a poder controlarla. Va a hacer que el nene del juego se calme, que la mamá lo abrace. Ese juego es su forma de procesar lo que pasó. Y es enormemente terapéutico.
+    </div>
+
+    <h2>6.2 · La metáfora del dragón</h2>
+
+    <p>Los niños de 3 a 6 años piensan en imágenes concretas, no en conceptos abstractos. No pueden entender "la ira es una emoción que se activa cuando algo no sale como esperamos". Pero sí pueden entender <strong>"hay un dragón que aparece cuando estás muy enojado"</strong>.</p>
+
+    <p>La metáfora del dragón tiene varias ventajas:</p>
+
+    <ul>
+      <li><strong>Le da forma a algo intangible:</strong> la ira deja de ser un "algo raro" y pasa a ser un "dragón" que se puede ver, dibujar, nombrar.</li>
+      <li><strong>Despersonaliza la emoción:</strong> no es "yo soy malo cuando me enojo", es "el dragón apareció".</li>
+      <li><strong>Habilita la acción:</strong> si es un dragón, se puede domesticar. Se puede respirar con él. Se le puede hablar. Se le puede pedir que se vaya.</li>
+      <li><strong>Da lenguaje común:</strong> la familia puede usar la misma metáfora. "¿Cómo está tu dragón hoy?" "El dragón está muy despierto."</li>
+      <li><strong>Aleja el castigo:</strong> no se castiga a un niño por tener un dragón. Se le enseña a domesticarlo.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💡 Cómo introducir la metáfora</strong>
+      Un día tranquilo, no en medio de un berrinche, decile a tu hijo: <em>"¿Sabías que adentro de todos hay un dragón? Es un dragón bueno, pero a veces se despierta cuando estamos muy enojados. ¿Querés conocer a tu dragón?"</em> Después, dibujen juntos su dragón. Pónganle un nombre. Y cuéntenle que van a aprender a domesticarlo juntos.
+    </div>
+
+    <h2>6.3 · Las tres reglas del juego emocional</h2>
+
+    <p>Para que el juego funcione como herramienta de regulación emocional, necesita cumplir tres reglas:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Regla 1: El niño lidera.</strong> El juego tiene que ser iniciado y guiado por el niño. Vos seguís su ritmo, sus ideas, sus personajes. No le imponés la historia.</div>
+      <div class="step"><strong>Regla 2: Vos acompañás sin invadir.</strong> Estás presente, atento, disponible. Pero no dirigís. No corriges. No interpretás en voz alta.</div>
+      <div class="step"><strong>Regla 3: Se practica en calma.</strong> Los juegos de regulación se practican en momentos de calma, no durante el berrinche. En el berrinche, la corteza prefrontal está desconectada: no puede aprender.</div>
+    </div>
+
+    <h2>6.4 · Lo que el juego NO es</h2>
+
+    <p>Para ser claros:</p>
+
+    <ul>
+      <li><strong>No es una recompensa.</strong> El juego no se usa para premiar al niño por portarse bien. Es su forma natural de procesar.</li>
+      <li><strong>No es un soborno.</strong> No se le dice "si te portás bien, jugamos". Eso enseña que las emociones son negociables.</li>
+      <li><strong>No es un castigo.</strong> No se le quita el juego como forma de castigar un berrinche. Eso empeora el problema.</li>
+      <li><strong>No es una distracción.</strong> No se usa el juego para que "se olvide" de lo que siente. Se usa para que <strong>pueda atravesarlo</strong>.</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>📊 Lo que dice la evidencia</strong>
+      La investigación muestra que la terapia de juego es una de las intervenciones más efectivas para niños pequeños con dificultades emocionales y conductuales. Los meta-análisis muestran tamaños de efecto moderados a grandes. <a href="#ref5" class="cite">Landreth, 2012 <span class="cite-ref">[5]</span></a> <a href="#ref7" class="cite">Bratton et al., 2005 <span class="cite-ref">[7]</span></a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los niños no aprenden a regular sus emociones hablando. Aprenden jugando.</li>
+        <li>El juego es procesamiento emocional natural del niño.</li>
+        <li>La metáfora del dragón ayuda al niño a identificar y manejar su ira.</li>
+        <li>Tres reglas del juego emocional: el niño lidera, vos acompañás, se practica en calma.</li>
+        <li>El juego no es recompensa, soborno ni castigo. Es una herramienta de aprendizaje.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabés por qué el juego funciona. Ahora vamos a ver los 5 rituales diarios que pueden prevenir la mayoría de los berrinches.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte III</div>
+    <h1 class="chapter-title">Los 5 rituales diarios del dragón</h1>
+  </div>
+  <div class="chapter-body">
+    <p>La mejor manera de manejar un berrinche es <strong>prevenirlo</strong>. Y la mejor manera de prevenirlo es tener <strong>rituales diarios</strong> que ayuden a tu hijo a regularse de forma continua. Estos 5 rituales son simples, cortos, y se pueden practicar todos los días.</p>
+
+    <h2>Ritual 1 · El saludo al dragón (2 minutos, a la mañana)</h2>
+
+    <div class="routine-card">
+      <div class="routine-time">⏱ 2 minutos · A la mañana</div>
+      <h4>🌅 Cómo empezar el día</h4>
+      <p>Al despertar, preguntale a tu hijo: <em>"¿Cómo está tu dragón hoy? ¿Está dormido, medio dormido o despierto?"</em> Dejá que elija. Después, digan juntos: <em>"Buenos días, dragón. Hoy vamos a estar juntos."</em></p>
+      <p><strong>Por qué funciona:</strong> le da al niño un lenguaje para identificar su estado emocional desde el comienzo del día. Y le enseña que el dragón no es malo: es parte de él.</p>
+    </div>
+
+    <h2>Ritual 2 · El desayuno de los 3 colores (durante el desayuno)</h2>
+
+    <div class="routine-card">
+      <div class="routine-time">⏱ 5-10 minutos · Desayuno</div>
+      <h4>🍎 Comer con atención</h4>
+      <p>Durante el desayuno, propongan elegir 3 colores de comida. "¿Ves algo rojo? ¿Algo amarillo? ¿Algo verde?" El objetivo es comer con atención, sin apuro.</p>
+      <p><strong>Por qué funciona:</strong> el hambre es uno de los principales disparadores de berrinches. Asegurarse de que come bien en el desayuno previene muchos episodios del día.</p>
+    </div>
+
+    <h2>Ritual 3 · La respiración del dragón (3 veces al día)</h2>
+
+    <div class="routine-card">
+      <div class="routine-time">⏱ 1 minuto · 3 veces al día</div>
+      <h4>🐉 Respirar como un dragón</h4>
+      <p>Tres veces al día (mañana, tarde, noche), hagan juntos la respiración del dragón:</p>
+      <ul>
+        <li><strong>Inhalar por la nariz</strong> como si olieran una flor.</li>
+        <li><strong>Exhalar por la boca</strong> como si soplaran una vela, con un "fuego suave".</li>
+        <li>Repetir 3 veces.</li>
+      </ul>
+      <p><strong>Por qué funciona:</strong> la respiración profunda activa el sistema nervioso parasimpático (relajación). Al practicarla varias veces al día, el cuerpo del niño aprende a activarla solo. Es un entrenamiento, no una emergencia.</p>
+    </div>
+
+    <h2>Ritual 4 · El cuento del dragón (antes de dormir)</h2>
+
+    <div class="routine-card">
+      <div class="routine-time">⏱ 5 minutos · Antes de dormir</div>
+      <h4>📖 Un cuento personalizado</h4>
+      <p>Cada noche, contale a tu hijo un cuento breve sobre "un dragón que aprendió algo". El dragón puede ser el suyo. El cuento tiene que ser simple, y siempre termina con el dragón más tranquilo, más sabio, más querido.</p>
+      <p><strong>Ejemplo:</strong> <em>"Había una vez un dragón que se llamaba Fuego. Un día, Fuego se enojó mucho porque no le dieron el juguete que quería. Y se puso rojo, y empezó a echar humo. Pero entonces, su mamá dragona le dijo: 'Respirá conmigo, Fuego.' Y Fuego respiró. Y respiró. Y el humo se fue. Y Fuego se durmió tranquilo."</em></p>
+      <p><strong>Por qué funciona:</strong> el cuento le da al niño un modelo de cómo manejar la ira. Y el momento antes de dormir es ideal: el cerebro está receptivo, y el vínculo con el adulto es máximo.</p>
+    </div>
+
+    <h2>Ritual 5 · El abrazo de las 3 respiraciones (en cualquier momento)</h2>
+
+    <div class="routine-card">
+      <div class="routine-time">⏱ 30 segundos · Cuando sea necesario</div>
+      <h4>💗 Un abrazo que calma</h4>
+      <p>En cualquier momento del día, cuando el niño lo necesite (o cuando vos lo necesites), hagan el "abrazo de las 3 respiraciones": se abrazan, y respiran juntos 3 veces, despacio.</p>
+      <p><strong>Por qué funciona:</strong> el contacto físico libera oxitocina, la hormona del vínculo y la calma. Y la respiración sincronizada ayuda a regular el sistema nervioso del niño. Es una de las herramientas más poderosas que tenés.</p>
+    </div>
+
+    <h2>La rutina completa del día</h2>
+
+    <table>
+      <thead>
+        <tr><th>Momento</th><th>Ritual</th><th>Duración</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mañana</td><td>Saludo al dragón + respiración del dragón</td><td>3 minutos</td></tr>
+        <tr><td>Desayuno</td><td>Desayuno de los 3 colores</td><td>5-10 minutos</td></tr>
+        <tr><td>Media mañana</td><td>Respiración del dragón</td><td>1 minuto</td></tr>
+        <tr><td>Media tarde</td><td>Respiración del dragón</td><td>1 minuto</td></tr>
+        <tr><td>Antes de dormir</td><td>Cuento del dragón + abrazo de 3 respiraciones</td><td>5-10 minutos</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>💡 La clave es la repetición</strong>
+      No alcanza con hacer estos rituales una vez. La clave está en la <strong>repetición diaria</strong>. Es practicando todos los días que el cerebro del niño aprende estas herramientas. Y cuando llegue el berrinche, ya las va a tener disponibles.
+    </div>
+
+    <div class="callout warning">
+      <strong>⚠ Si te olvidás un día</strong>
+      No pasa nada. No es un fracaso. Volvé al día siguiente. Los rituales funcionan por acumulación, no por perfección. Es mejor hacer 3 días seguidos y olvidarse 1, que no hacer nada porque "no puedo hacer todo perfecto".
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La prevención es más importante que la reacción.</li>
+        <li>Los 5 rituales diarios son: saludo, desayuno, respiración, cuento, abrazo.</li>
+        <li>El ritual más importante es la respiración del dragón, 3 veces al día.</li>
+        <li>La clave es la repetición diaria, no la perfección.</li>
+        <li>Si te olvidás un día, no pasa nada. Volvé al día siguiente.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los rituales diarios listos, entramos en los juegos específicos. En el próximo capítulo vas a encontrar los juegos de calma, para practicar en los momentos de tranquilidad.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV</div>
+    <h1 class="chapter-title">Juegos de calma (prevención diaria)</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Los juegos de calma se practican <strong>en momentos de tranquilidad</strong>, no durante el berrinche. Su objetivo es <strong>entrenar</strong> las habilidades de regulación que el niño va a necesitar cuando llegue el momento difícil.</p>
+
+    <div class="callout info">
+      <strong>📌 Importante</strong>
+      No practiques estos juegos cuando el niño está enojado. La corteza prefrontal está desconectada y no puede aprender. Practicá cuando está tranquilo, contento, relajado. Es ahí cuando el cerebro está receptivo.
+    </div>
+
+    <h2>Los 6 juegos de calma</h2>
+
+    <div class="game-grid">
+
+      <div class="game-card">
+        <span class="game-emoji">🐉</span>
+        <div class="game-age">3-6 años · 3 minutos</div>
+        <div class="game-name">El dragón dormido</div>
+        <div class="game-time">⏱ 3-5 minutos</div>
+        <div class="game-desc">El niño se acuesta en el piso, como un dragón dormido. Vos, como "cuidador de dragones", le pedís que respire profundo 3 veces. Después, el dragón se despierta muy lento, y estira su cuerpo como un gato.</div>
+        <div class="game-how">Practicar la respiración profunda en un contexto lúdico.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🕯️</span>
+        <div class="game-age">3-6 años · 2 minutos</div>
+        <div class="game-name">Soplar la vela</div>
+        <div class="game-time">⏱ 2 minutos</div>
+        <div class="game-desc">Imaginen que hay 5 velas mágicas en el aire. El niño tiene que soplarlas, una por una, con exhalaciones largas y suaves. Después, 5 velas más. Y después, 5 más.</div>
+        <div class="game-how">Alargar la exhalación activa el sistema parasimpático.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🌬️</span>
+        <div class="game-age">3-6 años · 3 minutos</div>
+        <div class="game-name">Oler la flor, soplar la vela</div>
+        <div class="game-time">⏱ 3 minutos</div>
+        <div class="game-desc">Juego de respiración en dos tiempos: inhalar como si olieran una flor (3 segundos), exhalar como si soplaran una vela (3 segundos). Repetir 5-10 veces. El adulto lo hace primero, el niño imita.</div>
+        <div class="game-how">El modelado del adulto es clave: el niño aprende mirando.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🧸</span>
+        <div class="game-age">3-6 años · 5 minutos</div>
+        <div class="game-name">El peluche que respira</div>
+        <div class="game-time">⏱ 5 minutos</div>
+        <div class="game-desc">Acostá un peluche sobre la panza del niño. Decile: "Mirá cómo sube y baja el peluche cuando respirás. Hacelo subir bien alto, y después bajarlo muy despacio."</div>
+        <div class="game-how">La respiración diafragmática es la más relajante, y este juego la hace visible.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🤲</span>
+        <div class="game-age">3-6 años · 3 minutos</div>
+        <div class="game-name">Las manos de la calma</div>
+        <div class="game-time">⏱ 3 minutos</div>
+        <div class="game-desc">El niño abre sus manos, y en cada dedo pone una "nube de calma": pulgar, índice, medio, anular, meñique. Y con cada dedo, respira hondo. Al final, cierra las manos, guardando la calma adentro.</div>
+        <div class="game-how">Combina respiración con imaginería y rituales corporales.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🍃</span>
+        <div class="game-age">3-6 años · 5 minutos</div>
+        <div class="game-name">La hoja que cae</div>
+        <div class="game-time">⏱ 5 minutos</div>
+        <div class="game-desc">El niño se mueve como una hoja cayendo: girando, flotando, flotando, hasta llegar al suelo. Después, se queda quieto, como una hoja que llegó a descansar.</div>
+        <div class="game-how">Combina movimiento con quietud. Ideal para niños que no pueden quedarse quietos.</div>
+      </div>
+
+    </div>
+
+    <h2>Cómo introducir los juegos</h2>
+
+    <div class="steps">
+      <div class="step"><strong>Elegí un momento tranquilo.</strong> Después del baño, antes de la cena, después de una siesta. No en medio de un berrinche.</div>
+      <div class="step"><strong>Presentá el juego con entusiasmo.</strong> "¡Vamos a jugar un juego de dragones!" No "tenés que respirar".</div>
+      <div class="step"><strong>Jugá vos primero.</strong> El niño aprende imitando. Mostrá cómo se hace.</div>
+      <div class="step"><strong>No corrijas.</strong> Si lo hace "mal", está bien. Lo importante es que participe.</div>
+      <div class="step"><strong>Repetí todos los días.</strong> Un juego por día, o dos. No los hagas todos el mismo día.</div>
+    </div>
+
+    <div class="callout tip">
+      <strong>💡 La regla de oro</strong>
+      Si el juego se vuelve una obligación, deja de funcionar. Tiene que ser lúdico, divertido, elegido. Si tu hijo no quiere jugar hoy, no lo fuerces. Mañana será otro día.
+    </div>
+
+    <div class="callout hug">
+      <strong>💗 Un dato importante</strong>
+      Los juegos de calma no eliminan los berrinches. Los reducen en frecuencia e intensidad. Pero van a seguir apareciendo. Y está bien. Los berrinches son parte del desarrollo. El objetivo no es eliminarlos, es que cuando aparezcan, el niño (y vos) tengan herramientas para atravesarlos.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los juegos de calma se practican en momentos de tranquilidad, no durante el berrinche.</li>
+        <li>Los 6 juegos son: dragón dormido, soplar la vela, oler la flor, peluche que respira, manos de la calma, hoja que cae.</li>
+        <li>El modelado del adulto es clave: el niño aprende mirando.</li>
+        <li>La regla de oro: tiene que ser lúdico, no una obligación.</li>
+        <li>Los juegos reducen los berrinches, pero no los eliminan. Y está bien.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tenés las herramientas de prevención. Ahora toca ver qué hacer cuando el berrinche ya estalló. En el próximo capítulo vas a encontrar los juegos para el momento del berrinche.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte IV</div>
+    <h1 class="chapter-title">Juegos para el momento del berrinche</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Cuando el berrinche ya estalló, la corteza prefrontal del niño está desconectada. No puede razonar, no puede negociar, no puede aprender. Acá no se trata de "jugar": se trata de <strong>sostener</strong>.</p>
+
+    <div class="callout alert">
+      <strong>⚠ Lo más importante durante el berrinche</strong>
+      <strong>Vos.</strong> Tu calma, tu presencia, tu respiración. Nada de lo que digas va a importar tanto como cómo estés vos. Si vos te desbordás, el desborde del niño aumenta. Si vos respirás y te sostenés, ayudás a que él se sostenga.
+    </div>
+
+    <h2>Lo que SÍ sirve en el momento del berrinche</h2>
+
+    <div class="game-grid">
+
+      <div class="game-card">
+        <span class="game-emoji">🤲</span>
+        <div class="game-age">Todo el berrinche</div>
+        <div class="game-name">La presencia silenciosa</div>
+        <div class="game-time">⏱ Todo el berrinche</div>
+        <div class="game-desc">Quedate cerca, agachado a su altura. No digas mucho. Solo estar. Poner una mano suave en su espalda si lo permite. Tu presencia física es la que sostiene.</div>
+        <div class="game-how">La calma no se transmite con palabras, se transmite con presencia.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🫁</span>
+        <div class="game-age">Todo el berrinche</div>
+        <div class="game-name">Tu propia respiración</div>
+        <div class="game-time">⏱ Todo el berrinche</div>
+        <div class="game-desc">Mientras el niño está en pleno berrinche, respirá vos. Profundo. Lento. 4 segundos inhalar, 4 exhalar. Estás respirando para los dos. Tu calma es contagiosa a nivel fisiológico.</div>
+        <div class="game-how">Las neuronas espejo del niño captan tu estado. Tu respiración lo calma.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🔊</span>
+        <div class="game-age">Todo el berrinche</div>
+        <div class="game-name">Frases cortas y suaves</div>
+        <div class="game-time">⏱ Todo el berrinche</div>
+        <div class="game-desc">Frases cortas, en voz baja: "Estoy acá." "Estás a salvo." "Te acompaño." "Puedo esperar." Nada de explicaciones, ni lecciones, ni preguntas. Solo frases que sostienen.</div>
+        <div class="game-how">Frases largas o complejas no se procesan en pleno berrinche.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🛡️</span>
+        <div class="game-age">Todo el berrinche</div>
+        <div class="game-name">La seguridad primero</div>
+        <div class="game-time">⏱ Todo el berrinche</div>
+        <div class="game-desc">Si el niño se golpea, tira cosas o lastima a otros, sostené la seguridad sin violencia. Retirá objetos peligrosos. Sostené su cuerpo si es necesario, con firmeza suave. "No te voy a dejar lastimarte."</div>
+        <div class="game-how">La seguridad no es castigo: es cuidado.</div>
+      </div>
+
+    </div>
+
+    <h2>Lo que NO sirve durante el berrinche</h2>
+
+    <table>
+      <thead>
+        <tr><th>Lo que NO hacer</th><th>Por qué empeora</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Calmate."</td><td>La corteza prefrontal está desconectada. No puede "calmarse" a voluntad.</td></tr>
+        <tr><td>"No es para tanto."</td><td>Invalida la emoción y aumenta la frustración.</td></tr>
+        <tr><td>"Si no parás, te voy a castigar."</td><td>Amenaza que aumenta la activación del sistema de alarma.</td></tr>
+        <tr><td>"Dejame solo hasta que te calmes."</td><td>El abandono aumenta la desregulación. El niño necesita presencia.</td></tr>
+        <tr><td>"¿Por qué estás así?"</td><td>Pregunta que el niño no puede procesar en pleno berrinche.</td></tr>
+        <tr><td>"Te voy a dar el celular si parás."</td><td>Enseña que las emociones se negocian, y empeora la regulación a largo plazo.</td></tr>
+        <tr><td>Gritar más fuerte que él.</td><td>Aumenta la activación del sistema nervioso del niño.</td></tr>
+        <tr><td>Darle un sermón.</td><td>No procesa el lenguaje racional durante el berrinche.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Sobre el contacto físico</h2>
+
+    <p>El contacto físico puede ser muy útil durante un berrinche, pero hay que saber cuándo:</p>
+
+    <ul>
+      <li><strong>Sí, si el niño lo acepta.</strong> Un abrazo firme y suave, una mano en la espalda, una caricia en la cabeza. El contacto físico libera oxitocina y ayuda a regular el sistema nervioso.</li>
+      <li><strong>No, si el niño lo rechaza.</strong> Si el niño se retira o empuja, respetá eso. No fuerces el contacto. Quedate cerca, sin tocar.</li>
+      <li><strong>Sí, si hay riesgo de lastimarse.</strong> En este caso, el contacto físico es para proteger, no para castigar. Firmes, pero suaves.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Sobre el tiempo</strong>
+      Algunos berrinches duran 5 minutos, otros 30. No hay un tiempo "correcto". Lo importante no es cuánto dura, sino cómo lo atravesás. Si vos te mantenés presente y calmado, el berrinche va a bajar por sí solo.
+    </div>
+
+    <h2>Cuando vos también te desbordás</h2>
+
+    <p>Es normal desbordarse. Todos los padres lo hacen alguna vez. Si te das cuenta de que estás al límite:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Reconocelo:</strong> "Estoy al límite. Necesito un momento."</div>
+      <div class="step"><strong>Si hay otro adulto, pedile ayuda:</strong> "¿Podés quedarte con él un minuto?"</div>
+      <div class="step"><strong>Si estás solo, poné al niño en un lugar seguro</strong> (cuna, habitación cerrada, sin objetos peligrosos) y tomate 2 minutos para respirar.</div>
+      <div class="step"><strong>Respirá profundo 5 veces.</strong> No es abandono: es cuidarte para poder cuidar.</div>
+      <div class="step"><strong>Volvé cuando puedas.</strong> Lo antes posible. Volvé a estar presente.</div>
+    </div>
+
+    <div class="callout hug">
+      <strong>💗 Un recordatorio</strong>
+      Desbordarse no te convierte en un mal padre. Lo que importa es lo que hacés después: reconocerlo, cuidarte, y volver. Los niños no necesitan padres perfectos. Necesitan padres que vuelven.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Durante el berrinche, lo más importante es tu calma y tu presencia.</li>
+        <li>Frases cortas y suaves: "Estoy acá", "Estás a salvo", "Te acompaño".</li>
+        <li>La seguridad es primero: proteger sin castigar.</li>
+        <li>No sirve razonar, negociar, ni amenazar durante el berrinche.</li>
+        <li>Si te desbordás, está bien. Lo importante es volver.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabés qué hacer durante el berrinche. Ahora toca lo más importante: qué hacer <strong>después</strong>. En el próximo capítulo vas a ver los juegos y conversaciones para el post-berrinche.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte IV</div>
+    <h1 class="chapter-title">Juegos para después del berrinche</h1>
+  </div>
+  <div class="chapter-body">
+    <p>El post-berrinche es el momento más importante para el aprendizaje emocional. El niño ya está calmado, su corteza prefrontal está conectada, y puede pensar, hablar y escuchar. Es el momento de <strong>integrar lo que pasó</strong> y <strong>aprender para la próxima vez</strong>.</p>
+
+    <div class="callout hug">
+      <strong>💗 Un principio fundamental</strong>
+      En el post-berrinche, primero reconectá. Después, enseñá. Nunca al revés. El niño necesita sentir que el vínculo está intacto antes de poder aprender algo.
+    </div>
+
+    <h2>La secuencia del post-berrinche</h2>
+
+    <div class="steps">
+      <div class="step"><strong>1. Reconectar (2 minutos):</strong> un abrazo, un momento de silencio, una caricia. Sin hablar del berrinche. Solo estar juntos.</div>
+      <div class="step"><strong>2. Nombrar (1 minuto):</strong> "Tuviste un momento muy difícil. El dragón estaba muy enojado."</div>
+      <div class="step"><strong>3. Validar (1 minuto):</strong> "Está bien enojarse. Todos nos enojamos a veces."</div>
+      <div class="step"><strong>4. Enseñar (2 minutos):</strong> "La próxima vez, podemos respirar juntos como el dragón."</div>
+      <div class="step"><strong>5. Cerrar (1 minuto):</strong> "Te quiero. Estamos juntos. ¿Jugamos algo?"</div>
+    </div>
+
+    <h2>Los juegos del post-berrinche</h2>
+
+    <div class="game-grid">
+
+      <div class="game-card">
+        <span class="game-emoji">🎨</span>
+        <div class="game-age">3-6 años · 10 minutos</div>
+        <div class="game-name">Dibujar el dragón</div>
+        <div class="game-time">⏱ 10 minutos</div>
+        <div class="game-desc">Después del berrinche, cuando el niño ya está calmado, proponle dibujar cómo se veía su dragón durante el berrinche. Después, dibujen juntos cómo se ve el dragón dormido.</div>
+        <div class="game-how">Externalizar la emoción en el papel ayuda a procesarla.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🧸</span>
+        <div class="game-age">3-6 años · 10 minutos</div>
+        <div class="game-name">El peluche tiene un berrinche</div>
+        <div class="game-time">⏱ 10 minutos</div>
+        <div class="game-desc">El niño hace que su peluche tenga un berrinche. Vos, como "el adulto", le mostrás al peluche cómo calmarse: abrazarlo, respirar con él, hablarle suave. Después, el niño hace el rol de adulto con el peluche.</div>
+        <div class="game-how">El juego de roles ayuda al niño a integrar lo que aprendió.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">📖</span>
+        <div class="game-age">3-6 años · 5 minutos</div>
+        <div class="game-name">El cuento del dragón que se enojó</div>
+        <div class="game-time">⏱ 5 minutos</div>
+        <div class="game-desc">Contale un cuento sobre un dragón que tuvo un berrinche. El cuento tiene que incluir lo que pasó, cómo se sintió, y cómo se calmó. Usá el nombre del dragón de tu hijo.</div>
+        <div class="game-how">Los cuentos ayudan a dar sentido a lo vivido.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🤗</span>
+        <div class="game-age">3-6 años · 3 minutos</div>
+        <div class="game-name">El abrazo de las 3 respiraciones</div>
+        <div class="game-time">⏱ 3 minutos</div>
+        <div class="game-desc">Abrazo, y respiramos juntos 3 veces profundo. Después, el niño puede elegir "un abrazo más" si quiere. Y así hasta que se sienta reconectado.</div>
+        <div class="game-how">Reconecta a nivel físico y emocional al mismo tiempo.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🌟</span>
+        <div class="game-age">3-6 años · 5 minutos</div>
+        <div class="game-name">La estrella del día</div>
+        <div class="game-time">⏱ 5 minutos</div>
+        <div class="game-desc">En un frasco, poné una estrella de papel cada vez que el niño atraviesa un momento difícil. Las estrellas no son por "portarse bien": son por "atravesar algo difícil". Al final de la semana, cuenten juntos las estrellas.</div>
+        <div class="game-how">Refuerza el esfuerzo, no el resultado.</div>
+      </div>
+
+      <div class="game-card">
+        <span class="game-emoji">🎵</span>
+        <div class="game-age">3-6 años · 3 minutos</div>
+        <div class="game-name">La canción del dragón</div>
+        <div class="game-time">⏱ 3 minutos</div>
+        <div class="game-desc">Inventen juntos una canción corta sobre el dragón. Algo simple, como: "Mi dragón se enoja, mi dragón respira, mi dragón se calma, y todo vuelve a estar bien." Cantarla juntos cuando el berrinche pasó.</div>
+        <div class="game-how">Las canciones anclan la memoria emocional positiva.</div>
+      </div>
+
+    </div>
+
+    <h2>Frases para usar en el post-berrinche</h2>
+
+    <table>
+      <thead>
+        <tr><th>Frase</th><th>Por qué funciona</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Estuvo muy fuerte lo que sentiste."</td><td>Valida la intensidad de la emoción.</td></tr>
+        <tr><td>"El dragón estaba muy despierto, ¿no?"</td><td>Usa la metáfora para nombrar sin culpar.</td></tr>
+        <tr><td>"Está bien enojarse. No está bien pegar."</td><td>Diferencia la emoción de la conducta.</td></tr>
+        <tr><td>"La próxima vez, ¿qué podríamos hacer?"</td><td>Invita a pensar alternativas.</td></tr>
+        <tr><td>"Vos podés con el dragón. Y yo estoy acá."</td><td>Refuerza la autoeficacia y el vínculo.</td></tr>
+        <tr><td>"Te quiero. Siempre. Aunque el dragón aparezca."</td><td>Separa el amor de la conducta.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Frases para evitar en el post-berrinche</h2>
+
+    <table>
+      <thead>
+        <tr><th>Frase</th><th>Por qué no funciona</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"¿Viste lo que hiciste?"</td><td>Culpa sin enseñar alternativa.</td></tr>
+        <tr><td>"Portate bien la próxima vez."</td><td>No da herramientas concretas.</td></tr>
+        <tr><td>"Ya tendrías que estar grande para esto."</td><td>Genera vergüenza y no ayuda.</td></tr>
+        <tr><td>"Me tenés harta/o con estos berrinches."</td><td>Convierte el problema en algo personal.</td></tr>
+        <tr><td>"Si no fuera por vos, todo estaría bien."</td><td>Culpa al niño. Es abusivo.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>💡 La estrella del día: cómo funciona</strong>
+      El sistema de estrellas refuerza el <strong>esfuerzo</strong>, no el resultado. Cada vez que el niño atraviesa un momento difícil (no solo un berrinche: también un momento de frustración, un momento de tristeza), recibe una estrella. Y al final de la semana, cuentan juntos. El objetivo no es "portarse bien": es <strong>atravesar lo difícil</strong>.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El post-berrinche es el momento más importante para el aprendizaje.</li>
+        <li>La secuencia: reconectar → nombrar → validar → enseñar → cerrar.</li>
+        <li>Los juegos del post-berrinche: dibujar el dragón, peluche con berrinche, cuento, abrazo, estrella, canción.</li>
+        <li>Frases para usar: validar, diferenciar emoción de conducta, invitar a alternativas, reforzar el vínculo.</li>
+        <li>Frases para evitar: culpar, avergonzar, personalizar el problema.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tenés las herramientas para el momento. Ahora vamos a ver las rutinas diarias que reducen la frecuencia de los berrinches.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 11 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap11">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 11 · Parte V</div>
+    <h1 class="chapter-title">Rutinas que previenen el dragón</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Uno de los factores que más influye en la frecuencia e intensidad de los berrinches es la <strong>previsibilidad</strong>. Los niños de 3 a 6 años se sienten más seguros cuando saben qué va a pasar. Y cuando se sienten seguros, se desbordan menos.</p>
+
+    <h2>11.1 · Por qué las rutinas ayudan</h2>
+
+    <p>Las rutinas ayudan porque:</p>
+
+    <ul>
+      <li><strong>Reducen la incertidumbre:</strong> el niño sabe qué esperar, y eso baja la ansiedad.</li>
+      <li><strong>Le dan control:</strong> aunque el niño no controla lo que pasa, sabe qué va a pasar.</li>
+      <li><strong>Reducen las transiciones sorpresivas:</strong> las transiciones son uno de los principales disparadores de berrinches.</li>
+      <li><strong>Construyen hábitos:</strong> el cuerpo y el cerebro se preparan para lo que sigue.</li>
+      <li><strong>Reducen la carga cognitiva:</strong> el niño no tiene que "decidir" todo el tiempo. El día tiene una estructura.</li>
+    </ul>
+
+    <h2>11.2 · Las 4 rutinas clave</h2>
+
+    <div class="routine-card">
+      <div class="routine-time">🌅 Rutina de la mañana</div>
+      <h4>Empezar el día con estructura</h4>
+      <p>La mañana tiene que ser lo más previsible posible: mismo orden, mismos tiempos, mismas palabras.</p>
+      <div class="steps">
+        <div class="step">Saludo al dragón (2 min).</div>
+        <div class="step">Ir al baño y lavarse la cara.</div>
+        <div class="step">Desayunar sin pantallas.</div>
+        <div class="step">Vestirse con canciones.</div>
+        <div class="step">Preparar la mochila juntos.</div>
+      </div>
+    </div>
+
+    <div class="routine-card">
+      <div class="routine-time">🍽️ Rutina de las comidas</div>
+      <h4>Comer con previsibilidad</h4>
+      <p>Las comidas son momentos de alta probabilidad de berrinche (por hambre y por cansancio). Ayudan:</p>
+      <div class="steps">
+        <div class="step">Avisar 10 minutos antes de comer: "En 10 minutos comemos."</div>
+        <div class="step">Mismo lugar, misma rutina (lavarse las manos, sentarse).</div>
+        <div class="step">Ofrecer opciones limitadas: "¿Querés agua o jugo?"</div>
+        <div class="step">Sin pantallas durante la comida.</div>
+        <div class="step">No forzar a comer. Retirar el plato después de 30 minutos sin conflicto.</div>
+      </div>
+    </div>
+
+    <div class="routine-card">
+      <div class="routine-time">🌙 Rutina de la noche</div>
+      <h4>Dormir con calma</h4>
+      <p>El sueño es fundamental para la regulación emocional. Un niño que duerme mal tiene más berrinches.</p>
+      <div class="steps">
+        <div class="step">Avisar 30 minutos antes: "En 30 minutos vamos a dormir."</div>
+        <div class="step">Bajar la intensidad: luces bajas, pantallas apagadas, música suave.</div>
+        <div class="step">Baño tibio.</div>
+        <div class="step">Cuento del dragón (5 min).</div>
+        <div class="step">Abrazo de 3 respiraciones.</div>
+        <div class="step">Misma hora todos los días.</div>
+      </div>
+    </div>
+
+    <div class="routine-card">
+      <div class="routine-time">🎮 Rutina de las transiciones</div>
+      <h4>Cambiar de actividad sin berrinche</h4>
+      <p>Las transiciones son el momento más crítico. Estas son las claves:</p>
+      <div class="steps">
+        <div class="step">Avisar con anticipación: "En 5 minutos dejamos de jugar."</div>
+        <div class="step">Usar un timer visual: "Cuando suena el timer, terminamos."</div>
+        <div class="step">Ofrecer un cierre: "¿Terminás esta parte y después vamos?"</div>
+        <div class="step">Hacer una transición lúdica: "¿Corremos hasta el baño?"</div>
+        <div class="step">Validar la frustración: "Sé que querés seguir. Yo también. Pero hay que ir."</div>
+      </div>
+    </div>
+
+    <h2>11.3 · La rutina semanal</h2>
+
+    <p>Además de las rutinas diarias, algunas rutinas semanales ayudan:</p>
+
+    <ul>
+      <li><strong>Un día a la semana de "cita especial" con cada adulto.</strong> Aunque sea 30 minutos. Sin pantallas. Sin hermanos. Solo el niño y el adulto.</li>
+      <li><strong>Un día de actividad física intensa.</strong> El cuerpo necesita gastar energía. Niños que se mueven menos, se desbordan más.</li>
+      <li><strong>Un momento de "contar la semana" con dibujos o cuentos.</strong> Ayuda al niño a procesar lo que pasó.</li>
+      <li><strong>Un día de "nada" planificado.</strong> Los niños también necesitan aburrirse para desarrollar la creatividad y la calma.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💡 Sobre las pantallas</strong>
+      Las pantallas (tablets, celulares, televisión) son uno de los principales disparadores de berrinches en niños de 3 a 6 años. No porque sean "malas", sino porque su uso suele ser muy intenso, y la transición de la pantalla a otra actividad es muy difícil. Recomendación:
+      <ul style="margin-top: 10px;">
+        <li>Máximo 1 hora al día.</li>
+        <li>Nunca antes de dormir.</li>
+        <li>Siempre con aviso previo antes de apagar.</li>
+        <li>Nunca como premio o castigo.</li>
+      </ul>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Las rutinas ayudan a reducir la frecuencia e intensidad de los berrinches.</li>
+        <li>Las 4 rutinas clave son: mañana, comidas, noche, transiciones.</li>
+        <li>Las transiciones son el momento más crítico: usar avisos previos y transiciones lúdicas.</li>
+        <li>Las rutinas semanales ayudan: cita especial, actividad física, contar la semana, aburrimiento planificado.</li>
+        <li>Las pantallas son un disparador frecuente: máximo 1 hora al día, nunca antes de dormir.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya tenés las rutinas. Ahora vamos a ver las palabras: qué decir y qué no decir para calmar (o avivar) al dragón.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 12 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap12">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 12 · Parte V</div>
+    <h1 class="chapter-title">Las palabras que calman (y las que avivan)</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Las palabras importan. Mucho. En el momento del berrinche, algunas frases ayudan a bajar la intensidad. Otras la aumentan. Este capítulo es una guía práctica para saber qué decir y qué no.</p>
+
+    <h2>12.1 · Las frases que calman</h2>
+
+    <table>
+      <thead>
+        <tr><th>Frase</th><th>Por qué funciona</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Estoy acá."</td><td>Presencia. No pide nada. Tranquiliza.</td></tr>
+        <tr><td>"Estás a salvo."</td><td>Calma el sistema de alarma.</td></tr>
+        <tr><td>"Te acompaño."</td><td>No deja solo al niño en su emoción.</td></tr>
+        <tr><td>"Puedo esperar."</td><td>Quita la presión del tiempo.</td></tr>
+        <tr><td>"Veo que estás muy enojado."</td><td>Valida la emoción.</td></tr>
+        <tr><td>"El dragón está muy despierto, ¿no?"</td><td>Usa la metáfora, no la culpa.</td></tr>
+        <tr><td>"¿Querés un abrazo?"</td><td>Ofrece contacto físico sin imponerlo.</td></tr>
+        <tr><td>"Está bien llorar."</td><td>Permite la expresión emocional.</td></tr>
+        <tr><td>"Cuando estés listo, estamos acá."</td><td>Da tiempo y espacio.</td></tr>
+        <tr><td>"Respiremos juntos."</td><td>Ofrece una herramienta concreta.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>12.2 · Las frases que avivan</h2>
+
+    <table>
+      <thead>
+        <tr><th>Frase</th><th>Por qué empeora</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Calmate."</td><td>La corteza prefrontal está desconectada. No puede "calmarse".</td></tr>
+        <tr><td>"No es para tanto."</td><td>Invalida la emoción. Aumenta la frustración.</td></tr>
+        <tr><td>"Dejá de llorar."</td><td>Prohíbe la expresión emocional. Confunde al niño.</td></tr>
+        <tr><td>"Si no parás, te castigo."</td><td>Amenaza. Activa más el sistema de alarma.</td></tr>
+        <tr><td>"No te voy a querer si seguís así."</td><td>Abusivo. Daña el vínculo.</td></tr>
+        <tr><td>"Te voy a dar el celular si parás."</td><td>Soborno. Enseña que las emociones se negocian.</td></tr>
+        <tr><td>"Los nenes grandes no lloran."</td><td>Genera vergüenza. Enseña a ocultar emociones.</td></tr>
+        <tr><td>"¿Por qué sos así?"</td><td>Culpa al niño. No da herramientas.</td></tr>
+        <tr><td>"Me estás haciendo enojar."</td><td>Personaliza la emoción del adulto.</td></tr>
+        <tr><td>"Es tu culpa."</td><td>Culpa. No enseña nada.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>12.3 · El tono importa más que las palabras</h2>
+
+    <p>El tono de voz es tan importante como las palabras. Un niño puede escuchar "te quiero" con un tono agresivo y sentir amenaza. Y puede escuchar "no" con un tono suave y sentir contención.</p>
+
+    <p>Las claves del tono que calma:</p>
+
+    <ul>
+      <li><strong>Volumen bajo:</strong> no grites. Susurrar a veces calma más que hablar fuerte.</li>
+      <li><strong>Ritmo lento:</strong> no apures las palabras. Hablá despacio.</li>
+      <li><strong>Tono grave y suave:</strong> ni agudo ni chillón. Grave, cálido.</li>
+      <li><strong>Frases cortas:</strong> no oraciones largas. Directo, simple.</li>
+      <li><strong>Silencios:</strong> a veces el silencio calma más que las palabras.</li>
+    </ul>
+
+    <h2>12.4 · Las palabras de después</h2>
+
+    <p>Después del berrinche, las palabras tienen otro rol: <strong>enseñar</strong>. Estas son las frases que más enseñan:</p>
+
+    <ul>
+      <li><strong>"Estuvo muy fuerte, ¿no?"</strong> — reconoce la intensidad.</li>
+      <li><strong>"El dragón estaba muy despierto."</strong> — nombra sin culpar.</li>
+      <li><strong>"¿Qué te ayudó a calmarte?"</strong> — invita a reflexionar.</li>
+      <li><strong>"La próxima vez, ¿qué podríamos hacer?"</strong> — anticipa alternativas.</li>
+      <li><strong>"Yo también me enojo a veces."</strong> — normaliza la emoción.</li>
+      <li><strong>"Te quiero. Siempre."</strong> — cierra con amor incondicional.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💡 Sobre "no" y "sí"</strong>
+      Decir "no" a un niño no es malo. Los límites son necesarios. Lo que importa es <strong>cómo</strong> se dice "no":
+      <ul style="margin-top: 10px;">
+        <li><strong>No:</strong> "¡No! ¡Dejá eso!"</li>
+        <li><strong>Sí:</strong> "Eso no. Podés usar esto otro."</li>
+      </ul>
+      Validar la emoción y sostener el límite al mismo tiempo: "Entiendo que querés el chocolate. No podemos ahora. Después de cenar, sí."
+    </div>
+
+    <div class="callout hug">
+      <strong>💗 La frase más poderosa</strong>
+      La frase más poderosa que le podés decir a tu hijo es: <strong>"Te quiero como sos."</strong> Con el dragón, con los berrinches, con todo. La aceptación incondicional es la base de la seguridad emocional. Y la seguridad emocional es la base de la regulación.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Las palabras importan: algunas calman, otras avivan.</li>
+        <li>Frases que calman: "Estoy acá", "Estás a salvo", "Te acompaño", "Puedo esperar".</li>
+        <li>Frases que avivan: "Calmate", "No es para tanto", "Si no parás te castigo".</li>
+        <li>El tono importa más que las palabras: bajo, lento, grave, corto.</li>
+        <li>La frase más poderosa: "Te quiero como sos."</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este manual</strong>. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">LeDoux, J. E. (2000).</span>
+        <span class="ref-title">Emotion circuits in the brain.</span>
+        <span class="ref-source">Annual Review of Neuroscience, 23(1), 155-184.</span>
+        <span class="ref-context">Cap. 3. Descripción del circuito de la amígdala en el miedo y la ira.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Giedd, J. N., Blumenthal, J., Jeffries, N. O., Castellanos, F. X., Liu, H., Zijdenbos, A., ... &amp; Rapoport, J. L. (1999).</span>
+        <span class="ref-title">Brain development during childhood and adolescence: A longitudinal MRI study.</span>
+        <span class="ref-source">Nature Neuroscience, 2(10), 861-863.</span>
+        <span class="ref-context">Cap. 3. Estudio sobre la maduración de la corteza prefrontal en niños y adolescentes.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">Shonkoff, J. P., &amp; Phillips, D. A. (Eds.). (2000).</span>
+        <span class="ref-title">From neurons to neighborhoods: The science of early childhood development.</span>
+        <span class="ref-source">National Academy Press.</span>
+        <span class="ref-context">Cap. 3. Obra de referencia sobre el desarrollo temprano y la plasticidad cerebral.</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Potegal, M., &amp; Davidson, R. J. (2003).</span>
+        <span class="ref-title">Temper tantrums in young children: 1. Behavioral composition.</span>
+        <span class="ref-source">Journal of Developmental &amp; Behavioral Pediatrics, 24(3), 140-147.</span>
+        <span class="ref-context">Cap. 4. Estudio descriptivo de los berrinches en niños pequeños.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Landreth, G. L. (2012).</span>
+        <span class="ref-title">Play therapy: The art of the relationship (3rd ed.).</span>
+        <span class="ref-source">Routledge.</span>
+        <span class="ref-context">Cap. 6. Obra fundamental sobre la terapia de juego con niños.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Ginsburg, K. R. (2007).</span>
+        <span class="ref-title">The importance of play in promoting healthy child development and maintaining strong parent-child bonds.</span>
+        <span class="ref-source">Pediatrics, 119(1), 182-191.</span>
+        <span class="ref-context">Cap. 6. Documento de la Academia Americana de Pediatría sobre la importancia del juego.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Bratton, S. C., Ray, D., Rhine, T., &amp; Jones, L. (2005).</span>
+        <span class="ref-title">The efficacy of play therapy with children: A meta-analytic review of treatment outcomes.</span>
+        <span class="ref-source">Professional Psychology: Research and Practice, 36(4), 376-390.</span>
+        <span class="ref-context">Cap. 6. Metaanálisis sobre la eficacia de la terapia de juego.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Siegel, D. J., &amp; Bryson, T. P. (2011).</span>
+        <span class="ref-title">The whole-brain child: 12 revolutionary strategies to nurture your child's developing mind.</span>
+        <span class="ref-source">Delacorte Press.</span>
+        <span class="ref-context">Cap. 3, 5. Obra de divulgación sobre la neurociencia del desarrollo infantil.</span>
+      </li>
+
+      <li id="ref9">
+        <span class="ref-num">[9]</span>
+        <span class="ref-authors">Gottman, J. M., &amp; DeClaire, J. (1997).</span>
+        <span class="ref-title">The heart of parenting: Raising an emotionally intelligent child.</span>
+        <span class="ref-source">Simon &amp; Schuster.</span>
+        <span class="ref-context">Cap. 12. Obra sobre el papel de los padres en la educación emocional.</span>
+      </li>
+
+      <li id="ref10">
+        <span class="ref-num">[10]</span>
+        <span class="ref-authors">Bailey, R. A. (2015).</span>
+        <span class="ref-title">Conscious discipline: Building resilient classrooms.</span>
+        <span class="ref-source">Loving Guidance.</span>
+        <span class="ref-context">Cap. 4. Modelo sobre tipos de berrinches y disciplina positiva.</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-lavender); border-left-color: var(--primary-light);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar o PubMed. Si querés profundizar en alguna, podés buscarla por el título. Si tenés dificultades para acceder a algún artículo, escribinos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · RECURSOS -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los recursos de WineBOX para familias</h3>
+  <p>Además de este manual, en WineBOX vas a encontrar una biblioteca de recursos gratuitos para acompañar a los más chicos en su desarrollo emocional. Y si querés, podés coordinar una consulta con nuestro equipo profesional.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DEL DRAGÓN -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno del dragón · Hojas imprimibles</div>
+    <h2>Registros, dibujos y seguimiento</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse todos los días. Anotá los episodios, dibujá el dragón, celebrá los logros. Sin datos, no hay patrones que ver.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, seleccioná "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Mi dragón -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Mi dragón</div>
+      <h3>🐉 Conozco a mi Dragón</h3>
+    </div>
+    <p class="sheet-intro">Dibujá a tu dragón. ¿Cómo es? ¿Qué color tiene? ¿Tiene nombre? ¿Cuándo aparece? ¿Qué le gusta hacer cuando está enojado?</p>
+    <div class="sheet-body">
+      <div style="border: 2px dashed var(--border); border-radius: 12px; height: 320px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; background: var(--cream); color: var(--muted); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; text-align: center; padding: 20px;">
+        Acá dibujamos a nuestro dragón
+      </div>
+      <div class="form-field"><label>Nombre de mi dragón:</label><div class="line"></div></div>
+      <div class="form-field"><label>¿Cuándo aparece mi dragón?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué le gusta hacer cuando está enojado?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué lo ayuda a calmarse?</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Registro de berrinches -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Registro</div>
+      <h3>📋 Registro de Berrinches</h3>
+    </div>
+    <p class="sheet-intro">Anotá cada berrinche para ver los patrones: qué lo disparó, cuánto duró, cómo se resolvió.</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Qué pasó</th><th>Duración</th><th>Cómo se resolvió</th></tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="callout tip" style="margin-top: 20px; font-size: 14px;">
+        <strong>💡 Consejo</strong> Al final de la semana, revisá el registro. ¿Hay un patrón? ¿Aparecen más berrinches en algún momento del día? ¿Hay algún disparador común?
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: La estrella del día -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Estrellas</div>
+      <h3>⭐ Mis Estrellas del Día</h3>
+    </div>
+    <p class="sheet-intro">Pintá una estrella cada vez que atravesás un momento difícil. No es por portarse bien: es por atravesar lo difícil.</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Día</th><th>⭐</th><th>⭐</th><th>⭐</th><th>⭐</th><th>⭐</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+          <tr><td>Martes</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+          <tr><td>Miércoles</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+          <tr><td>Jueves</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+          <tr><td>Viernes</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+          <tr><td>Sábado</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+          <tr><td>Domingo</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+        </tbody>
+      </table>
+      <div class="form-field" style="margin-top: 24px;"><label>Total de estrellas de la semana:</label><div class="line"></div></div>
+      <div class="form-field"><label>Un premio que elegimos juntos:</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Frases para la heladera -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Recordatorio</div>
+      <h3>💚 Las 10 frases que calman</h3>
+    </div>
+    <p class="sheet-intro">Pegá esta hoja en la heladera. Cuando el dragón aparezca, mirala antes de hablar.</p>
+    <div class="sheet-body">
+      <ol style="font-size: 17px; line-height: 2.2; margin-left: 1.2em;">
+        <li>Estoy acá.</li>
+        <li>Estás a salvo.</li>
+        <li>Te acompaño.</li>
+        <li>Puedo esperar.</li>
+        <li>Veo que estás muy enojado.</li>
+        <li>El dragón está muy despierto, ¿no?</li>
+        <li>¿Querés un abrazo?</li>
+        <li>Está bien llorar.</li>
+        <li>Cuando estés listo, estamos acá.</li>
+        <li>Respiremos juntos.</li>
+      </ol>
+      <div class="callout hug" style="margin-top: 30px; font-size: 15.5px;">
+        <strong>💗 Y la más importante de todas</strong>
+        "Te quiero como sos. Con el dragón, con los berrinches, con todo."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este manual y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el acompañamiento de niños, niñas y familias en el desarrollo emocional.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Acompañamiento Familiar</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada niño y cada familia. Este manual está pensado para acompañar a los adultos que acompañan: con herramientas concretas, sin juicios, y con la certeza de que la calma se aprende, se practica y se comparte.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si sentís que el dragón es más grande que vos, escribinos por WhatsApp. Te vamos a escuchar y orientar sin juicio.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20manual%20del%20drag%C3%B3n%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🐉 WineBOX · Domando al Dragón de la Ira<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y corazón · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice y citas
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

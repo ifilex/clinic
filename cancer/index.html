@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · El Juego como Aliado en el Cáncer</title>
+
+<meta name="dc:title" content="El Juego como Aliado en el Cáncer">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Protocolo de acompañamiento y estimulación cognitiva asistida por videojuegos para pacientes oncológicos. Guía para pacientes, familias y terapeutas.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #2D5016;
+    --primary-dark: #1A3010;
+    --primary-light: #4A7A2E;
+    --accent: #E85D75;
+    --accent-dark: #C9405A;
+    --gold: #D4A017;
+    --gold-dark: #A67C0E;
+    --cream: #FFFDF5;
+    --paper: #FFFFFF;
+    --ink: #1A2E1A;
+    --ink-soft: #3A4A3A;
+    --muted: #6B7A6B;
+    --border: #E0EAD5;
+    --soft-green: #E8F5E0;
+    --soft-rose: #FCE8EC;
+    --soft-amber: #FFF8E0;
+    --soft-blue: #E8F0F8;
+    --soft-lavender: #F0EAF8;
+    --soft-mint: #E0F2EE;
+    --alert: #D64545;
+    --play: #4CAF50;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 25% 25%, rgba(232,93,117,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(212,160,23,0.12) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 800px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(38px, 7vw, 72px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.2px; }
+  .cover h1 em { font-style: italic; color: var(--gold); display: block; font-size: 0.82em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.94; margin-bottom: 16px; line-height: 1.5; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; margin-bottom: 48px; background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 20px; display: inline-block; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(212,160,23,0.5); border-radius: 20px; color: var(--gold); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-amber); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--gold-dark); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--primary-light); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--accent); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--accent-dark); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-mint);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-green);
+    border-left: 3px solid var(--play);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '🌿 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--primary-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-green) 100%); border-left: 4px solid var(--primary-light); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid var(--play); }
+  .callout.tip strong { color: #2E7D32; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid var(--gold-dark); }
+  .callout.warning strong { color: #8B5A00; }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary-light); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.exercise { background: var(--soft-lavender); border-left: 4px solid var(--accent); }
+  .callout.exercise strong { color: var(--accent-dark); }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '✦'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: bold; font-size: 16px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* GAME CARDS */
+  .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 1.5em 0; }
+  .game-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 16px;
+    padding: 26px 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .game-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.9;
+  }
+  .game-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(45,80,22,0.14); border-color: var(--primary); }
+  .game-card .game-emoji { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+  .game-card .game-tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .game-card .game-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 19px; margin-bottom: 8px; color: var(--primary-dark); }
+  .game-card .game-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
+  .game-card .game-desc { font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .game-card .game-how {
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px;
+    background: var(--soft-green); padding: 10px 14px; border-radius: 8px;
+    color: var(--primary-dark); font-weight: 600;
+  }
+  .game-card .game-how::before { content: '▶ '; }
+
+  /* PHASE CARD */
+  .phase-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 22px 26px; margin: 18px 0; border-radius: 0 10px 10px 0; }
+  .phase-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .phase-card .phase-objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(232,93,117,0.08); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: white;
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold); color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,160,23,0.4); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--primary-light);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--accent); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 13.5px; }
+  .sheet-body table th { font-size: 10px; padding: 8px 10px; }
+  .sheet-body table td { padding: 12px 10px; height: 40px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; color: white; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(212,160,23,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--gold); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(212,160,23,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--gold); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(45,80,22,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--gold) !important; }
+    .cover-tags span { color: var(--gold) !important; border-color: var(--gold) !important; }
+    .cover-brand, .cover-author { color: var(--gold) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-amber) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .phase-card, .summary, .next-step, .game-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--gold) !important; }
+    .cta-box { background: rgba(232,93,117,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: white !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Oncológica</div>
+    <h1>El Juego como<br><em>Aliado en el Cáncer</em></h1>
+    <p class="cover-subtitle">Protocolo de acompañamiento y estimulación cognitiva<br>asistida por videojuegos para pacientes oncológicos</p>
+    <p class="cover-audience">Guía para pacientes, familias y terapeutas</p>
+    <div class="cover-tags">
+      <span>Oncología</span><span>Estimulación Cognitiva</span><span>Refuerzo Positivo</span><span>Acompañamiento</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia Clínica y Limitación de Responsabilidad</div>
+    <h2>Leer antes de comenzar</h2>
+    <p><strong>Este programa NO reemplaza el tratamiento oncológico, la psicoterapia ni el acompañamiento médico profesional.</strong> Es una herramienta complementaria de apoyo emocional y estimulación cognitiva, diseñada para acompañar al paciente durante su proceso. Nunca sustituye la consulta médica, la quimioterapia, la radioterapia, la inmunoterapia ni ningún otro tratamiento indicado por el equipo tratante.</p>
+    <p>El juego, la estimulación cognitiva y las técnicas de refuerzo positivo pueden <strong>mejorar la calidad de vida, el estado de ánimo y algunos síntomas</strong>, pero <strong>no curan el cáncer ni modifican la progresión del tumor</strong>. El efecto placebo y el refuerzo positivo actúan sobre los síntomas (fatiga, dolor, náuseas) y sobre el bienestar emocional, no sobre la enfermedad de base.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Banderas rojas para consultar con el equipo tratante</h3>
+    <ol>
+      <li>Pensamientos de muerte o autolesión. <strong>Derivar de inmediato a guardia o línea de crisis.</strong></li>
+      <li>Dolor no controlado o que empeora bruscamente.</li>
+      <li>Náuseas, vómitos o fatiga que impiden realizar actividades básicas.</li>
+      <li>Confusión aguda, desorientación o cambios bruscos en el estado mental.</li>
+      <li>Síntomas de infección (fiebre, escalofríos, heridas que no sanan).</li>
+      <li>Cualquier síntoma nuevo que aparezca durante el tratamiento.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y estimulación cognitiva. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento oncológico, psicológico o psiquiátrico prescrito por un especialista.</strong></p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del paciente o su representante legal, según la normativa vigente (Ley 26.529 y Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia, respeto y esperanza</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Comprender</span>Cap. 1 Bienvenida: el juego no cura, pero acompaña</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Comprender</span>Cap. 2 Carta al paciente y a la familia</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · La mente</span>Cap. 3 El efecto placebo y el refuerzo positivo</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · La mente</span>Cap. 4 La neurociencia del juego en oncología</a></li>
+      <li><a href="#cap5"><span class="part">Parte II · La mente</span>Cap. 5 Lo que la evidencia dice (y lo que no)</a></li>
+      <li><a href="#cap6"><span class="part">Parte III · El programa</span>Cap. 6 Estructura del programa WineBOX Onco</a></li>
+      <li><a href="#cap7"><span class="part">Parte III · El programa</span>Cap. 7 Protocolo de sesión adaptado al paciente</a></li>
+      <li><a href="#cap8"><span class="part">Parte IV · Correlación clínica</span>Cap. 8 Tipos de cáncer y juegos recomendados</a></li>
+      <li><a href="#cap9"><span class="part">Parte IV · Correlación clínica</span>Cap. 9 Manejo de síntomas específicos</a></li>
+      <li><a href="#cap10"><span class="part">Parte V · El día a día</span>Cap. 10 Guía práctica para el día a día</a></li>
+      <li><a href="#cap11"><span class="part">Parte V · El día a día</span>Cap. 11 El paciente como protagonista</a></li>
+      <li><a href="#cap12"><span class="part">Parte V · El día a día</span>Cap. 12 El rol del cuidador y la familia</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno oncológico</span>Hojas imprimibles y seguimiento</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida: el juego no cura, pero acompaña</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Hay un momento, después del diagnóstico, en el que todo cambia. Las palabras se vuelven pesadas: quimioterapia, radioterapia, metástasis, pronóstico. La vida se llena de consultas, estudios, esperas, resultados. Y en medio de todo eso, la persona sigue estando ahí, con sus miedos, sus preguntas, su cansancio, sus ganas de vivir.</p>
+
+    <p>Este libro no pretende curar el cáncer. Sería una falta de respeto, y una mentira. Lo que este libro pretende es más humilde y, quizás, más útil: <strong>acompañar al paciente en su día a día</strong>, ofreciendo herramientas concretas de estimulación cognitiva, regulación emocional y refuerzo positivo, a través del juego.</p>
+
+    <blockquote>
+      <p>«El juego no reduce el tumor. No reemplaza la quimioterapia. No cura. Pero puede devolver algo que el cáncer intenta robar: la capacidad de estar presente, de disfrutar un momento, de sentir que uno sigue siendo uno, más allá de la enfermedad.»</p>
+      <cite>— Principio central de este manual</cite>
+    </blockquote>
+
+    <h2>Qué es este programa</h2>
+    <p>El <strong>Programa WineBOX Onco</strong> es un protocolo de acompañamiento y estimulación cognitiva asistida por videojuegos de baja fidelidad visual, diseñado específicamente para pacientes oncológicos en tratamiento activo, remisión o cuidados paliativos.</p>
+
+    <p>El programa se organiza en <strong>sesiones diarias de 10 a 20 minutos</strong>, con ejercicios agrupados en cuatro dominios:</p>
+
+    <ul>
+      <li><strong>Regulación emocional:</strong> juegos que ayudan a manejar la ansiedad, el miedo y la tristeza.</li>
+      <li><strong>Estimulación cognitiva:</strong> juegos que mantienen activas las funciones ejecutivas (atención, memoria, planificación).</li>
+      <li><strong>Distracción analgésica:</strong> juegos que reducen la percepción del dolor y la fatiga.</li>
+      <li><strong>Refuerzo positivo:</strong> juegos que generan logros visibles y sensación de autoeficacia.</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>🎮 Los juegos están a un clic</strong>
+      Cada ejercicio de este eBook tiene un botón <strong>▶ Jugar ahora</strong> que abre el juego en tu navegador. No hace falta instalar nada. Y si querés explorar todos los juegos disponibles, al final del libro tenés acceso a la plataforma completa.
+    </div>
+
+    <h2>Lo que el juego SÍ puede hacer</h2>
+
+    <table>
+      <thead>
+        <tr><th>Área</th><th>Qué puede hacer el juego</th><th>Evidencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Dolor</strong></td><td>Reducir la percepción del dolor y el consumo de analgésicos</td><td>Videojuegos reducen hasta un 20% el consumo de morfina y un 44% el dolor incidental <a href="#ref1" class="cite">Juegaterapia, 2025 <span class="cite-ref">[1]</span></a></td></tr>
+        <tr><td><strong>Ansiedad</strong></td><td>Disminuir la ansiedad y el miedo durante el tratamiento</td><td>El juego terapéutico reduce ansiedad, miedo y estrés <a href="#ref2" class="cite">González Díaz, 2026 <span class="cite-ref">[2]</span></a></td></tr>
+        <tr><td><strong>Fatiga</strong></td><td>Reducir la fatiga relacionada con el cáncer</td><td>La terapia de juego alivia fatiga y dolor <a href="#ref3" class="cite">Ramdaniati et al., 2023 <span class="cite-ref">[3]</span></a></td></tr>
+        <tr><td><strong>Estado de ánimo</strong></td><td>Mejorar el estado de ánimo y la calidad de vida emocional</td><td>Intervenciones lúdicas digitales mejoran depresión, ansiedad y apoyo social <a href="#ref4" class="cite">Estudio COVID-19, 2025 <span class="cite-ref">[4]</span></a></td></tr>
+        <tr><td><strong>Cognición</strong></td><td>Mantener y mejorar funciones cognitivas</td><td>El entrenamiento cognitivo mejora atención, memoria y concentración <a href="#ref5" class="cite">Salem Health, 2024 <span class="cite-ref">[5]</span></a></td></tr>
+        <tr><td><strong>Afrontamiento</strong></td><td>Mejorar estrategias de afrontamiento</td><td>El juego aumenta frecuencia y efectividad del afrontamiento <a href="#ref6" class="cite">Board Game Study, 2025 <span class="cite-ref">[6]</span></a></td></tr>
+        <tr><td><strong>Esperanza</strong></td><td>Aumentar la esperanza y la autoeficacia</td><td>El refuerzo positivo mejora la esperanza y reduce la fatiga <a href="#ref7" class="cite">Estudio colorrectal, 2025 <span class="cite-ref">[7]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Lo que el juego NO puede hacer</h2>
+
+    <div class="callout warning">
+      <strong>⚠ Para ser claros y honestos</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li><strong>NO cura el cáncer.</strong> Ningún juego cura el cáncer. El tratamiento oncológico es irremplazable.</li>
+        <li><strong>NO reduce el tumor.</strong> El efecto placebo y el refuerzo positivo actúan sobre los síntomas, no sobre la enfermedad de base.</li>
+        <li><strong>NO reemplaza la psicoterapia.</strong> En casos de depresión mayor, ansiedad severa o crisis, el acompañamiento profesional es fundamental.</li>
+        <li><strong>NO reemplaza el tratamiento del dolor.</strong> Los analgésicos y el equipo de cuidados paliativos son esenciales.</li>
+        <li><strong>NO debe usarse para evitar hablar de la enfermedad.</strong> El juego es un respiro, no una evasión crónica.</li>
+      </ul>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El juego no cura el cáncer, pero puede mejorar la calidad de vida, el ánimo y algunos síntomas.</li>
+        <li>El programa se organiza en 4 dominios: regulación, cognición, analgesia, refuerzo.</li>
+        <li>La evidencia muestra beneficios en dolor, ansiedad, fatiga, ánimo y cognición.</li>
+        <li>El juego no reemplaza el tratamiento oncológico ni la psicoterapia.</li>
+        <li>El juego es un respiro, no una evasión.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en la parte técnica, queremos dirigirnos directamente a quien está atravesando esto. En el próximo capítulo vas a encontrar una carta escrita para vos y para tu familia.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta al paciente y a la familia</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para quien está librando esta batalla, y para quien la acompaña. Si sos terapeuta, leelo también: te va a recordar por qué hacemos lo que hacemos.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido paciente:</p>
+
+    <p>Lo que estás atravesando no tiene nombre fácil. No es solo una enfermedad. Es una sacudida a la vida entera: los planes, los vínculos, las certezas, el cuerpo, la identidad. Es un camino lleno de preguntas, de esperas, de estudios, de resultados, de noches largas. Y de una fuerza que a veces aparece y a veces no.</p>
+
+    <p>No voy a decirte que "todo va a estar bien". No lo sé. Tampoco voy a decirte que "hay que ser positivo". La positividad forzada es una carga más. Lo que sí voy a decirte es esto: <strong>en medio de todo esto, hay pequeños momentos que se pueden recuperar</strong>. Momentos de distracción, de disfrute, de logro, de presencia. Y el juego puede ser uno de ellos.</p>
+
+    <blockquote>
+      <p>«La enfermedad te dice quién sos. El juego te recuerda que sos más que la enfermedad.»</p>
+      <cite>— Reflexión para los días difíciles</cite>
+    </blockquote>
+
+    <p>Este manual te propone jugar 10-20 minutos al día. No para olvidar. No para escapar. Sino para <strong>darte un respiro</strong>. Porque el cáncer es agotador. Y como todo lo agotador, necesita pausas. Estas pausas no son traición: son supervivencia.</p>
+
+    <p>Vas a jugar. Sí, jugar. A juegos simples, clásicos, de esos que no exigen demasiado. Y mientras jugás, tu cerebro va a estar haciendo algo que el cáncer intenta robar: <strong>estar en el presente</strong>. Y eso, aunque parezca poco, es enorme.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>A la familia, al cuidador, al que está al lado:</p>
+
+    <p>Sabemos que también es agotador para vos. Que muchas veces no sabés qué decir. Que querés ayudar pero no sabés cómo. Que te sentís culpable por estar cansado. Que la incertidumbre te pesa. Que el miedo te acompaña.</p>
+
+    <p>Tu rol es central. <strong>No sos un salvador. Sos un testigo y un sostén.</strong> Tu tarea es:</p>
+
+    <ul>
+      <li><strong>Ofrecer el juego como una invitación, no como una obligación.</strong> "¿Querés jugar un ratito?" Si dice que no, está bien.</li>
+      <li><strong>Acompañar sin invadir.</strong> Podés jugar con el paciente, o simplemente estar cerca mientras juega.</li>
+      <li><strong>Celebrar los logros.</strong> Cada partida ganada, cada nivel superado, es una pequeña victoria. Celebrarla.</li>
+      <li><strong>No usar el juego para evitar conversaciones difíciles.</strong> Si el paciente quiere hablar de la enfermedad, escucharlo. El juego es un complemento, no un sustituto.</li>
+      <li><strong>Cuidarte vos también.</strong> El agotamiento del cuidador es real. Pedí ayuda. Tomate pausas.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Si hay riesgo, actuar</strong>
+      Si el paciente menciona querer morir, autolesionarse, o desaparecer, <strong>no dejarlo solo</strong>. Acompañarlo a una guardia, llamar a una línea de crisis, o contactar a un profesional inmediatamente. En Argentina: <strong>135 (CABA) o 0800-345-1435 (línea nacional de prevención del suicidio)</strong>.
+    </div>
+
+    <p>El camino es largo, y no lo están caminando solos. Este manual es una herramienta, y nosotros estamos del otro lado del WhatsApp si necesitan orientación profesional.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y esperanza,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Escribinos por WhatsApp. Te vamos a escuchar y orientar sin juicio.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20estoy%20atravesando%20un%20proceso%20oncol%C3%B3gico%20y%20quiero%20orientaci%C3%B3n." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La enfermedad sacude la vida entera, no solo el cuerpo.</li>
+        <li>El juego no pretende curar, sino dar respiros.</li>
+        <li>El cuidador es testigo y sostén, no salvador.</li>
+        <li>El juego es un complemento, no un sustituto de las conversaciones difíciles.</li>
+        <li>El autocuidado del cuidador es tan importante como el del paciente.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte científica. En el próximo capítulo vas a ver el efecto placebo y el refuerzo positivo: qué son, cómo funcionan, y qué dice la evidencia sobre su uso en oncología.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">El efecto placebo y el refuerzo positivo</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo es el corazón conceptual del programa. Dos mecanismos psicológicos y neurobiológicos explican por qué el juego puede ayudar en oncología: el <strong>efecto placebo</strong> y el <strong>refuerzo positivo</strong>.</p>
+
+    <h2>3.1 · El efecto placebo: qué es y qué no es</h2>
+
+    <p>El efecto placebo es <strong>la respuesta de mejora que se produce cuando una persona espera que algo la va a ayudar</strong>, aunque ese "algo" no tenga propiedades terapéuticas reales. No es magia: es neurobiología.</p>
+
+    <p>El efecto placebo se desarrolla a partir de complejos mecanismos neurobiológicos que generan neurotransmisores (endorfinas, cannabinoides y dopamina) y activan áreas específicas del encéfalo relacionadas con la anticipación y la recompensa. <a href="#ref8" class="cite">Morral et al., 2017 <span class="cite-ref">[8]</span></a></p>
+
+    <div class="footnote">
+      <strong>Un dato clave:</strong> en el cáncer, el efecto placebo <strong>no reduce el tumor</strong>, pero puede ser eficaz en la mejoría de los síntomas y en la disminución de los efectos secundarios, tales como fatiga, náuseas y dolor. <a href="#ref8" class="cite">Morral et al., 2017 <span class="cite-ref">[8]</span></a> Es decir: actúa sobre cómo se siente el paciente, no sobre la enfermedad en sí.
+    </div>
+
+    <h2>3.2 · Cómo funciona el efecto placebo en oncología</h2>
+
+    <p>En oncología, el efecto placebo actúa principalmente a través de tres vías:</p>
+
+    <ul>
+      <li><strong>Expectativa:</strong> cuando el paciente espera que algo lo va a ayudar, su cerebro activa respuestas fisiológicas que reducen el malestar. Si espera sentirse mejor, se siente mejor.</li>
+      <li><strong>Condicionamiento:</strong> el cuerpo aprende a asociar ciertos estímulos (una sala, un ritual, un juego) con la calma. Con el tiempo, esos estímulos generan la respuesta por sí mismos.</li>
+      <li><strong>Relación terapéutica:</strong> la interacción con el terapeuta o cuidador es uno de los factores psicosociales más relevantes en la respuesta placebo. La empatía, la escucha, la confianza activan respuestas de calma. <a href="#ref8" class="cite">Morral et al., 2017 <span class="cite-ref">[8]</span></a></li>
+    </ul>
+
+    <div class="callout info">
+      <strong>El efecto nocebo: la cara oscura</strong>
+      Así como las expectativas positivas generan mejoría, las expectativas negativas generan empeoramiento. Los pacientes de cáncer pueden comenzar a sentir náuseas cuando entran en las salas de quimioterapia, porque su cerebro ha aprendido a asociar esas salas con las náuseas posteriores. <a href="#ref9" class="cite">EFE Salud, 2013 <span class="cite-ref">[9]</span></a> El juego puede ser una herramienta para romper esa asociación.
+    </div>
+
+    <h2>3.3 · El refuerzo positivo: la ciencia de los logros</h2>
+
+    <p>El <strong>refuerzo positivo</strong> es el proceso por el cual una conducta se fortalece cuando va seguida de una consecuencia placentera. En oncología, el refuerzo positivo actúa a través de:</p>
+
+    <ul>
+      <li><strong>Logros visibles:</strong> completar una tarea, ganar una partida, superar un nivel. Cada logro genera una pequeña descarga de dopamina.</li>
+      <li><strong>Autoeficacia:</strong> la creencia "yo puedo". Cuando el paciente ve que puede resolver un problema, se siente más capaz de enfrentar otros desafíos.</li>
+      <li><strong>Esperanza:</strong> la investigación muestra que el refuerzo positivo aumenta la esperanza en pacientes oncológicos. <a href="#ref7" class="cite">Estudio colorrectal, 2025 <span class="cite-ref">[7]</span></a></li>
+    </ul>
+
+    <h2>3.4 · La evidencia del refuerzo positivo en cáncer</h2>
+
+    <p>La investigación sobre refuerzo positivo en oncología ha mostrado resultados prometedores:</p>
+
+    <table>
+      <thead>
+        <tr><th>Tipo de cáncer</th><th>Intervención</th><th>Resultado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Cáncer de mama</strong></td><td>Terapia focalizada en soluciones + refuerzo positivo</td><td>Reducción de negatividad, aumento de autoeficacia y calidad de vida <a href="#ref10" class="cite">Lu et al., 2024 <span class="cite-ref">[10]</span></a></td></tr>
+        <tr><td><strong>Cáncer colorrectal</strong></td><td>Intervención basada en refuerzo positivo</td><td>Aumento de esperanza, mejora nutricional, reducción de fatiga <a href="#ref7" class="cite">Estudio colorrectal, 2025 <span class="cite-ref">[7]</span></a></td></tr>
+        <tr><td><strong>Cáncer de próstata</strong></td><td>Educación + refuerzo positivo</td><td>Reducción del miedo a la progresión, aumento del bienestar <a href="#ref11" class="cite">Estudio próstata, 2024 <span class="cite-ref">[11]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>💡 Cómo aplicar el refuerzo positivo en el juego</strong>
+      <ul style="margin-top: 10px;">
+        <li><strong>Celebrar cada logro:</strong> cada partida ganada, cada nivel superado, cada récord personal. Aunque sea pequeño.</li>
+        <li><strong>Lenguaje positivo:</strong> "¡Bien!" "¡Lo lograste!" "¡Cada vez mejor!"</li>
+        <li><strong>Registrar los avances:</strong> anotar los puntajes o los logros en el Cuaderno Oncológico.</li>
+        <li><strong>No castigar los errores:</strong> los errores son información, no fracaso. El juego no es una prueba.</li>
+      </ul>
+    </div>
+
+    <h2>3.5 · Los límites del placebo y del refuerzo positivo</h2>
+
+    <div class="callout warning">
+      <strong>⚠ Lo que el placebo y el refuerzo positivo NO hacen</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li>No reducen el tumor.</li>
+        <li>No reemplazan la quimioterapia, la radioterapia, la inmunoterapia ni la cirugía.</li>
+        <li>No curan el cáncer.</li>
+        <li>No deben usarse para culpar al paciente ("si no te curás, es porque no pensás positivo").</li>
+        <li>No son una alternativa a la medicina basada en evidencia.</li>
+      </ul>
+      <strong>Lo que sí hacen:</strong> mejoran cómo se siente el paciente durante el tratamiento. Y eso, aunque no cure, es enormemente valioso.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El efecto placebo es una respuesta neurobiológica real, no magia.</li>
+        <li>En oncología, el placebo mejora síntomas pero no reduce el tumor.</li>
+        <li>El refuerzo positivo genera logros, autoeficacia y esperanza.</li>
+        <li>La evidencia en cáncer de mama, colorrectal y próstata respalda estas intervenciones.</li>
+        <li>Placebo y refuerzo positivo no curan: mejoran la calidad de vida.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos cómo funcionan el placebo y el refuerzo positivo. Ahora vamos a ver por qué los juegos son una herramienta privilegiada para activarlos en oncología.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">La neurociencia del juego en oncología</h1>
+  </div>
+  <div class="chapter-body">
+    <p>El juego no es una actividad frívola. Es una de las herramientas más poderosas que tenemos para activar los circuitos de recompensa, reducir el estrés y mantener la mente activa. En oncología, esto es especialmente relevante.</p>
+
+    <h2>4.1 · El sistema de recompensa y el dolor</h2>
+
+    <p>El dolor no es solo una señal física: es una experiencia que el cerebro construye. Cuando el cerebro está activado por el sistema de recompensa (a través del juego, el logro, la distracción), la percepción del dolor disminuye. Este fenómeno se conoce como <strong>analgesia por distracción</strong>.</p>
+
+    <p>La investigación muestra que los videojuegos pueden:</p>
+
+    <ul>
+      <li><strong>Reducir hasta un 20% el consumo de morfina</strong> en pacientes oncológicos. <a href="#ref1" class="cite">Juegaterapia, 2025 <span class="cite-ref">[1]</span></a></li>
+      <li><strong>Disminuir hasta un 44% el dolor incidental</strong> (el dolor que aparece durante procedimientos). <a href="#ref1" class="cite">Juegaterapia, 2025 <span class="cite-ref">[1]</span></a></li>
+      <li><strong>Aumentar un 14% el tono parasimpático</strong>, clave para la recuperación física. <a href="#ref1" class="cite">Juegaterapia, 2025 <span class="cite-ref">[1]</span></a></li>
+    </ul>
+
+    <div class="footnote">
+      <strong>¿Por qué el juego reduce el dolor?</strong> Porque el dolor requiere atención. Cuando el cerebro está completamente absorbido por una tarea (esquivar obstáculos, resolver un puzzle, tomar decisiones rápidas), no le quedan recursos para procesar el dolor con la misma intensidad. Es como si el juego "distrajera" al cerebro de la señal dolorosa.
+    </div>
+
+    <h2>4.2 · El juego y la fatiga oncológica</h2>
+
+    <p>La fatiga relacionada con el cáncer es uno de los síntomas más comunes y más incapacitantes. No es cansancio normal: es una fatiga que no se va con el descanso. La terapia de juego ha mostrado ser efectiva para aliviar la fatiga en pacientes oncológicos. <a href="#ref3" class="cite">Ramdaniati et al., 2023 <span class="cite-ref">[3]</span></a></p>
+
+    <p>¿Cómo? A través de:</p>
+
+    <ul>
+      <li><strong>Activación suave:</strong> el juego ofrece una actividad que no exige esfuerzo físico excesivo, pero mantiene la mente activa.</li>
+      <li><strong>Distracción:</strong> al dirigir la atención a la tarea, la percepción de fatiga disminuye.</li>
+      <li><strong>Logro:</strong> cada pequeño éxito genera dopamina, que combate la sensación de agotamiento.</li>
+      <li><strong>Estructura:</strong> el juego da un propósito y una rutina, algo que la fatiga suele robar.</li>
+    </ul>
+
+    <h2>4.3 · El juego y la ansiedad</h2>
+
+    <p>La ansiedad es una compañera constante en el proceso oncológico: ansiedad por los resultados, por el tratamiento, por el futuro, por el dolor. El juego puede reducirla porque:</p>
+
+    <ul>
+      <li><strong>Ancla la atención en el presente:</strong> durante el juego, la mente está en la tarea, no en las preocupaciones.</li>
+      <li><strong>Da una sensación de control:</strong> en un mundo donde el paciente siente que pierde el control, el juego le devuelve el control sobre algo.</li>
+      <li><strong>Genera logros:</strong> cada partida ganada es una prueba de que todavía puede.</li>
+    </ul>
+
+    <h2>4.4 · El juego y la cognición</h2>
+
+    <p>La quimioterapia, la radioterapia y la propia enfermedad pueden afectar las funciones cognitivas: atención, memoria, concentración, velocidad de procesamiento. A esto se le llama <strong>"chemobrain"</strong> o deterioro cognitivo post-quimioterapia.</p>
+
+    <p>El entrenamiento cognitivo con juegos ha mostrado mejorar atención, memoria y concentración en pacientes oncológicos. <a href="#ref5" class="cite">Salem Health, 2024 <span class="cite-ref">[5]</span></a> Y también en supervivientes de cáncer, donde el deterioro cognitivo es un efecto secundario subestimado. <a href="#ref12" class="cite">WINNERS Trial, 2026 <span class="cite-ref">[12]</span></a></p>
+
+    <div class="callout info">
+      <strong>📊 Lo que la evidencia muestra</strong>
+      Los estudios sobre entrenamiento cognitivo en pacientes oncológicos indican mejoras en:
+      <ul style="margin-top: 10px;">
+        <li>Atención sostenida y selectiva.</li>
+        <li>Memoria de trabajo.</li>
+        <li>Velocidad de procesamiento.</li>
+        <li>Funciones ejecutivas (planificación, flexibilidad).</li>
+      </ul>
+      Estos beneficios se observan tanto en niños como en adultos, y tanto durante el tratamiento como en la supervivencia.
+    </div>
+
+    <h2>4.5 · El juego como lenguaje universal</h2>
+
+    <p>El juego es una actividad accesible para casi cualquier persona, en cualquier etapa de la vida y en cualquier condición. No requiere hablar de la enfermedad. No requiere explicar cómo uno se siente. No requiere energía excesiva. Solo requiere un dispositivo (celular, tablet, computadora) y 10-20 minutos.</p>
+
+    <p>En oncología, esto es enormemente valioso. Porque hay días en los que hablar es demasiado. Días en los que pensar en la enfermedad es insoportable. Días en los que solo se necesita <strong>estar en otra cosa</strong>, aunque sea por un rato.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El juego reduce el dolor a través de la analgesia por distracción.</li>
+        <li>El juego alivia la fatiga oncológica a través de la activación suave y el logro.</li>
+        <li>El juego reduce la ansiedad al anclar la atención en el presente.</li>
+        <li>El juego mejora la cognición afectada por el tratamiento.</li>
+        <li>El juego es accesible y no exige hablar de la enfermedad.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos por qué el juego funciona. Ahora vamos a ver qué dice exactamente la evidencia científica, con honestidad sobre sus alcances y limitaciones.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte II</div>
+    <h1 class="chapter-title">Lo que la evidencia dice (y lo que no)</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo es de honestidad científica. Vamos a revisar qué dice exactamente la literatura sobre juegos, placebo y refuerzo positivo en oncología. Sin exagerar, sin minimizar.</p>
+
+    <h2>5.1 · Estudios sobre terapia de juego en cáncer infantil</h2>
+
+    <p>La mayor parte de la investigación sobre terapia de juego en oncología se ha realizado con población pediátrica. Los resultados son consistentes:</p>
+
+    <table>
+      <thead>
+        <tr><th>Estudio</th><th>Población</th><th>Resultados</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Revisión sistemática (2023)</strong></td><td>16 estudios, niños con leucemia</td><td>15 de 16 estudios mostraron beneficios en ansiedad, desesperanza, estrés, fatiga y dolor <a href="#ref3" class="cite">Ramdaniati et al., 2023 <span class="cite-ref">[3]</span></a></td></tr>
+        <tr><td><strong>Juego de mesa (2025)</strong></td><td>35 niños (8-12 años) con cáncer</td><td>La efectividad de las estrategias de afrontamiento aumentó de 5.91 a 9.49 (p<0.001) <a href="#ref6" class="cite">Board Game Study, 2025 <span class="cite-ref">[6]</span></a></td></tr>
+        <tr><td><strong>Tesis doctoral (2026)</strong></td><td>Revisión sistemática con metaanálisis</td><td>El juego reduce ansiedad, miedo y dolor, y mejora la adherencia al tratamiento <a href="#ref2" class="cite">González Díaz, 2026 <span class="cite-ref">[2]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>5.2 · Estudios sobre videojuegos en oncología</h2>
+
+    <p>La investigación sobre videojuegos en oncología es más reciente, pero los resultados son prometedores:</p>
+
+    <ul>
+      <li><strong>Reducción del dolor:</strong> videojuegos reducen hasta un 20% el consumo de morfina y un 44% el dolor incidental. <a href="#ref1" class="cite">Juegaterapia, 2025 <span class="cite-ref">[1]</span></a></li>
+      <li><strong>Mejora del ánimo:</strong> intervenciones lúdicas digitales mejoran depresión, ansiedad, estrés y apoyo social en pacientes oncológicos. <a href="#ref4" class="cite">Estudio COVID-19, 2025 <span class="cite-ref">[4]</span></a></li>
+      <li><strong>Estimulación cognitiva:</strong> el entrenamiento con juegos mejora atención, memoria y concentración en supervivientes de cáncer de mama. <a href="#ref5" class="cite">Salem Health, 2024 <span class="cite-ref">[5]</span></a></li>
+      <li><strong>Realidad virtual:</strong> la RV reduce ansiedad y mejora el bienestar en pacientes pediátricos oncológicos. <a href="#ref2" class="cite">González Díaz, 2026 <span class="cite-ref">[2]</span></a></li>
+    </ul>
+
+    <h2>5.3 · Estudios sobre refuerzo positivo en oncología</h2>
+
+    <p>La investigación sobre refuerzo positivo en pacientes oncológicos adultos muestra resultados consistentes:</p>
+
+    <table>
+      <thead>
+        <tr><th>Tipo de cáncer</th><th>Intervención</th><th>Resultado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cáncer de mama</td><td>Terapia + refuerzo positivo</td><td>Menos negatividad, más autoeficacia, mejor calidad de vida <a href="#ref10" class="cite">Lu et al., 2024 <span class="cite-ref">[10]</span></a></td></tr>
+        <tr><td>Cáncer colorrectal</td><td>Refuerzo positivo estructurado</td><td>Más esperanza, mejor nutrición, menos fatiga <a href="#ref7" class="cite">Estudio colorrectal, 2025 <span class="cite-ref">[7]</span></a></td></tr>
+        <tr><td>Cáncer de próstata</td><td>Educación + refuerzo positivo</td><td>Menos miedo a la progresión, más bienestar <a href="#ref11" class="cite">Estudio próstata, 2024 <span class="cite-ref">[11]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>5.4 · Lo que la evidencia NO dice</h2>
+
+    <div class="callout warning">
+      <strong>⚠ Honestidad científica</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li><strong>NO dice que el juego cure el cáncer.</strong> Ningún estudio ha demostrado que el juego o el placebo reduzcan tumores.</li>
+        <li><strong>NO dice que el placebo reemplace el tratamiento.</strong> El placebo actúa sobre los síntomas, no sobre la enfermedad.</li>
+        <li><strong>NO dice que el refuerzo positivo funcione en todos los pacientes.</strong> La respuesta es variable.</li>
+        <li><strong>NO dice que el juego sea suficiente para tratar la depresión o la ansiedad severa.</strong> En esos casos, se necesita psicoterapia y/o medicación.</li>
+        <li><strong>NO dice que el juego deba usarse para evitar hablar de la enfermedad.</strong> El juego es un complemento, no un sustituto del acompañamiento profesional.</li>
+      </ul>
+    </div>
+
+    <h2>5.5 · Lo que la evidencia SÍ dice</h2>
+
+    <div class="callout tip">
+      <strong>💚 Lo que podemos afirmar con base en la evidencia</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li>El juego <strong>reduce el dolor</strong> (por distracción) en pacientes oncológicos.</li>
+        <li>El juego <strong>reduce la ansiedad y el miedo</strong> durante el tratamiento.</li>
+        <li>El juego <strong>alivia la fatiga</strong> relacionada con el cáncer.</li>
+        <li>El juego <strong>mejora el estado de ánimo</strong> y la calidad de vida emocional.</li>
+        <li>El juego <strong>mantiene y mejora funciones cognitivas</strong> afectadas por el tratamiento.</li>
+        <li>El refuerzo positivo <strong>aumenta la esperanza y la autoeficacia</strong> en pacientes oncológicos.</li>
+        <li>Estos beneficios se observan en niños, adultos y supervivientes.</li>
+      </ul>
+    </div>
+
+    <h2>5.6 · Nuestra postura</div>
+
+    <p>Este programa adopta una postura clara: <strong>el juego es un complemento, no un sustituto</strong>. Lo ofrecemos como una herramienta para mejorar la calidad de vida, no como una promesa de cura. Y lo hacemos con respeto por el paciente, por su familia, y por el equipo médico que lo trata.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La terapia de juego reduce ansiedad, miedo, estrés, fatiga y dolor en niños con cáncer.</li>
+        <li>Los videojuegos reducen el dolor, mejoran el ánimo y estimulan la cognición.</li>
+        <li>El refuerzo positivo mejora esperanza, autoeficacia y calidad de vida en adultos.</li>
+        <li>La evidencia NO dice que el juego cure el cáncer.</li>
+        <li>La evidencia SÍ dice que mejora la calidad de vida durante el tratamiento.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la evidencia clara, entramos en el programa. En el próximo capítulo vas a ver la estructura completa del Programa WineBOX Onco: dominios, sesiones, y cómo adaptarlo a cada paciente.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte III</div>
+    <h1 class="chapter-title">Estructura del programa WineBOX Onco</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe el corazón operativo del método. Es la parte que responde a la pregunta: <strong>¿cómo se aplica el programa día a día?</strong></p>
+
+    <h2>6.1 · Estructura general: 4 dominios</h2>
+
+    <table>
+      <thead>
+        <tr><th>Dominio</th><th>Foco</th><th>Juegos principales</th><th>Frecuencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>Regulación emocional</td><td>Pixel Leap, Sequence, Solitaire</td><td>Diario, 5-10 min</td></tr>
+        <tr><td><strong>2</strong></td><td>Estimulación cognitiva</td><td>Sudoku, Voxel Quest, BlockMatrix</td><td>4-5 veces/semana, 10-15 min</td></tr>
+        <tr><td><strong>3</strong></td><td>Analgesia y distracción</td><td>Breakout, Clumsy Bird, FreeDoom</td><td>Según necesidad</td></tr>
+        <tr><td><strong>4</strong></td><td>Refuerzo positivo</td><td>Damas, Naval Pixel, 99 Noches</td><td>2-3 veces/semana, 10-15 min</td></tr>
+      </tbody>
+    </table>
+
+    <p>El orden no es azaroso. La regulación emocional es la base: si el paciente está muy ansioso, no puede concentrarse en nada más. La estimulación cognitiva viene después: mantiene la mente activa. La analgesia se usa según necesidad: cuando el dolor o la fatiga aparecen. Y el refuerzo positivo cierra el círculo: genera logros y esperanza.</p>
+
+    <h2>6.2 · Estructura de la sesión diaria (15-25 minutos)</h2>
+
+    <div class="session-card">
+      <h4>Chequeo del estado · 2 minutos</h4>
+      <div class="session-meta">Apertura</div>
+      <p>Antes de empezar: <em>¿Cómo te sentís hoy? ¿Dormiste? ¿Tenés dolor? ¿Estás ansioso?</em> Anotá tu estado de 1 a 10 en el Cuaderno Oncológico. Esto ayuda a elegir el juego adecuado para hoy.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Juego de regulación · 5 minutos</h4>
+      <div class="session-meta">Calma</div>
+      <p>Jugá 5 minutos de un juego de regulación (Pixel Leap, Sequence, Solitaire). El objetivo no es rendir: es calmar el sistema nervioso antes del juego principal.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Juego del día · 10-15 minutos</h4>
+      <div class="session-meta">Foco del programa</div>
+      <p>Jugá el juego correspondiente al dominio del día. <strong>Anotá tu métrica</strong>: puntaje, tiempo, nivel alcanzado. Ese dato es tu evidencia de que hoy hiciste algo por vos.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Cierre · 2-3 minutos</h4>
+      <div class="session-meta">Reflexión</div>
+      <p>Preguntas: <em>¿Cómo te sentís ahora? ¿Mejor que al principio? ¿Qué lograste hoy? ¿Qué te gustaría jugar mañana?</em> Anotá en el Cuaderno Oncológico.</p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Principio de flexibilidad</strong>
+      Los días en los que el paciente no puede hacer 20 minutos, hacer 5. Los días en los que no puede jugar, no jugar. No hay fracaso. La constancia importa más que la intensidad, pero la flexibilidad importa más que la constancia.
+    </div>
+
+    <h2>6.3 · Adaptación según el estado del paciente</h2>
+
+    <table>
+      <thead>
+        <tr><th>Estado</th><th>Qué hacer</th><th>Juegos sugeridos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Con dolor alto (7-10)</strong></td><td>Priorizar analgesia por distracción. No exigir.</td><td>Breakout, Clumsy Bird, FreeDoom</td></tr>
+        <tr><td><strong>Con fatiga alta (7-10)</strong></td><td>Juegos muy simples, 5 minutos máximo.</td><td>Sequence, Solitaire</td></tr>
+        <tr><td><strong>Con ansiedad alta (7-10)</strong></td><td>Priorizar regulación. Juegos lentos, sin presión.</td><td>Pixel Leap, Solitaire, Sudoku</td></tr>
+        <tr><td><strong>Con ánimo bajo (7-10)</strong></td><td>Priorizar refuerzo positivo. Juegos con logros visibles.</td><td>Breakout, Damas, Naval Pixel</td></tr>
+        <tr><td><strong>Con buena energía (1-4)</strong></td><td>Entrenamiento cognitivo completo.</td><td>Sudoku, Voxel Quest, BlockMatrix</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6.4 · Cómo medir el progreso (sin presión)</h2>
+
+    <p>Cada semana vas a medir:</p>
+
+    <ul>
+      <li><strong>Frecuencia de juego:</strong> cuántos días jugaste.</li>
+      <li><strong>Estado de ánimo antes/después:</strong> de 1 a 10.</li>
+      <li><strong>Nivel de dolor antes/después:</strong> de 1 a 10.</li>
+      <li><strong>Nivel de fatiga antes/después:</strong> de 1 a 10.</li>
+      <li><strong>Un logro de la semana:</strong> una partida ganada, un nivel superado, un récord personal.</li>
+    </ul>
+
+    <p>El objetivo no es "mejorar" en términos absolutos. Es <strong>tener evidencia de que hoy hiciste algo por vos</strong>, aunque sea pequeño.</p>
+
+    <h2>6.5 · Las cuatro reglas de oro</h2>
+
+    <ol>
+      <li><strong>No exigencias.</strong> El juego no es una obligación. Si no podés, no podés.</li>
+      <li><strong>Sin presión.</strong> No hay puntajes que alcanzar. No hay niveles que superar. Solo hay un rato para vos.</li>
+      <li><strong>Con flexibilidad.</strong> Adaptá la duración y el juego a tu estado de hoy.</li>
+      <li><strong>Con registro.</strong> Anotá lo que sentís. Sin datos, no hay evidencia de que estás haciendo algo.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>¿Querés empezar el programa?</h3>
+      <p>Escribinos por WhatsApp para coordinar o hacer consultas. Y si querés empezar solo, el programa está en los siguientes capítulos.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20empezar%20el%20programa%20WineBOX%20Onco." target="_blank" rel="noopener">Empezar hoy</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El programa se organiza en 4 dominios: regulación, cognición, analgesia, refuerzo.</li>
+        <li>La sesión diaria dura 15-25 minutos: chequeo, regulación, juego, cierre.</li>
+        <li>Se adapta según el estado del paciente: dolor, fatiga, ansiedad, ánimo.</li>
+        <li>Se mide frecuencia, ánimo, dolor, fatiga y logros. Sin presión.</li>
+        <li>Cuatro reglas de oro: sin exigencias, sin presión, con flexibilidad, con registro.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la estructura clara, entramos en el protocolo de sesión detallado. En el próximo capítulo vas a ver, paso a paso, cómo aplicar el programa en el día a día del paciente.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte III</div>
+    <h1 class="chapter-title">Protocolo de sesión adaptado al paciente</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe, paso a paso, cómo aplicar el programa en el día a día. Cada sesión se adapta al estado del paciente, y cada juego se elige por su función específica.</p>
+
+    <h2>7.1 · Antes de empezar: el chequeo del día</h2>
+
+    <p>Antes de jugar, el paciente (o el cuidador) se pregunta:</p>
+
+    <div class="steps">
+      <div class="step"><strong>¿Cómo está mi dolor hoy?</strong> (0-10) — Si es 7 o más, priorizar analgesia.</div>
+      <div class="step"><strong>¿Cómo está mi fatiga hoy?</strong> (0-10) — Si es 7 o más, juegos muy simples.</div>
+      <div class="step"><strong>¿Cómo está mi ansiedad hoy?</strong> (0-10) — Si es 7 o más, priorizar regulación.</div>
+      <div class="step"><strong>¿Cómo está mi ánimo hoy?</strong> (0-10) — Si es 3 o menos, priorizar refuerzo positivo.</div>
+      <div class="step"><strong>¿Tengo 5, 10 o 20 minutos?</strong> — Elegir la duración según la energía disponible.</div>
+    </div>
+
+    <h2>7.2 · La sesión según el estado</h2>
+
+    <div class="phase-card">
+      <div class="phase-objective">Si el dolor es alto (7-10)</div>
+      <h4>Prioridad: analgesia por distracción</h4>
+      <p>El juego debe ser lo suficientemente absorbente como para desviar la atención del dolor, pero no tan exigente como para requerir energía que el paciente no tiene.</p>
+      <p><strong>Juegos recomendados:</strong> Breakout, Clumsy Bird, FreeDoom. <strong>Duración:</strong> 5-10 minutos, con pausas si es necesario.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Si la fatiga es alta (7-10)</div>
+      <h4>Prioridad: activación suave sin esfuerzo</h4>
+      <p>El juego debe ser simple y no exigir velocidad ni decisiones complejas. El objetivo es mantener la mente activa sin agotarla.</p>
+      <p><strong>Juegos recomendados:</strong> Sequence, Solitaire, Sudoku. <strong>Duración:</strong> 5-10 minutos, sin presión.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Si la ansiedad es alta (7-10)</div>
+      <h4>Prioridad: regulación del sistema nervioso</h4>
+      <p>El juego debe ser lento, predecible, sin tiempo límite ni presión de rendimiento. El objetivo es calmar, no exigir.</p>
+      <p><strong>Juegos recomendados:</strong> Pixel Leap, Solitaire, Sudoku. <strong>Duración:</strong> 5-10 minutos, sin reloj.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Si el ánimo es bajo (1-3)</div>
+      <h4>Prioridad: logros visibles y refuerzo positivo</h4>
+      <p>El juego debe ofrecer logros frecuentes y visibles. El objetivo es recuperar la sensación de "yo puedo".</p>
+      <p><strong>Juegos recomendados:</strong> Breakout, Damas, Naval Pixel. <strong>Duración:</strong> 10-15 minutos, celebrando cada logro.</p>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-objective">Si la energía es buena (1-4)</div>
+      <h4>Prioridad: entrenamiento cognitivo completo</h4>
+      <p>El juego puede ser más exigente. El objetivo es mantener y mejorar las funciones cognitivas.</p>
+      <p><strong>Juegos recomendados:</strong> Sudoku, Voxel Quest, BlockMatrix, 99 Noches. <strong>Duración:</strong> 15-20 minutos.</p>
+    </div>
+
+    <h2>7.3 · La secuencia de la sesión</h2>
+
+    <table>
+      <thead>
+        <tr><th>Paso</th><th>Qué hacer</th><th>Tiempo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1. Chequeo</strong></td><td>Anotar dolor, fatiga, ansiedad y ánimo (0-10)</td><td>2 min</td></tr>
+        <tr><td><strong>2. Regulación</strong></td><td>Jugar un juego de calma (Pixel Leap, Solitaire, Sequence)</td><td>5 min</td></tr>
+        <tr><td><strong>3. Juego principal</strong></td><td>Jugar el juego del día según el estado</td><td>5-15 min</td></tr>
+        <tr><td><strong>4. Cierre</strong></td><td>Anotar estado después y un logro del día</td><td>2-3 min</td></tr>
+      </tbody>
+    </table>
+
+    <h2>7.4 · Cómo registrar la sesión</h2>
+
+    <p>En el Cuaderno Oncológico (al final del eBook), el paciente anota:</p>
+
+    <ul>
+      <li><strong>Fecha</strong> y <strong>día del tratamiento</strong> (si aplica).</li>
+      <li><strong>Dolor, fatiga, ansiedad y ánimo</strong> antes y después.</li>
+      <li><strong>Juego jugado</strong> y <strong>duración</strong>.</li>
+      <li><strong>Un logro del día</strong> (por pequeño que sea).</li>
+    </ul>
+
+    <p>El objetivo no es "completar la tabla". Es tener un registro de que, a pesar de todo, hoy hiciste algo por vos.</p>
+
+    <div class="callout tip">
+      <strong>💡 Sobre los logros</strong>
+      Un logro no tiene que ser "gané el juego". Puede ser "jugué 5 minutos aunque no tenía ganas", "llegué a un nivel nuevo", "me distraje del dolor por un rato". Cualquier cosa que haya sido un pequeño acto de cuidado personal, cuenta.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Antes de jugar, se chequea dolor, fatiga, ansiedad, ánimo y energía.</li>
+        <li>Según el estado, se elige el juego y la duración.</li>
+        <li>La sesión tiene 4 pasos: chequeo, regulación, juego principal, cierre.</li>
+        <li>Se registra todo en el Cuaderno Oncológico.</li>
+        <li>El logro puede ser cualquier pequeño acto de cuidado personal.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el protocolo claro, entramos en la correlación clínica. En el próximo capítulo vas a ver qué juegos son más útiles según el tipo de cáncer y los síntomas predominantes.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 8 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 8 · Parte IV</div>
+    <h1 class="chapter-title">Tipos de cáncer y juegos recomendados</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo ofrece una correlación entre los tipos de cáncer más frecuentes y los juegos de WineBOX que pueden ser más útiles según los síntomas predominantes y las necesidades de cada paciente.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Importante</strong>
+      Esta correlación es <strong>orientativa</strong>, no prescriptiva. Cada paciente es único, y los síntomas varían. La elección del juego debe adaptarse a lo que el paciente siente y necesita en cada momento. Siempre consultar con el equipo tratante antes de iniciar cualquier programa complementario.
+    </div>
+
+    <h2>8.1 · Cáncer de mama</h2>
+
+    <p><strong>Síntomas predominantes:</strong> fatiga, dolor post-quirúrgico, ansiedad, deterioro cognitivo post-quimioterapia (chemobrain).</p>
+
+    <table>
+      <thead>
+        <tr><th>Necesidad</th><th>Juego recomendado</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fatiga</td><td>Sequence, Solitaire</td><td>Juegos simples que activan sin agotar</td></tr>
+        <tr><td>Dolor post-quirúrgico</td><td>Breakout, Clumsy Bird</td><td>Distracción analgésica</td></tr>
+        <tr><td>Ansiedad</td><td>Pixel Leap, Sudoku</td><td>Regulación y anclaje en el presente</td></tr>
+        <tr><td>Cognición (chemobrain)</td><td>Sudoku, Voxel Quest, BlockMatrix</td><td>Estimulación de atención, memoria y funciones ejecutivas</td></tr>
+        <tr><td>Refuerzo positivo</td><td>Damas, Naval Pixel</td><td>Logros visibles y sensación de autoeficacia</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>El refuerzo positivo ha mostrado reducir la negatividad y aumentar la autoeficacia y la calidad de vida en pacientes con cáncer de mama. <a href="#ref10" class="cite">Lu et al., 2024 <span class="cite-ref">[10]</span></a></em></p>
+
+    <h2>8.2 · Cáncer colorrectal</h2>
+
+    <p><strong>Síntomas predominantes:</strong> fatiga, alteraciones nutricionales, ansiedad, miedo a la progresión.</p>
+
+    <table>
+      <thead>
+        <tr><th>Necesidad</th><th>Juego recomendado</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fatiga</td><td>Sequence, Solitaire</td><td>Activación suave sin esfuerzo</td></tr>
+        <tr><td>Ansiedad</td><td>Pixel Leap, Sudoku</td><td>Regulación del sistema nervioso</td></tr>
+        <tr><td>Esperanza</td><td>Damas, 99 Noches</td><td>Logros y sensación de progreso</td></tr>
+        <tr><td>Cognición</td><td>Sudoku, Voxel Quest</td><td>Mantenimiento de funciones ejecutivas</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>El refuerzo positivo ha mostrado aumentar la esperanza, mejorar la nutrición y reducir la fatiga en pacientes con cáncer colorrectal. <a href="#ref7" class="cite">Estudio colorrectal, 2025 <span class="cite-ref">[7]</span></a></em></p>
+
+    <h2>8.3 · Cáncer de pulmón</h2>
+
+    <p><strong>Síntomas predominantes:</strong> disnea (dificultad para respirar), fatiga, ansiedad, tos persistente.</p>
+
+    <table>
+      <thead>
+        <tr><th>Necesidad</th><th>Juego recomendado</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Disnea</td><td>Solitaire, Sequence</td><td>Juegos lentos, sin exigencia física</td></tr>
+        <tr><td>Fatiga</td><td>Sudoku, Solitaire</td><td>Actividad mental sin esfuerzo físico</td></tr>
+        <tr><td>Ansiedad</td><td>Pixel Leap, Voxel Quest</td><td>Anclaje en el presente</td></tr>
+        <tr><td>Refuerzo positivo</td><td>Breakout, Damas</td><td>Logros visibles</td></tr>
+      </tbody>
+    </table>
+
+    <h2>8.4 · Leucemia y linfomas</h2>
+
+    <p><strong>Síntomas predominantes:</strong> fatiga extrema, riesgo de infección, largas hospitalizaciones, ansiedad, aislamiento.</p>
+
+    <table>
+      <thead>
+        <tr><th>Necesidad</th><th>Juego recomendado</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fatiga extrema</td><td>Sequence, Solitaire</td><td>Juegos muy simples, de baja exigencia</td></tr>
+        <tr><td>Hospitalización</td><td>Sudoku, BlockMatrix</td><td>Ocupan el tiempo, dan estructura</td></tr>
+        <tr><td>Ansiedad</td><td>Pixel Leap, Sequence</td><td>Regulación y calma</td></tr>
+        <tr><td>Aislamiento</td><td>Damas (multijugador)</td><td>Conexión social a través del juego</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>La terapia de juego ha mostrado reducir ansiedad, desesperanza, estrés, fatiga y dolor en niños con leucemia. <a href="#ref3" class="cite">Ramdaniati et al., 2023 <span class="cite-ref">[3]</span></a></em></p>
+
+    <h2>8.5 · Cáncer de próstata</h2>
+
+    <p><strong>Síntomas predominantes:</strong> fatiga, incontinencia, disfunción sexual, miedo a la progresión.</p>
+
+    <table>
+      <thead>
+        <tr><th>Necesidad</th><th>Juego recomendado</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fatiga</td><td>Solitaire, Sequence</td><td>Activación suave</td></tr>
+        <tr><td>Miedo a la progresión</td><td>Damas, Naval Pixel</td><td>Control y estrategia</td></tr>
+        <tr><td>Ánimo</td><td>Breakout, 99 Noches</td><td>Logros y distracción</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>La educación combinada con refuerzo positivo reduce el miedo a la progresión y mejora el bienestar en pacientes con cáncer de próstata. <a href="#ref11" class="cite">Estudio próstata, 2024 <span class="cite-ref">[11]</span></a></em></p>
+
+    <h2>8.6 · Cánceres pediátricos</h2>
+
+    <p><strong>Síntomas predominantes:</strong> ansiedad, miedo a los procedimientos, dolor, fatiga, aislamiento.</p>
+
+    <table>
+      <thead>
+        <tr><th>Necesidad</th><th>Juego recomendado</th><th>Por qué</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Miedo a procedimientos</td><td>Breakout, Clumsy Bird</td><td>Distracción analgésica</td></tr>
+        <tr><td>Ansiedad</td><td>Pixel Leap, Sequence</td><td>Regulación y calma</td></tr>
+        <tr><td>Aburrimiento hospitalario</td><td>Sudoku, Voxel Quest</td><td>Ocupan el tiempo, dan estructura</td></tr>
+        <tr><td>Afrontamiento</td><td>Damas, Naval Pixel</td><td>Logros y sensación de control</td></tr>
+      </tbody>
+    </table>
+
+    <p><em>El juego de mesa ha mostrado aumentar la frecuencia y efectividad de las estrategias de afrontamiento en niños con cáncer de 5.91 a 9.49. <a href="#ref6" class="cite">Board Game Study, 2025 <span class="cite-ref">[6]</span></a></em></p>
+
+    <h2>8.7 · Resumen visual</h2>
+
+    <table>
+      <thead>
+        <tr><th>Tipo de cáncer</th><th>Síntoma principal</th><th>Juego estrella</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mama</td><td>Fatiga / Cognición</td><td>Sudoku + Sequence</td></tr>
+        <tr><td>Colorrectal</td><td>Esperanza / Fatiga</td><td>Damas + Solitaire</td></tr>
+        <tr><td>Pulmón</td><td>Disnea / Ansiedad</td><td>Solitaire + Pixel Leap</td></tr>
+        <tr><td>Leucemia</td><td>Fatiga / Aislamiento</td><td>Sequence + Damas (multijugador)</td></tr>
+        <tr><td>Próstata</td><td>Miedo / Ánimo</td><td>Naval Pixel + Breakout</td></tr>
+        <tr><td>Pediátricos</td><td>Miedo / Afrontamiento</td><td>Breakout + Damas</td></tr>
+      </tbody>
+    </table>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La correlación entre tipo de cáncer y juego es orientativa, no prescriptiva.</li>
+        <li>Cada tipo de cáncer tiene síntomas predominantes que orientan la elección del juego.</li>
+        <li>Los juegos de regulación (Pixel Leap, Sequence) son útiles en todos los tipos.</li>
+        <li>Los juegos de refuerzo positivo (Damas, Breakout) son clave para el ánimo.</li>
+        <li>La elección final siempre depende del paciente y su estado del día.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la correlación clínica clara, entramos en el manejo de síntomas específicos. En el próximo capítulo vas a ver estrategias concretas para el dolor, la fatiga, la ansiedad y las náuseas.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 9 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 9 · Parte IV</div>
+    <h1 class="chapter-title">Manejo de síntomas específicos</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo ofrece estrategias concretas para manejar los síntomas más frecuentes del tratamiento oncológico, utilizando el juego como herramienta complementaria.</p>
+
+    <h2>9.1 · Dolor</h2>
+
+    <p><strong>Lo que dice la evidencia:</strong> Los videojuegos reducen hasta un 20% el consumo de morfina y un 44% el dolor incidental. <a href="#ref1" class="cite">Juegaterapia, 2025 <span class="cite-ref">[1]</span></a></p>
+
+    <p><strong>Estrategia:</strong> La analgesia por distracción funciona mejor con juegos que exigen atención completa. No sirven los juegos lentos o los que no absorben.</p>
+
+    <div class="game-grid">
+      <div class="game-card">
+        <span class="game-emoji">🧱</span>
+        <div class="game-tag">Dolor · 5-10 min</div>
+        <div class="game-name">Breakout</div>
+        <div class="game-desc">El clásico rompebloques. Cada ladrillo roto es un logro. La atención se ancla en la pelota y la paleta, desplazando la señal dolorosa.</div>
+        <div class="game-how">Ideal para picos de dolor. Jugar sin presión, solo por el hecho de estar en otra cosa.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🐦</span>
+        <div class="game-tag">Dolor · 5 min</div>
+        <div class="game-name">Clumsy Bird</div>
+        <div class="game-desc">El clásico de aleteo. Cada intento dura 30 segundos. Es tan rápido que no hay espacio para pensar en el dolor.</div>
+        <div class="game-how">Ideal para momentos de dolor agudo. La velocidad del juego exige toda la atención.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🔫</span>
+        <div class="game-tag">Dolor · 10 min</div>
+        <div class="game-name">FreeDoom</div>
+        <div class="game-desc">Juego de disparos en primera persona de baja fidelidad. La velocidad y la exigencia atencional lo hacen muy efectivo para la distracción.</div>
+        <div class="game-how">Ideal para pacientes que toleran juegos de acción. No usar si genera ansiedad.</div>
+      </div>
+    </div>
+
+    <h2>9.2 · Fatiga</h2>
+
+    <p><strong>Lo que dice la evidencia:</strong> La terapia de juego alivia la fatiga relacionada con el cáncer. <a href="#ref3" class="cite">Ramdaniati et al., 2023 <span class="cite-ref">[3]</span></a></p>
+
+    <p><strong>Estrategia:</strong> La fatiga oncológica no se combate con más actividad. Se combate con activación suave. El juego debe ser simple, sin exigencia, y con pausas frecuentes.</p>
+
+    <div class="game-grid">
+      <div class="game-card">
+        <span class="game-emoji">🎵</span>
+        <div class="game-tag">Fatiga · 5 min</div>
+        <div class="game-name">Sequence</div>
+        <div class="game-desc">El clásico juego de memoria secuencial. Simple, visual, sin tiempo límite. No exige velocidad ni decisiones complejas.</div>
+        <div class="game-how">Ideal para días de fatiga alta. Jugar sin objetivo, solo por el hecho de hacer algo.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🃏</span>
+        <div class="game-tag">Fatiga · 10 min</div>
+        <div class="game-name">Solitaire</div>
+        <div class="game-desc">El clásico solitario. Ritmo propio, sin presión, sin tiempo. Se puede jugar en la cama, con una mano, sin apuro.</div>
+        <div class="game-how">Ideal para días de fatiga media. Ordenar cartas tiene un efecto calmante.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🔢</span>
+        <div class="game-tag">Fatiga · 10-15 min</div>
+        <div class="game-name">Sudoku</div>
+        <div class="game-desc">El clásico rompecabezas numérico. Sin tiempo, sin presión. La mente se ocupa sin exigirse.</div>
+        <div class="game-how">Ideal para mantener la mente activa cuando el cuerpo no puede moverse.</div>
+      </div>
+    </div>
+
+    <h2>9.3 · Ansiedad</h2>
+
+    <p><strong>Lo que dice la evidencia:</strong> El juego terapéutico reduce ansiedad, miedo y estrés. <a href="#ref2" class="cite">González Díaz, 2026 <span class="cite-ref">[2]</span></a></p>
+
+    <p><strong>Estrategia:</strong> La ansiedad se regula con juegos que anclan la atención en el presente, sin generar más activación. No sirven los juegos que exigen velocidad o decisiones bajo presión.</p>
+
+    <div class="game-grid">
+      <div class="game-card">
+        <span class="game-emoji">🍃</span>
+        <div class="game-tag">Ansiedad · 5-10 min</div>
+        <div class="game-name">Pixel Leap</div>
+        <div class="game-desc">Juego de plataformas con ritmo. La música y el movimiento suave ayudan a regular el sistema nervioso.</div>
+        <div class="game-how">Ideal para momentos de ansiedad alta. El ritmo ancla la atención.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🃏</span>
+        <div class="game-tag">Ansiedad · 10 min</div>
+        <div class="game-name">Solitaire</div>
+        <div class="game-desc">El clásico solitario. Sin tiempo, sin presión. La repetición de movimientos tiene un efecto calmante.</div>
+        <div class="game-how">Ideal para las noches de insomnio o los momentos de angustia.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🔢</span>
+        <div class="game-tag">Ansiedad · 10-15 min</div>
+        <div class="game-name">Sudoku</div>
+        <div class="game-desc">El clásico rompecabezas numérico. La lógica ocupa la mente sin agitarla.</div>
+        <div class="game-how">Ideal para ansiedad difusa. El foco en el número desplaza la preocupación.</div>
+      </div>
+    </div>
+
+    <h2>9.4 · Náuseas</h2>
+
+    <p><strong>Lo que dice la evidencia:</strong> El efecto placebo puede reducir las náuseas anticipatorias y post-quimioterapia. <a href="#ref8" class="cite">Morral et al., 2017 <span class="cite-ref">[8]</span></a></p>
+
+    <p><strong>Estrategia:</strong> Las náuseas se manejan con juegos suaves, sin movimiento visual intenso, y con respiración.</p>
+
+    <div class="game-grid">
+      <div class="game-card">
+        <span class="game-emoji">🃏</span>
+        <div class="game-tag">Náuseas · 5-10 min</div>
+        <div class="game-name">Solitaire</div>
+        <div class="game-desc">El clásico solitario. Sin movimiento visual, sin velocidad. Ideal cuando el estómago está revuelto.</div>
+        <div class="game-how">Combinar con respiración 4-4-4-4 antes de jugar.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🎵</span>
+        <div class="game-tag">Náuseas · 5 min</div>
+        <div class="game-name">Sequence</div>
+        <div class="game-desc">El clásico juego de memoria. Colores suaves, sin movimiento brusco. La atención se dirige a la secuencia.</div>
+        <div class="game-how">Ideal para después de la quimioterapia. No exige esfuerzo físico.</div>
+      </div>
+    </div>
+
+    <h2>9.5 · Insomnio</h2>
+
+    <p><strong>Síntomas:</strong> dificultad para dormir, despertares frecuentes, sueño no reparador.</p>
+
+    <p><strong>Estrategia:</strong> El juego no debe activar demasiado. Debe ser lento, predecible, y terminar con una relajación.</p>
+
+    <div class="game-grid">
+      <div class="game-card">
+        <span class="game-emoji">🔢</span>
+        <div class="game-tag">Insomnio · 10 min</div>
+        <div class="game-name">Sudoku</div>
+        <div class="game-desc">El clásico rompecabezas. Ritmo lento, sin presión. Ideal para las horas de insomnio.</div>
+        <div class="game-how">Después de jugar, respiración 4-4-4-4 y a la cama.</div>
+      </div>
+      <div class="game-card">
+        <span class="game-emoji">🃏</span>
+        <div class="game-tag">Insomnio · 10 min</div>
+        <div class="game-name">Solitaire</div>
+        <div class="game-desc">El clásico solitario. Sin tiempo, sin urgencia. Ordenar cartas tiene un efecto meditativo.</div>
+        <div class="game-how">Ideal para las noches largas. No forzar el sueño: jugar hasta que llegue.</div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Dolor: juegos de distracción intensa (Breakout, Clumsy Bird, FreeDoom).</li>
+        <li>Fatiga: juegos simples y lentos (Sequence, Solitaire, Sudoku).</li>
+        <li>Ansiedad: juegos de regulación (Pixel Leap, Solitaire, Sudoku).</li>
+        <li>Náuseas: juegos sin movimiento visual intenso (Solitaire, Sequence).</li>
+        <li>Insomnio: juegos lentos y predecibles (Sudoku, Solitaire).</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con las estrategias de manejo de síntomas claras, entramos en la guía práctica para el día a día del paciente. En el próximo capítulo vas a ver cómo organizar la rutina diaria, cómo manejar los días difíciles, y cómo sostener el programa en el tiempo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 10 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 10 · Parte V</div>
+    <h1 class="chapter-title">Guía práctica para el día a día</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo es la guía más práctica del eBook. Está pensado para el día a día del paciente: los días buenos, los días malos, y todo lo que pasa en el medio.</p>
+
+    <h2>10.1 · La rutina diaria del juego</h2>
+
+    <table>
+      <thead>
+        <tr><th>Momento</th><th>Qué hacer</th><th>Duración</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mañana</td><td>Chequeo + regulación (Pixel Leap o Sequence)</td><td>5-7 min</td></tr>
+        <tr><td>Media mañana</td><td>Juego cognitivo (Sudoku o Voxel Quest)</td><td>10-15 min</td></tr>
+        <tr><td>Tarde</td><td>Juego de refuerzo positivo (Damas o Breakout)</td><td>10-15 min</td></tr>
+        <tr><td>Noche</td><td>Regulación + cierre (Solitaire + respiración)</td><td>5-10 min</td></tr>
+      </tbody>
+    </table>
+
+    <p>Esta rutina es flexible. En los días de mucho malestar, se reduce a lo mínimo: 5 minutos de regulación y listo.</p>
+
+    <h2>10.2 · Los días difíciles</h2>
+
+    <p>Hay días en los que el paciente no puede hacer nada. Días de dolor, de fatiga extrema, de náuseas, de tristeza. En esos días, el programa se reduce a:</p>
+
+    <div class="steps">
+      <div class="step"><strong>5 minutos de regulación</strong> (Pixel Leap, Sequence o Solitaire). Si no puede, 2 minutos.</div>
+      <div class="step"><strong>Un logro pequeño:</strong> "Hoy jugué 2 minutos aunque no tenía ganas." Anotarlo en el Cuaderno.</div>
+      <div class="step"><strong>Nada más.</strong> No forzar. No exigir. El día difícil no es un fracaso: es parte del proceso.</div>
+    </div>
+
+    <div class="callout tip">
+      <strong>💡 La regla del 2</strong>
+      Si no podés 20 minutos, hacé 2. Si no podés 2, hacé 1. Si no podés 1, solo abrí el juego. Abrirlo ya es un acto de cuidado. La constancia no es hacer mucho: es hacer algo, aunque sea mínimo.
+    </div>
+
+    <h2>10.3 · Los días buenos</h2>
+
+    <p>Hay días en los que el paciente tiene más energía. En esos días, se puede:</p>
+
+    <ul>
+      <li><strong>Explorar juegos nuevos:</strong> probar alguno de los que no se animó antes.</li>
+      <li><strong>Entrenar más tiempo:</strong> 20-25 minutos si el cuerpo lo permite.</li>
+      <li><strong>Jugar con alguien:</strong> invitar a un familiar o amigo a jugar Damas o Naval Pixel.</li>
+      <li><strong>Registrar más logros:</strong> anotar todo lo que se logró en el día.</li>
+    </ul>
+
+    <h2>10.4 · Cómo manejar los días de tratamiento</h2>
+
+    <p>Los días de quimioterapia, radioterapia o procedimientos son especialmente difíciles. Algunas sugerencias:</p>
+
+    <ul>
+      <li><strong>Llevar el juego a la sala de tratamiento:</strong> si es posible, jugar mientras se recibe la medicación.</li>
+      <li><strong>Elegir juegos de distracción:</strong> Breakout, Clumsy Bird, FreeDoom. El objetivo es que la atención esté en el juego, no en el procedimiento.</li>
+      <li><strong>No exigir:</strong> si no se puede jugar, no se juega. El tratamiento es la prioridad.</li>
+      <li><strong>Usar el juego para romper la asociación nocebo:</strong> jugar un juego agradable durante la quimioterapia puede ayudar a romper la asociación entre la sala y las náuseas. <a href="#ref9" class="cite">EFE Salud, 2013 <span class="cite-ref">[9]</span></a></li>
+    </ul>
+
+    <h2>10.5 · Cómo mantener la motivación</h2>
+
+    <p>Mantener la motivación en un proceso oncológico es difícil. Algunas estrategias:</p>
+
+    <ul>
+      <li><strong>Recordar el por qué:</strong> no es "jugar por jugar". Es darse un respiro, cuidarse, mantener la mente activa.</li>
+      <li><strong>Celebrar cada logro:</strong> cada partida, cada nivel, cada récord. Aunque sea pequeño.</li>
+      <li><strong>Compartir con otros:</strong> contarle a alguien lo que se logró. La celebración compartida refuerza.</li>
+      <li><strong>No castigar los días malos:</strong> no poder jugar un día no es un fracaso. Es parte del proceso.</li>
+      <li><strong>Registrar los avances:</strong> ver en el Cuaderno que se jugó 10 días de 14 es una prueba de que se está haciendo algo.</li>
+    </ul>
+
+    <h2>10.6 · Cuándo parar</h2>
+
+    <div class="callout warning">
+      <strong>⚠ Señales para suspender el juego</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li>El juego genera más ansiedad en lugar de menos.</li>
+        <li>El juego se usa para evitar hablar de la enfermedad de forma crónica.</li>
+        <li>El paciente se siente obligado a jugar y eso genera culpa.</li>
+        <li>El dolor o la fatiga empeoran durante el juego.</li>
+        <li>El paciente prefiere hacer otra cosa y no se anima a decirlo.</li>
+      </ul>
+      En cualquiera de estos casos, <strong>parar y consultar con el equipo tratante</strong>.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La rutina diaria se adapta al estado del paciente.</li>
+        <li>Los días difíciles: 5 minutos o menos. Nada más.</li>
+        <li>Los días buenos: más tiempo, juegos nuevos, jugar con otros.</li>
+        <li>Los días de tratamiento: llevar el juego, elegir juegos de distracción.</li>
+        <li>Si el juego genera más malestar, parar y consultar.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la guía del día a día clara, entramos en un capítulo sobre el paciente como protagonista. En el próximo capítulo vas a ver cómo recuperar el control y la identidad durante el proceso oncológico.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 11 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap11">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 11 · Parte V</div>
+    <h1 class="chapter-title">El paciente como protagonista</h1>
+  </div>
+  <div class="chapter-body">
+    <p>El cáncer tiende a convertir al paciente en objeto: objeto de estudios, de tratamientos, de decisiones médicas, de cuidados. Este capítulo es un recordatorio de que, a pesar de todo, <strong>el paciente sigue siendo el protagonista de su vida</strong>.</p>
+
+    <h2>11.1 · La pérdida de control y cómo recuperarla</h2>
+
+    <p>Una de las experiencias más difíciles del proceso oncológico es la pérdida de control. El cuerpo ya no responde como antes, la agenda se llena de citas médicas, las decisiones importantes las toma el equipo tratante. Y en medio de todo eso, el paciente siente que ya no decide nada.</p>
+
+    <p>El juego es una herramienta para recuperar el control. Porque:</p>
+
+    <ul>
+      <li><strong>El paciente elige qué jugar:</strong> no hay una prescripción. Es su decisión.</li>
+      <li><strong>El paciente elige cuándo jugar:</strong> no hay una hora obligatoria. Es su ritmo.</li>
+      <li><strong>El paciente elige cuánto jugar:</strong> 5 minutos o 20. Él decide.</li>
+      <li><strong>El paciente gana o pierde:</strong> el resultado depende de él, no de la enfermedad.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💡 El acto de elegir</strong>
+      En un proceso donde casi todo está decidido por otros, el acto de elegir un juego es un acto de autonomía. No es poca cosa. Es recordarle al cerebro que uno todavía puede decidir algo.
+    </div>
+
+    <h2>11.2 · La identidad más allá de la enfermedad</h2>
+
+    <p>El cáncer no define a la persona. La persona <strong>tiene</strong> cáncer. Sigue siendo la misma que antes: con sus gustos, sus habilidades, sus recuerdos, sus proyectos. El juego ayuda a mantener esa identidad viva porque:</p>
+
+    <ul>
+      <li><strong>Recuerda lo que le gustaba hacer:</strong> jugar es una actividad que trasciende la enfermedad.</li>
+      <li><strong>Mantiene habilidades intactas:</strong> el paciente sigue siendo bueno en algo.</li>
+      <li><strong>Genera nuevas experiencias:</strong> no todo es tratamiento. También hay momentos de disfrute.</li>
+      <li><strong>Conecta con otros:</strong> jugar con alguien es una forma de seguir siendo parte de la vida social.</li>
+    </ul>
+
+    <h2>11.3 · El paciente como experto de sí mismo</h2>
+
+    <p>Nadie sabe mejor que el paciente cómo se siente. Nadie sabe mejor qué juego le ayuda, qué juego le aburre, qué juego le genera ansiedad. El paciente es el experto de sí mismo.</p>
+
+    <p>Por eso, este programa no impone. Propone. Y el paciente decide qué le sirve y qué no. Esa es la diferencia entre un protocolo rígido y un acompañamiento respetuoso.</p>
+
+    <h2>11.4 · El poder de la pequeña decisión</h2>
+
+    <blockquote>
+      <p>«En un día lleno de decisiones médicas, poder elegir qué jugar es un acto de libertad. No cambia el pronóstico. Pero cambia cómo se siente el día.»</p>
+      <cite>— Reflexión sobre la autonomía en oncología</cite>
+    </blockquote>
+
+    <p>Las pequeñas decisiones importan. Elegir un juego, elegir un color, elegir una hora. Cada pequeña decisión es una manera de recordarle al cerebro que uno sigue siendo uno.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El cáncer tiende a convertir al paciente en objeto. El juego devuelve la subjetividad.</li>
+        <li>El juego permite recuperar el control sobre algo: qué jugar, cuándo, cuánto.</li>
+        <li>El juego mantiene viva la identidad más allá de la enfermedad.</li>
+        <li>El paciente es el experto de sí mismo. Él decide qué le sirve.</li>
+        <li>Las pequeñas decisiones son actos de libertad.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el paciente como protagonista, entramos en el rol del cuidador y la familia. En el próximo capítulo vas a ver cómo acompañar sin invadir, cómo cuidarse, y cómo sostener el proceso.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 12 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap12">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 12 · Parte V</div>
+    <h1 class="chapter-title">El rol del cuidador y la familia</h1>
+  </div>
+  <div class="chapter-body">
+    <p>El cuidador es la persona que sostiene, que acompaña, que organiza, que contiene. Es una figura central en el proceso oncológico. Y también, una figura que suele quedar en segundo plano, agotada y sin espacio para sí misma.</p>
+
+    <h2>12.1 · Lo que el cuidador hace</h2>
+
+    <p>El cuidador cumple múltiples roles:</p>
+
+    <ul>
+      <li><strong>Rol logístico:</strong> organizar citas, medicamentos, estudios, trámites.</li>
+      <li><strong>Rol emocional:</strong> sostener, escuchar, contener, acompañar.</li>
+      <li><strong>Rol físico:</strong> ayudar en las actividades diarias, cuidados básicos.</li>
+      <li><strong>Rol de enlace:</strong> comunicarse con el equipo médico, coordinar información.</li>
+    </ul>
+
+    <p>Y todo esto, muchas veces, sin descanso, sin reconocimiento, sin espacio para el propio malestar.</p>
+
+    <h2>12.2 · El costo del cuidado</h2>
+
+    <p>El agotamiento del cuidador es real. Los estudios muestran que los cuidadores informales de pacientes oncológicos presentan:</p>
+
+    <ul>
+      <li>Mayor prevalencia de ansiedad y depresión.</li>
+      <li>Peor calidad de vida relacionada con la salud.</li>
+      <li>Mayor fatiga y agotamiento.</li>
+      <li>Mayor aislamiento social.</li>
+      <li>Dificultades económicas y laborales.</li>
+    </ul>
+
+    <p>Y sin embargo, las necesidades psicosociales de los cuidadores son frecuentemente desatendidas. <a href="#ref13" class="cite">Caregiver Studies, 2026 <span class="cite-ref">[13]</span></a></p>
+
+    <div class="footnote">
+      <strong>Un dato preocupante:</strong> en un estudio longitudinal de 120 díadas de pacientes con cáncer hepatobiliar o pancreático y sus cuidadores, el 25% de los cuidadores presentaba síntomas de depresión. <a href="#ref14" class="cite">NCI, 2010 <span class="cite-ref">[14]</span></a> El cuidado no es solo una tarea: es una carga que impacta en la salud mental.
+    </div>
+
+    <h2>12.3 · Cómo acompañar sin invadir</h2>
+
+    <p>El cuidador puede ofrecer el juego sin imponerlo. Algunas sugerencias:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Ofrecer, no exigir:</strong> "¿Querés jugar un ratito?" Si el paciente dice que no, respetar.</div>
+      <div class="step"><strong>Acompañar sin dirigir:</strong> si el paciente quiere jugar solo, dejarlo. Si quiere compañía, quedarse cerca sin hablar.</div>
+      <div class="step"><strong>Celebrar los logros:</strong> "¡Qué bien!" "¡Lo lograste!" La celebración refuerza.</div>
+      <div class="step"><strong>No usar el juego para evitar conversaciones difíciles:</strong> si el paciente quiere hablar de la enfermedad, escuchar. El juego es un complemento.</div>
+      <div class="step"><strong>Respetar el ritmo:</strong> algunos días querrá jugar, otros no. Está bien.</div>
+    </div>
+
+    <h2>12.4 · El autocuidado del cuidador</h2>
+
+    <p>El cuidador también necesita cuidarse. No es egoísmo: es supervivencia. Si el cuidador se agota, no puede cuidar. Algunas estrategias:</p>
+
+    <ul>
+      <li><strong>Pedir ayuda:</strong> a otros familiares, amigos, profesionales. No cargar todo solo.</li>
+      <li><strong>Tomar pausas:</strong> aunque sean 15 minutos al día para respirar, caminar, o hacer algo propio.</li>
+      <li><strong>Hablar con otros:</strong> grupos de apoyo, terapia, amigos. Expresar lo que se siente.</li>
+      <li><strong>Mantener rutinas propias:</strong> dormir, comer, hacer ejercicio. El cuerpo del cuidador también importa.</li>
+      <li><strong>Aceptar que no se puede todo:</strong> no hay cuidadores perfectos. Hay cuidadores presentes.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💗 Un recordatorio</strong>
+      Cuidar a alguien que amás es uno de los actos más grandes de amor. Pero también es agotador. No hay nada de malo en pedir ayuda, en descansar, en llorar, en enojarse. El cuidador también es humano. Y también merece cuidado.
+    </div>
+
+    <h2>12.5 · Recursos para el cuidador</h2>
+
+    <p>Existen recursos que pueden ayudar:</p>
+
+    <ul>
+      <li><strong>Grupos de apoyo:</strong> presenciales u online, para cuidadores de pacientes oncológicos.</li>
+      <li><strong>Psicoterapia:</strong> individual o de pareja, para procesar el impacto emocional.</li>
+      <li><strong>Programas de respiro:</strong> servicios de cuidado temporal para que el cuidador descanse.</li>
+      <li><strong>Trabajo social:</strong> orientación sobre recursos económicos, laborales y de cuidado.</li>
+    </ul>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El cuidador cumple múltiples roles: logístico, emocional, físico, de enlace.</li>
+        <li>El agotamiento del cuidador es real y frecuentemente desatendido.</li>
+        <li>Acompañar sin invadir: ofrecer, no exigir. Celebrar, no juzgar.</li>
+        <li>El autocuidado del cuidador es esencial para poder cuidar.</li>
+        <li>Existen recursos: grupos de apoyo, psicoterapia, programas de respiro.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este manual</strong>. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Fundación Juegaterapia. (2025).</span>
+        <span class="ref-title">Espacio lúdico para menores en tratamiento oncológico.</span>
+        <span class="ref-source">Infosalus.</span>
+        <span class="ref-context">Cap. 1, 4, 5, 9. Datos sobre reducción del consumo de morfina (20%), dolor incidental (44%) y aumento del tono parasimpático (14%) con videojuegos.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">González Díaz, A. (2026).</span>
+        <span class="ref-title">La aplicación terapéutica del juego en el cáncer infantil.</span>
+        <span class="ref-source">Tesis doctoral, Universidad de Huelva.</span>
+        <span class="ref-context">Cap. 1, 5, 9. Revisión sistemática con metaanálisis sobre juego y cáncer infantil.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">Ramdaniati, S., et al. (2023).</span>
+        <span class="ref-title">The effectiveness of play therapy in children with leukemia: A systematic review.</span>
+        <span class="ref-source">Journal of Pediatric Nursing, 73, 7-21.</span>
+        <span class="ref-context">Cap. 1, 4, 5, 9. 16 estudios sobre terapia de juego en leucemia pediátrica.</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Estudio COVID-19. (2025).</span>
+        <span class="ref-title">Efeitos de intervenções lúdicas digitais em pacientes oncológicos.</span>
+        <span class="ref-source">Revista Brasileira de Cancerologia.</span>
+        <span class="ref-context">Cap. 1, 5. Intervenciones lúdicas digitales mejoran depresión, ansiedad y estrés.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Salem Health. (2024).</span>
+        <span class="ref-title">Clinical trial looks at 'brain training' to improve cognitive function in breast cancer survivors.</span>
+        <span class="ref-source">Salem Health.</span>
+        <span class="ref-context">Cap. 1, 5. Entrenamiento cognitivo con juegos mejora atención, memoria y concentración.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Board Game Study. (2025).</span>
+        <span class="ref-title">Board Game for Children Coping with Cancer in Brazil: A Mixed Methods Study.</span>
+        <span class="ref-source">Aquichan, 25(1).</span>
+        <span class="ref-context">Cap. 1, 5, 8. Juego de mesa aumenta efectividad del afrontamiento de 5.91 a 9.49.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Estudio colorrectal. (2025).</span>
+        <span class="ref-title">以正强化理论为指导的干预策略对结直肠癌患者希望水平及癌因性疲乏程度的影响.</span>
+        <span class="ref-source">中华护理杂志.</span>
+        <span class="ref-context">Cap. 1, 5, 8. Refuerzo positivo mejora esperanza, nutrición y reduce fatiga.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Morral, A., et al. (2017).</span>
+        <span class="ref-title">El efecto placebo en el entorno terapéutico.</span>
+        <span class="ref-source">Medicina Clínica, 149(1), 26-31.</span>
+        <span class="ref-context">Cap. 3, 9. Revisión sobre mecanismos neurobiológicos del efecto placebo en oncología.</span>
+      </li>
+
+      <li id="ref9">
+        <span class="ref-num">[9]</span>
+        <span class="ref-authors">EFE Salud. (2013).</span>
+        <span class="ref-title">Nocebo, la otra cara del efecto placebo.</span>
+        <span class="ref-source">EFE Salud.</span>
+        <span class="ref-context">Cap. 3, 10. Explicación del efecto nocebo en náuseas anticipatorias por quimioterapia.</span>
+      </li>
+
+      <li id="ref10">
+        <span class="ref-num">[10]</span>
+        <span class="ref-authors">Lu, G., et al. (2024).</span>
+        <span class="ref-title">焦点解决短期心理疗法结合正性激励对乳腺癌根治术后患者负性情绪和生活质量的影响.</span>
+        <span class="ref-source">湖南师范大学学报·医学版, 21(6).</span>
+        <span class="ref-context">Cap. 3, 5, 8. Refuerzo positivo reduce negatividad y mejora autoeficacia en cáncer de mama.</span>
+      </li>
+
+      <li id="ref11">
+        <span class="ref-num">[11]</span>
+        <span class="ref-authors">Estudio próstata. (2024).</span>
+        <span class="ref-title">现象描述式教育联合正向激励对前列腺癌患者恐惧疾病进展及主观幸福感的影响.</span>
+        <span class="ref-source">万方医学网.</span>
+        <span class="ref-context">Cap. 3, 5, 8. Refuerzo positivo reduce miedo a la progresión en cáncer de próstata.</span>
+      </li>
+
+      <li id="ref12">
+        <span class="ref-num">[12]</span>
+        <span class="ref-authors">WINNERS Trial. (2026).</span>
+        <span class="ref-title">Technological Gaming in Cancer Survivors.</span>
+        <span class="ref-source">ClinicalTrials.gov.</span>
+        <span class="ref-context">Cap. 4. Ensayo clínico sobre gaming en supervivientes de cáncer.</span>
+      </li>
+
+      <li id="ref13">
+        <span class="ref-num">[13]</span>
+        <span class="ref-authors">Caregiver Studies. (2026).</span>
+        <span class="ref-title">From Diagnosis to Care: Lived Experiences of Family Caregivers.</span>
+        <span class="ref-source">Journal of Psychosocial Oncology.</span>
+        <span class="ref-context">Cap. 12. Estudio sobre el impacto psicosocial en cuidadores de pacientes oncológicos.</span>
+      </li>
+
+      <li id="ref14">
+        <span class="ref-num">[14]</span>
+        <span class="ref-authors">National Cancer Institute. (2010).</span>
+        <span class="ref-title">Cuidadores informales de pacientes con cáncer.</span>
+        <span class="ref-source">PDQ®.</span>
+        <span class="ref-context">Cap. 12. Datos sobre depresión en cuidadores de pacientes con cáncer hepatobiliar.</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-mint); border-left-color: var(--primary-light);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar o PubMed. Si querés profundizar en alguna, podés buscarla por el título. Si tenés dificultades para acceder a algún artículo, escribinos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Todos los juegos de este programa están disponibles de forma gratuita en la plataforma WineBOX. Si querés más variedad, más desafíos, y más formas de acompañar a un paciente oncológico, esta es tu plataforma.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO ONCOLÓGICO -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno oncológico · Hojas imprimibles</div>
+    <h2>Registros, seguimiento y reflexión</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse todos los días. Anotá cómo te sentís, qué jugaste, y qué lograste. Sin datos, no hay evidencia de que estás haciendo algo por vos.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, seleccioná "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Registro diario -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Registro diario</div>
+      <h3>📋 Registro Diario del Juego</h3>
+    </div>
+    <p class="sheet-intro">Anotá cómo te sentís antes y después de jugar. El objetivo no es "mejorar" en términos absolutos, es tener evidencia de que hoy hiciste algo por vos.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Nombre:</label><div class="line"></div></div>
+      <div class="form-field"><label>Semana N.º:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Dolor (0-10)</th><th>Fatiga (0-10)</th><th>Ansiedad (0-10)</th><th>Ánimo (0-10)</th><th>Juego</th><th>Logro</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Martes</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Miércoles</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Jueves</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Viernes</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Sábado</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Domingo</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="callout tip" style="margin-top: 20px; font-size: 14px;">
+        <strong>💡 Recordatorio</strong> Un logro no tiene que ser "gané el juego". Puede ser "jugué 5 minutos aunque no tenía ganas". Cualquier cosa que haya sido un pequeño acto de cuidado personal, cuenta.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Mi juego favorito -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Preferencias</div>
+      <h3>🎮 Mis Juegos y Mis Preferencias</h3>
+    </div>
+    <p class="sheet-intro">Anotá qué juegos te gustan más, cuáles te ayudan cuando estás mal, y cuáles preferís evitar.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Mi juego favorito:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>El juego que más me ayuda cuando tengo dolor:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>El juego que más me ayuda cuando tengo ansiedad:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>El juego que más me ayuda cuando estoy triste:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>El juego que prefiero evitar (y por qué):</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Carta a mí mismo -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Reflexión</div>
+      <h3>✉️ Carta a mí mismo</h3>
+    </div>
+    <p class="sheet-intro">Una hoja para escribirte a vos mismo. No tiene que ser leída por nadie. Es para vos.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Querido yo:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Lo que estoy atravesando es:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Lo que me ayuda es:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Un logro que quiero recordar:</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Lo que le diría a alguien que está pasando por lo mismo:</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Con cariño,</label><div class="line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Para el cuidador -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Cuidador</div>
+      <h3>💚 Registro del Cuidador</h3>
+    </div>
+    <p class="sheet-intro">El cuidador también necesita registrar cómo está. Esta hoja es para vos, que estás al lado.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Nombre:</label><div class="line"></div></div>
+      <div class="form-field"><label>Semana N.º:</label><div class="line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Día</th><th>Mi ánimo (0-10)</th><th>Mi energía (0-10)</th><th>¿Me cuidé hoy?</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lunes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Martes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Miércoles</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Jueves</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Viernes</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Sábado</td><td></td><td></td><td>☐</td><td></td></tr>
+          <tr><td>Domingo</td><td></td><td></td><td>☐</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="callout tip" style="margin-top: 20px; font-size: 14px;">
+        <strong>💗 Recordatorio</strong> Cuidarte no es egoísmo. Es la única forma de poder cuidar. Aunque sean 15 minutos al día para vos.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este manual y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el acompañamiento de pacientes y familias en procesos de salud complejos.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Acompañamiento en Salud</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada paciente y cada familia. Este manual está pensado para acompañar a quienes acompañan: con herramientas concretas, sin promesas vacías, y con la certeza de que la calidad de vida se construye día a día, con pequeños actos de cuidado.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si estás atravesando un proceso oncológico o acompañando a alguien, escribinos por WhatsApp. Te vamos a escuchar y orientar sin juicio.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20eBook%20de%20oncolog%C3%ADa%20y%20quiero%20consultar." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🌿 WineBOX · El Juego como Aliado en el Cáncer<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia, respeto y esperanza · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice y citas
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

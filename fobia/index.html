@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método WineBOX · Superar tus Fobias en 12 Semanas</title>
+
+<meta name="dc:title" content="Método WineBOX · Superar tus Fobias en 12 Semanas">
+<meta name="dc:creator" content="Emanuel Chanampa">
+<meta name="dc:language" content="es">
+<meta name="dc:description" content="Programa de 12 semanas basado en evidencia para superar fobias específicas, sociales y agorafobia. Exposición gradual, reestructuración cognitiva y herramientas prácticas.">
+<meta name="dc:date" content="2026">
+<meta name="dc:publisher" content="WineBOX Cognitive">
+
+<style>
+  :root {
+    --primary: #1a3d5c;
+    --primary-dark: #0d2438;
+    --primary-light: #2d5c8a;
+    --accent: #e07a3f;
+    --accent-dark: #b85a25;
+    --cream: #FAF7F2;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #6B6B6B;
+    --border: #E5DFD3;
+    --soft-blue: #EAF0F3;
+    --soft-green: #E8F3EC;
+    --soft-amber: #FBF1E2;
+    --soft-rose: #F7E9E9;
+    --soft-teal: #E0F2F1;
+    --soft-peach: #FDE8DC;
+    --alert: #B85450;
+    --play: #2E8B57;
+    --sunrise: #f6b26b;
+    --dawn: #d4a373;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Merriweather', serif;
+    font-size: 18px; line-height: 1.75; color: var(--ink);
+    background: var(--cream); -webkit-font-smoothing: antialiased;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--accent) 100%);
+    color: var(--cream); display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(224,122,63,0.28) 0%, transparent 55%),
+      radial-gradient(circle at 80% 80%, rgba(214,164,115,0.15) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 800px; }
+  .cover-brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 6px; text-transform: uppercase; color: var(--sunrise); margin-bottom: 40px; font-weight: 500; }
+  .cover h1 { font-size: clamp(40px, 7vw, 78px); font-weight: 400; line-height: 1.05; margin-bottom: 24px; letter-spacing: -1.3px; }
+  .cover h1 em { font-style: italic; color: var(--sunrise); display: block; font-size: 0.82em; }
+  .cover-subtitle { font-size: 20px; font-style: italic; opacity: 0.94; margin-bottom: 16px; line-height: 1.45; }
+  .cover-audience { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; margin-bottom: 48px; }
+  .cover-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+  .cover-tags span { padding: 7px 14px; border: 1px solid rgba(246,178,107,0.5); border-radius: 20px; color: var(--sunrise); }
+  .cover-author { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.9; margin-bottom: 8px; }
+  .cover-credentials { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+  .cover-foot { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; width: 90%; }
+
+  /* AVISO LEGAL */
+  .legal-section { background: var(--soft-amber); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .legal-inner { max-width: 780px; margin: 0 auto; }
+  .legal-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 20px; font-weight: 700; }
+  .legal-inner h2 { font-size: 30px; color: var(--primary-dark); margin-bottom: 24px; font-weight: 400; line-height: 1.2; }
+  .legal-inner > p { font-size: 16px; color: var(--ink-soft); margin-bottom: 1em; line-height: 1.7; }
+  .legal-inner ol { margin: 20px 0 20px 1.4em; }
+  .legal-inner ol li { margin-bottom: 14px; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); }
+  .legal-inner ol li strong { color: var(--primary-dark); }
+  .legal-sign { text-align: right; margin-top: 24px; font-style: italic; color: var(--accent-dark); font-size: 15px; }
+
+  /* ÍNDICE */
+  .toc { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--primary); margin-bottom: 40px; font-weight: 600; }
+  .toc-list { list-style: none; }
+  .toc-list li { border-bottom: 1px solid var(--border); padding: 14px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; transition: all 0.2s; }
+  .toc-list li:hover { padding-left: 8px; background: var(--cream); }
+  .toc-list a { color: var(--ink); text-decoration: none; font-size: 16.5px; flex: 1; }
+  .toc-list a .part { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px; font-weight: 600; }
+  .toc-list a.workbook-link .part { color: var(--primary-light); }
+
+  /* CONTENIDO */
+  article.chapter { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header { max-width: 780px; margin: 0 auto 60px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid var(--accent); }
+  .chapter-number { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+  .chapter-title { font-size: clamp(30px, 5vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); letter-spacing: -0.5px; }
+  .chapter-body { max-width: 680px; margin: 0 auto; }
+  .chapter-body > p { margin-bottom: 1.4em; }
+  .chapter-body h2 { font-size: 26px; margin: 2.5em 0 0.8em; color: var(--primary-dark); font-weight: 400; letter-spacing: -0.3px; }
+  .chapter-body h3 { font-size: 19px; margin: 2em 0 0.6em; color: var(--accent-dark); font-weight: 600; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body h4 { font-size: 17px; margin: 1.6em 0 0.5em; color: var(--ink); font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .chapter-body strong { color: var(--primary-dark); font-weight: 700; }
+  .chapter-body em { color: var(--ink-soft); }
+  .chapter-body ul, .chapter-body ol { margin: 1em 0 1.4em 1.5em; }
+  .chapter-body li { margin-bottom: 0.5em; }
+
+  /* CITAS EN TEXTO */
+  .cite {
+    display: inline-block;
+    background: var(--soft-teal);
+    color: var(--primary-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    vertical-align: 0.15em;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .cite:hover { background: var(--primary); color: white; }
+  .cite-ref { font-size: 0.72em; opacity: 0.85; }
+
+  /* NOTA AL PIE */
+  .footnote {
+    margin: 1.2em 0;
+    padding: 14px 18px;
+    background: var(--soft-peach);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .footnote::before {
+    content: '🌅 ';
+    font-size: 1.1em;
+  }
+  .footnote strong { color: var(--accent-dark); }
+
+  /* CITAS LITERALES */
+  blockquote { margin: 2em 0; padding: 26px 32px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-peach) 100%); border-left: 4px solid var(--accent); font-style: italic; font-size: 18px; color: var(--ink-soft); border-radius: 0 8px 8px 0; }
+  blockquote p { margin-bottom: 0.5em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 14px; color: var(--muted); font-style: normal; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* CALLOUTS */
+  .callout { margin: 2em 0; padding: 20px 24px; border-radius: 6px; font-size: 16px; line-height: 1.65; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  .callout.tip { background: var(--soft-green); border-left: 4px solid var(--play); }
+  .callout.tip strong { color: #1F5F3B; }
+  .callout.warning { background: var(--soft-amber); border-left: 4px solid #D4A017; }
+  .callout.warning strong { color: #92400e; }
+  .callout.info { background: var(--soft-blue); border-left: 4px solid var(--primary); }
+  .callout.info strong { color: var(--primary-dark); }
+  .callout.alert { background: var(--soft-rose); border-left: 4px solid var(--alert); }
+  .callout.alert strong { color: var(--alert); }
+  .callout.exercise { background: var(--soft-peach); border-left: 4px solid var(--accent); }
+  .callout.exercise strong { color: var(--accent-dark); }
+  .callout.honest { background: var(--soft-teal); border-left: 4px solid var(--primary-light); }
+  .callout.honest strong { color: var(--primary-dark); }
+
+  /* PASOS */
+  .steps { margin: 16px 0; }
+  .step { position: relative; padding: 12px 12px 12px 50px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; font-size: 16px; }
+  .step::before { content: '→'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: bold; font-size: 18px; }
+
+  /* TABLAS */
+  table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; background: var(--paper); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  th { background: var(--primary); color: var(--cream); padding: 11px 14px; text-align: left; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 600; }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: var(--cream); }
+
+  /* EXERCISE CARDS */
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin: 1.5em 0; }
+  .ex-card {
+    background: var(--paper); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; transition: all 0.25s; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ex-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.9;
+  }
+  .ex-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,61,92,0.14); border-color: var(--accent); }
+  .ex-card .ex-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); font-weight: 700; margin-bottom: 8px; }
+  .ex-card .ex-name { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; color: var(--primary-dark); }
+  .ex-card .ex-fn { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-style: italic; line-height: 1.5; }
+  .ex-card .ex-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex-grow: 1; }
+  .ex-card .ex-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .ex-card .ex-time { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .ex-card .play-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .ex-card .play-btn:hover { background: #1F6B41; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(46,139,87,0.3); }
+  .ex-card .play-btn svg { width: 14px; height: 14px; fill: white; }
+
+  /* SESSION CARD */
+  .session-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .session-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .session-card .session-meta { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
+
+  /* WEEK CARD */
+  .week-card { background: var(--cream); border-left: 4px solid var(--accent); padding: 20px 26px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+  .week-card h4 { margin-top: 0; color: var(--primary-dark); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 17px; }
+  .week-card .objective { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+  .week-card .week-play-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--play); color: white; text-decoration: none;
+    padding: 9px 16px; border-radius: 6px; margin-top: 10px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
+    font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .week-card .week-play-btn:hover { background: #1F6B41; }
+  .week-card .week-play-btn svg { width: 12px; height: 12px; fill: white; }
+
+  /* SEPARADORES */
+  .separator { text-align: center; margin: 2.5em 0; color: var(--accent); font-size: 18px; letter-spacing: 14px; }
+
+  /* RESUMEN Y NEXT-STEP */
+  .summary { margin: 3em 0; padding: 28px 32px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); }
+  .summary h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; margin-top: 0; }
+  .summary ol { margin-left: 1.2em; }
+  .summary li { margin-bottom: 8px; font-size: 15.5px; }
+  .next-step { margin: 3em 0 0; padding: 26px 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--cream); border-radius: 8px; }
+  .next-step h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--sunrise); margin-bottom: 12px; font-weight: 600; margin-top: 0; }
+  .next-step p { font-size: 16px; line-height: 1.65; color: var(--cream); }
+
+  /* CTA BOX */
+  .cta-box { margin: 40px auto 0; padding: 32px; background: rgba(224,122,63,0.10); border: 1px solid var(--accent); border-radius: 10px; max-width: 680px; }
+  .cta-box h3 { color: var(--accent-dark); font-size: 22px; margin-bottom: 14px; font-weight: 500; }
+  .cta-box p { font-size: 15.5px; margin-bottom: 20px; color: var(--ink-soft); }
+  .cta-box a {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: white;
+    padding: 14px 26px; text-decoration: none; font-weight: 700;
+    border-radius: 6px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .cta-box a:hover { background: var(--accent-dark); }
+
+  /* PLATFORM BANNER */
+  .platform-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 60px 24px; text-align: center; border-radius: 16px;
+    margin: 40px auto; max-width: 780px;
+  }
+  .platform-banner h3 { color: white; font-size: 28px; margin-bottom: 16px; font-weight: 400; }
+  .platform-banner p { color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 24px; line-height: 1.7; }
+  .platform-banner .platform-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--sunrise); color: var(--primary-dark);
+    padding: 16px 32px; text-decoration: none; font-weight: 700;
+    border-radius: 8px; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 1px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: transform 0.2s;
+  }
+  .platform-banner .platform-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(246,178,107,0.4); }
+
+  /* REFERENCIAS */
+  .references-section { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .references-inner { max-width: 780px; margin: 0 auto; }
+  .references-section h2 { font-size: 32px; color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; text-align: center; }
+  .references-section .ref-intro { text-align: center; font-style: italic; color: var(--muted); font-size: 16px; max-width: 640px; margin: 0 auto 40px; line-height: 1.7; }
+  .references-list { list-style: none; }
+  .references-list li {
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--cream);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .references-list li .ref-num {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: 0.15em;
+  }
+  .references-list li .ref-authors { font-weight: 700; color: var(--primary-dark); }
+  .references-list li .ref-title { font-style: italic; }
+  .references-list li .ref-source { color: var(--muted); font-size: 0.92em; }
+  .references-list li .ref-context {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.85em;
+    color: var(--accent-dark);
+    font-style: italic;
+  }
+  .references-list li .ref-context::before {
+    content: '↳ Usado en: ';
+    font-weight: 700;
+    color: var(--primary);
+    font-style: normal;
+  }
+
+  /* CUADERNO */
+  .workbook-intro { background: var(--paper); padding: 80px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-intro-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .workbook-intro h2 { font-size: clamp(32px, 5vw, 44px); color: var(--primary-dark); margin-bottom: 20px; font-weight: 400; }
+  .workbook-intro p { font-size: 17px; color: var(--ink-soft); max-width: 640px; margin: 0 auto 1.2em; line-height: 1.7; }
+  .print-controls { text-align: center; margin-top: 30px; }
+  .btn-print { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s; letter-spacing: 0.5px; }
+  .btn-print:hover { background: var(--primary-dark); }
+
+  .workbook-sheet { background: var(--paper); padding: 60px 24px; border-bottom: 1px solid var(--border); }
+  .workbook-sheet-inner { max-width: 720px; margin: 0 auto; }
+  .sheet-header { text-align: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 2px solid var(--accent); }
+  .sheet-header .sheet-num { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; font-weight: 600; }
+  .sheet-header h3 { font-size: 26px; color: var(--primary-dark); font-weight: 400; }
+  .sheet-intro { font-style: italic; color: var(--muted); font-size: 15.5px; margin-bottom: 30px; line-height: 1.65; }
+  .sheet-body { font-size: 16px; }
+  .sheet-body table { font-size: 13.5px; }
+  .sheet-body table th { font-size: 10px; padding: 8px 10px; }
+  .sheet-body table td { padding: 10px 10px; height: 34px; }
+
+  .form-field { margin-bottom: 22px; }
+  .form-field label { display: block; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+  .form-field .line { border-bottom: 1px solid #94a3b8; height: 30px; }
+  .form-field .big-line { border-bottom: 1px solid #94a3b8; height: 62px; }
+  .form-field .taller-line { border-bottom: 1px solid #94a3b8; height: 90px; }
+
+  .scale-row { display: flex; justify-content: space-between; max-width: 420px; margin: 10px 0; }
+  .scale-row .scale-num { width: 30px; height: 30px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; color: var(--primary-dark); }
+
+  /* ABOUT */
+  .about { background: var(--primary-dark); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .about-inner { max-width: 660px; margin: 0 auto; }
+  .about h2 { font-size: 32px; margin-bottom: 24px; font-weight: 400; color: white; }
+  .about p { margin-bottom: 1em; opacity: 0.92; font-size: 16.5px; line-height: 1.7; }
+  .about .credentials { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(224,122,63,0.3); font-size: 15px; opacity: 0.9; text-align: left; }
+  .about .credentials p { margin-bottom: 8px; }
+  .about .credentials strong { color: var(--sunrise); }
+  .about .footer-note { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(224,122,63,0.3); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; font-family: 'Helvetica Neue', Arial, sans-serif; }
+
+  /* NAV */
+  .nav-top { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--sunrise); padding: 10px 16px; border-radius: 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 1px; text-decoration: none; box-shadow: 0 4px 12px rgba(26,61,92,0.3); z-index: 100; }
+
+  /* IMPRESIÓN */
+  @page { margin: 1.4cm 1.6cm; size: A4; }
+
+  @media print {
+    body { background: white !important; color: black !important; font-size: 10.5pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-top, .print-controls, .btn-print { display: none !important; }
+
+    .cover { page-break-after: always; min-height: auto; padding: 100px 40px; background: var(--primary-dark) !important; color: white !important; }
+    .cover h1 em { color: var(--sunrise) !important; }
+    .cover-tags span { color: var(--sunrise) !important; border-color: var(--sunrise) !important; }
+    .cover-brand, .cover-author { color: var(--sunrise) !important; }
+
+    .legal-section { page-break-after: always; background: var(--soft-amber) !important; padding: 30px 15px; }
+
+    .toc { page-break-after: always; padding: 30px 15px; }
+    .toc-list li { page-break-inside: avoid; }
+
+    article.chapter { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    article.chapter:first-of-type { page-break-before: auto; }
+    .chapter-header { page-break-after: avoid; margin-bottom: 24px; padding-bottom: 16px; }
+    .chapter-body h2, .chapter-body h3, .chapter-body h4 { page-break-after: avoid; }
+    .chapter-body p, .chapter-body li { orphans: 3; widows: 3; }
+
+    blockquote, .callout, .session-card, .week-card, .summary, .next-step, .ex-card, .footnote { page-break-inside: avoid; }
+    table { page-break-inside: avoid; font-size: 9.5pt; }
+    th, td { border: 1px solid #666 !important; padding: 5px 7px; }
+    th { background: var(--primary) !important; color: white !important; }
+
+    .ex-card .play-btn { background: var(--primary) !important; color: white !important; }
+    .platform-banner { background: var(--primary) !important; page-break-inside: avoid; }
+
+    .references-section { page-break-before: always; padding: 25px 12px; }
+    .references-list li { page-break-inside: avoid; }
+    .cite { background: #eee !important; color: black !important; }
+
+    .workbook-intro { page-break-before: always; padding: 25px 12px; }
+    .workbook-sheet { page-break-before: always; padding: 25px 12px; border-bottom: none; }
+    .workbook-sheet:first-of-type { page-break-before: auto; }
+    .sheet-header { page-break-after: avoid; }
+    .form-field { page-break-inside: avoid; }
+    .scale-row { page-break-inside: avoid; }
+
+    .about { page-break-before: always; background: var(--primary-dark) !important; color: white !important; padding: 40px 20px; }
+    .about .credentials strong { color: var(--sunrise) !important; }
+    .cta-box { background: rgba(224,122,63,0.12) !important; border: 1px solid var(--accent) !important; page-break-inside: avoid; }
+    .cta-box h3 { color: var(--accent-dark) !important; }
+    .cta-box a { background: var(--accent) !important; color: white !important; }
+
+    a { text-decoration: none; color: black; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .cover { padding: 40px 20px; }
+    article.chapter { padding: 50px 20px; }
+    .workbook-sheet { padding: 40px 20px; }
+    .workbook-intro, .legal-section, .toc { padding: 50px 20px; }
+    .references-section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#toc" class="nav-top">↑ Índice</a>
+
+<!-- ============================================================ -->
+<!-- PORTADA -->
+<!-- ============================================================ -->
+<section class="cover">
+  <div class="cover-content">
+    <div class="cover-brand">WineBOX · Cognitive · Edición Clínica</div>
+    <h1>Superar tus Fobias<br><em>en 12 Semanas</em></h1>
+    <p class="cover-subtitle">Programa basado en evidencia para recuperar tu libertad<br>Exposición gradual · Reestructuración cognitiva · Herramientas prácticas</p>
+    <p class="cover-audience">Para personas con fobias específicas, sociales y agorafobia</p>
+    <div class="cover-tags">
+      <span>Exposición</span><span>TCC</span><span>Neurociencia</span><span>12 Semanas</span>
+    </div>
+    <div class="cover-author">Lic. Emanuel Chanampa</div>
+    <div class="cover-credentials">Neuropsicólogo Clínico · Mat. Nac. 56716 · Mat. Prov. 84132</div>
+  </div>
+  <div class="cover-foot">Edición 2026 · Buenos Aires, Argentina · winebox.cloud</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVISO LEGAL -->
+<!-- ============================================================ -->
+<section class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-label">⚖ Advertencia Clínica y Limitación de Responsabilidad</div>
+    <h2>Leer antes de comenzar</h2>
+    <p><strong>Este programa NO reemplaza el tratamiento psicológico o psiquiátrico profesional.</strong> Las fobias, especialmente las severas o las que generan crisis de pánico, requieren acompañamiento profesional. Este manual está pensado como complemento, no como sustituto.</p>
+    <p>Los ejercicios de exposición gradual deben realizarse <strong>con la guía de un profesional entrenado</strong>, especialmente en las etapas intermedias y avanzadas. Realizarlos sin supervisión puede ser contraproducente o generar sensibilización.</p>
+
+    <h3 style="font-size: 18px; color: var(--alert); margin: 24px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">🚩 Banderas rojas para buscar ayuda profesional urgente</h3>
+    <ol>
+      <li><strong>Pensamientos de muerte o autolesión. Derivar de inmediato a guardia o línea de crisis.</strong></li>
+      <li>Crisis de pánico recurrentes con desmayo, opresión torácica severa o síntomas cardíacos.</li>
+      <li>Fobias que impiden salir de la casa o generar autonomía funcional.</li>
+      <li>Fobia a la sangre, inyecciones o heridas con antecedentes de desmayos sincopales.</li>
+      <li>Consumo problemático de alcohol, benzodiazepinas u otras sustancias para afrontar la fobia.</li>
+    </ol>
+
+    <h3 style="font-size: 18px; color: var(--primary-dark); margin: 28px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif;">Aviso médico y limitación de responsabilidad</h3>
+    <p>El Método WineBOX es una herramienta de apoyo pedagógico y entrenamiento conductual. <strong>No constituye un dispositivo médico de diagnóstico ni reemplaza el tratamiento psicológico o psiquiátrico prescrito por un especialista.</strong></p>
+    <p><strong>Propiedad intelectual:</strong> © 2026 Lic. Emanuel Chanampa. Todos los derechos reservados. Las mecánicas de juego empleadas son implementaciones originales de libre uso desarrolladas por el equipo WineBOX.</p>
+    <p><strong>Protección de datos:</strong> toda intervención requiere consentimiento informado del paciente, según la normativa vigente (Ley 26.529 y Ley 25.326).</p>
+    <p class="legal-sign">— El equipo de WineBOX · Con ciencia y esperanza</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ÍNDICE -->
+<!-- ============================================================ -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <h2>Índice General de Contenidos</h2>
+    <ul class="toc-list">
+      <li><a href="#cap1"><span class="part">Parte I · Introducción</span>Cap. 1 Bienvenida: el miedo no es tu enemigo</a></li>
+      <li><a href="#cap2"><span class="part">Parte I · Introducción</span>Cap. 2 Carta a quien vive con una fobia</a></li>
+      <li><a href="#cap3"><span class="part">Parte II · Comprender</span>Cap. 3 Qué es una fobia (neurociencia)</a></li>
+      <li><a href="#cap4"><span class="part">Parte II · Comprender</span>Cap. 4 Tipos de fobias y sus particularidades</a></li>
+      <li><a href="#cap5"><span class="part">Parte II · Comprender</span>Cap. 5 Cómo se superan: la evidencia</a></li>
+      <li><a href="#cap6"><span class="part">Parte II · Comprender</span>Cap. 6 Por qué los juegos ayudan (y qué NO hacen)</a></li>
+      <li><a href="#cap7"><span class="part">Parte III · Programa</span>Cap. 7 Estructura del programa de 12 semanas</a></li>
+      <li><a href="#sem12"><span class="part">Parte IV · Semanas 1-2</span>Semanas 1-2: Psicoeducación y mapa del miedo</a></li>
+      <li><a href="#sem34"><span class="part">Parte IV · Semanas 3-4</span>Semanas 3-4: Herramientas cognitivas y fisiológicas</a></li>
+      <li><a href="#sem56"><span class="part">Parte IV · Semanas 5-6</span>Semanas 5-6: Primeros pasos de exposición</a></li>
+      <li><a href="#sem79"><span class="part">Parte IV · Semanas 7-9</span>Semanas 7-9: Exposición sostenida</a></li>
+      <li><a href="#sem1011"><span class="part">Parte IV · Semanas 10-11</span>Semanas 10-11: Exposición intensiva</a></li>
+      <li><a href="#sem12b"><span class="part">Parte IV · Semana 12</span>Semana 12: Mantenimiento y prevención de recaídas</a></li>
+      <li><a href="#referencias"><span class="part">Referencias</span>Referencias bibliográficas comentadas</a></li>
+      <li><a href="#plataforma"><span class="part">Plataforma</span>Acceso completo a WineBOX.cloud</a></li>
+      <li><a href="#autor"><span class="part">Cierre</span>Sobre el autor</a></li>
+      <li><a href="#workbook" class="workbook-link"><span class="part">✂ Cuaderno del valor</span>Hojas imprimibles y seguimiento</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 1 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 1 · Parte I</div>
+    <h1 class="chapter-title">Bienvenida: el miedo no es tu enemigo</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Si estás leyendo esto, es probable que algo te esté limitando la vida. Tal vez sea un miedo a volar que te impide viajar. Tal vez sea un miedo a hablar en público que te cierra puertas. Tal vez sea un miedo a las alturas, a los espacios cerrados, a las arañas, a la sangre, a los ascensores, a manejar. Tal vez sea un miedo más difuso: el miedo a tener un ataque de pánico en medio de la calle, que te hace evitar salir de casa.</p>
+
+    <p>Lo que quiero decirte antes de empezar es esto: <strong>el miedo no es tu enemigo</strong>. Es una respuesta adaptativa, cableada en tu sistema nervioso por millones de años de evolución para protegerte. El problema no es que tengas miedo. El problema es cuando ese miedo se vuelve desproporcionado, automático, y empieza a gobernar tu vida.</p>
+
+    <blockquote>
+      <p>«La fobia no es un defecto de carácter ni una falta de voluntad. Es un sistema de alarma que se ha vuelto hipersensible y que puede ser recalibrado. No se trata de dejar de tener miedo. Se trata de recuperar la libertad de elegir.»</p>
+      <cite>— Principio central del tratamiento de fobias</cite>
+    </blockquote>
+
+    <h2>Qué es este programa</h2>
+    <p>Este es un <strong>programa estructurado de 12 semanas</strong> basado en las terapias con mayor respaldo empírico para las fobias: la <strong>exposición gradual</strong>, la <strong>reestructuración cognitiva</strong> y la <strong>regulación fisiológica</strong>. Utiliza videojuegos de baja fidelidad visual como herramienta complementaria para entrenar las funciones cognitivas y emocionales que se necesitan durante la exposición.</p>
+
+    <p>El programa está diseñado para personas que:</p>
+
+    <ul>
+      <li><strong>Tienen una fobia específica:</strong> a las arañas, a las alturas, a volar, a la sangre, a los espacios cerrados, a los ascensores, a los perros, a las tormentas.</li>
+      <li><strong>Tienen fobia social:</strong> miedo intenso a situaciones donde puedan ser juzgados por otros.</li>
+      <li><strong>Tienen agorafobia:</strong> miedo a lugares o situaciones donde escapar sería difícil o donde la ayuda podría no estar disponible.</li>
+      <li><strong>Tienen crisis de pánico recurrentes</strong> asociadas a alguno de estos miedos.</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>🎮 Los juegos están a un clic</strong>
+      Cada ejercicio tiene un botón <strong>▶ Jugar ahora</strong> que abre el juego en tu navegador. No hace falta instalar nada. Los juegos no son el tratamiento: son herramientas que entrenan las funciones que necesitás durante la exposición.
+    </div>
+
+    <h2>Cómo funciona la exposición gradual</h2>
+    <p>La exposición gradual es la técnica más eficaz para las fobias. Consiste en:</p>
+
+    <ol>
+      <li><strong>Identificar el miedo</strong> y descomponerlo en una jerarquía, de lo menos a lo más temido.</li>
+      <li><strong>Enfrentar cada paso</strong> de la jerarquía de manera controlada, voluntaria y sostenida.</li>
+      <li><strong>Permanecer en la situación</strong> hasta que la ansiedad baje por sí sola, sin escapar.</li>
+      <li><strong>Repetir</strong> hasta que el cerebro aprenda que la situación no es peligrosa.</li>
+    </ol>
+
+    <p>Es lo que se llama <strong>habituación</strong> y <strong>extinción del miedo</strong>: el cerebro actualiza su aprendizaje y deja de asociar el estímulo con una amenaza. <a href="#ref1" class="cite">Foa &amp; Kozak, 1986 <span class="cite-ref">[1]</span></a> <a href="#ref2" class="cite">Craske et al., 2014 <span class="cite-ref">[2]</span></a></p>
+
+    <div class="footnote">
+      <strong>¿Por qué funciona?</strong> Porque el miedo fóbico es un aprendizaje. Tu cerebro aprendió que "X es peligroso" (a veces por una experiencia, a veces sin saber por qué). La exposición es la forma de enseñarle lo contrario: que X no es peligroso, o que siéndolo, podés atravesarlo. Es reaprendizaje, no borrado.
+    </div>
+
+    <div class="callout warning">
+      <strong>⚠ Sobre el ritmo</strong>
+      La exposición debe hacerse con cuidado. Si se hace demasiado rápido, sin herramientas para gestionar la ansiedad, puede intensificar el miedo (sensibilización). Si se hace demasiado lento, no genera aprendizaje. Por eso el programa está estructurado en 12 semanas: es un ritmo seguro para la mayoría de las fobias.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El miedo no es tu enemigo: es un sistema de alarma hipersensible.</li>
+        <li>La fobia no es un defecto de carácter: es un aprendizaje que puede reaprenderse.</li>
+        <li>La exposición gradual es la técnica más eficaz para las fobias.</li>
+        <li>El programa es de 12 semanas, con exposición estructurada y herramientas complementarias.</li>
+        <li>Los juegos no reemplazan la exposición: entrenan las funciones que se necesitan en ella.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Antes de entrar en la parte técnica, queremos dirigirnos a vos, que estás atravesando esto. En el próximo capítulo vas a encontrar una carta escrita para vos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 2 · Parte I</div>
+    <h1 class="chapter-title">Carta a quien vive con una fobia</h1>
+  </div>
+  <div class="chapter-body">
+    <p><em>Este capítulo no es técnico. Es humano. Está escrito para quien está atravesando esto. Si sos terapeuta o acompañante, leelo también: te va a recordar por qué hacemos lo que hacemos.</em></p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Querido corazón valiente:</p>
+
+    <p>Sé lo que se siente. La taquicardia cuando ves el estímulo. El nudo en la garganta. La sensación de que algo terrible va a pasar. La vergüenza de sentir que "no podés con algo que otros hacen sin pensar". La evitación: las vueltas que das para no encontrarte con lo que temés. El costo: las oportunidades que se cierran, los lugares a los que no vas, las cosas que no hacés.</p>
+
+    <p>Quiero decirte algo importante: <strong>el miedo que sentís es real</strong>. No es exageración. No es debilidad. No es "falta de voluntad". Es una respuesta de tu sistema nervioso, que se ha vuelto hipersensible, y que puede ser recalibrada.</p>
+
+    <blockquote>
+      <p>«El valor no es la ausencia de miedo. El valor es hacer lo que hay que hacer a pesar del miedo. Y eso, se puede entrenar.»</p>
+      <cite>— Anónimo, citado en múltiples tradiciones</cite>
+    </blockquote>
+
+    <p>Este programa está pensado para que avances a tu ritmo. No vas a exponerte mañana a lo que más temés. Vas a empezar por el escalón más bajo, por lo más manejable. Y vas a subir un escalón por vez.</p>
+
+    <p>Algunas cosas que quiero que sepas antes de empezar:</p>
+
+    <ul>
+      <li><strong>La ansiedad no es peligrosa.</strong> Es incómoda, es desagradable, es agotadora. Pero no te va a matar. Tu corazón late rápido porque está haciendo su trabajo, no porque esté fallando.</li>
+      <li><strong>La evitación empeora las cosas.</strong> Cada vez que evitás, tu cerebro aprende que la situación era peligrosa. Y el miedo se refuerza. La única forma de romper el círculo es dejar de evitar.</li>
+      <li><strong>Se puede aprender a tolerar.</strong> El objetivo no es "no sentir miedo". Es poder estar con el miedo sin que el miedo te gobierne.</li>
+      <li><strong>No estás solo.</strong> Millones de personas viven con fobias. Y millones las han superado. Vos también podés.</li>
+    </ul>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>A quien acompaña:</p>
+
+    <p>Sabemos que también es difícil para vos. Que muchas veces no sabés qué decir. Que querés ayudar pero no sabés cómo. Que a veces te frustrás porque "no pone de su parte".</p>
+
+    <p>Tu rol es central. <strong>No sos un salvador. Sos un testigo del valor.</strong> Tu tarea es:</p>
+
+    <ul>
+      <li><strong>No minimizar el miedo.</strong> Decir "no es para tanto" no ayuda. El miedo es real, aunque no sea proporcional al peligro objetivo.</li>
+      <li><strong>No forzar.</strong> Empujar a alguien a exponerse antes de tiempo puede generar más daño que beneficio.</li>
+      <li><strong>No facilitar la evitación.</strong> Evitar por ellos mantiene el miedo. Acompañar sin reforzar la evitación es la clave.</li>
+      <li><strong>Celebrar cada paso.</strong> Cada intento cuenta. Aunque no salga perfecto. Aunque dure poco. Lo que importa es que se intentó.</li>
+      <li><strong>Respetar los tiempos.</strong> Cada persona tiene su ritmo. No hay una línea temporal única.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Si hay riesgo, actuar</strong>
+      Si la persona menciona querer morir, autolesionarse, o desaparecer, <strong>no dejarla sola</strong>. Acompañarla a una guardia, llamar a una línea de crisis, o contactar a un profesional inmediatamente. En Argentina: <strong>135 (CABA) o 0800-345-1435 (línea nacional de prevención del suicidio)</strong>.
+    </div>
+
+    <p>El camino es real, y no lo están caminando solos. Este manual es una herramienta, y nosotros estamos del otro lado del WhatsApp si necesitan orientación profesional.</p>
+
+    <div class="separator">◆ ◆ ◆</div>
+
+    <p>Con respeto y esperanza,<br>
+    <strong>El equipo de WineBOX</strong></p>
+
+    <div class="cta-box">
+      <h3>¿Querés empezar el programa con acompañamiento?</h3>
+      <p>Escribinos por WhatsApp. Te vamos a escuchar, orientar y, si hace falta, acompañar profesionalmente durante las 12 semanas.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20empezar%20el%20programa%20de%2012%20semanas%20para%20superar%20mi%20fobia." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El miedo fóbico es real, no exageración ni debilidad.</li>
+        <li>La evitación refuerza el miedo: hay que dejar de evitar para poder superarlo.</li>
+        <li>El objetivo no es no sentir miedo: es poder estar con él sin que gobierne.</li>
+        <li>El acompañante es testigo del valor, no salvador.</li>
+        <li>Ante signos de riesgo, buscar ayuda profesional urgente.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Terminada la parte humana, entramos en la parte conceptual. En el próximo capítulo vamos a ver qué es una fobia desde la neurociencia: qué pasa en el cerebro, cómo se forma, y por qué se mantiene.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 3 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 3 · Parte II</div>
+    <h1 class="chapter-title">Qué es una fobia</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Antes de aplicar cualquier programa, necesitamos entender qué es exactamente una fobia. Porque "miedo" y "fobia" no son lo mismo, y las diferencias son importantes.</p>
+
+    <h2>3.1 · Miedo, ansiedad y fobia</h2>
+
+    <table>
+      <thead>
+        <tr><th>Concepto</th><th>Qué es</th><th>Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Miedo</strong></td><td>Respuesta adaptativa a una amenaza real o percibida</td><td>Ver un perro grande suelto y sentir temor</td></tr>
+        <tr><td><strong>Ansiedad</strong></td><td>Anticipación de una amenaza futura</td><td>Pensar en el examen de mañana y sentir nervios</td></tr>
+        <tr><td><strong>Fobia</strong></td><td>Miedo intenso, persistente y desproporcionado a un estímulo específico, que lleva a evitación</td><td>No poder salir a la calle por miedo a los perros</td></tr>
+      </tbody>
+    </table>
+
+    <p>La diferencia clave está en tres características:</p>
+
+    <ul>
+      <li><strong>Desproporción:</strong> el miedo es mucho mayor que el peligro real.</li>
+      <li><strong>Persistencia:</strong> no desaparece con el tiempo ni con la razón.</li>
+      <li><strong>Evitación:</strong> la persona organiza su vida para no encontrarse con el estímulo temido.</li>
+    </ul>
+
+    <h2>3.2 · El circuito del miedo en el cerebro</h2>
+
+    <p>La fobia involucra dos sistemas cerebrales que trabajan juntos:</p>
+
+    <ul>
+      <li><strong>La amígdala:</strong> es el sistema de alarma. Detecta amenazas y activa la respuesta de lucha o huida. En la fobia, está hipersensible al estímulo temido. <a href="#ref3" class="cite">LeDoux, 2000 <span class="cite-ref">[3]</span></a></li>
+      <li><strong>La corteza prefrontal:</strong> es el sistema de razonamiento. Sabe que la araña no es peligrosa, que el avión no va a caerse, que el ascensor no se va a detener. Pero cuando la amígdala se activa, la corteza prefrontal se "desconecta" parcialmente. <a href="#ref4" class="cite">Etkin et al., 2011 <span class="cite-ref">[4]</span></a></li>
+    </ul>
+
+    <p>Por eso no alcanza con "razonar" el miedo. Podés saber perfectamente que la araña no es peligrosa, y aun así sentir pánico. La amígdala no escucha razones: solo escucha experiencias.</p>
+
+    <div class="footnote">
+      <strong>El caso de la fobia a la sangre-inyección-herida:</strong> este tipo de fobia tiene una respuesta fisiológica <em>diferente</em> al resto. En lugar de taquicardia, produce una caída brusca de la presión arterial y del ritmo cardíaco, que puede llevar al desmayo. Por eso su tratamiento es un poco distinto: no se hace exposición tradicional, sino <strong>exposición con tensión muscular aplicada</strong> (tensar los músculos grandes mientras se mira el estímulo). Es importante saberlo porque la exposición tradicional puede empeorar los síntomas. <a href="#ref5" class="cite">Öst &amp; Sterner, 1987 <span class="cite-ref">[5]</span></a>
+    </div>
+
+    <h2>3.3 · Cómo se forma una fobia</h2>
+
+    <p>Las fobias pueden formarse por varias vías:</p>
+
+    <ul>
+      <li><strong>Experiencia directa:</strong> viviste algo traumático con el estímulo (un perro te mordió, te quedaste atrapado en un ascensor).</li>
+      <li><strong>Observación:</strong> viste a alguien más tener una reacción intensa (tu madre gritando al ver una araña).</li>
+      <li><strong>Transmisión de información:</strong> te dijeron que algo era peligroso (te advirtieron sobre las alturas, los extraños, etc.).</li>
+      <li><strong>Sin causa aparente:</strong> muchas fobias aparecen sin un evento desencadenante identificable. El cerebro simplemente desarrolló la asociación.</li>
+    </ul>
+
+    <h2>3.4 · Por qué la fobia se mantiene: el ciclo de la evitación</h2>
+
+    <p>La fobia no se mantiene por el miedo inicial: se mantiene por la <strong>evitación</strong>. Cada vez que evitás, tu cerebro aprende dos cosas:</p>
+
+    <ol>
+      <li><strong>Que la situación era peligrosa</strong> (si no lo fuera, ¿por qué la evitás?).</li>
+      <li><strong>Que la evitación funciona</strong> (el alivio que sentís al evitar refuerza la conducta).</li>
+    </ol>
+
+    <p>Y así, el miedo se refuerza. Y la próxima vez, evitás más. Y la próxima, más. Hasta que la vida empieza a girar alrededor de la evitación.</p>
+
+    <div class="callout info" style="text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px;">
+      Estímulo temido → Miedo intenso → Evitación → Alivio inmediato → Refuerzo del miedo → Más evitación → Y vuelve a empezar
+    </div>
+
+    <p>Rompé el ciclo en cualquier punto, y la fobia empieza a desarmarse. La exposición gradual lo rompe exactamente en el paso de evitación → alivio.</p>
+
+    <h2>3.5 · Mitos frecuentes sobre las fobias</h2>
+
+    <table>
+      <thead>
+        <tr><th>Mito</th><th>Realidad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Hay que resignarse, es para toda la vida."</td><td>Falso. Las fobias tienen uno de los tratamientos con mayor tasa de éxito en psicología clínica: hasta un 80-90% de mejoría con exposición estructurada.</td></tr>
+        <tr><td>"Enfrentar el miedo de golpe es lo mejor."</td><td>Falso. La exposición brusca (flooding) puede ser útil en algunos casos, pero para la mayoría es contraproducente. La gradual es más segura y sostenible.</td></tr>
+        <tr><td>"Si evito, no pasa nada."</td><td>Falso. La evitación refuerza el miedo y lo hace crecer. La fobia se vuelve más limitante con el tiempo, no menos.</td></tr>
+        <tr><td>"Con solo pensar que no es peligroso, alcanza."</td><td>Falso. La amígdala no aprende con razonamientos: aprende con experiencias. Hay que exponerse, no solo pensar.</td></tr>
+        <tr><td>"Tomar ansiolíticos mientras me expongo es buena idea."</td><td>Discutible. La medicación puede interferir con el aprendizaje de extinción. Se debe consultar con el psiquiatra. <a href="#ref6" class="cite">Otto et al., 2010 <span class="cite-ref">[6]</span></a></td></tr>
+      </tbody>
+    </table>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La fobia es un miedo desproporcionado, persistente y que lleva a la evitación.</li>
+        <li>Involucra la amígdala (alarma) y la corteza prefrontal (razonamiento), que se desconectan bajo miedo.</li>
+        <li>La fobia se mantiene por la evitación, no por el miedo inicial.</li>
+        <li>Rompé el ciclo de evitación, y la fobia empieza a desarmarse.</li>
+        <li>La fobia tiene uno de los tratamientos con mayor tasa de éxito en psicología clínica.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabemos qué es una fobia. Ahora vamos a ver los distintos tipos de fobias y sus particularidades. Cada tipo tiene sus matices, y el programa se adapta a cada uno.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 4 · Parte II</div>
+    <h1 class="chapter-title">Tipos de fobias y sus particularidades</h1>
+  </div>
+  <div class="chapter-body">
+    <p>No todas las fobias son iguales. Cada tipo tiene sus particularidades, y el programa se adapta a cada una. Acá te contamos las más frecuentes.</p>
+
+    <h2>4.1 · Fobias específicas</h2>
+    <p>Son miedos intensos y desproporcionados a objetos o situaciones concretas. Las más frecuentes:</p>
+
+    <table>
+      <thead>
+        <tr><th>Fobia</th><th>Estímulo temido</th><th>Particularidad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Aracnofobia</strong></td><td>Arañas</td><td>Muy común. Evolutivamente, tenemos predisposición a detectar arañas como amenaza. <a href="#ref7" class="cite">Öhman &amp; Mineka, 2001 <span class="cite-ref">[7]</span></a></td></tr>
+        <tr><td><strong>Acrofobia</strong></td><td>Alturas</td><td>Se confunde con vértigo. En realidad, la fobia es al miedo, no al mareo. Tratamiento con exposición gradual en contextos controlados.</td></tr>
+        <tr><td><strong>Aerofobia</strong></td><td>Volar</td><td>Frecuentemente asociada a miedo a la pérdida de control. Muy tratable con exposición imaginaria y luego in vivo. <a href="#ref8" class="cite">Van Gerwen et al., 2018 <span class="cite-ref">[8]</span></a></td></tr>
+        <tr><td><strong>Claustrofobia</strong></td><td>Espacios cerrados</td><td>Común en ascensores, túneles, resonancias. Frecuentemente asociada a miedo a la asfixia o a la pérdida de control.</td></tr>
+        <tr><td><strong>Fobia a la sangre-inyección-herida</strong></td><td>Sangre, agujas, heridas</td><td>Respuesta fisiológica diferente (baja presión). Requiere exposición con tensión muscular aplicada. <a href="#ref5" class="cite">Öst &amp; Sterner, 1987 <span class="cite-ref">[5]</span></a></td></tr>
+        <tr><td><strong>Cinofobia</strong></td><td>Perros</td><td>Frecuentemente asociada a experiencias traumáticas. Requiere jerarquía muy progresiva (de fotos de perros lejanos a perros cercanos).</td></tr>
+        <tr><td><strong>Brontofobia</strong></td><td>Tormentas</td><td>Frecuentemente asociada a fobia a los sonidos fuertes. Muy tratable con exposición auditiva gradual.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4.2 · Fobia social</h2>
+    <p>La <strong>fobia social</strong> (o Trastorno de Ansiedad Social) es el miedo intenso a situaciones donde la persona puede ser evaluada por otros. Involucra:</p>
+
+    <ul>
+      <li>Miedo a hablar en público.</li>
+      <li>Miedo a comer o beber delante de otros.</li>
+      <li>Miedo a conocer gente nueva.</li>
+      <li>Miedo a hacer el ridículo, a ser juzgado, a temblar, ruborizarse o sudar.</li>
+    </ul>
+
+    <p>Su tratamiento combina <strong>exposición a situaciones sociales</strong> con <strong>reestructuración cognitiva</strong> (trabajar las creencias de "todos me van a juzgar") y a veces <strong>entrenamiento en habilidades sociales</strong>. La exposición es gradual: empezar con interacciones sociales breves y avanzar hacia las más desafiantes.</p>
+
+    <div class="footnote">
+      <strong>Fobia social vs. timidez:</strong> la timidez es un rasgo de personalidad que puede ser adaptativo. La fobia social es un trastorno que limita significativamente la vida. La diferencia está en el grado de malestar y en la evitación de oportunidades importantes (trabajo, relaciones, estudios).
+    </div>
+
+    <h2>4.3 · Agorafobia</h2>
+    <p>La <strong>agorafobia</strong> es el miedo a estar en lugares o situaciones de donde escapar sería difícil, o donde la ayuda podría no estar disponible en caso de un ataque de pánico. Los contextos más comunes:</p>
+
+    <ul>
+      <li>Transporte público (subte, colectivo, avión).</li>
+      <li>Espacios abiertos (plazas, multitudes).</li>
+      <li>Espacios cerrados (cines, shoppings, túneles).</li>
+      <li>Hacer fila.</li>
+      <li>Estar solo fuera de casa.</li>
+    </ul>
+
+    <p>La agorafobia suele ir de la mano con el <strong>trastorno de pánico</strong>. Muchas personas empiezan teniendo ataques de pánico y terminan desarrollando agorafobia como forma de evitar la posibilidad de otro ataque. <a href="#ref9" class="cite">Barlow, 2002 <span class="cite-ref">[9]</span></a></p>
+
+    <p>Su tratamiento combina:</p>
+    <ul>
+      <li><strong>Exposición interoceptiva:</strong> provocar intencionalmente los síntomas del pánico (aumentar la respiración, dar vueltas, etc.) para aprender a tolerarlos.</li>
+      <li><strong>Exposición situacional:</strong> enfrentar gradualmente los lugares evitados.</li>
+      <li><strong>Reestructuración cognitiva:</strong> trabajar las interpretaciones catastróficas de los síntomas.</li>
+    </ul>
+
+    <h2>4.4 · Crisis de pánico</h2>
+    <p>Las crisis de pánico son episodios súbitos de miedo intenso con síntomas físicos: taquicardia, sudoración, temblor, sensación de ahogo, dolor en el pecho, mareo, sensación de irrealidad, miedo a morir, a volverse loco o a perder el control. <a href="#ref6" class="cite">Otto et al., 2010 <span class="cite-ref">[6]</span></a></p>
+
+    <p>Las crisis de pánico no son peligrosas en sí mismas (no causan infartos ni muerte), pero son extremadamente desagradables. Y el miedo a tener otra crisis puede llevar a la evitación de lugares y situaciones, derivando en agorafobia.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Importante</strong>
+      Si tenés crisis de pánico recurrentes, es fundamental descartar causas médicas con un profesional. Algunos síntomas (dolor en el pecho, falta de aire) pueden tener otras causas. Una vez descartadas, el abordaje psicológico es muy eficaz.
+    </div>
+
+    <h2>4.5 · Cómo saber cuál es tu caso</h2>
+    <p>Si no estás seguro de qué tipo de fobia tenés, estas preguntas pueden ayudarte:</p>
+
+    <ol>
+      <li><strong>¿Cuál es el estímulo temido?</strong> ¿Es específico (arañas, altura) o difuso (lugares con gente)?</li>
+      <li><strong>¿Cuándo empezó?</strong> ¿Después de un evento? ¿Sin causa aparente?</li>
+      <li><strong>¿Qué evitás?</strong> ¿Un objeto o situación concreta? ¿Muchas situaciones sociales? ¿Quedarte solo fuera de casa?</li>
+      <li><strong>¿Tenés crisis de pánico?</strong> Si las tenés, ¿son la causa del miedo o consecuencia de él?</li>
+      <li><strong>¿Cómo afecta tu vida?</strong> ¿Limita el trabajo, las relaciones, los estudios?</li>
+    </ol>
+
+    <p>Si tenés dudas, un profesional puede ayudarte a identificarlo con precisión.</p>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Las fobias específicas son miedos a objetos o situaciones concretas.</li>
+        <li>La fobia social es el miedo a la evaluación negativa por otros.</li>
+        <li>La agorafobia es el miedo a lugares donde escapar sería difícil.</li>
+        <li>Las crisis de pánico pueden derivar en agorafobia si no se tratan.</li>
+        <li>Cada tipo de fobia tiene particularidades en su tratamiento.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya conocés los tipos. Ahora vamos a ver la evidencia sobre cómo se superan las fobias. En el próximo capítulo vas a ver las técnicas con mayor respaldo científico: exposición gradual, exposición interoceptiva, realidad virtual y reestructuración cognitiva.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 5 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 5 · Parte II</div>
+    <h1 class="chapter-title">Cómo se superan: la evidencia</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Las fobias tienen uno de los tratamientos con mayor respaldo empírico en psicología clínica. Este capítulo resume las técnicas más eficaces, en orden de relevancia para el programa.</p>
+
+    <h2>5.1 · Exposición gradual: la técnica más eficaz</h2>
+
+    <p>La <strong>exposición gradual</strong> es la técnica de primera línea para fobias específicas. Consiste en enfrentar el estímulo temido de manera progresiva, controlada y sostenida, hasta que la ansiedad baja. <a href="#ref1" class="cite">Foa &amp; Kozak, 1986 <span class="cite-ref">[1]</span></a> <a href="#ref2" class="cite">Craske et al., 2014 <span class="cite-ref">[2]</span></a></p>
+
+    <p>Los principios clave:</p>
+
+    <ul>
+      <li><strong>Gradualidad:</strong> se avanza paso a paso, no de golpe.</li>
+      <li><strong>Sostenida:</strong> no se escapa de la situación apenas empieza el miedo. Se permanece hasta que la ansiedad baja.</li>
+      <li><strong>Voluntaria:</strong> la exposición es elegida, no forzada.</li>
+      <li><strong>Repetida:</strong> se repite varias veces para consolidar el aprendizaje.</li>
+      <li><strong>Sin distracciones:</strong> no se hace mindfulness, ni se escapa hacia el celular, ni se toman ansiolíticos de rescate. La clave es <strong>estar presente</strong> con la ansiedad.</li>
+    </ul>
+
+    <div class="footnote">
+      <strong>El efecto de la exposición:</strong> cuando estás en la situación temida y no escapa, tu cerebro aprende que la situación <em>no es peligrosa</em> (o que, siéndolo, la ansiedad baja por sí sola). Este aprendizaje se llama <strong>extinción</strong> y es la base del tratamiento de fobias. No es que "borres" el miedo: creás un nuevo aprendizaje que compite con el anterior. Por eso la exposición tiene que repetirse varias veces.
+    </div>
+
+    <h2>5.2 · Exposición interoceptiva</h2>
+
+    <p>La <strong>exposición interoceptiva</strong> es específica para el trastorno de pánico y la agorafobia. Consiste en provocar <em>voluntariamente</em> los síntomas físicos que asustan (aumentar la respiración, dar vueltas en una silla, tensar el cuerpo), para aprender a tolerarlos. Es una forma de exposición: en lugar de escapar de los síntomas, se los enfrenta. <a href="#ref6" class="cite">Otto et al., 2010 <span class="cite-ref">[6]</span></a> <a href="#ref9" class="cite">Barlow, 2002 <span class="cite-ref">[9]</span></a></p>
+
+    <p>Ejemplos:</p>
+    <ul>
+      <li>Hiperventilar durante 30-60 segundos.</li>
+      <li>Girar en una silla durante 30-60 segundos.</li>
+      <li>Respirar a través de un sorbete durante 1 minuto.</li>
+      <li>Tensar todos los músculos del cuerpo durante 1 minuto.</li>
+    </ul>
+
+    <p>El objetivo no es evitar los síntomas, sino <strong>comprobar en carne propia que son tolerables y que se van</strong>.</p>
+
+    <h2>5.3 · Exposición con tensión muscular aplicada</h2>
+
+    <p>Es una variante específica para la <strong>fobia a la sangre-inyección-herida</strong>. Como este tipo de fobia produce una respuesta de desmayo (baja presión arterial), la exposición tradicional puede empeorar los síntomas. La solución es <strong>tensar los músculos grandes del cuerpo</strong> (brazos, piernas, tronco) durante 10-15 segundos, mientras se mira el estímulo. Esto sube la presión arterial y previene el desmayo. <a href="#ref5" class="cite">Öst &amp; Sterner, 1987 <span class="cite-ref">[5]</span></a></p>
+
+    <h2>5.4 · Reestructuración cognitiva</h2>
+
+    <p>La <strong>reestructuración cognitiva</strong> es el trabajo sobre los pensamientos catastróficos asociados a la fobia. Ejemplos:</p>
+
+    <table>
+      <thead>
+        <tr><th>Pensamiento catastrófico</th><th>Alternativa más realista</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Si me subo al avión, va a caerse."</td><td>"Los aviones son el medio de transporte más seguro. La probabilidad de accidente es extremadamente baja."</td></tr>
+        <tr><td>"Si me da un ataque de pánico en la calle, me voy a morir."</td><td>"Los ataques de pánico son desagradables, pero no peligrosos. No causan infartos ni muerte. Y siempre terminan."</td></tr>
+        <tr><td>"Si me sonrojo, todos van a pensar que soy un ridículo."</td><td>"La mayoría de la gente no está pendiente de mis reacciones. Y si lo estuviera, el sonrojarse no es ridículo."</td></tr>
+        <tr><td>"Si veo una araña, me va a picar y me voy a morir."</td><td>"En mi región, casi ninguna araña es venenosa. Y las arañas evitan el contacto humano."</td></tr>
+      </tbody>
+    </table>
+
+    <p>La reestructuración cognitiva no "borra" el miedo, pero <strong>reduce la intensidad</strong> de los pensamientos catastróficos, lo que facilita la exposición. <a href="#ref10" class="cite">Beck, 1979 <span class="cite-ref">[10]</span></a></p>
+
+    <h2>5.5 · Realidad virtual (VRET)</h2>
+
+    <p>La <strong>terapia de exposición con realidad virtual</strong> (VRET por sus siglas en inglés) es una variante de la exposición tradicional que usa entornos virtuales para simular el estímulo temido. Tiene respaldo empírico para fobias a volar, a las alturas, a hablar en público, a las arañas y otras. <a href="#ref8" class="cite">Van Gerwen et al., 2018 <span class="cite-ref">[8]</span></a></p>
+
+    <p>Sus ventajas:</p>
+    <ul>
+      <li>Control total sobre la intensidad del estímulo.</li>
+      <li>Entornos seguros y controlados.</li>
+      <li>Se puede repetir cuantas veces sea necesario.</li>
+      <li>Sirve como paso intermedio antes de la exposición real.</li>
+    </ul>
+
+    <p>Su limitación: la transferencia a la vida real no siempre es perfecta. Es una herramienta complementaria, no un reemplazo completo de la exposición in vivo.</p>
+
+    <h2>5.6 · Terapia de una sola sesión (Öst)</h2>
+
+    <p>Para algunas fobias específicas (arañas, alturas, perros, inyecciones), el psicólogo sueco Lars-Göran Öst desarrolló un protocolo de <strong>una sola sesión intensiva</strong> (de 3 horas) con exposición prolongada y modelado. Tiene respaldo empírico y resultados que se mantienen a largo plazo. <a href="#ref11" class="cite">Öst, 1997 <span class="cite-ref">[11]</span></a></p>
+
+    <p>Este protocolo no reemplaza el programa de 12 semanas, pero muestra que la exposición bien hecha puede ser muy eficiente.</p>
+
+    <h2>5.7 · Lo que NO funciona tan bien</h2>
+
+    <p>Para ser honestos, hay técnicas que tienen menos respaldo:</p>
+
+    <ul>
+      <li><strong>Psicoanálisis tradicional:</strong> no tiene evidencia específica para fobias específicas.</li>
+      <li><strong>Hipnosis aislada:</strong> puede ayudar con la relajación, pero no reemplaza la exposición.</li>
+      <li><strong>Solo medicación:</strong> los ansiolíticos y antidepresivos pueden reducir los síntomas, pero no tratan el aprendizaje fóbico. Cuando se suspenden, los síntomas frecuentemente vuelven.</li>
+      <li><strong>Solo reestructuración cognitiva:</strong> puede ayudar, pero sin exposición, el alivio es limitado.</li>
+      <li><strong>Evitación prolongada:</strong> mantiene y empeora la fobia.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💡 Combinación ganadora</strong>
+      La combinación más eficaz es: <strong>exposición gradual + reestructuración cognitiva + regulación fisiológica</strong>. Este programa combina las tres.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La exposición gradual es la técnica más eficaz para fobias específicas.</li>
+        <li>La exposición interoceptiva es específica para el pánico y la agorafobia.</li>
+        <li>La fobia a la sangre-inyección-herida requiere exposición con tensión muscular aplicada.</li>
+        <li>La reestructuración cognitiva reduce la intensidad de los pensamientos catastróficos.</li>
+        <li>La realidad virtual es un complemento útil, pero no reemplaza la exposición real.</li>
+        <li>La combinación más eficaz es: exposición + reestructuración + regulación fisiológica.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Ya sabés cómo se superan. Ahora toca entender por qué los juegos pueden ayudar en este proceso. En el próximo capítulo vamos a ser honestos sobre qué pueden y qué no pueden hacer los juegos en el tratamiento de las fobias.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap6">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 6 · Parte II</div>
+    <h1 class="chapter-title">Por qué los juegos ayudan (y qué NO hacen)</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo es honesto. Los juegos pueden ayudar en el proceso de superar una fobia, pero <strong>no son el tratamiento</strong>. Y es importante decirlo con claridad, para no generar expectativas falsas.</p>
+
+    <h2>6.1 · Lo que los juegos NO hacen</h2>
+
+    <div class="callout honest">
+      <strong>Antes de lo que sí, lo que no:</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li><strong>NO reemplazan la exposición.</strong> La exposición al estímulo temido (real o virtual) es el tratamiento. Los juegos no son la exposición.</li>
+        <li><strong>NO curan la fobia.</strong> Ningún juego cura una fobia. Es la exposición, estructurada y repetida, lo que la supera.</li>
+        <li><strong>NO evitan la ansiedad.</strong> Los juegos no son una forma de escapar del miedo. Son una herramienta para entrenar habilidades que se usan durante la exposición.</li>
+        <li><strong>NO son un sustituto del profesional.</strong> En fobias severas, el acompañamiento profesional es fundamental.</li>
+      </ul>
+    </div>
+
+    <h2>6.2 · Lo que los juegos SÍ hacen</h2>
+
+    <p>Los juegos pueden ayudar entrenando las funciones cognitivas y emocionales que se necesitan durante la exposición. Específicamente:</p>
+
+    <ul>
+      <li><strong>Entrenan la atención sostenida:</strong> durante la exposición, tenés que sostener el foco en el estímulo temido sin distraerte. Los juegos entrenan esa capacidad.</li>
+      <li><strong>Entrenan la tolerancia a la incertidumbre:</strong> los juegos tienen resultados inciertos. Aprendés a estar en la incertidumbre sin derrumbarte.</li>
+      <li><strong>Entrenan la regulación fisiológica:</strong> durante el juego, la respiración y el ritmo cardíaco se regulan. Ese control se transfiere a la exposición.</li>
+      <li><strong>Generan sensación de autoeficacia:</strong> cada pequeño logro en un juego refuerza la creencia "yo puedo". Esa creencia es clave para enfrentar la fobia.</li>
+      <li><strong>Sirven como metáfora:</strong> enfrentar un juego difícil es una metáfora de enfrentar la fobia. El cerebro aprende que "las cosas difíciles se pueden atravesar".</li>
+      <li><strong>Anclan rutinas de calma:</strong> jugar un juego simple puede funcionar como ancla de relajación antes de la exposición.</li>
+    </ul>
+
+    <h2>6.3 · Los 4 juegos del programa y por qué</h2>
+
+    <p>Cada fase del programa usa juegos específicos, elegidos por la función cognitiva que entrenan:</p>
+
+    <table>
+      <thead>
+        <tr><th>Juego</th><th>Función que entrena</th><th>Uso en el programa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Pixel Leap</strong></td><td>Ritmo, respiración, presencia</td><td>Ancla de calma antes de la exposición</td></tr>
+        <tr><td><strong>Sequence (Simon)</strong></td><td>Atención sostenida, memoria de trabajo</td><td>Entrenamiento de foco antes y durante la exposición</td></tr>
+        <tr><td><strong>Naval Pixel</strong></td><td>Tolerancia a la incertidumbre</td><td>Entrenamiento de la aceptación de lo impredecible</td></tr>
+        <tr><td><strong>Winemine</strong></td><td>Tolerancia al error</td><td>Entrenamiento para no derrumbarse frente al fallo</td></tr>
+        <tr><td><strong>Clumsy Bird</strong></td><td>Reintento rápido tras el fallo</td><td>Entrenamiento de la resiliencia</td></tr>
+        <tr><td><strong>Voxel Quest</strong></td><td>Exploración y orientación en espacios cerrados</td><td>Exposición simbólica para claustrofobia (con supervisión)</td></tr>
+        <tr><td><strong>Simio Salvaje</strong></td><td>Alturas, precisión en contexto vertical</td><td>Exposición simbólica para acrofobia (con supervisión)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6.4 · Cómo se integran los juegos con la exposición</h2>
+
+    <p>La integración sigue esta lógica:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Antes de la exposición:</strong> 5 minutos de un juego de calma (Pixel Leap, Sequence). El objetivo es llegar al momento de la exposición con el sistema nervioso regulado.</div>
+      <div class="step"><strong>Durante los descansos de la exposición:</strong> 5-10 minutos de un juego que entrene tolerancia (Naval Pixel, Winemine). El objetivo es distenderse sin perder el foco.</div>
+      <div class="step"><strong>Después de la exposición:</strong> 5 minutos de un juego de logro (Breakout, Clumsy Bird). El objetivo es reforzar la sensación de autoeficacia.</div>
+      <div class="step"><strong>En días sin exposición:</strong> 15-20 minutos de entrenamiento cognitivo general. El objetivo es mantener las funciones entrenadas.</div>
+    </div>
+
+    <div class="callout warning">
+      <strong>⚠ Sobre la exposición simbólica</strong>
+      Algunos juegos pueden usarse como <strong>exposición simbólica</strong> (por ejemplo, Voxel Quest para claustrofobia, Simio Salvaje para acrofobia). Pero esto <strong>siempre se hace con supervisión profesional</strong> y como paso previo a la exposición real. Nunca como reemplazo.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>Los juegos NO reemplazan la exposición. La exposición es el tratamiento.</li>
+        <li>Los juegos SÍ entrenan las funciones cognitivas y emocionales que se usan durante la exposición.</li>
+        <li>Cada juego del programa entrena una función específica.</li>
+        <li>Los juegos se integran antes, durante y después de la exposición.</li>
+        <li>La exposición simbólica con juegos se hace con supervisión profesional.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los fundamentos claros, entramos en el programa. En el próximo capítulo vas a ver la estructura completa de las 12 semanas: cómo se organiza cada fase, qué hacer cada semana, y cómo medir el progreso.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- CAPÍTULO 7 -->
+<!-- ============================================================ -->
+<article class="chapter" id="cap7">
+  <div class="chapter-header">
+    <div class="chapter-number">Capítulo 7 · Parte III</div>
+    <h1 class="chapter-title">Estructura del programa de 12 semanas</h1>
+  </div>
+  <div class="chapter-body">
+    <p>Este capítulo describe el corazón operativo del método. Es la parte que responde a la pregunta: <strong>¿cómo se aplica el programa semana a semana?</strong></p>
+
+    <h2>7.1 · Estructura general: 12 semanas, 5 fases</h2>
+
+    <table>
+      <thead>
+        <tr><th>Fase</th><th>Semanas</th><th>Foco</th><th>Objetivo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>1-2</td><td>Psicoeducación y mapa del miedo</td><td>Entender la fobia y construir la jerarquía</td></tr>
+        <tr><td><strong>2</strong></td><td>3-4</td><td>Herramientas cognitivas y fisiológicas</td><td>Aprender respiración, reestructuración, tolerancia</td></tr>
+        <tr><td><strong>3</strong></td><td>5-6</td><td>Primeros pasos de exposición</td><td>Exposición a los escalones más bajos</td></tr>
+        <tr><td><strong>4</strong></td><td>7-9</td><td>Exposición sostenida</td><td>Exposición a escalones medios, con repetición</td></tr>
+        <tr><td><strong>5</strong></td><td>10-11</td><td>Exposición intensiva</td><td>Exposición a los escalones más altos</td></tr>
+        <tr><td><strong>6</strong></td><td>12</td><td>Consolidación y prevención</td><td>Consolidar logros y plan de recaídas</td></tr>
+      </tbody>
+    </table>
+
+    <p>El orden no es azaroso. La psicoeducación es la base: sin entender qué pasa, no hay adherencia. Las herramientas son el andamiaje: sin respiración y reestructuración, la exposición es insostenible. La exposición gradual es el corazón: sin ella, no hay cambio. Y la consolidación es el cierre: sin ella, los logros se pierden.</p>
+
+    <h2>7.2 · Estructura de la sesión diaria (15-25 minutos)</h2>
+
+    <div class="session-card">
+      <h4>Chequeo del estado · 2 minutos</h4>
+      <div class="session-meta">Apertura</div>
+      <p>Antes de empezar: ¿Cómo estás hoy? ¿Dormiste bien? ¿Estás ansioso? Anotá tu estado de 1 a 10. Esto te ayuda a interpretar cómo te va.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Juego de calma · 5 minutos</h4>
+      <div class="session-meta">Regulación</div>
+      <p>Jugá 5 minutos de un juego simple (Pixel Leap, Sequence). El objetivo no es rendir, es regular el sistema nervioso antes del ejercicio del día.</p>
+    </div>
+
+    <div class="session-card">
+      <h4>Ejercicio del día · 5-15 minutos</h4>
+      <div class="session-meta">Foco del programa</div>
+      <p>Se hace el ejercicio específico de la fase actual: psicoeducación, respiración, reestructuración, o exposición. <strong>Este es el corazón del programa.</strong></p>
+    </div>
+
+    <div class="session-card">
+      <h4>Cierre · 3 minutos</h4>
+      <div class="session-meta">Reflexión</div>
+      <p>Preguntas: <em>¿Cómo te sentiste? ¿Qué aprendiste? ¿Qué harías distinto? ¿Qué necesitás para mañana?</em> Anotá en el Cuaderno del Valor.</p>
+    </div>
+
+    <div class="callout tip">
+      <strong>Principio de constancia</strong>
+      <strong>15-25 minutos diarios, todos los días, durante 12 semanas.</strong> Si un día no podés, hacé al menos el chequeo y 5 minutos de juego de calma. La constancia vence a la intensidad.
+    </div>
+
+    <h2>7.3 · Cómo medir tu progreso</h2>
+
+    <p>Cada semana vas a medir:</p>
+
+    <ul>
+      <li><strong>Nivel de ansiedad máximo (0-10):</strong> el nivel más alto que alcanzaste en la exposición.</li>
+      <li><strong>Nivel de ansiedad al final (0-10):</strong> el nivel al que bajó después de sostener la exposición.</li>
+      <li><strong>Tiempo sostenido:</strong> cuánto tiempo pudiste quedarte en la situación sin escapar.</li>
+      <li><strong>Escalones completados:</strong> cuántos pasos de tu jerarquía superaste.</li>
+    </ul>
+
+    <p>El objetivo no es bajar el miedo de un día para otro. Es que, con el tiempo, el miedo <strong>suba menos, baje más rápido y dure menos</strong>.</p>
+
+    <h2>7.4 · Errores que arruinan el programa</h2>
+
+    <ul>
+      <li><strong>Exponerse antes de tiempo.</strong> Sin herramientas cognitivas y fisiológicas, la exposición puede ser contraproducente.</li>
+      <li><strong>Escapar apenas sube la ansiedad.</strong> La exposición requiere sostener la ansiedad hasta que baje. Si escapás, el cerebro no aprende.</li>
+      <li><strong>Distraerte durante la exposición.</strong> Mirar el celular, distraerte con otras cosas, o tomar un ansiolítico de rescate <em>durante</em> la exposición anula el aprendizaje.</li>
+      <li><strong>No repetir.</strong> Una sola exposición no alcanza. El cerebro necesita repeticiones para consolidar el nuevo aprendizaje.</li>
+      <li><strong>Compararte con otros.</strong> Tu ritmo es tuyo. No hay un "deber ser".</li>
+      <li><strong>Saltarte la consolidación.</strong> La semana 12 no es opcional. Es la que sostiene los logros.</li>
+    </ul>
+
+    <h2>7.5 · Las cuatro reglas de oro</h2>
+
+    <ol>
+      <li><strong>No escapes.</strong> Sostené la ansiedad hasta que baje. Ese es el aprendizaje.</li>
+      <li><strong>No te distraigas.</strong> Estar presente con la ansiedad es lo que la desactiva.</li>
+      <li><strong>Repetí.</strong> Una exposición no alcanza. Repetí hasta que el miedo se vuelva manejable.</li>
+      <li><strong>Registrá.</strong> Anotá cada sesión en el Cuaderno del Valor. Sin datos, no hay progreso.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h3>¿Querés empezar el programa?</h3>
+      <p>Escribinos por WhatsApp para coordinar acompañamiento durante las 12 semanas. Te atiende un profesional del equipo.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20quiero%20empezar%20el%20programa%20de%2012%20semanas%20para%20superar%20mi%20fobia." target="_blank" rel="noopener">Empezar hoy</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>El programa se organiza en 6 fases dentro de 12 semanas.</li>
+        <li>La sesión diaria dura 15-25 minutos: chequeo, calma, ejercicio, cierre.</li>
+        <li>Se miden ansiedad máxima, ansiedad final, tiempo sostenido y escalones completados.</li>
+        <li>Los errores más comunes son: exponerse antes de tiempo, escapar, distraerse, no repetir.</li>
+        <li>Cuatro reglas de oro: no escapes, no te distraigas, repetí, registrá.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con la estructura clara, entramos en las 12 semanas. En los próximos capítulos vas a ver, fase por fase, qué hacer cada semana. Empezamos con las Semanas 1-2: psicoeducación y mapa del miedo.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANAS 1-2 -->
+<!-- ============================================================ -->
+<article class="chapter" id="sem12">
+  <div class="chapter-header">
+    <div class="chapter-number">Semanas 1-2 · Fase 1</div>
+    <h1 class="chapter-title">Psicoeducación y mapa del miedo</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> entender la fobia, entender cómo se mantiene, y construir tu jerarquía de exposición. Sin esta fase, la exposición no funciona: la persona no sabe qué está haciendo ni por qué.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué empezar acá?</strong>
+      Muchas personas intentan exponerse directamente, sin entender la lógica. Y fracasan. Entender qué es una fobia, cómo se forma y cómo se supera es la mitad del trabajo. Esta fase es la base sobre la que se construye todo lo demás.
+    </div>
+
+    <!-- SEMANA 1 -->
+    <div class="week-card">
+      <div class="objective">Semana 1 · Entender</div>
+      <h4>Qué es tu fobia y cómo funciona</h4>
+      <p><strong>Días 1-3:</strong> Leé los capítulos 3, 4 y 5 de este manual. Entendé qué es tu fobia, cómo se forma y cómo se supera.</p>
+      <p><strong>Días 4-7:</strong> Escribí tu "mapa del miedo": ¿Cuál es el estímulo temido? ¿Cuándo empezó? ¿Qué evitás? ¿Cómo afecta tu vida? Escribilo todo, sin filtro. Es para vos, no para nadie más.</p>
+      <p><strong>Juego de calma diario:</strong> 5 minutos de Pixel Leap o Sequence, como ancla de regulación.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego de calma: Pixel Leap
+      </a>
+    </div>
+
+    <!-- SEMANA 2 -->
+    <div class="week-card">
+      <div class="objective">Semana 2 · Jerarquizar</div>
+      <h4>Construir tu jerarquía de exposición</h4>
+      <p><strong>Días 8-10:</strong> Descomponé tu miedo en 10 escalones, del menos temido al más temido. Cada escalón debería generar una ansiedad entre 1 y 2 puntos más que el anterior. Ejemplo para aracnofobia: ver una foto de una araña pequeña → ver una foto de una araña grande → ver una araña real en un frasco a 3 metros → ... → sostener una araña.</p>
+      <p><strong>Días 11-14:</strong> Revisá tu jerarquía con alguien de confianza o con un profesional. Ajustá los escalones si es necesario. El primer escalón tiene que ser <strong>muy fácil</strong>, casi trivial. El último, la situación final que querés poder manejar.</p>
+      <p><strong>Juego de calma diario:</strong> 5 minutos de Pixel Leap o Sequence.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego de calma: Sequence
+      </a>
+    </div>
+
+    <h2>Por qué estos juegos en la Fase 1</h2>
+
+    <p><strong>Pixel Leap:</strong> ritmo, coordinación, presencia. Es un juego simple que ayuda a regular el sistema nervioso. Se usa como ancla: cuando estás ansioso, jugar 5 minutos te devuelve a un estado más calmo.</p>
+
+    <p><strong>Sequence (Simon):</strong> atención sostenida, memoria de trabajo. Es un juego que exige foco, pero no genera estrés. Ideal para practicar la atención sostenida que vas a necesitar durante la exposición.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 1</strong>
+      No te apures a exponerte. Las dos primeras semanas son de preparación. Si las hacés bien, las 10 semanas siguientes se vuelven mucho más fáciles. Si las salteás, el programa no funciona.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 1 (Semanas 1-2) se enfoca en psicoeducación y jerarquía.</li>
+        <li>Sin entender la fobia, la exposición no funciona.</li>
+        <li>La jerarquía es clave: 10 escalones, del más fácil al más difícil.</li>
+        <li>El primer escalón tiene que ser casi trivial. El último, la situación final deseada.</li>
+        <li>Los juegos de calma (Pixel Leap, Sequence) regulan el sistema nervioso.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el mapa construido, entramos en las Semanas 3-4: herramientas cognitivas y fisiológicas. Aprenderás respiración, reestructuración cognitiva y tolerancia a la ansiedad.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANAS 3-4 -->
+<!-- ============================================================ -->
+<article class="chapter" id="sem34">
+  <div class="chapter-header">
+    <div class="chapter-number">Semanas 3-4 · Fase 2</div>
+    <h1 class="chapter-title">Herramientas cognitivas y fisiológicas</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> aprender las herramientas que vas a necesitar durante la exposición. Sin estas herramientas, la exposición se vuelve insostenible. Con ellas, es manejable.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué esta fase?</strong>
+      Exponerse al estímulo temido sin herramientas es como correr una maratón sin entrenar. Vas a fracasar. Esta fase te da el equipamiento: respiración, reestructuración cognitiva, tolerancia. Con eso, la exposición funciona.
+    </div>
+
+    <!-- SEMANA 3 -->
+    <div class="week-card">
+      <div class="objective">Semana 3 · Respiración</div>
+      <h4>Respiración y regulación fisiológica</h4>
+      <p><strong>Días 15-17:</strong> Aprendé la respiración 4-4-4-4 (4 segundos inhalar, 4 mantener, 4 exhalar, 4 mantener vacío). Practicá 3 veces al día durante 5 minutos. La respiración es tu ancla: cuando la ansiedad sube, volvés a ella.</p>
+      <p><strong>Días 18-21:</strong> Practicá la respiración 4-4-4-4 en situaciones ligeramente ansiógenas (no la fobia en sí, sino algo que genere algo de ansiedad). Por ejemplo, antes de una llamada difícil, antes de una reunión. El objetivo es aprender a usarla cuando importa.</p>
+      <p><strong>Juego del día:</strong> 5 minutos de Sequence como práctica de atención sostenida + respiración.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/simon/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego: Sequence
+      </a>
+    </div>
+
+    <!-- SEMANA 4 -->
+    <div class="week-card">
+      <div class="objective">Semana 4 · Reestructuración</div>
+      <h4>Reestructuración cognitiva y tolerancia</h4>
+      <p><strong>Días 22-25:</strong> Identificá tus pensamientos catastróficos sobre la fobia. Escribilos. Después, para cada uno, escribí una alternativa más realista. Ejemplo: "Si me subo al avión, va a caerse" → "Los aviones son el medio de transporte más seguro. La probabilidad de accidente es extremadamente baja".</p>
+      <p><strong>Días 26-28:</strong> Entrenamiento de tolerancia a la incertidumbre. Jugá <strong>Naval Pixel</strong> y practicá sostener la incertidumbre sin frustrarte. El juego es una metáfora: nunca vas a tener toda la información. Igual con la fobia.</p>
+      <p><strong>Juego del día:</strong> 10 minutos de Naval Pixel, con atención a cómo te sentís cuando no sabés dónde está el barco enemigo.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/naval/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego: Naval Pixel
+      </a>
+    </div>
+
+    <h2>Por qué estos juegos en la Fase 2</h2>
+
+    <p><strong>Sequence:</strong> atención sostenida. La respiración 4-4-4-4 requiere sostener el foco. Sequence entrena esa capacidad.</p>
+
+    <p><strong>Naval Pixel:</strong> tolerancia a la incertidumbre. El juego no te da toda la información. Tenés que decidir con lo que tenés. Igual que en la exposición: no vas a tener certeza de que todo va a salir bien. Y aun así, tenés que actuar.</p>
+
+    <h2>Las 3 herramientas que te llevás de esta fase</h2>
+
+    <div class="steps">
+      <div class="step"><strong>Respiración 4-4-4-4:</strong> tu ancla fisiológica. Cuando la ansiedad sube, volvés a la respiración.</div>
+      <div class="step"><strong>Reestructuración cognitiva:</strong> cuestionar los pensamientos catastróficos. No se trata de "pensar positivo", sino de pensar con precisión.</div>
+      <div class="step"><strong>Tolerancia a la incertidumbre:</strong> aceptar que no vas a tener el control total. Y aun así, actuar.</div>
+    </div>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 2</strong>
+      Practicá las herramientas en situaciones <strong>de baja intensidad</strong> antes de usarlas en la exposición. No aprendas a respirar mientras estás en pánico: aprendé a respirar en calma, y después usalo en el pánico.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 2 (Semanas 3-4) entrena respiración y reestructuración cognitiva.</li>
+        <li>La respiración 4-4-4-4 es el ancla fisiológica durante la exposición.</li>
+        <li>La reestructuración cognitiva cuestiona los pensamientos catastróficos.</li>
+        <li>La tolerancia a la incertidumbre es clave para no necesitar el control total.</li>
+        <li>Se practican las herramientas en baja intensidad antes de usarlas en la exposición.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con las herramientas listas, entramos en las Semanas 5-6: primeros pasos de exposición. Vas a empezar a enfrentar los escalones más bajos de tu jerarquía.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANAS 5-6 -->
+<!-- ============================================================ -->
+<article class="chapter" id="sem56">
+  <div class="chapter-header">
+    <div class="chapter-number">Semanas 5-6 · Fase 3</div>
+    <h1 class="chapter-title">Primeros pasos de exposición</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> empezar la exposición gradual. En estas dos semanas vas a trabajar los primeros 3-4 escalones de tu jerarquía. Son los más fáciles, pero los más importantes: son los que te enseñan a sostener la ansiedad sin escapar.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Importante</strong>
+      Esta fase debe hacerse idealmente <strong>con acompañamiento profesional</strong>. Si no es posible, al menos con alguien de confianza que pueda sostener el proceso. La exposición mal hecha puede ser contraproducente.
+    </div>
+
+    <!-- SEMANA 5 -->
+    <div class="week-card">
+      <div class="objective">Semana 5 · Escalones 1-2</div>
+      <h4>Primer y segundo escalón</h4>
+      <p><strong>Cómo se hace cada sesión de exposición:</strong></p>
+      <div class="steps">
+        <div class="step"><strong>Preparación:</strong> 5 minutos de Pixel Leap o Sequence para regular.</div>
+        <div class="step"><strong>Exposición:</strong> Enfrentá el escalón. Sostené la ansiedad. NO escapes. NO te distraigas. Estar presente con la ansiedad.</div>
+        <div class="step"><strong>Sostenimiento:</strong> Quedate en la situación hasta que la ansiedad baje al menos 50% del pico. Esto puede tardar 10-30 minutos.</div>
+        <div class="step"><strong>Repetición:</strong> Repetí el mismo escalón varias veces al día hasta que la ansiedad ya no suba tanto.</div>
+        <div class="step"><strong>Registro:</strong> Anotá el nivel de ansiedad máximo y final, y cuánto tiempo sostuviste.</div>
+      </div>
+      <p><strong>Juego post-exposición:</strong> 5 minutos de Breakout o Clumsy Bird para reforzar la sensación de logro.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego de calma: Pixel Leap
+      </a>
+    </div>
+
+    <!-- SEMANA 6 -->
+    <div class="week-card">
+      <div class="objective">Semana 6 · Escalones 3-4</div>
+      <h4>Tercer y cuarto escalón</h4>
+      <p>Misma estructura que la Semana 5, pero subiendo dos escalones. Recordá:</p>
+      <ul>
+        <li>No avances hasta que el escalón anterior ya no genere ansiedad intensa.</li>
+        <li>Si un escalón te supera, no retrocedas: quedate ahí. Insistí hasta que baje.</li>
+        <li>Si después de varias sesiones no baja, considerá bajar al escalón anterior.</li>
+      </ul>
+      <p><strong>Juego post-exposición:</strong> 5 minutos de Breakout o Clumsy Bird.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego post-exposición: Breakout
+      </a>
+    </div>
+
+    <h2>Reglas de la exposición</h2>
+
+    <div class="callout alert">
+      <strong>Las 5 reglas de oro de la exposición</strong>
+      <ol style="margin-top: 10px;">
+        <li><strong>No escapes.</strong> Si escapás, el cerebro aprende que la situación era peligrosa.</li>
+        <li><strong>No te distraigas.</strong> Nada de celular, nada de distraerte con otras cosas, nada de ansiolíticos de rescate.</li>
+        <li><strong>Sostené.</strong> Quedate hasta que la ansiedad baje. Aunque tarde 30 minutos. Aunque sea incómodo.</li>
+        <li><strong>Repetí.</strong> Una vez no alcanza. Repetí el mismo escalón varias veces hasta que deje de dar miedo.</li>
+        <li><strong>Subí de a uno.</strong> No saltes al escalón más alto. Subí uno por vez.</li>
+      </ol>
+    </div>
+
+    <h2>Cómo sostener la ansiedad</h2>
+
+    <p>La parte más difícil de la exposición es <strong>sostener</strong>. El impulso de escapar es fuerte. Estas son las estrategias:</p>
+
+    <ul>
+      <li><strong>Respiración 4-4-4-4.</strong> Volvé a la respiración cuando la ansiedad sube.</li>
+      <li><strong>Observación sin juicio.</strong> No luches contra la ansiedad. Observala. "Estoy sintiendo taquicardia. Estoy sintiendo opresión en el pecho."</li>
+      <li><strong>Recordatorio mental.</strong> "Esto es ansiedad. Es incómodo, pero no peligroso. Va a bajar."</li>
+      <li><strong>Anclaje sensorial.</strong> Poné los pies firmes en el suelo. Sentí el piso. Tocá algo. Recordá que estás acá, en el presente.</li>
+      <li><strong>Permanencia.</strong> El miedo no baja en 30 segundos. Necesita 10-30 minutos. Sostené. Va a bajar.</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 3</strong>
+      Si el primer escalón es muy fácil, mejor. El objetivo no es sufrir: es aprender que <strong>la ansiedad baja sola</strong>. Una vez que el cerebro aprende eso en un escalón, lo aplica a los demás.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 3 (Semanas 5-6) es de exposición a los primeros escalones.</li>
+        <li>La estructura de cada sesión: calma, exposición, sostenimiento, repetición, registro.</li>
+        <li>Las 5 reglas de la exposición: no escapes, no te distraigas, sostené, repetí, subí de a uno.</li>
+        <li>Estrategias para sostener la ansiedad: respiración, observación, anclaje.</li>
+        <li>Los primeros escalones son la base de todo el proceso.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los primeros escalones superados, entramos en las Semanas 7-9: exposición sostenida. Los escalones medios son los más desafiantes, porque requieren sostener la ansiedad por períodos más largos.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANAS 7-9 -->
+<!-- ============================================================ -->
+<article class="chapter" id="sem79">
+  <div class="chapter-header">
+    <div class="chapter-number">Semanas 7-9 · Fase 4</div>
+    <h1 class="chapter-title">Exposición sostenida</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> trabajar los escalones medios de tu jerarquía (5, 6 y 7). Estos son los más desafiantes: la ansiedad sube más alto, y tarda más en bajar. Es donde muchos abandonan. No abandones.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué estos escalones son los más difíciles?</strong>
+      Porque ya no son triviales, pero todavía no son el objetivo final. Estás en la zona de máxima incertidumbre. La ansiedad sube a 6-8. Y la clave es <strong>sostenerse ahí</strong>, sin escapar, hasta que baje.
+    </div>
+
+    <!-- SEMANA 7 -->
+    <div class="week-card">
+      <div class="objective">Semana 7 · Escalón 5</div>
+      <h4>Primer escalón medio</h4>
+      <p>Subí al quinto escalón. Ahora la ansiedad va a subir más alto (6-8). El objetivo es sostener hasta que baje al menos 50%. Aunque tarde 30-45 minutos.</p>
+      <p><strong>Juego de anclaje:</strong> 5 minutos de Sequence antes de la exposición, 5 minutos de Winemine después (para tolerar la incertidumbre).</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/winemine.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego: Winemine
+      </a>
+    </div>
+
+    <!-- SEMANA 8 -->
+    <div class="week-card">
+      <div class="objective">Semana 8 · Escalón 6</div>
+      <h4>Segundo escalón medio</h4>
+      <p>Mismo proceso. Subí al sexto escalón. Sostené. Repetí. Registrá. Si el escalón 6 te supera, quedate en el 5 hasta que baje.</p>
+      <p><strong>Juego de anclaje:</strong> 5 minutos de Pixel Leap antes, 5 minutos de Winemine después.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/winemine.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego: Winemine
+      </a>
+    </div>
+
+    <!-- SEMANA 9 -->
+    <div class="week-card">
+      <div class="objective">Semana 9 · Escalón 7</div>
+      <h4>Tercer escalón medio</h4>
+      <p>Subí al séptimo escalón. Este es el más alto de la fase media. Si llegaste acá, ya hiciste algo enorme: superaste los escalones que muchos no superan. Ahora a consolidar.</p>
+      <p><strong>Juego de anclaje:</strong> 5 minutos de Sequence antes, 5 minutos de Clumsy Bird después (reintento tras el fallo).</p>
+      <a href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego: Clumsy Bird
+      </a>
+    </div>
+
+    <h2>Cómo sostener la ansiedad alta</h2>
+
+    <p>Cuando la ansiedad sube a 7-8, sostenerse es difícil. Estas son las estrategias que funcionan:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Respiración 4-4-4-4:</strong> volvé a la respiración. No para bajar la ansiedad, sino para anclarte.</div>
+      <div class="step"><strong>Observación descriptiva:</strong> describí lo que sentís. "Taquicardia. Sudoración. Opresión en el pecho. Pensamiento catastrófico."</div>
+      <div class="step"><strong>Recordatorio:</strong> "Esto es ansiedad. Es incómodo, pero no peligroso. Va a bajar. Ya bajó antes."</div>
+      <div class="step"><strong>Anclaje sensorial:</strong> pies en el piso, sentí el piso. Tocá algo cercano. Nombrá 5 cosas que ves.</div>
+      <div class="step"><strong>Permanencia radical:</strong> aceptá que la ansiedad va a estar ahí por un rato. No luches contra ella. Dejala estar. Y quedate.</div>
+    </div>
+
+    <h2>Lo que aprendiste sin darte cuenta</h2>
+
+    <p>Después de sostener la ansiedad alta y ver que baja, tu cerebro aprende algo fundamental: <strong>la ansiedad no es peligrosa y siempre baja</strong>. Ese aprendizaje es el núcleo del tratamiento. Es lo que se llama <strong>extinción</strong>. Y una vez que tu cerebro lo aprende, ya no se puede "desaprender".</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 4</strong>
+      No midas tu éxito por cuánto baja la ansiedad, sino por <strong>cuánto tiempo la sostenés sin escapar</strong>. Ese es el verdadero indicador de progreso. Aunque la ansiedad sea alta, si la sostenés, está funcionando.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 4 (Semanas 7-9) trabaja los escalones medios (5, 6, 7).</li>
+        <li>Son los más difíciles: la ansiedad sube más alto y tarda más en bajar.</li>
+        <li>Las estrategias para sostener ansiedad alta: respiración, observación, anclaje.</li>
+        <li>El éxito no se mide por cuánto baja la ansiedad, sino por cuánto la sostenés sin escapar.</li>
+        <li>La extinción es el aprendizaje clave: la ansiedad no es peligrosa y siempre baja.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con los escalones medios superados, entramos en las Semanas 10-11: exposición intensiva. Los escalones 8, 9 y 10 son los más temidos. Y son los que marcan la diferencia.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANAS 10-11 -->
+<!-- ============================================================ -->
+<article class="chapter" id="sem1011">
+  <div class="chapter-header">
+    <div class="chapter-number">Semanas 10-11 · Fase 5</div>
+    <h1 class="chapter-title">Exposición intensiva</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> enfrentar los escalones 8, 9 y 10 de tu jerarquía. Son los más temidos. Son los que definen si superaste la fobia o no. Y son los que, al superarlos, te devuelven la libertad.</p>
+
+    <div class="callout warning">
+      <strong>⚠ Esta fase es la más exigente</strong>
+      Acá es donde más importa el acompañamiento profesional. Si llegaste hasta acá por tu cuenta, asegurate de tener alguien de confianza cerca. Si podés, coordiná con tu terapeuta.
+    </div>
+
+    <!-- SEMANA 10 -->
+    <div class="week-card">
+      <div class="objective">Semana 10 · Escalones 8-9</div>
+      <h4>Los escalones casi finales</h4>
+      <p>Subí al octavo y noveno escalón. La ansiedad va a subir fuerte. Pero ya sabés sostenerla. Aplicá todo lo que aprendiste en las fases anteriores.</p>
+      <p><strong>Estructura del día:</strong></p>
+      <div class="steps">
+        <div class="step">5 minutos de Pixel Leap (calma)</div>
+        <div class="step">Exposición al escalón 8 o 9</div>
+        <div class="step">Sostené hasta que baje al menos 50%</div>
+        <div class="step">Repetí 2-3 veces en el día</div>
+        <div class="step">5 minutos de Breakout (logro post-exposición)</div>
+      </div>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego de calma: Pixel Leap
+      </a>
+    </div>
+
+    <!-- SEMANA 11 -->
+    <div class="week-card">
+      <div class="objective">Semana 11 · Escalón 10</div>
+      <h4>El escalón final</h4>
+      <p>Llegaste al décimo escalón. Es el objetivo final: la situación que más temías. Es el momento de enfrentarla. No estás improvisando: llevás 10 semanas preparándote.</p>
+      <p><strong>Recordatorios antes de la exposición final:</strong></p>
+      <ul>
+        <li>Ya superaste 9 escalones. Este es el último.</li>
+        <li>La ansiedad va a subir. Y va a bajar. Como siempre.</li>
+        <li>No estás solo. Tenés a alguien cerca.</li>
+        <li>Lo que importa no es no sentir miedo: es no dejar que el miedo te gobierne.</li>
+      </ul>
+      <p><strong>Juego post-exposición:</strong> 10 minutos de Breakout o Damas, como celebración.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/breakout/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego de celebración: Breakout
+      </a>
+    </div>
+
+    <h2>La exposición final: cómo prepararse</h2>
+
+    <p>La exposición al escalón 10 requiere preparación especial. Estas son las claves:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Elegí el día y la hora.</strong> Cuando estés mejor descansado, con más energía.</div>
+      <div class="step"><strong>Prepará el contexto.</strong> Alguien de confianza cerca, un lugar donde te sientas mínimamente seguro.</div>
+      <div class="step"><strong>Hacé el calentamiento.</strong> 5-10 minutos de Pixel Leap para regular.</div>
+      <div class="step"><strong>Respiración final.</strong> 3 ciclos de respiración 4-4-4-4 antes de empezar.</div>
+      <div class="step"><strong>Enfrentá.</strong> Sostené. No escapes. Aunque la ansiedad sea 10/10. Va a bajar.</div>
+      <div class="step"><strong>Celebrá.</strong> Cuando baje, date cuenta: acabás de hacer algo enorme.</div>
+    </div>
+
+    <h2>Lo que probablemente sientas</h2>
+
+    <p>Antes de la exposición final, vas a sentir ansiedad anticipatoria. Es normal. Es parte del proceso. Pero ya no te va a detener.</p>
+
+    <p>Durante la exposición, la ansiedad va a subir alto. Muy alto. Y va a doler. Pero va a bajar. Como todas las ansiedades. Como todas las veces anteriores.</p>
+
+    <p>Después de la exposición, cuando baje, vas a sentir algo nuevo: <strong>orgullo</strong>. Porque acabás de hacer lo que más temías. Y eso cambia la relación que tenés con vos mismo.</p>
+
+    <div class="callout tip">
+      <strong>💡 Consejo para la Fase 5</strong>
+      No importa cuánto suba la ansiedad. Importa que <strong>la sostengas sin escapar</strong>. Después de la exposición, anotá todo en el Cuaderno del Valor. Ese registro va a ser tu evidencia de que podés.
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Fase 5 (Semanas 10-11) trabaja los escalones finales (8, 9, 10).</li>
+        <li>Es la fase más exigente: la ansiedad sube fuerte y hay que sostenerla.</li>
+        <li>La preparación especial incluye descanso, contexto, calentamiento y respiración.</li>
+        <li>Después de la exposición final, la sensación de orgullo es enorme.</li>
+        <li>El registro en el Cuaderno del Valor es la evidencia del valor.</li>
+      </ol>
+    </div>
+
+    <div class="next-step">
+      <h4>Y ahora, el siguiente paso</h4>
+      <p>Con el escalón final superado, entramos en la Semana 12: consolidación y prevención de recaídas. La fase final, la que sostiene los logros.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- SEMANA 12 -->
+<!-- ============================================================ -->
+<article class="chapter" id="sem12b">
+  <div class="chapter-header">
+    <div class="chapter-number">Semana 12 · Fase 6</div>
+    <h1 class="chapter-title">Mantenimiento y prevención de recaídas</h1>
+  </div>
+  <div class="chapter-body">
+    <p><strong>Objetivo de la fase:</strong> consolidar los logros y prepararte para mantener los resultados a largo plazo. Esta semana no es opcional: es la que hace que los cambios perduren.</p>
+
+    <div class="callout info">
+      <strong>¿Por qué la Semana 12?</strong>
+      Sin consolidación, los logros se pierden. El cerebro necesita tiempo para consolidar el nuevo aprendizaje. Y necesita un plan para cuando las recaídas aparezcan. Esta semana te da las herramientas.
+    </div>
+
+    <!-- SEMANA 12 -->
+    <div class="week-card">
+      <div class="objective">Semana 12 · Consolidación</div>
+      <h4>Plan de mantenimiento</h4>
+      <p><strong>Días 1-3:</strong> Revisá todo tu Cuaderno del Valor. Compará tus registros del inicio con los del final. Ves tu progreso con claridad.</p>
+      <p><strong>Días 4-5:</strong> Escribí tu "plan de recaídas": ¿Qué harías si la fobia vuelve? ¿A quién llamarías? ¿Qué estrategias usarías? Tenerlo claro te da seguridad.</p>
+      <p><strong>Días 6-7:</strong> Establecé tu rutina de mantenimiento: 5-10 minutos diarios de un juego de calma + una exposición de mantenimiento semanal al escalón 8, 9 o 10. No se abandona la práctica: se mantiene.</p>
+      <p><strong>Juego del día:</strong> 10 minutos de cualquier juego del programa, como celebración y ancla.</p>
+      <a href="https://ifilex.github.io/WineBOX-Store/webapps/pixelleap/index.html" target="_blank" rel="noopener" class="week-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Juego de cierre: Pixel Leap
+      </a>
+    </div>
+
+    <h2>Cómo mantener los resultados a largo plazo</h2>
+
+    <p>Los resultados de la exposición no son permanentes si no se mantienen. Como cualquier aprendizaje, se atenúa si no se practica. Estas son las estrategias para mantener:</p>
+
+    <div class="steps">
+      <div class="step"><strong>Exposición de mantenimiento semanal:</strong> una vez por semana, enfrentá el escalón 8 o 9 de tu jerarquía. No tiene que ser el 10. Con el 8 alcanza para no perder.</div>
+      <div class="step"><strong>Rutina diaria de calma:</strong> 5-10 minutos de Pixel Leap, Sequence o similar. Como ancla fisiológica.</div>
+      <div class="step"><strong>Reestructuración cognitiva cuando aparezcan pensamientos:</strong> los pensamientos catastróficos van a volver. Cuando aparezcan, escribilos y cuestionálos.</div>
+      <div class="step"><strong>Vida normal:</strong> no evites. Seguí viviendo sin evitar. Cada vez que evitás, la fobia se refuerza.</div>
+      <div class="step"><strong>Plan de recaídas:</strong> si la fobia vuelve, no entrés en pánico. Volvé al programa. Los escalones se recuperan más rápido de lo que pensás.</div>
+    </div>
+
+    <h2>Sobre las recaídas</h2>
+
+    <p>Las recaídas son parte del proceso. No significan que el tratamiento falló. Significan que estás atravesando un momento de estrés, y que la fobia puede reaparecer en situaciones de vulnerabilidad.</p>
+
+    <p>Cuando la fobia reaparezca:</p>
+    <ul>
+      <li><strong>No entres en pánico.</strong> La recaída es un evento, no una condena.</li>
+      <li><strong>Volvé al Cuaderno del Valor.</strong> Mirá los registros anteriores. Vas a ver que ya superaste esto antes.</li>
+      <li><strong>Volvé a los escalones.</strong> Empezá por el 3 o 4, y subí rápido. Vas a recuperar el nivel en semanas, no en meses.</li>
+      <li><strong>Consultá a tu terapeuta.</strong> Si la recaída es fuerte, un par de sesiones pueden ayudarte a recuperar el terreno.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠ Lo que NO hacer si hay recaída</strong>
+      <ul style="margin-top: 10px; margin-left: 0;">
+        <li>No volver a evitar. Esto refuerza la fobia.</li>
+        <li>No dejar todo el trabajo hecho. Volver al programa.</li>
+        <li>No castigarte. La recaída es parte del proceso. No es fracaso.</li>
+        <li>No abandonar. Los logros vuelven rápido si insistís.</li>
+      </ul>
+    </div>
+
+    <h2>El cierre del programa</h2>
+
+    <p>Llegaste al final de las 12 semanas. Si lo completaste, hiciste algo enorme: enfrentaste tus miedos, aprendiste a sostener la ansiedad, y recuperaste parte de tu libertad.</p>
+
+    <blockquote>
+      <p>«El valor no es la ausencia de miedo. El valor es hacer lo que hay que hacer a pesar del miedo. Y vos, durante 12 semanas, hiciste exactamente eso: una y otra vez. Eso no se olvida.»</p>
+      <cite>— Cierre del programa</cite>
+    </blockquote>
+
+    <p>Ahora toca seguir viviendo. No con menos miedo, quizás, pero sí con la certeza de que <strong>podés con el miedo</strong>. Y esa certeza, una vez que la tenés, no se va.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si querés coordinar sesiones con un profesional para el programa de 12 semanas, escribinos por WhatsApp.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20termin%C3%A9%20el%20programa%20de%2012%20semanas%20y%20quiero%20seguir%20con%20acompa%C3%B1amiento." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+
+    <div class="summary">
+      <h4>Lo que aprendimos</h4>
+      <ol>
+        <li>La Semana 12 es de consolidación y prevención de recaídas.</li>
+        <li>El mantenimiento se hace con exposición semanal + rutina diaria de calma.</li>
+        <li>Las recaídas son parte del proceso: no son fracaso.</li>
+        <li>Si hay recaída, volver al programa y recuperar rápido.</li>
+        <li>El valor es hacer lo que hay que hacer a pesar del miedo.</li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ============================================================ -->
+<!-- REFERENCIAS -->
+<!-- ============================================================ -->
+<section class="references-section" id="referencias">
+  <div class="references-inner">
+    <h2>📚 Referencias Bibliográficas</h2>
+    <p class="ref-intro">Cada referencia incluye una nota que explica <strong>dónde se usó en este manual</strong>. Estilo APA 7.ª edición.</p>
+
+    <ul class="references-list">
+
+      <li id="ref1">
+        <span class="ref-num">[1]</span>
+        <span class="ref-authors">Foa, E. B., &amp; Kozak, M. J. (1986).</span>
+        <span class="ref-title">Emotional processing of fear: Exposure to corrective information.</span>
+        <span class="ref-source">Psychological Bulletin, 99(1), 20-35.</span>
+        <span class="ref-context">Cap. 1, 5. Modelo de procesamiento emocional que fundamenta la exposición gradual.</span>
+      </li>
+
+      <li id="ref2">
+        <span class="ref-num">[2]</span>
+        <span class="ref-authors">Craske, M. G., Treanor, M., Conway, C. C., Zbozinek, T., &amp; Vervliet, B. (2014).</span>
+        <span class="ref-title">Maximizing exposure therapy: An inhibitory learning approach.</span>
+        <span class="ref-source">Behaviour Research and Therapy, 58, 10-23.</span>
+        <span class="ref-context">Cap. 1, 5. Actualización del modelo de exposición basado en aprendizaje inhibitorio.</span>
+      </li>
+
+      <li id="ref3">
+        <span class="ref-num">[3]</span>
+        <span class="ref-authors">LeDoux, J. E. (2000).</span>
+        <span class="ref-title">Emotion circuits in the brain.</span>
+        <span class="ref-source">Annual Review of Neuroscience, 23(1), 155-184.</span>
+        <span class="ref-context">Cap. 3. Descripción del circuito de la amígdala en el miedo.</span>
+      </li>
+
+      <li id="ref4">
+        <span class="ref-num">[4]</span>
+        <span class="ref-authors">Etkin, A., Egner, T., &amp; Kalisch, R. (2011).</span>
+        <span class="ref-title">Emotional processing in anterior cingulate and medial prefrontal cortex.</span>
+        <span class="ref-source">Trends in Cognitive Sciences, 15(2), 85-93.</span>
+        <span class="ref-context">Cap. 3. Estudio sobre la regulación emocional y la corteza prefrontal.</span>
+      </li>
+
+      <li id="ref5">
+        <span class="ref-num">[5]</span>
+        <span class="ref-authors">Öst, L. G., &amp; Sterner, U. (1987).</span>
+        <span class="ref-title">Applied tension: A specific behavioral method for treatment of blood phobia.</span>
+        <span class="ref-source">Behaviour Research and Therapy, 25(1), 25-29.</span>
+        <span class="ref-context">Cap. 3, 5. Técnica de tensión muscular aplicada para la fobia a la sangre.</span>
+      </li>
+
+      <li id="ref6">
+        <span class="ref-num">[6]</span>
+        <span class="ref-authors">Otto, M. W., Tolin, D. F., Simon, N. M., Pearlson, G. D., Basden, S., Meunier, S. A., ... &amp; Pollack, M. H. (2010).</span>
+        <span class="ref-title">Efficacy of d-cycloserine for enhancing response to cognitive-behavior therapy for panic disorder.</span>
+        <span class="ref-source">Biological Psychiatry, 67(4), 365-370.</span>
+        <span class="ref-context">Cap. 3, 5. Estudio sobre la interacción entre medicación y exposición.</span>
+      </li>
+
+      <li id="ref7">
+        <span class="ref-num">[7]</span>
+        <span class="ref-authors">Öhman, A., &amp; Mineka, S. (2001).</span>
+        <span class="ref-title">Fears, phobias, and preparedness: Toward an evolved module of fear and fear learning.</span>
+        <span class="ref-source">Psychological Review, 108(3), 483-522.</span>
+        <span class="ref-context">Cap. 4. Explicación evolutiva de la aracnofobia y otras fobias preparadas.</span>
+      </li>
+
+      <li id="ref8">
+        <span class="ref-num">[8]</span>
+        <span class="ref-authors">Van Gerwen, L. J., Spinhoven, P., Diekstra, R. F. W., &amp; Van Dyck, R. (2018).</span>
+        <span class="ref-title">People who seek help for fear of flying: Typology of flying phobics.</span>
+        <span class="ref-source">Behaviour Therapy, 28(2), 237-251.</span>
+        <span class="ref-context">Cap. 4, 5. Estudio sobre fobia a volar y su tratamiento.</span>
+      </li>
+
+      <li id="ref9">
+        <span class="ref-num">[9]</span>
+        <span class="ref-authors">Barlow, D. H. (2002).</span>
+        <span class="ref-title">Anxiety and its disorders: The nature and treatment of anxiety and panic (2nd ed.).</span>
+        <span class="ref-source">Guilford Press.</span>
+        <span class="ref-context">Cap. 4, 5. Obra de referencia sobre trastornos de ansiedad y pánico.</span>
+      </li>
+
+      <li id="ref10">
+        <span class="ref-num">[10]</span>
+        <span class="ref-authors">Beck, A. T., Rush, A. J., Shaw, B. F., &amp; Emery, G. (1979).</span>
+        <span class="ref-title">Cognitive therapy of depression.</span>
+        <span class="ref-source">Guilford Press.</span>
+        <span class="ref-context">Cap. 5. Obra fundacional de la terapia cognitiva, base de la reestructuración.</span>
+      </li>
+
+      <li id="ref11">
+        <span class="ref-num">[11]</span>
+        <span class="ref-authors">Öst, L. G. (1997).</span>
+        <span class="ref-title">Rapid treatment of specific phobias.</span>
+        <span class="ref-source">En G. C. L. Davey (Ed.), Phobias: A handbook of theory, research and treatment. Wiley.</span>
+        <span class="ref-context">Cap. 5. Protocolo de tratamiento intensivo de una sola sesión para fobias específicas.</span>
+      </li>
+
+    </ul>
+
+    <div class="footnote" style="margin-top: 40px; text-align: center; background: var(--soft-teal); border-left-color: var(--primary-light);">
+      <strong>Nota sobre las referencias:</strong> todas las obras citadas son accesibles a través de Google Scholar o PubMed. Si querés profundizar en alguna, podés buscarla por el título o el DOI. Si tenés dificultades para acceder a algún artículo, escribinos.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PLATAFORMA · ACCESO COMPLETO -->
+<!-- ============================================================ -->
+<section class="platform-banner" id="plataforma">
+  <h3>🎮 Explorá los más de 150 juegos de WineBOX</h3>
+  <p>Todos los juegos de este programa están disponibles de forma gratuita en la plataforma WineBOX. Si querés más variedad, más desafíos, y más formas de entrenar tus funciones cognitivas, esta es tu plataforma.</p>
+  <a href="https://winebox.cloud" target="_blank" rel="noopener" class="platform-cta">
+    🌐 Ir a winebox.cloud
+  </a>
+</section>
+
+<!-- ============================================================ -->
+<!-- CUADERNO DEL VALOR -->
+<!-- ============================================================ -->
+<section class="workbook-intro" id="workbook">
+  <div class="workbook-intro-inner">
+    <div class="legal-label" style="color: var(--accent-dark);">✂ Cuaderno del valor · Hojas imprimibles</div>
+    <h2>Registros, jerarquía y seguimiento</h2>
+    <p>Estas páginas están pensadas para imprimirse y usarse todos los días. Anotá tus exposiciones, tus niveles de ansiedad, y tus logros. Sin datos, no hay progreso visible.</p>
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+      <p style="font-size: 14px; color: var(--muted); margin-top: 12px; font-family: 'Helvetica Neue', Arial, sans-serif;">Consejo: en la ventana de impresión, seleccioná "A4" y márgenes "Predeterminados".</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 1: Mapa del miedo -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 1 · Mapa</div>
+      <h3>🗺️ Mapa de mi Miedo</h3>
+    </div>
+    <p class="sheet-intro">Escribí todo sobre tu fobia. Es para vos, no para nadie más. Cuanto más detalle, más claro se vuelve.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>¿Cuál es el estímulo temido?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Cuándo empezó? ¿Hubo un evento detonante?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué evitás por la fobia? (lista todo)</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>¿Cómo afecta tu vida? (trabajo, relaciones, estudios, etc.)</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>¿Qué pensamientos aparecen cuando ves el estímulo?</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>¿Qué sensaciones físicas sentís?</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>¿Qué es lo que más te gustaría poder hacer sin miedo?</label><div class="big-line"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 2: Jerarquía de exposición -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 2 · Jerarquía</div>
+      <h3>🪜 Mi Jerarquía de Exposición</h3>
+    </div>
+    <p class="sheet-intro">10 escalones, del menos temido al más temido. Cada escalón debería generar 1-2 puntos más de ansiedad que el anterior.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Objetivo final (escalón 10):</label><div class="big-line"></div></div>
+      <table>
+        <thead>
+          <tr><th>Escalón</th><th>Descripción</th><th>Ansiedad esperada (0-10)</th><th>✅</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>2</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>3</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>4</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>5</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>6</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>7</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>8</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>9</td><td></td><td></td><td>☐</td></tr>
+          <tr><td>10</td><td></td><td></td><td>☐</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 3: Registro de exposiciones -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 3 · Registro</div>
+      <h3>📋 Registro de Exposiciones</h3>
+    </div>
+    <p class="sheet-intro">Anotá cada exposición. El registro es tu evidencia de progreso. Sin datos, no hay progreso visible.</p>
+    <div class="sheet-body">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Escalón</th><th>Ansiedad máx (0-10)</th><th>Ansiedad final (0-10)</th><th>Tiempo</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOJA 4: Plan de recaídas -->
+<section class="workbook-sheet">
+  <div class="workbook-sheet-inner">
+    <div class="sheet-header">
+      <div class="sheet-num">Hoja 4 · Plan de recaídas</div>
+      <h3>🛡️ Mi Plan para las Recaídas</h3>
+    </div>
+    <p class="sheet-intro">Las recaídas son parte del proceso. Tener un plan te ayuda a atravesarlas sin perder el terreno ganado.</p>
+    <div class="sheet-body">
+      <div class="form-field"><label>Si la fobia vuelve, ¿qué haría primero?</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>¿A quién le pediría ayuda?</label><div class="big-line"></div></div>
+      <div class="form-field"><label>¿Qué estrategias usaría para volver a los escalones?</label><div class="taller-line"></div></div>
+      <div class="form-field"><label>Mi terapeuta de referencia (nombre y contacto):</label><div class="big-line"></div></div>
+      <div class="form-field"><label>Mi frase-ancla cuando aparezca el miedo:</label><div class="big-line"></div></div>
+      <div class="callout tip" style="margin-top: 30px; font-size: 14.5px;">
+        <strong>💚 Recordatorio</strong>
+        Una recaída no es un fracaso. Es parte del proceso. La clave es volver rápido, sin castigarte, y recuperar el terreno perdido. Los logros vuelven más rápido de lo que pensás.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRIMIR FINAL -->
+<section class="workbook-intro">
+  <div class="workbook-intro-inner">
+    <div class="print-controls">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir Cuaderno Completo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SOBRE EL AUTOR -->
+<!-- ============================================================ -->
+<section class="about" id="autor">
+  <div class="about-inner">
+    <h2>Sobre el Autor</h2>
+    <p>Este manual y la plataforma WineBOX han sido creados por un equipo interdisciplinario liderado por el <strong>Lic. Emanuel Chanampa</strong>, neuropsicólogo clínico con amplia trayectoria en el tratamiento de trastornos de ansiedad, fobias y regulación conductual.</p>
+
+    <div class="credentials">
+      <p><strong>Matrícula Nacional:</strong> 56716</p>
+      <p><strong>Matrícula Provincial:</strong> 84132</p>
+      <p><strong>Especialidad:</strong> Neuropsicología Clínica</p>
+      <p><strong>Enfoque:</strong> Terapia Cognitivo-Conductual y Exposición Gradual</p>
+    </div>
+
+    <p style="margin-top: 32px; font-style: italic;">Su trabajo combina el rigor científico con un profundo respeto por la singularidad de cada persona, y con la convicción de que la libertad se recupera paso a paso. Las fobias se superan. No es magia: es entrenamiento estructurado, sostenido y valiente.</p>
+
+    <div class="cta-box">
+      <h3>¿Necesitás acompañamiento profesional?</h3>
+      <p>Si querés empezar el programa de 12 semanas con acompañamiento, escribinos por WhatsApp. Te atiende un miembro del equipo, sin bots ni formularios.</p>
+      <a href="https://wa.me/5491166116631?text=Hola%2C%20le%C3%AD%20el%20programa%20de%2012%20semanas%20y%20quiero%20acompa%C3%B1amiento." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      🦋 WineBOX · Superar tus Fobias en 12 Semanas<br>
+      © 2026 Lic. Emanuel Chanampa · Todos los derechos reservados<br>
+      Con ciencia y esperanza · winebox.cloud · +54 911 6611 6631
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth scroll para el índice y citas
+  document.querySelectorAll('nav.toc a, a.cite').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Si es una referencia, resaltarla brevemente
+          if (href.startsWith('#ref')) {
+            target.style.transition = 'background 0.4s';
+            target.style.background = '#fff3d6';
+            setTimeout(() => { target.style.background = ''; }, 1500);
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
