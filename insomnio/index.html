@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WineBOX Sleep · Descansa en 21 Días — Guía para el Insomnio</title>
+<style>
+:root{
+  --bg: #070b18;
+  --bg-soft: #0d1428;
+  --panel: #131b34;
+  --panel-2: #1a2344;
+  --ink: #e8ebff;
+  --muted: #9aa3c7;
+  --line: #232d54;
+  --accent: #6d5cff;
+  --accent-2: #22d3ee;
+  --accent-3: #f472b6;
+  --moon: #fbbf24;
+  --star: #e0e7ff;
+  --success: #34d399;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 20px 45px rgba(0,0,0,.55);
+  --font: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family: var(--font);
+  background:
+    radial-gradient(1400px 900px at 80% -20%, rgba(109,92,255,.22), transparent 65%),
+    radial-gradient(1000px 800px at -10% 30%, rgba(34,211,238,.12), transparent 60%),
+    radial-gradient(800px 600px at 50% 120%, rgba(244,114,182,.08), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+}
+/* estrellas de fondo */
+body::before{
+  content:"";
+  position: fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 60% 70%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 20%, #d4d4ff, transparent),
+    radial-gradient(1px 1px at 40% 85%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 90% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 10% 90%, #c7d2fe, transparent),
+    radial-gradient(1px 1px at 75% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 33% 55%, #fff, transparent),
+    radial-gradient(1px 1px at 55% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 5% 45%, #fff, transparent);
+  background-size: 500px 500px, 350px 350px, 450px 450px, 600px 600px, 400px 400px, 550px 550px, 480px 480px, 300px 300px, 420px 420px, 380px 380px;
+  opacity: .55;
+  animation: twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.35}to{opacity:.75}}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input, textarea, select{font-family:inherit;color:inherit}
+
+.app{display:grid;grid-template-columns: 300px 1fr;min-height:100vh;max-width: 1500px;margin: 0 auto;position:relative;z-index:1;}
+@media (max-width: 1024px){.app{grid-template-columns: 1fr;}}
+
+.sidebar{
+  position: sticky;top: 0;height: 100vh;overflow-y: auto;
+  background: linear-gradient(180deg, rgba(19,27,52,.95), rgba(7,11,24,.95));
+  backdrop-filter: blur(14px);border-right: 1px solid var(--line);
+  padding: 26px 20px;display:flex;flex-direction:column;gap: 18px;
+}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+
+.brand{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+.brand-logo{
+  width:44px;height:44px;border-radius:12px;
+  background: radial-gradient(circle at 30% 30%, #c7d2fe, var(--accent));
+  display:grid;place-items:center;font-weight:800;font-size:22px;color:#fff;
+  box-shadow: 0 8px 22px rgba(109,92,255,.55), inset 0 -4px 8px rgba(0,0,0,.3);
+}
+.brand h1{font-size:15px;letter-spacing:.4px;line-height:1.2}
+.brand small{color:var(--muted);font-size:11px;letter-spacing:1.2px;text-transform:uppercase}
+
+.toc-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.toc{display:flex;flex-direction:column;gap:4px;flex:1}
+.toc a{
+  display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+  color:var(--muted);text-decoration:none;font-size:13.5px;transition: all .2s ease;
+  border-left: 2px solid transparent;
+}
+.toc a:hover{background:rgba(109,92,255,.15);color:var(--ink)}
+.toc a.active{background:rgba(109,92,255,.28);color:#fff;border-left-color:var(--accent)}
+.toc .num{
+  font-size:10px;font-weight:800;min-width:22px;height:22px;
+  display:grid;place-items:center;border-radius:6px;
+  background:rgba(255,255,255,.07);color:var(--accent-2);
+}
+
+.main{padding: 40px 48px 120px;max-width: 960px;width: 100%;}
+@media (max-width: 1024px){.main{padding: 90px 20px 100px;}}
+
+.topbar{position: fixed;top:0;left:0;right:0;height:3px;background: transparent;z-index: 100;}
+.topbar .fill{height:100%;width:0%;background: linear-gradient(90deg, var(--accent), var(--accent-2));transition: width .15s ease;}
+
+.menu-toggle{
+  position: fixed;top: 14px;left: 14px;z-index: 110;width: 44px;height: 44px;border-radius: 12px;
+  background: var(--panel);border:1px solid var(--line);display: none;align-items:center;justify-content:center;
+  color: var(--ink);font-size: 20px;
+}
+@media (max-width: 1024px){
+  .menu-toggle{display:flex}
+  .sidebar{position: fixed;left:0;top:0;bottom:0;width: 300px;transform: translateX(-105%);transition: transform .3s ease;z-index: 105;}
+  .sidebar.open{transform: translateX(0)}
+  .overlay{position: fixed;inset:0;background: rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:.3s;z-index:104;}
+  .overlay.show{opacity:1;pointer-events:auto}
+}
+
+/* PORTADA */
+.cover{
+  position: relative;border-radius: 28px;padding: 64px 44px 56px;
+  background:
+    radial-gradient(600px 400px at 85% 10%, rgba(109,92,255,.45), transparent 60%),
+    radial-gradient(500px 400px at 10% 90%, rgba(34,211,238,.25), transparent 60%),
+    radial-gradient(400px 300px at 50% 0%, rgba(251,191,36,.15), transparent 70%),
+    linear-gradient(160deg, #161e3e, #080c1c);
+  border: 1px solid var(--line);box-shadow: var(--shadow);overflow: hidden;margin-bottom: 48px;
+}
+.cover::before{
+  content:"🌙";
+  position:absolute;top: 30px;right: 40px;font-size: 90px;opacity:.85;
+  filter: drop-shadow(0 0 30px rgba(251,191,36,.5));
+  animation: floatMoon 6s ease-in-out infinite;
+}
+@keyframes floatMoon{0%,100%{transform: translateY(0)}50%{transform: translateY(-10px)}}
+.cover::after{
+  content:"";
+  position:absolute;inset:-2px;
+  background: radial-gradient(circle at 70% 20%, rgba(224,231,255,.08), transparent 40%);
+  pointer-events:none;
+}
+.cover .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;position:relative;z-index:1}
+.badge{
+  font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 12px;border-radius:20px;
+  border:1px solid rgba(109,92,255,.55);background: rgba(109,92,255,.15);color:#c9beff;font-weight:700;
+}
+.cover h1{
+  font-family: var(--serif);font-size: clamp(32px, 5vw, 54px);line-height: 1.05;letter-spacing: -1px;
+  margin-bottom: 14px;position:relative;z-index:1;
+  background: linear-gradient(120deg, #ffffff 10%, #c7d2fe 50%, #22d3ee 90%);
+  -webkit-background-clip: text;background-clip: text;color: transparent;
+}
+.cover .subtitle{font-size: 17px;color: var(--muted);max-width: 560px;margin-bottom: 28px;position:relative;z-index:1;}
+.cover .meta{display:flex;flex-wrap:wrap;gap:22px;padding-top:22px;border-top:1px solid var(--line);font-size: 12.5px;color: var(--muted);position:relative;z-index:1;}
+.cover .meta b{color: var(--accent-2);font-weight:700}
+
+section{scroll-margin-top: 30px;margin-bottom: 60px;}
+.chapter-num{font-size: 11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color: var(--accent-2);margin-bottom: 6px;}
+h2{font-family: var(--serif);font-size: clamp(24px, 3.2vw, 34px);line-height: 1.15;margin-bottom: 20px;letter-spacing: -0.5px;}
+h3{font-size: 19px;margin: 28px 0 12px;color: #fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+h3 .pill{font-size:10.5px;background: var(--accent);color:#fff;padding: 2px 8px;border-radius: 20px;font-weight:700;letter-spacing:.5px;}
+h4{font-size:15px;margin: 20px 0 8px;color:var(--accent-2)}
+p{margin-bottom: 14px;color:#d3d8f0}
+.lead{font-size:17px;color:#e8eaff}
+
+blockquote{
+  position: relative;margin: 26px 0;padding: 22px 26px 22px 60px;
+  background: linear-gradient(120deg, rgba(109,92,255,.15), rgba(34,211,238,.06));
+  border-radius: var(--radius);border: 1px solid rgba(109,92,255,.3);
+  font-family: var(--serif);font-style: italic;font-size: 16.5px;color:#e9ecff;line-height: 1.55;
+}
+blockquote::before{content: "\201C";position: absolute;left: 22px;top: 8px;font-size: 60px;color: var(--accent);font-family: Georgia, serif;line-height: 1;}
+blockquote cite{display:block;margin-top: 12px;font-size: 12.5px;font-style: normal;letter-spacing: 1.5px;text-transform: uppercase;color: var(--muted);}
+
+.note{display:flex;gap:14px;align-items:flex-start;padding: 16px 18px;border-radius: var(--radius-sm);background: rgba(34,211,238,.08);border-left: 3px solid var(--accent-2);margin: 18px 0;font-size: 14.5px;}
+.note.warn{background: rgba(251,191,36,.08);border-left-color: var(--warn)}
+.note.danger{background: rgba(248,113,113,.08);border-left-color: var(--danger)}
+.note.success{background: rgba(52,211,153,.08);border-left-color: var(--success)}
+.note .ico{font-size:20px;line-height:1}
+.note b{color:#fff}
+
+.card{background: linear-gradient(180deg, var(--panel), var(--panel-2));border: 1px solid var(--line);border-radius: var(--radius);padding: 22px;margin: 18px 0;box-shadow: 0 8px 24px rgba(0,0,0,.3);}
+.card h4{margin-top:0}
+
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+.brain-card{background: linear-gradient(180deg, #1a2344, #121932);border: 1px solid var(--line);border-radius: var(--radius);padding: 20px;position:relative;overflow:hidden;}
+.brain-card::after{content:"";position:absolute;top:-40px;right:-40px;width:100px;height:100px;border-radius:50%;background: radial-gradient(circle, rgba(109,92,255,.45), transparent 70%);}
+.brain-card .ic{width:40px;height:40px;border-radius:10px;background: rgba(109,92,255,.22);display:grid;place-items:center;font-size:20px;margin-bottom:12px;}
+.brain-card h4{margin:0 0 6px;color:#fff;font-size:15px}
+.brain-card p{font-size:13.5px;color:var(--muted);margin:0}
+
+.table-wrap{overflow-x:auto;margin:18px 0;border-radius:var(--radius);border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+thead{background: rgba(109,92,255,.18)}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background: rgba(255,255,255,.02)}
+td input[type="text"], td textarea{width:100%;background: rgba(255,255,255,.04);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:13px;color:var(--ink);}
+td input:focus, td textarea:focus{outline:none;border-color:var(--accent)}
+
+.exercise{background: linear-gradient(180deg, rgba(109,92,255,.1), rgba(34,211,238,.04));border: 1px solid rgba(109,92,255,.35);border-radius: var(--radius);padding: 24px;margin: 24px 0;position:relative;}
+.exercise .ex-tag{display:inline-block;background: var(--accent);color:#fff;font-size:10px;letter-spacing:2px;font-weight:800;padding: 5px 10px;border-radius:20px;text-transform:uppercase;margin-bottom: 14px;}
+.exercise h3{margin-top:0}
+
+.field{margin-bottom: 14px}
+.field label{display:block;font-size:12.5px;color:var(--muted);margin-bottom: 6px;font-weight:600;letter-spacing:.3px;}
+.field input[type="text"], .field input[type="date"], .field input[type="time"], .field input[type="number"], .field textarea, .field select{
+  width:100%;background: rgba(7,11,24,.7);border: 1px solid var(--line);border-radius: 10px;
+  padding: 11px 14px;color: var(--ink);font-size: 14px;transition: border-color .2s, box-shadow .2s;resize: vertical;
+}
+.field input:focus, .field textarea:focus, .field select:focus{outline: none;border-color: var(--accent);box-shadow: 0 0 0 3px rgba(109,92,255,.25);}
+.field textarea{min-height: 80px;line-height:1.5}
+
+.slider{display:flex;align-items:center;gap:14px;padding: 10px 0;}
+.slider input[type="range"]{flex:1;-webkit-appearance:none;height: 6px;border-radius: 4px;background: linear-gradient(90deg, var(--danger), var(--warn), var(--success));outline:none;}
+.slider input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width: 22px;height: 22px;border-radius:50%;background: #fff;border: 3px solid var(--accent);cursor:pointer;box-shadow: 0 4px 12px rgba(0,0,0,.5);}
+.slider input[type="range"]::-moz-range-thumb{width: 22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--accent);cursor:pointer;}
+.slider .val{min-width: 48px;text-align:center;background: var(--accent);color:#fff;font-weight: 800;font-size: 15px;padding: 5px 8px;border-radius: 8px;}
+
+.checklist{display:flex;flex-direction:column;gap: 8px}
+.check{display:flex;align-items:flex-start;gap:12px;padding: 12px 14px;background: rgba(255,255,255,.03);border: 1px solid var(--line);border-radius: 10px;cursor: pointer;transition: all .2s;font-size: 14px;}
+.check:hover{background: rgba(109,92,255,.1);border-color: rgba(109,92,255,.5)}
+.check input{display:none}
+.check .box{width: 20px;height:20px;min-width:20px;border: 2px solid var(--line);border-radius: 6px;display:grid;place-items:center;transition: all .2s;margin-top: 1px;}
+.check input:checked + .box{background: var(--accent);border-color: var(--accent);}
+.check .box svg{opacity:0;transition:.2s;color:#fff}
+.check input:checked + .box svg{opacity:1}
+.check.done{background: rgba(52,211,153,.08);border-color: rgba(52,211,153,.35)}
+.check.done span{text-decoration: line-through;color:var(--muted)}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding: 11px 20px;border-radius: 10px;font-size: 13.5px;font-weight: 700;letter-spacing: .3px;transition: all .2s;border: 1px solid transparent;text-decoration:none;}
+.btn-primary{background: linear-gradient(120deg, var(--accent), #8b7bff);color:#fff;box-shadow: 0 8px 22px rgba(109,92,255,.4);}
+.btn-primary:hover{transform: translateY(-2px);box-shadow:0 12px 28px rgba(109,92,255,.55)}
+.btn-ghost{background: transparent;border-color: var(--line);color: var(--muted);}
+.btn-ghost:hover{border-color:var(--accent);color:#fff}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top: 16px;}
+
+/* RESPIRACIÓN 4-7-8 */
+.breath-box{display:flex;flex-direction:column;align-items:center;gap:16px;padding: 30px 20px;background: radial-gradient(circle at center, rgba(34,211,238,.15), transparent 70%);border-radius: var(--radius);}
+.breath-circle{
+  width: 140px;height:140px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #c7d2fe, var(--accent));
+  display:grid;place-items:center;font-size: 30px;font-weight:800;color:#fff;
+  box-shadow: 0 0 60px rgba(109,92,255,.6);
+  transition: transform 7s ease-in-out, box-shadow 7s ease;
+  transform: scale(.75);
+}
+.breath-circle.inhale{transform: scale(1.15);box-shadow:0 0 100px rgba(34,211,238,.8);transition-duration:4s}
+.breath-circle.hold{transform: scale(1.15);box-shadow:0 0 90px rgba(251,191,36,.7);transition-duration:7s}
+.breath-circle.exhale{transform: scale(.75);box-shadow:0 0 60px rgba(109,92,255,.5);transition-duration:8s}
+.breath-label{font-size:14px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.breath-count{font-size: 14px;color:var(--muted);font-weight: 600}
+
+/* Tracker 21 días */
+.tracker{display:grid;grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));gap:10px;margin: 18px 0;}
+.tracker-day{
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line);border-radius: 12px;padding: 14px;
+  cursor: pointer;transition: all .2s;position: relative;
+}
+.tracker-day:hover{border-color: var(--accent);transform: translateY(-2px)}
+.tracker-day.done{background: linear-gradient(180deg, rgba(52,211,153,.15), rgba(52,211,153,.05));border-color: var(--success)}
+.tracker-day.done .tracker-num{background: var(--success);color:#fff}
+.tracker-day .tracker-num{
+  width: 30px;height:30px;border-radius: 50%;
+  background: rgba(109,92,255,.25);color:var(--accent-2);
+  display:grid;place-items:center;font-weight:800;font-size: 13px;margin-bottom: 8px;
+}
+.tracker-day h6{font-size: 12.5px;font-weight:700;color:#fff;line-height:1.3;margin-bottom: 4px}
+.tracker-day p{font-size: 11px;color:var(--muted);line-height:1.35;margin:0}
+
+/* Semanas plan */
+.week-grid{display:grid;grid-template-columns: repeat(auto-fit, minmax(220px,1fr));gap: 14px;margin: 18px 0;}
+.week-block{background: linear-gradient(180deg, var(--panel), var(--panel-2));border: 1px solid var(--line);border-radius: 14px;padding: 20px;position:relative;transition: all .2s;}
+.week-block:hover{border-color: var(--accent)}
+.week-block .wk-tag{font-size: 10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-2);font-weight:800;margin-bottom: 8px;}
+.week-block h5{font-size: 16px;color:#fff;margin-bottom: 8px;font-weight:800}
+.week-block p{font-size: 13px;color:var(--muted);margin-bottom: 10px}
+.week-block ul{list-style:none;font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.week-block li{display:flex;gap:8px;align-items:flex-start}
+.week-block li::before{content:"✦";color:var(--accent-2);flex-shrink:0}
+
+/* Sleep diary card */
+.diary-row{display:grid;grid-template-columns: 1fr 1fr;gap: 12px;margin-bottom: 12px}
+@media (max-width:600px){.diary-row{grid-template-columns:1fr}}
+
+/* Timeline */
+.timeline{position: relative;padding-left: 30px;margin: 20px 0}
+.timeline::before{content:"";position:absolute;left: 8px;top: 8px;bottom: 8px;width: 2px;background: linear-gradient(180deg, var(--accent), var(--accent-2));border-radius: 2px}
+.tl-item{position: relative;margin-bottom: 22px}
+.tl-item::before{content:"";position:absolute;left: -26px;top: 6px;width: 12px;height:12px;border-radius:50%;background: var(--accent);border: 3px solid var(--bg);box-shadow: 0 0 0 2px var(--accent)}
+.tl-item h5{font-size: 15px;color:#fff;margin-bottom: 4px;font-weight:700}
+.tl-item p{font-size: 13.5px;color:var(--muted);margin:0}
+
+/* Sheets */
+.sheet{background: #fff;color: #111;padding: 40px;border-radius: var(--radius);margin: 24px 0;font-family: var(--font);box-shadow: var(--shadow);position:relative;}
+.sheet h3{color:#111;font-size: 22px;margin-top:0;border-bottom:2px solid #111;padding-bottom:8px;}
+.sheet p, .sheet label, .sheet small{color:#333}
+.sheet label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin: 14px 0 6px;color:#555}
+.sheet input[type="text"], .sheet textarea, .sheet input[type="date"], .sheet input[type="time"]{
+  width:100%;background:#fff;border:none;border-bottom: 1.5px solid #999;
+  padding: 8px 4px;font-size: 15px;color:#111;border-radius:0;
+}
+.sheet input:focus, .sheet textarea:focus{outline:none;border-bottom-color: #6d5cff}
+.sheet textarea{min-height: 60px;border:1.5px solid #ccc;border-radius:8px;padding:10px}
+.sheet table{min-width: 0;font-size:13px}
+.sheet thead{background:#f0f0f5}
+.sheet th{color:#333;border-bottom:1px solid #ccc}
+.sheet th, .sheet td{border-bottom:1px solid #e0e0e0;padding:10px}
+.sheet .row{display:grid;grid-template-columns: 1fr 1fr;gap:18px}
+@media (max-width:600px){.sheet .row{grid-template-columns:1fr}}
+.sheet .scales{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.sheet .scales span{width: 30px;height:30px;border-radius:50%;border:1.5px solid #999;display:grid;place-items:center;font-size:13px;font-weight:700;color:#333;cursor:pointer;transition:.2s;}
+.sheet .scales span:hover{background:#6d5cff;color:#fff;border-color:#6d5cff}
+.sheet .scales span.sel{background:#6d5cff;color:#fff;border-color:#6d5cff}
+.sheet .note-print{background:#f5f5ff;border-left:3px solid #6d5cff;padding: 10px 14px;font-size:12.5px;color:#333;border-radius: 6px;margin-top: 16px;}
+.print-btn{position: absolute;top: 14px;right: 14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;background:#111;color:#fff;padding:6px 12px;border-radius:20px;font-weight:700;}
+
+@media print{
+  body{background:#fff;color:#000}
+  body::before{display:none}
+  .sidebar,.topbar,.menu-toggle,.overlay,.print-btn,.btn-row,.no-print{display:none !important}
+  .app{display:block}
+  .main{padding:0;max-width:none}
+  section{margin-bottom: 30px;page-break-inside: avoid}
+  .cover{background:#fff;border:1px solid #ccc;color:#000}
+  .cover h1{background:none;-webkit-text-fill-color:#000;color:#000}
+  .cover::before{display:none}
+  .cover .subtitle,.cover .meta{color:#333}
+  .sheet,.card,.exercise,.brain-card{box-shadow:none;page-break-inside: avoid}
+  .sheet{background:#fff}
+  h2,h3,h4,th{color:#000 !important}
+  p,td,label{color:#222 !important}
+  .note{background:#f5f5f5;border-left-color:#333}
+}
+
+.footer{text-align: center;padding: 40px 20px;border-top: 1px solid var(--line);color: var(--muted);font-size: 12.5px;margin-top: 60px;}
+.footer b{color: var(--accent-2)}
+.muted{color:var(--muted)}
+.center{text-align:center}
+.mt-0{margin-top:0}
+.mb-0{margin-bottom:0}
+.divider{height:1px;background:var(--line);margin: 40px 0;border:none;}
+.reveal{opacity:0;transform: translateY(20px);transition: all .6s ease}
+.reveal.visible{opacity:1;transform: translateY(0)}
+
+/* Insight box */
+.insight{
+  background: linear-gradient(135deg, rgba(251,191,36,.08), rgba(109,92,255,.08));
+  border: 1px solid rgba(251,191,36,.3); border-radius: var(--radius);
+  padding: 20px 22px; margin: 20px 0; position:relative;
+}
+.insight .lbl{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--moon);font-weight:800;margin-bottom:6px}
+.insight p{margin:0;font-size:14.5px;color:#e8eaff}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="fill" id="progressBar"></div></div>
+<button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+<div class="overlay" id="overlay"></div>
+
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🌙</div>
+      <div><h1>WineBOX Sleep</h1><small>Descansa en 21 Días</small></div>
+    </div>
+    <div class="toc-title">Contenido</div>
+    <nav class="toc" id="toc">
+      <a href="#portada"><span class="num">00</span> Portada</a>
+      <a href="#legal"><span class="num">§</span> Aviso Legal</a>
+      <a href="#cap1"><span class="num">01</span> Bienvenido</a>
+      <a href="#cap2"><span class="num">02</span> Ciencia del Sueño</a>
+      <a href="#cap3"><span class="num">03</span> Tu Reloj Interno</a>
+      <a href="#cap4"><span class="num">04</span> Herramientas</a>
+      <a href="#cap5"><span class="num">05</span> La Primera Noche</a>
+      <a href="#cap6"><span class="num">06</span> Guía Diaria</a>
+      <a href="#plan21"><span class="num">07</span> Plan de 21 Días</a>
+      <a href="#tracker"><span class="num">✓</span> Seguimiento</a>
+      <a href="#diario"><span class="num">📓</span> Diario de Sueño</a>
+      <a href="#cap9"><span class="num">08</span> Mantenimiento</a>
+      <a href="#cap10"><span class="num">09</span> Recursos</a>
+      <a href="#cap11"><span class="num">10</span> Comunidad</a>
+      <a href="#cap12"><span class="num">11</span> Nuevo Comienzo</a>
+      <a href="#autor"><span class="num">★</span> Sobre el Autor</a>
+      <a href="#cuaderno"><span class="num">✎</span> Cuaderno</a>
+    </nav>
+    <div class="btn-row no-print">
+      <button class="btn btn-ghost" onclick="window.print()">🖨 Imprimir / PDF</button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- PORTADA -->
+    <section id="portada" class="reveal">
+      <div class="cover">
+        <div class="badges">
+          <span class="badge">Neurociencia del Sueño</span>
+          <span class="badge">TCC-I</span>
+          <span class="badge">Mindfulness</span>
+          <span class="badge">21 Días</span>
+        </div>
+        <h1>Descansa en 21 Días</h1>
+        <p class="subtitle">Una guía práctica, compasiva y basada en evidencia para recuperar el sueño profundo y reconciliarte con la noche.</p>
+        <div class="meta">
+          <span>🌙 <b>21 días</b> de práctica guiada</span>
+          <span>🧠 Basado en <b>TCC-I</b> (insomnio)</span>
+          <span>📖 + <b>13 ejercicios</b> imprimibles</span>
+        </div>
+      </div>
+      <div class="note warn">
+        <span class="ico">⚠️</span>
+        <div><b>Aviso médico:</b> Esta guía es una herramienta de apoyo psicoeducativo. No sustituye el diagnóstico ni el tratamiento profesional del insomnio. Si sospechas de un trastorno primario del sueño (apnea, narcolepsia, síndrome de piernas inquietas), consulta con un especialista en medicina del sueño.</div>
+      </div>
+    </section>
+
+    <!-- LEGAL -->
+    <section id="legal" class="reveal">
+      <div class="chapter-num">§ Aviso Legal y Médico</div>
+      <h2>Consentimiento Informado de Uso</h2>
+      <p>Este ebook (y la plataforma WineBOX Sleep) es una herramienta de apoyo pedagógico, psicoeducación y entrenamiento conductual en el hogar. Está inspirado en los principios de la <b>Terapia Cognitivo-Conductual para el Insomnio (TCC-I)</b>, el estándar de oro no farmacológico para el insomnio crónico.</p>
+      <div class="grid grid-2">
+        <div class="card"><h4>1. Naturaleza de la Herramienta</h4><p class="muted">Material de apoyo psicoeducativo diseñado para complementar el trabajo terapéutico. No constituye diagnóstico ni tratamiento médico.</p></div>
+        <div class="card"><h4>2. Responsabilidad del Usuario</h4><p class="muted">La autoaplicación requiere responsabilidad. Si el insomnio es severo, persistente o hay comorbilidades (depresión, ansiedad, apnea), consulta con un profesional.</p></div>
+        <div class="card"><h4>3. Contraindicaciones</h4><p class="muted">La restricción del sueño (Semana 3) no se recomienda en personas con trastorno bipolar, epilepsia, embarazo, ni en trabajos de riesgo (conductores, operadores de maquinaria).</p></div>
+        <div class="card"><h4>4. Limitación de Responsabilidad</h4><p class="muted">Los desarrolladores de WineBOX Sleep no se hacen responsables del uso indebido o la interpretación errónea de los contenidos. Material provisto "tal cual", con fines educativos.</p></div>
+        <div class="card"><h4>5. Protección de Datos</h4><p class="muted">Todos los datos de tu diario de sueño se guardan localmente en tu dispositivo (Privacy by Design). No se transmiten a servidores externos.</p></div>
+        <div class="card"><h4>6. Aceptación</h4><p class="muted">Al utilizar esta guía aceptas estos términos y te comprometes a consultar con tu médico o especialista del sueño ante cualquier duda.</p></div>
+      </div>
+      <div class="note danger"><span class="ico">🚨</span><div><b>Señales de alarma:</b> Ronquidos intensos con pausas respiratorias, somnolencia diurna incapacitante, episodios de sueño súbito, insomnio que dura más de 3 meses, o ideación suicida. En estos casos, <b>consulta urgente con un profesional</b>.</div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 1 -->
+    <section id="cap1" class="reveal">
+      <div class="chapter-num">Capítulo 01</div>
+      <h2>Bienvenido</h2>
+      <blockquote>
+        Son las 3:47 de la madrugada. Otra vez. Llevas horas dando vueltas en la cama, mirando el techo, contando las horas que te quedan antes de que suene el despertador. La mente no para: repasa conversaciones, anticipa problemas, repite preocupaciones. Y lo peor no es no dormir; lo peor es el miedo a no dormir.
+        <cite>— Para ti, que estás leyendo esto a oscuras</cite>
+      </blockquote>
+      <p class="lead">Si has llegado hasta aquí, es probable que el insomnio haya dejado de ser una molestia ocasional para convertirse en una presencia constante en tu vida.</p>
+      <p>Este libro no es una fórmula mágica ni una promesa vacía. Es un <b>plan estructurado de 21 días</b>, basado en los principios de la Terapia Cognitivo-Conductual para el Insomnio (TCC-I) —el tratamiento con mayor respaldo científico— y en la neurociencia del sueño. Cada día tendrás una acción pequeña, concreta y realista.</p>
+
+      <div class="insight">
+        <div class="lbl">La verdad incómoda</div>
+        <p>El insomnio crónico no se cura "durmiendo más" ni "relajándose". Se cura <b>reentrenando la relación entre tu cerebro y la cama</b>. Y eso requiere práctica diaria, no fuerza de voluntad.</p>
+      </div>
+
+      <div class="note success">
+        <span class="ico">①</span>
+        <div><b>Tu compromiso:</b> Dedica 10-15 minutos al día a esta guía. No necesitas hacerlo todo perfecto. Necesitas ser constante. <b>La consistencia vence a la intensidad.</b></div>
+      </div>
+
+      <div class="note warn">
+        <span class="ico">▲</span>
+        <div><b>Importante:</b> Si tomas medicación para dormir, <b>no la suspendas abruptamente</b> por leer este libro. Consulta con tu médico antes de cualquier cambio. Esta guía es un complemento, no un reemplazo.</div>
+      </div>
+
+      <h3>¿Qué esperar en 21 días?</h3>
+      <div class="timeline">
+        <div class="tl-item"><h5>Días 1-7 · Reset Circadiano</h5><p>Alineamos tu reloj interno: luz, horarios, temperatura, cafeína. Sentarás las bases biológicas del sueño.</p></div>
+        <div class="tl-item"><h5>Días 8-14 · Regulación Nerviosa</h5><p>Entrenamos tu sistema nervioso para salir del modo "alerta". Respiración, relajación, descarga mental.</p></div>
+        <div class="tl-item"><h5>Días 15-21 · Integración y Consolidación</h5><p>Restricción del sueño, ritual personalizado, mantenimiento. El sueño se vuelve un hábito automático.</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 2 -->
+    <section id="cap2" class="reveal">
+      <div class="chapter-num">Capítulo 02</div>
+      <h2>La Ciencia del Sueño</h2>
+      <p class="lead">Para resolver el insomnio, primero debes entender qué está pasando en tu cerebro cuando intentas dormir y no puedes.</p>
+
+      <h3>2.1 · Tu reloj interno</h3>
+      <p>En lo profundo de tu hipotálamo hay un grupo de neuronas llamado <b>núcleo supraquiasmático (NSQ)</b>. Este diminuto reloj maestro regula tu ciclo de 24 horas, la <b>ritmo circadiano</b>, y le dice a tu cuerpo cuándo es de día y cuándo de noche.</p>
+      <p>Se sincroniza principalmente con la <b>luz</b>. Si recibe luz brillante por la mañana, se adelanta y te despierta con energía. Si recibe luz por la noche (pantallas, luces LED), se retrasa y confunde día con noche.</p>
+
+      <h3>2.2 · La presión de sueño (adenosina)</h3>
+      <p>Mientras estás despierto, tu cerebro acumula una sustancia llamada <b>adenosina</b>. Cuanto más tiempo pasa, más adenosina se acumula, y más "presión de sueño" tienes. La cafeína funciona bloqueando los receptores de adenosina, pero la adenosina sigue allí, esperando.</p>
+
+      <h3>2.3 · Melatonina y cortisol: el dúo dinámico</h3>
+      <div class="grid grid-2">
+        <div class="brain-card">
+          <div class="ic">🌙</div>
+          <h4>Melatonina · "La hormona de la oscuridad"</h4>
+          <p>Se libera cuando hay oscuridad. No es una pastilla para dormir: es la <b>señal de que es de noche</b>. La luz azul de las pantallas la suprime hasta un 50%.</p>
+        </div>
+        <div class="brain-card">
+          <div class="ic">☀️</div>
+          <h4>Cortisol · "La hormona del despertar"</h4>
+          <p>Se libera en picos por la mañana (CAR) y debería caer por la noche. En el insomnio crónico, el cortisol se mantiene alto a la hora de dormir, manteniéndote alerta.</p>
+        </div>
+      </div>
+
+      <h3>2.4 · Las fases del sueño</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Fase</th><th>Duración</th><th>Función principal</th></tr></thead>
+          <tbody>
+            <tr><td>N1 · Adormecimiento</td><td>5-10 min</td><td>Transición. Fácil despertar.</td></tr>
+            <tr><td>N2 · Sueño ligero</td><td>~50% de la noche</td><td>Consolidación de memoria.</td></tr>
+            <tr><td>N3 · Sueño profundo</td><td>20-25%</td><td>Restauración física, sistema inmune.</td></tr>
+            <tr><td>REM · Sueño de sueños</td><td>20-25%</td><td>Regulación emocional, creatividad.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <blockquote>El insomnio no es un defecto de carácter. Es un desequilibrio entre tu presión de sueño, tu reloj circadiano y tu sistema de alerta. Y como cualquier sistema biológico, puede reentrenarse.<cite>— Principios de la TCC-I</cite></blockquote>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 3 -->
+    <section id="cap3" class="reveal">
+      <div class="chapter-num">Capítulo 03</div>
+      <h2>Tu Reloj Interno</h2>
+
+      <h3>3.1 · El círculo vicioso del insomnio</h3>
+      <p>El insomnio crónico no es solo "no dormir". Es un ciclo que se retroalimenta:</p>
+      <div class="grid grid-3">
+        <div class="card center"><h4>① Mala noche</h4><p class="muted">Duermes mal</p></div>
+        <div class="card center"><h4>② Miedo anticipatorio</h4><p class="muted">"Otra vez no voy a dormir"</p></div>
+        <div class="card center"><h4>③ Hiperactividad</h4><p class="muted">Te acuestas en alerta</p></div>
+      </div>
+      <p class="center muted">↻ Y vuelve a empezar, cada noche con más fuerza.</p>
+
+      <div class="insight">
+        <div class="lbl">La clave del cambio</div>
+        <p>No vas a "dejar de pensar en dormir". Vas a <b>cambiar la relación</b> que tienes con la cama y con la noche. Cuando la cama deja de ser un campo de batalla, el sueño vuelve solo.</p>
+      </div>
+
+      <h3>3.2 · Los tres factores que mantienen el insomnio</h3>
+      <div class="grid grid-2">
+        <div class="brain-card">
+          <div class="ic">⚡</div>
+          <h4>Hiperactivación (Hyperarousal)</h4>
+          <p>Tu sistema nervioso está en modo alerta permanente. El cortisol no baja. El corazón late rápido. La mente no se apaga.</p>
+        </div>
+        <div class="brain-card">
+          <div class="ic">🔗</div>
+          <h4>Condicionamiento negativo</h4>
+          <p>Tu cerebro ha aprendido a asociar la cama con frustración. "Cama = pelear". Necesitamos romper esa asociación.</p>
+        </div>
+        <div class="brain-card">
+          <div class="ic">⏰</div>
+          <h4>Desregulación circadiana</h4>
+          <p>Horarios irregulares, poca luz matutina, mucha luz nocturna. Tu reloj interno ya no sabe cuándo dormir.</p>
+        </div>
+        <div class="brain-card">
+          <div class="ic">💭</div>
+          <h4>Pensamientos catastróficos</h4>
+          <p>"Mañana va a ser horrible", "No voy a poder rendir". La ansiedad anticipatoria dispara el insomnio.</p>
+        </div>
+      </div>
+
+      <h3>3.3 · Tabla: Higiene del Sueño Esencial</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Factor</th><th>Recomendación</th><th>Por qué</th></tr></thead>
+          <tbody>
+            <tr><td>Luz matutina</td><td>10-30 min de luz natural al despertar</td><td>Ancla el reloj circadiano</td></tr>
+            <tr><td>Cafeína</td><td>Nada después de las 14:00</td><td>Vida media de 5-6 horas</td></tr>
+            <tr><td>Alcohol</td><td>Evitar 3h antes de dormir</td><td>Fragmenta el sueño REM</td></tr>
+            <tr><td>Pantallas</td><td>Evitar 1h antes de dormir</td><td>Suprime la melatonina</td></tr>
+            <tr><td>Temperatura</td><td>18-20°C en la habitación</td><td>El cuerpo necesita bajar su núcleo</td></tr>
+            <tr><td>Siesta</td><td>Máximo 20 min antes de las 15h</td><td>Consume presión de sueño</td></tr>
+            <tr><td>Cena</td><td>Ligera, 2-3h antes de dormir</td><td>Evita digestión activa</td></tr>
+            <tr><td>Ejercicio</td><td>Diario, pero no 3h antes de dormir</td><td>Regula el sistema nervioso</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 4 -->
+    <section id="cap4" class="reveal">
+      <div class="chapter-num">Capítulo 04</div>
+      <h2>Herramientas para Dormir</h2>
+      <p class="lead">Las 6 técnicas que usarás a lo largo de los 21 días. No todas funcionan para todas las personas: prueba, observa, ajusta.</p>
+
+      <h3>4.1 · Respiración 4-7-8 <span class="pill">Relajación</span></h3>
+      <p>Desarrollada por el Dr. Andrew Weil, esta técnica activa el sistema nervioso parasimpático y reduce la frecuencia cardíaca en minutos.</p>
+      <div class="exercise">
+        <span class="ex-tag">Ejercicio interactivo</span>
+        <h3>Respiración 4-7-8 · Tu ancla nocturna</h3>
+        <div class="breath-box">
+          <div class="breath-circle" id="breathCircle">4</div>
+          <div class="breath-label" id="breathLabel">Listo</div>
+          <div class="breath-count" id="breathCount">Ciclos: 0</div>
+        </div>
+        <div class="btn-row" style="justify-content:center">
+          <button class="btn btn-primary" id="breathStart">▶ Iniciar</button>
+          <button class="btn btn-ghost" id="breathStop">⏸ Detener</button>
+        </div>
+        <p class="center muted" style="font-size:13px;margin-top:14px"><b>1.</b> Inhala 4s por la nariz · <b>2.</b> Sostén 7s · <b>3.</b> Exhala 8s por la boca</p>
+      </div>
+
+      <h3>4.2 · Relajación Muscular Progresiva</h3>
+      <p>Creada por Edmund Jacobson en 1920. Tensar y soltar grupos musculares enseña al cuerpo a reconocer la diferencia entre tensión y relajación. Ideal si sientes el cuerpo "duro" al acostarte.</p>
+      <div class="exercise">
+        <span class="ex-tag">Ejercicio · RMP en 5 pasos</span>
+        <h3>Relaja tu cuerpo de pies a cabeza</h3>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-save="rmp-1"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Manos y brazos:</b> aprieta los puños 5 segundos, suelta.</span></label>
+          <label class="check"><input type="checkbox" data-save="rmp-2"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Hombros y cuello:</b> encoge los hombros 5 segundos, suelta.</span></label>
+          <label class="check"><input type="checkbox" data-save="rmp-3"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Rostro:</b> arruga la frente y aprieta los ojos 5 segundos, suelta.</span></label>
+          <label class="check"><input type="checkbox" data-save="rmp-4"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Pecho y abdomen:</b> infla el pecho, contrae el abdomen 5 segundos, suelta.</span></label>
+          <label class="check"><input type="checkbox" data-save="rmp-5"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Piernas y pies:</b> estira las piernas y flexiona los pies 5 segundos, suelta.</span></label>
+        </div>
+      </div>
+
+      <h3>4.3 · Control de Estímulos</h3>
+      <p>El pilar de la TCC-I. La regla de oro: <b>la cama solo se usa para dormir (y para sexo)</b>. Nada de leer, ver series, comer, trabajar o discutir en la cama.</p>
+      <div class="note">
+        <span class="ico">🔑</span>
+        <div><b>Regla de los 20 minutos:</b> Si no duermes en ~20 minutos (o te despiertas en la noche y no vuelves a dormir), <b>levántate</b>. Ve a otra habitación, con luz tenue, haz algo aburrido y tranquilo. Vuelve a la cama solo cuando tengas sueño. Esto reentrena a tu cerebro.</div>
+      </div>
+
+      <h3>4.4 · Intención Paradójica</h3>
+      <p>Parece contraintuitivo, pero funciona: <b>en lugar de intentar dormir, intenta quedarte despierto con los ojos cerrados, sin moverte</b>. La presión de "tener que dormir" desaparece y el sueño llega solo.</p>
+      <div class="insight">
+        <div class="lbl">Por qué funciona</div>
+        <p>El insomnio se mantiene por el <b>esfuerzo</b> de dormir. Al eliminar ese esfuerzo, se rompe la hiperactivación.</p>
+      </div>
+
+      <h3>4.5 · Descarga Mental (Preocupaciones)</h3>
+      <p>Antes de acostarte, dedica 10-15 minutos a escribir todas tus preocupaciones en un papel. Al lado de cada una, escribe: <b>"¿Puedo hacer algo ahora? Sí / No"</b>. Si es No, es una preocupación del futuro: apúntala en una "lista de pendientes" y cierra el cuaderno. Le has dado la señal al cerebro: <b>"Está registrado. No hace falta seguir pensándolo"</b>.</p>
+
+      <h3>4.6 · Restricción del Sueño <span class="pill">Avanzado</span></h3>
+      <div class="note warn">
+        <span class="ico">⚠️</span>
+        <div>Esta técnica es potente pero exigente. <b>Solo la usaremos en la Semana 3</b>, y siempre escuchando a tu cuerpo. Si tienes trastorno bipolar, epilepsia, embarazo o trabajo de riesgo, <b>no la apliques sin supervisión profesional</b>.</div>
+      </div>
+      <p>Consiste en reducir el tiempo en la cama al tiempo real que duermes, y luego ir aumentando gradualmente. El objetivo es aumentar la <b>eficiencia del sueño</b> (tiempo dormido / tiempo en cama) por encima del 85%.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 5 -->
+    <section id="cap5" class="reveal">
+      <div class="chapter-num">Capítulo 05</div>
+      <h2>La Primera Noche</h2>
+      <p>Son las 02:31. Te has acostado a las 23:00, siguiendo el ritual: ducha tibia, luz tenue, respiración 4-7-8. Y sin embargo, aquí estás. Mirando el techo. La mente, lejos de apagarse, ha empezado a repasar el correo pendiente, la conversación incómoda de la mañana, la factura del mes que viene.</p>
+      <p>Te das la vuelta. Ajustas la almohada. La enciendes, la apagas. La vuelves a encender. Y aparece el pensamiento, silencioso pero implacable: <b>"Otra vez no voy a dormir"</b>.</p>
+      <blockquote>La noche más difícil no es la que no duermes. Es la que descubres que llevas años peleando contra ella.<cite>— Un recordatorio para las 3 AM</cite></blockquote>
+      <p>Pero aquí está la buena noticia: <b>no necesitas dormirte para descansar</b>. El descanso profundo no empieza cuando cierras los ojos, sino cuando dejas de pelear.</p>
+      <div class="card">
+        <h4>📓 El diario de esa noche</h4>
+        <p class="muted">"Me acosté con miedo. Los primeros 40 minutos fueron una lucha: daba vueltas, me decía 'no voy a poder'. Después recordé la regla: me levanté, fui al sillón con luz tenue, leí tres páginas de un libro aburrido. Volví a la cama cuando bostezaba. No me dormí al instante. Pero por primera vez en semanas, <b>dejé de pelear</b>. Y en algún momento, sin darme cuenta, me dormí."</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="brain-card"><div class="ic">⚡</div><h4>Al principio</h4><p>La amígdala se activa. El cortisol sube. La mente se acelera.</p></div>
+        <div class="brain-card"><div class="ic">🧘</div><h4>En el medio</h4><p>Aplicas las herramientas. No siempre funcionan a la primera. Pero ya no estás en modo lucha.</p></div>
+        <div class="brain-card"><div class="ic">🌙</div><h4>Al final</h4><p>El cuerpo, agradecido, encuentra su ritmo. La próxima noche será más fácil.</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 6 -->
+    <section id="cap6" class="reveal">
+      <div class="chapter-num">Capítulo 06</div>
+      <h2>Tu Día a Día: Guía Diaria</h2>
+      <p class="lead">La rutina diaria es el corazón de esta guía. No necesitas hacerlo todo: necesitas hacer algo, todos los días.</p>
+      <div class="note">
+        <span class="ico">💡</span>
+        <div><b>Regla de oro:</b> Mejor 5 minutos al día, todos los días, que 2 horas un domingo. La constancia entrena el cerebro. La intensidad, no.</div>
+      </div>
+
+      <div class="week-grid">
+        <div class="week-block">
+          <div class="wk-tag">Mañana</div>
+          <h5>🌅 Ancla del reloj</h5>
+          <p>Al despertar, lo primero: 10-15 minutos de luz natural.</p>
+          <ul>
+            <li>Sube la persiana.</li>
+            <li>Sal al balcón o ventana.</li>
+            <li>Desayuna con luz.</li>
+            <li>Camina 5 minutos.</li>
+          </ul>
+        </div>
+        <div class="week-block">
+          <div class="wk-tag">Mediodía</div>
+          <h5>☀️ Consolida energía</h5>
+          <p>Mantén el cuerpo activo y la mente enfocada.</p>
+          <ul>
+            <li>Última cafeína antes de las 14h.</li>
+            <li>Almuerzo ligero.</li>
+            <li>10 min de movimiento.</li>
+            <li>Evita siestas largas.</li>
+          </ul>
+        </div>
+        <div class="week-block">
+          <div class="wk-tag">Tarde</div>
+          <h5>🌤️ Baja revoluciones</h5>
+          <p>Empieza a preparar el cuerpo para el descanso.</p>
+          <ul>
+            <li>Luz más suave.</li>
+            <li>Cena ligera antes de 20h.</li>
+            <li>Evita alcohol.</li>
+            <li>10 min de escritura.</li>
+          </ul>
+        </div>
+        <div class="week-block">
+          <div class="wk-tag">Noche</div>
+          <h5>🌙 Ritual de sueño</h5>
+          <p>El ritual es la señal de que el día terminó.</p>
+          <ul>
+            <li>Pantallas apagadas 1h antes.</li>
+            <li>Ducha tibia.</li>
+            <li>Respiración 4-7-8.</li>
+            <li>Gratitud / 3 cosas buenas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Tabla de la Semana</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Día</th><th>Foco</th><th>Completado</th><th>Notas</th></tr></thead>
+          <tbody>
+            <tr><td>Lunes</td><td>Hora fija de despertar</td><td><input type="checkbox" data-save="sem-l"></td><td><input type="text" data-save="sem-l-n"></td></tr>
+            <tr><td>Martes</td><td>Luz matutina 15 min</td><td><input type="checkbox" data-save="sem-m"></td><td><input type="text" data-save="sem-m-n"></td></tr>
+            <tr><td>Miércoles</td><td>Sin cafeína después de 14h</td><td><input type="checkbox" data-save="sem-x"></td><td><input type="text" data-save="sem-x-n"></td></tr>
+            <tr><td>Jueves</td><td>Control de estímulos</td><td><input type="checkbox" data-save="sem-j"></td><td><input type="text" data-save="sem-j-n"></td></tr>
+            <tr><td>Viernes</td><td>Respiración 4-7-8 al acostarte</td><td><input type="checkbox" data-save="sem-v"></td><td><input type="text" data-save="sem-v-n"></td></tr>
+            <tr><td>Sábado</td><td>Descarga mental escrita</td><td><input type="checkbox" data-save="sem-s"></td><td><input type="text" data-save="sem-s-n"></td></tr>
+            <tr><td>Domingo</td><td>Reflexión semanal</td><td><input type="checkbox" data-save="sem-d"></td><td><input type="text" data-save="sem-d-n"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 7: PLAN 21 DÍAS -->
+    <section id="plan21" class="reveal">
+      <div class="chapter-num">Capítulo 07</div>
+      <h2>El Plan de 21 Días</h2>
+      <p class="lead">Tres semanas. Tres focos. Una transformación. Cada día tiene una acción concreta y pequeña. No acumules: haz solo lo del día.</p>
+
+      <div class="week-grid">
+        <div class="week-block">
+          <div class="wk-tag">Semana 1 · Días 1-7</div>
+          <h5>Reset Circadiano</h5>
+          <p><b>Objetivo:</b> Anclar tu reloj interno.</p>
+          <ul>
+            <li>Día 1: Hora fija de despertar</li>
+            <li>Día 2: Luz solar matutina</li>
+            <li>Día 3: Adiós cafeína tarde</li>
+            <li>Día 4: Cena ligera</li>
+            <li>Día 5: Pantallas off 1h antes</li>
+            <li>Día 6: Ducha tibia 90 min antes</li>
+            <li>Día 7: Reflexión semanal</li>
+          </ul>
+        </div>
+        <div class="week-block">
+          <div class="wk-tag">Semana 2 · Días 8-14</div>
+          <h5>Regulación Nerviosa</h5>
+          <p><b>Objetivo:</b> Salir del modo alerta.</p>
+          <ul>
+            <li>Día 8: Respiración 4-7-8</li>
+            <li>Día 9: Relajación muscular</li>
+            <li>Día 10: Escaneo corporal</li>
+            <li>Día 11: Diario de preocupaciones</li>
+            <li>Día 12: Intención paradójica</li>
+            <li>Día 13: Control de estímulos</li>
+            <li>Día 14: Reflexión semanal</li>
+          </ul>
+        </div>
+        <div class="week-block">
+          <div class="wk-tag">Semana 3 · Días 15-21</div>
+          <h5>Integración y Consolidación</h5>
+          <p><b>Objetivo:</b> Automatizar el descanso.</p>
+          <ul>
+            <li>Día 15: Restricción del sueño</li>
+            <li>Día 16: Visualización guiada</li>
+            <li>Día 17: Ritual personalizado</li>
+            <li>Día 18: Soundscape nocturno</li>
+            <li>Día 19: Aromaterapia / temperatura</li>
+            <li>Día 20: Carta al yo del futuro</li>
+            <li>Día 21: Nuevo comienzo</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Detalle día por día</h3>
+
+      <div class="timeline">
+        <div class="tl-item"><h5>Día 1 · Hora fija de despertar</h5><p>Elige una hora (ej. 7:00) y respétala TODOS los días, incluso fines de semana. Es el ancla más importante del reloj circadiano.</p></div>
+        <div class="tl-item"><h5>Día 2 · Luz solar matutina</h5><p>Apenas despiertes, busca 10-15 minutos de luz natural directa. Sin gafas de sol. Sin ventana de por medio si es posible. Ideal: caminar al aire libre.</p></div>
+        <div class="tl-item"><h5>Día 3 · Adiós cafeína tarde</h5><p>La cafeína tiene una vida media de 5-6 horas. Si te acuestas a las 23:00, la última taza debería ser antes de las 14:00. Reemplázala por agua, infusiones sin cafeína o descafeinado.</p></div>
+        <div class="tl-item"><h5>Día 4 · Cena ligera</h5><p>Cena 2-3 horas antes de acostarte. Platos ligeros: proteína magra, verduras, carbohidratos complejos. Evita comidas pesadas, picantes o muy azucaradas.</p></div>
+        <div class="tl-item"><h5>Día 5 · Pantallas off 1h antes</h5><p>La luz azul suprime la melatonina. Sustituye pantallas por: lectura en papel, música suave, estiramientos, conversación tranquila.</p></div>
+        <div class="tl-item"><h5>Día 6 · Ducha tibia 90 min antes</h5><p>Una ducha o baño tibio (no caliente) 60-90 minutos antes de acostarte ayuda a que el cuerpo baje su temperatura central después, facilitando el sueño.</p></div>
+        <div class="tl-item"><h5>Día 7 · Reflexión semanal</h5><p>Revisa tu diario de sueño. ¿Qué funcionó? ¿Qué te costó más? Escribe 3 cosas positivas de la semana. No te juzgues.</p></div>
+        <div class="tl-item"><h5>Día 8 · Respiración 4-7-8</h5><p>Al acostarte, haz 4 ciclos de respiración 4-7-8 (usa la herramienta interactiva del Capítulo 4). Nota cómo el cuerpo se relaja.</p></div>
+        <div class="tl-item"><h5>Día 9 · Relajación muscular</h5><p>Antes de dormir, guía tu cuerpo por los 5 grupos musculares. Tensa 5s, suelta 10s. Sentirás el cuerpo más pesado.</p></div>
+        <div class="tl-item"><h5>Día 10 · Escaneo corporal</h5><p>Acostado, recorre tu cuerpo desde los pies a la cabeza notando sensaciones sin juzgar. Si hay tensión, respira hacia esa zona.</p></div>
+        <div class="tl-item"><h5>Día 11 · Diario de preocupaciones</h5><p>Antes de dormir, escribe todo lo que ronda tu mente. Clasifica: "Puedo resolver ahora" / "Es del futuro". Cierra el cuaderno. El cerebro agradece.</p></div>
+        <div class="tl-item"><h5>Día 12 · Intención paradójica</h5><p>Acuéstate y, en lugar de intentar dormir, intenta quedarte despierto con los ojos cerrados sin moverte. Nota la diferencia: el esfuerzo desaparece.</p></div>
+        <div class="tl-item"><h5>Día 13 · Control de estímulos</h5><p>Aplica la regla de los 20 minutos. Si no duermes, levántate. Vuelve solo cuando tengas sueño. Repite todas las noches.</p></div>
+        <div class="tl-item"><h5>Día 14 · Reflexión semanal</h5><p>¿Cómo ha cambiado tu relación con la cama? ¿Qué pensamiento ha sido más frecuente? ¿Qué herramienta te ha funcionado mejor?</p></div>
+        <div class="tl-item"><h5>Día 15 · Restricción del sueño</h5><p>Calcula tu tiempo real promedio de sueño (del diario). Limita el tiempo en cama a ese tiempo + 30 min. Ejemplo: si duermes 5h, estarás 5.5h en cama. Aumenta 15 min cada semana si la eficiencia supera el 85%.</p></div>
+        <div class="tl-item"><h5>Día 16 · Visualización guiada</h5><p>Con los ojos cerrados, imagina un lugar seguro (playa, bosque, montaña). Involucra todos los sentidos: qué ves, qué oyes, qué hueles, qué sientes.</p></div>
+        <div class="tl-item"><h5>Día 17 · Ritual personalizado</h5><p>Diseña tu ritual de sueño ideal. Escríbelo. 30-60 min antes de acostarte, siempre el mismo orden: te da la señal al cerebro de que es hora.</p></div>
+        <div class="tl-item"><h5>Día 18 · Soundscape nocturno</h5><p>Prueba sonidos suaves: lluvia, olas, ruido blanco, música instrumental. No a volumen alto: solo lo necesario para enmascarar ruidos.</p></div>
+        <div class="tl-item"><h5>Día 19 · Aromaterapia / temperatura</h5><p>Lavanda en la almohada, temperatura de la habitación 18-20°C, sábanas transpirables. Estos pequeños detalles señalan "seguridad y descanso".</p></div>
+        <div class="tl-item"><h5>Día 20 · Carta al yo del futuro</h5><p>Escribe una carta a tu yo de dentro de un año. ¿Cómo quieres que sea tu relación con el sueño? ¿Qué has aprendido en estos 21 días?</p></div>
+        <div class="tl-item"><h5>Día 21 · Nuevo comienzo</h5><p>Celebra. No porque hayas "terminado", sino porque has demostrado que puedes cuidarte. Sigue con las rutinas que te funcionaron.</p></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- TRACKER 21 DÍAS -->
+    <section id="tracker" class="reveal">
+      <div class="chapter-num">✓ Seguimiento</div>
+      <h2>Tu Tracker de 21 Días</h2>
+      <p class="lead">Marca cada día a medida que lo completes. La constancia visual es un potente motivador: ver el progreso te ayuda a seguir.</p>
+      <div class="tracker" id="trackerGrid"></div>
+      <div class="note success" style="margin-top:18px">
+        <span class="ico">🎯</span>
+        <div><b>Progreso:</b> <span id="trackerProgress">0/21 días completados</span></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- DIARIO DE SUEÑO -->
+    <section id="diario" class="reveal">
+      <div class="chapter-num">📓 Diario de Sueño</div>
+      <h2>Tu Diario de Sueño</h2>
+      <p class="lead">El diario de sueño es la herramienta más importante de la TCC-I. No es para juzgarte: es para <b>observar patrones</b>.</p>
+      <div class="exercise">
+        <span class="ex-tag">Registro interactivo</span>
+        <h3>Anota tu noche de hoy</h3>
+        <div class="diary-row">
+          <div class="field"><label>Fecha</label><input type="date" data-save="ds-fecha"></div>
+          <div class="field"><label>Hora de acostarse</label><input type="time" data-save="ds-acostarse"></div>
+        </div>
+        <div class="diary-row">
+          <div class="field"><label>Hora de despertar</label><input type="time" data-save="ds-despertar"></div>
+          <div class="field"><label>Hora aprox. de dormirse</label><input type="time" data-save="ds-dormirse"></div>
+        </div>
+        <div class="field"><label>¿Cuántas veces te despertaste?</label><input type="number" min="0" max="20" data-save="ds-despertares" placeholder="0"></div>
+        <div class="field">
+          <label>Calidad del sueño (1 = terrible · 10 = excelente)</label>
+          <div class="slider"><input type="range" min="1" max="10" value="5" data-save-range="ds-calidad"><span class="val">5</span></div>
+        </div>
+        <div class="field">
+          <label>Nivel de energía al despertar (1 = agotado · 10 = renovado)</label>
+          <div class="slider"><input type="range" min="1" max="10" value="5" data-save-range="ds-energia"><span class="val">5</span></div>
+        </div>
+        <div class="field"><label>¿Qué funcionó? ¿Qué no?</label><textarea data-save="ds-notas" placeholder="Describe sensaciones, pensamientos, rituales..."></textarea></div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="savedMessage()">💾 Guardar entrada</button>
+          <button class="btn btn-ghost" onclick="clearDiary()">Limpiar diario</button>
+        </div>
+      </div>
+      <div class="note"><span class="ico">📌</span><div>Tus datos se guardan <b>localmente</b> en tu dispositivo. Nadie más puede verlos.</div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 9 -->
+    <section id="cap9" class="reveal">
+      <div class="chapter-num">Capítulo 08</div>
+      <h2>Mantenimiento</h2>
+      <p class="lead">Has completado los 21 días. Ahora viene la parte más importante: <b>sostener lo aprendido</b>.</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>🌅 Rutina Diaria · 5-10 min</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:14px">
+            <li>☀️ <b style="color:#fff">Mañana:</b> Luz natural 10 min</li>
+            <li>🌤️ <b style="color:#fff">Mediodía:</b> Última cafeína antes de 14h</li>
+            <li>🌙 <b style="color:#fff">Noche:</b> Respiración 4-7-8</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>📅 Rutina Semanal · 20-30 min</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:14px">
+            <li>📆 <b style="color:#fff">Lunes:</b> Revisar el diario de sueño</li>
+            <li>📆 <b style="color:#fff">Miércoles:</b> Ajustar ritual</li>
+            <li>📆 <b style="color:#fff">Viernes:</b> Reflexión semanal</li>
+            <li>📆 <b style="color:#fff">Domingo:</b> Autocuidado</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note success"><span class="ico">🔑</span><div><b>Recordatorio:</b> 5 minutos al día sostienen mejor el progreso que 1 hora una vez por semana. La consistencia es la nueva normalidad.</div></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 10 -->
+    <section id="cap10" class="reveal">
+      <div class="chapter-num">Capítulo 09</div>
+      <h2>Recursos Recomendados</h2>
+      <p class="lead">Herramientas y lecturas para profundizar en tu descanso.</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>📚 Libros</h4>
+          <p class="muted">"Say Good Night to Insomnia" — Gregg Jacobs</p>
+          <p class="muted">"Why We Sleep" — Matthew Walker</p>
+          <p class="muted">"No More Sleepless Nights" — Peter Hauri</p>
+        </div>
+        <div class="card">
+          <h4>🎧 Audio y sonidos</h4>
+          <p class="muted">Ruido blanco, marrón, rosa</p>
+          <p class="muted">Sonidos de lluvia, olas, bosque</p>
+          <p class="muted">Meditaciones guiadas (Insight Timer, Calm)</p>
+        </div>
+        <div class="card">
+          <h4>📱 Apps de TCC-I</h4>
+          <p class="muted">Sleepio (basada en evidencia)</p>
+          <p class="muted">CBT-i Coach (gratuita)</p>
+          <p class="muted">WineBOX Sleep (nuestra comunidad)</p>
+        </div>
+        <div class="card">
+          <h4>🌐 Recursos web</h4>
+          <p class="muted">winebox.cloud</p>
+          <p class="muted">Sociedad Española de Sueño (SES)</p>
+          <p class="muted">AASM · American Academy of Sleep Medicine</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 11 -->
+    <section id="cap11" class="reveal">
+      <div class="chapter-num">Capítulo 10</div>
+      <h2>La Comunidad del Descanso</h2>
+      <p class="lead">El camino hacia un sueño reparador se hace más ligero cuando caminamos juntos.</p>
+      <div class="card"><p><b>— Maestro, llevo años sin dormir bien.</b></p><p class="muted">— El sueño no es un lugar al que hay que llegar, sino un río al que hay que dejar de remar contra. Suelta el remo. El río te lleva.</p></div>
+      <div class="card"><p><b>— Maestro, tengo miedo a la noche.</b></p><p class="muted">— La noche no es tu enemiga. Es el silencio donde tu cuerpo se repara. No tienes que hacer nada. Solo permitir.</p></div>
+      <div class="card"><p><b>— Maestro, ¿y si nunca vuelvo a dormir como antes?</b></p><p class="muted">— Nunca volverás a dormir como antes. Dormirás mejor. Porque ahora sabes escuchar a tu cuerpo.</p></div>
+      <div class="center" style="margin-top:30px">
+        <a href="https://wa.me/5491166116631" class="btn btn-primary" style="text-decoration:none;font-size:16px;padding:14px 26px">💬 +54 9 11 6611 6631</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CAP 12 -->
+    <section id="cap12" class="reveal">
+      <div class="chapter-num">Capítulo 11</div>
+      <h2>El Nuevo Comienzo</h2>
+      <blockquote>
+        El descanso no es un destino al que llegar. Es una práctica que se renueva cada noche. Y cada noche, sin importar cuán difícil haya sido la anterior, es una oportunidad para empezar de nuevo.
+        <cite>— Para ti, que has llegado hasta aquí</cite>
+      </blockquote>
+      <p>Has llegado al final de estos 21 días. Pero en realidad, estás en el principio de algo más profundo: una nueva relación con la noche, con tu cuerpo y con tu descanso.</p>
+      <p>No todas las noches serán perfectas. Algunas volverán a ser difíciles. Pero ahora tienes herramientas. Ahora sabes que el insomnio no te define, y que el descanso es un derecho, no una lucha.</p>
+      <div class="center" style="margin-top:30px">
+        <a href="https://winebox.cloud" class="btn btn-primary" style="text-decoration:none;font-size:16px;padding:16px 32px">🌙 Descarga WineBOX Sleep</a>
+      </div>
+      <div class="card" style="margin-top:30px;text-align:center">
+        <h4>¿Quieres acompañamiento personalizado?</h4>
+        <p class="muted">Si sientes que necesitas más ayuda, escríbenos. No estás solo en este camino.</p>
+        <a href="https://wa.me/5491166116631" class="btn btn-primary" style="text-decoration:none;margin-top:14px">💬 +54 9 11 6611 6631</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- AUTOR -->
+    <section id="autor" class="reveal">
+      <div class="chapter-num">Sobre el Autor</div>
+      <h2>Equipo WineBOX Sleep</h2>
+      <p>Esta guía y la plataforma WineBOX Sleep han sido creadas por un equipo interdisciplinario liderado por el <b>Lic. Emanuel Chanampa</b>, neuropsicólogo clínico con amplia experiencia en el tratamiento del insomnio y los trastornos del sueño en adultos.</p>
+      <div class="grid grid-2">
+        <div class="card"><h4>Matrícula Nacional</h4><p class="muted">56716</p></div>
+        <div class="card"><h4>Matrícula Provincial</h4><p class="muted">84132</p></div>
+        <div class="card"><h4>Especialidad</h4><p class="muted">Neuropsicología Clínica</p></div>
+        <div class="card"><h4>Enfoque</h4><p class="muted">TCC-I · Neurociencia del Sueño · Mindfulness</p></div>
+      </div>
+      <p class="center" style="margin-top:30px;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--accent-2)">Que la noche vuelva a ser tu refugio.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CUADERNO -->
+    <section id="cuaderno" class="reveal">
+      <div class="chapter-num">✎ Cuaderno de Ejercicios</div>
+      <h2>Hojas para Imprimir y Completar</h2>
+      <p class="lead">Estas páginas están pensadas para fotocopiarse o imprimirse. Guardalas en una carpeta: cada hoja completada es un paso más hacia tu descanso.</p>
+
+      <!-- HOJA 1: DIARIO -->
+      <div class="sheet">
+        <button class="print-btn no-print" onclick="window.print()">🖨 Imprimir</button>
+        <h3>● Mi Diario de Sueño</h3>
+        <p style="font-size:13px;color:#666">Completá una hoja cada noche o cada mañana. El diario es tu brújula.</p>
+        <div class="row">
+          <div><label>Fecha</label><input type="date" data-save="dsheet-fecha"></div>
+          <div><label>Hora de acostarse</label><input type="time" data-save="dsheet-acostarse"></div>
+        </div>
+        <div class="row">
+          <div><label>Hora de despertar</label><input type="time" data-save="dsheet-despertar"></div>
+          <div><label>Hora aprox. de dormirse</label><input type="time" data-save="dsheet-dormirse"></div>
+        </div>
+        <label>¿Cuántas veces te despertaste?</label>
+        <input type="text" data-save="dsheet-despertares">
+        <label>Calidad del sueño (1 · 10)</label>
+        <div class="scales" data-save-scale="dsheet-calidad">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+        </div>
+        <label>Energía al despertar (1 · 10)</label>
+        <div class="scales" data-save-scale="dsheet-energia">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+        </div>
+        <label>¿Qué funcionó esta noche? ¿Qué no?</label>
+        <textarea data-save="dsheet-notas" style="min-height:60px"></textarea>
+        <div class="note-print">📄 Fotocopiá esta hoja: la vas a necesitar durante los 21 días.</div>
+      </div>
+
+      <!-- HOJA 2: REGISTRO SEMANAL -->
+      <div class="sheet">
+        <button class="print-btn no-print" onclick="window.print()">🖨 Imprimir</button>
+        <h3>● Registro Semanal del Sueño</h3>
+        <p style="font-size:13px;color:#666">Al final de cada semana, resumí tu progreso. Esto te dará una visión clara.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Día</th><th>Hora acostarse</th><th>Hora despertar</th><th>Calidad (1-10)</th><th>Notas</th></tr></thead>
+            <tbody>
+              <tr><td>Lunes</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Martes</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Miércoles</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Jueves</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Viernes</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Sábado</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Domingo</td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <label>Esta semana, lo que mejor me salió fue:</label>
+        <input type="text" data-save="rs-mejor">
+        <label>Lo que quiero ajustar la próxima semana:</label>
+        <input type="text" data-save="rs-ajustar">
+        <div class="note-print">📊 Compará este registro con el de la semana anterior.</div>
+      </div>
+
+      <!-- HOJA 3: HIGIENE DEL SUEÑO -->
+      <div class="sheet">
+        <button class="print-btn no-print" onclick="window.print()">🖨 Imprimir</button>
+        <h3>● Mi Checklist de Higiene del Sueño</h3>
+        <p style="font-size:13px;color:#666">Marcá cada hábito que cumples hoy. Si algo falla, no te juzgues: solo obsérvalo.</p>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px">
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Me desperté a la misma hora.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Tomé 10-15 min de luz natural al despertar.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> No tomé cafeína después de las 14h.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Cené ligero 2-3 horas antes de dormir.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Evité alcohol por la noche.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Apagué pantallas 1h antes.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Hice mi ritual de sueño.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Respiración 4-7-8 antes de acostarme.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Temperatura entre 18-20°C.</label>
+          <label style="display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-size:14px;color:#111"><input type="checkbox" style="width:18px;height:18px"> Si no dormía, me levanté (regla 20 min).</label>
+        </div>
+        <div class="note-print">🌙 Revisá esta lista cada noche durante la semana 1.</div>
+      </div>
+
+      <!-- HOJA 4: PREOCUPACIONES -->
+      <div class="sheet">
+        <button class="print-btn no-print" onclick="window.print()">🖨 Imprimir</button>
+        <h3>● Mis Preocupaciones Nocturnas</h3>
+        <p style="font-size:13px;color:#666">Escribí todo lo que ronda tu mente antes de dormir. Clasificá: ¿puedo resolverlo ahora o es del futuro?</p>
+        <label>Preocupación 1</label>
+        <input type="text" data-save="pre1-p">
+        <label>¿Puedo resolverla ahora? (Sí / No / Mañana)</label>
+        <input type="text" data-save="pre1-r">
+        <label>Preocupación 2</label>
+        <input type="text" data-save="pre2-p">
+        <label>¿Puedo resolverla ahora?</label>
+        <input type="text" data-save="pre2-r">
+        <label>Preocupación 3</label>
+        <input type="text" data-save="pre3-p">
+        <label>¿Puedo resolverla ahora?</label>
+        <input type="text" data-save="pre3-r">
+        <label>Preocupación 4</label>
+        <input type="text" data-save="pre4-p">
+        <label>¿Puedo resolverla ahora?</label>
+        <input type="text" data-save="pre4-r">
+        <div class="note-print">🔒 Al cerrar el cuaderno, tu cerebro recibe la señal: "Ya está registrado. No hace falta pensarlo más".</div>
+      </div>
+
+      <!-- HOJA 5: RITUAL -->
+      <div class="sheet">
+        <button class="print-btn no-print" onclick="window.print()">🖨 Imprimir</button>
+        <h3>● Mi Ritual de Sueño Personalizado</h3>
+        <p style="font-size:13px;color:#666">Diseñá tu ritual perfecto. 30-60 minutos antes de acostarte, siempre en el mismo orden.</p>
+        <label>Hora de inicio del ritual</label>
+        <input type="time" data-save="rit-inicio">
+        <label>Paso 1 (ej. bajar luces)</label>
+        <input type="text" data-save="rit-1">
+        <label>Paso 2 (ej. ducha tibia)</label>
+        <input type="text" data-save="rit-2">
+        <label>Paso 3 (ej. lectura en papel)</label>
+        <input type="text" data-save="rit-3">
+        <label>Paso 4 (ej. respiración 4-7-8)</label>
+        <input type="text" data-save="rit-4">
+        <label>Paso 5 (ej. gratitud)</label>
+        <input type="text" data-save="rit-5">
+        <label>Hora objetivo de apagar la luz</label>
+        <input type="time" data-save="rit-fin">
+        <div class="note-print">🔁 Repetí el ritual todas las noches. La repetición es la que crea el hábito.</div>
+      </div>
+
+      <!-- HOJA 6: REFLEXIÓN SEMANAL -->
+      <div class="sheet">
+        <button class="print-btn no-print" onclick="window.print()">🖨 Imprimir</button>
+        <h3>● Mi Reflexión Semanal</h3>
+        <p style="font-size:13px;color:#666">Un cierre amable para la semana. Revisá tu diario antes de completar esta hoja.</p>
+        <label>Tres cosas que hice bien esta semana:</label>
+        <input type="text" data-save="rf-1" placeholder="1.">
+        <input type="text" data-save="rf-2" placeholder="2." style="margin-top:6px">
+        <input type="text" data-save="rf-3" placeholder="3." style="margin-top:6px">
+        <label>Un pensamiento que me acompañó mucho:</label>
+        <input type="text" data-save="rf-pens">
+        <label>Una cosa que quiero soltar:</label>
+        <input type="text" data-save="rf-soltar">
+        <label>Mi intención para la próxima semana:</label>
+        <textarea data-save="rf-intencion" style="min-height:50px"></textarea>
+        <div class="note-print">📆 Completá esta hoja cada domingo, sea cual sea el resultado de la semana.</div>
+      </div>
+
+      <!-- HOJA 7: CARTA AL FUTURO -->
+      <div class="sheet">
+        <button class="print-btn no-print" onclick="window.print()">🖨 Imprimir</button>
+        <h3>● Carta a Mi Yo del Futuro</h3>
+        <p style="font-size:13px;color:#666">Escribite una carta a tu yo de dentro de un año. Sé amable, honesto/a y esperanzador/a.</p>
+        <label>Querido/a yo del futuro...</label>
+        <textarea data-save="carta-1" style="min-height:120px"></textarea>
+        <label>Lo que quiero recordarte es...</label>
+        <textarea data-save="carta-2" style="min-height:80px"></textarea>
+        <label>Lo que deseo para tu descanso es...</label>
+        <textarea data-save="carta-3" style="min-height:80px"></textarea>
+        <div class="note-print">💌 Guardá esta carta. Volvé a leerla en 3 meses.</div>
+      </div>
+
+      <div class="btn-row no-print" style="justify-content:center;margin-top:30px">
+        <button class="btn btn-ghost" onclick="clearAll()">🗑 Limpiar todos los datos guardados</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p><b>WineBOX Sleep · Descansa en 21 Días</b></p>
+      <p>© 2026 · Todos los derechos reservados · Con ciencia y corazón · Emanuel Chanampa</p>
+      <p style="margin-top:14px">🌙 Esta guía es una herramienta de apoyo psicoeducativo. No sustituye el diagnóstico ni el tratamiento profesional del insomnio.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+/* ============================================================
+   LOCAL STORAGE
+============================================================ */
+const STORE_KEY = 'winebox-sleep-21d';
+function loadStore(){try{return JSON.parse(localStorage.getItem(STORE_KEY))||{}}catch(e){return{}}}
+function saveStore(obj){try{localStorage.setItem(STORE_KEY,JSON.stringify(obj))}catch(e){}}
+let store = loadStore();
+
+document.querySelectorAll('[data-save]').forEach(el=>{
+  const key = el.getAttribute('data-save');
+  if(store[key]===undefined) return;
+  if(el.type==='checkbox'){el.checked=!!store[key]}else{el.value=store[key]}
+});
+document.querySelectorAll('[data-save-range]').forEach(el=>{
+  const key = el.getAttribute('data-save-range');
+  if(store[key]!==undefined){el.value=store[key];const v=el.parentElement.querySelector('.val');if(v)v.textContent=el.value;}
+});
+
+document.addEventListener('input', e=>{
+  const el = e.target;
+  if(el.hasAttribute && el.hasAttribute('data-save')){
+    const key = el.getAttribute('data-save');
+    if(el.type==='checkbox'){store[key]=el.checked;el.closest('.check')?.classList.toggle('done',el.checked);}
+    else store[key]=el.value;
+    saveStore(store);
+  }
+  if(el.hasAttribute && el.hasAttribute('data-save-range')){
+    const key = el.getAttribute('data-save-range');
+    store[key]=el.value;saveStore(store);
+    const v=el.parentElement.querySelector('.val');if(v)v.textContent=el.value;
+  }
+});
+document.addEventListener('change', e=>{
+  if(e.target.matches('[data-save]')){
+    const key=e.target.getAttribute('data-save');
+    store[key]=e.target.type==='checkbox'?e.target.checked:e.target.value;
+    saveStore(store);
+    if(e.target.type==='checkbox')e.target.closest('.check')?.classList.toggle('done',e.target.checked);
+  }
+});
+document.querySelectorAll('.check input:checked').forEach(cb=>cb.closest('.check')?.classList.add('done'));
+
+document.querySelectorAll('[data-save-scale]').forEach(scale=>{
+  const key=scale.getAttribute('data-save-scale');
+  const spans=scale.querySelectorAll('span');
+  if(store[key]!==undefined){spans.forEach(s=>{if(s.textContent===String(store[key]))s.classList.add('sel')})}
+  spans.forEach(s=>s.addEventListener('click',()=>{
+    spans.forEach(x=>x.classList.remove('sel'));s.classList.add('sel');
+    store[key]=s.textContent;saveStore(store);
+  }));
+});
+
+function savedMessage(){
+  const n = document.createElement('div');
+  n.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:linear-gradient(120deg,#059669,#34d399);color:#fff;padding:12px 24px;border-radius:10px;font-weight:700;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.4);';
+  n.textContent = '✓ Entrada guardada';
+  document.body.appendChild(n);
+  setTimeout(()=>{n.style.opacity='0';n.style.transition='opacity .4s';setTimeout(()=>n.remove(),400)},1800);
+}
+function clearDiary(){
+  if(!confirm('¿Limpiar los campos del diario de hoy?')) return;
+  ['ds-fecha','ds-acostarse','ds-despertar','ds-dormirse','ds-despertares','ds-notas'].forEach(k=>{delete store[k]});
+  document.querySelectorAll('[data-save^="ds-"]').forEach(el=>{if(el.tagName!=='INPUT'||el.type!=='range')el.value=''});
+  ['ds-calidad','ds-energia'].forEach(k=>{delete store[k]});
+  document.querySelectorAll('[data-save-range^="ds-"]').forEach(el=>{el.value=5;const v=el.parentElement.querySelector('.val');if(v)v.textContent='5'});
+  saveStore(store);
+}
+function clearAll(){
+  if(!confirm('¿Borrar TODOS los datos guardados (diario, tracker, hojas)?')) return;
+  localStorage.removeItem(STORE_KEY); store = {};
+  document.querySelectorAll('[data-save]').forEach(el=>{if(el.type==='checkbox')el.checked=false;else el.value=''});
+  document.querySelectorAll('[data-save-range]').forEach(el=>{el.value=5;const v=el.parentElement.querySelector('.val');if(v)v.textContent='5'});
+  document.querySelectorAll('[data-save-scale]').forEach(s=>s.querySelectorAll('span').forEach(x=>x.classList.remove('sel')));
+  document.querySelectorAll('.check').forEach(c=>c.classList.remove('done'));
+  renderTracker();
+}
+
+/* ============================================================
+   RESPIRACIÓN 4-7-8
+============================================================ */
+const breathCircle=document.getElementById('breathCircle');
+const breathLabel=document.getElementById('breathLabel');
+const breathCount=document.getElementById('breathCount');
+let breathTimer=null, breathCycles=0;
+const PHASES=[
+  {name:'Inhala',cls:'inhale',dur:4000},
+  {name:'Sostén',cls:'hold',dur:7000},
+  {name:'Exhala',cls:'exhale',dur:8000}
+];
+function runBreathCycle(){
+  let i=0;
+  const tick=()=>{
+    if(!breathTimer)return;
+    const phase=PHASES[i];
+    breathLabel.textContent=phase.name;
+    breathCircle.classList.remove('inhale','hold','exhale');
+    breathCircle.classList.add(phase.cls);
+    let count=phase.dur/1000;
+    breathCircle.textContent=count;
+    const cInt=setInterval(()=>{count--;if(count>0)breathCircle.textContent=count;},1000);
+    setTimeout(()=>{
+      clearInterval(cInt);
+      i=(i+1)%PHASES.length;
+      if(i===0){breathCycles++;breathCount.textContent=`Ciclos: ${breathCycles}`;}
+      if(breathTimer)tick();
+    },phase.dur);
+  };
+  tick();
+}
+document.getElementById('breathStart').addEventListener('click',()=>{
+  if(breathTimer)return;breathCycles=0;breathCount.textContent='Ciclos: 0';breathTimer=true;runBreathCycle();
+});
+document.getElementById('breathStop').addEventListener('click',()=>{
+  breathTimer=null;breathLabel.textContent='Detenido';
+  breathCircle.classList.remove('inhale','hold','exhale');breathCircle.textContent='4';
+});
+
+/* ============================================================
+   PROGRESS + NAV
+============================================================ */
+const progressBar=document.getElementById('progressBar');
+const tocLinks=document.querySelectorAll('#toc a');
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  progressBar.style.width=pct+'%';
+  let current='';
+  sections.forEach(sec=>{if(window.scrollY>=sec.offsetTop-120)current=sec.id});
+  tocLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+
+/* MOBILE MENU */
+const menuToggle=document.getElementById('menuToggle');
+const sidebar=document.getElementById('sidebar');
+const overlay=document.getElementById('overlay');
+menuToggle.addEventListener('click',()=>{sidebar.classList.toggle('open');overlay.classList.toggle('show')});
+overlay.addEventListener('click',()=>{sidebar.classList.remove('open');overlay.classList.remove('show')});
+tocLinks.forEach(a=>a.addEventListener('click',()=>{sidebar.classList.remove('open');overlay.classList.remove('show')}));
+
+/* REVEAL */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target)}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ============================================================
+   TRACKER 21 DÍAS
+============================================================ */
+const daysData = [
+  {n:1, title:"Hora fija de despertar", desc:"Ancla el reloj circadiano."},
+  {n:2, title:"Luz solar matutina", desc:"10-15 min al despertar."},
+  {n:3, title:"Adiós cafeína tarde", desc:"Nada después de las 14h."},
+  {n:4, title:"Cena ligera", desc:"2-3h antes de dormir."},
+  {n:5, title:"Pantallas off 1h antes", desc:"Sustituye por lectura."},
+  {n:6, title:"Ducha tibia", desc:"90 min antes de dormir."},
+  {n:7, title:"Reflexión semanal", desc:"Revisa tu diario."},
+  {n:8, title:"Respiración 4-7-8", desc:"4 ciclos antes de dormir."},
+  {n:9, title:"Relajación muscular", desc:"5 grupos musculares."},
+  {n:10, title:"Escaneo corporal", desc:"Recorre tu cuerpo."},
+  {n:11, title:"Diario de preocupaciones", desc:"Escribe y clasifica."},
+  {n:12, title:"Intención paradójica", desc:"No fuerces el sueño."},
+  {n:13, title:"Control de estímulos", desc:"Regla 20 minutos."},
+  {n:14, title:"Reflexión semanal", desc:"¿Qué cambió?"},
+  {n:15, title:"Restricción del sueño", desc:"Ajusta tiempo en cama."},
+  {n:16, title:"Visualización guiada", desc:"Imagina tu lugar seguro."},
+  {n:17, title:"Ritual personalizado", desc:"Diseña tu ritual."},
+  {n:18, title:"Soundscape nocturno", desc:"Sonidos suaves."},
+  {n:19, title:"Aromaterapia y temperatura", desc:"Lavanda, 18-20°C."},
+  {n:20, title:"Carta al yo del futuro", desc:"Escribe con amor."},
+  {n:21, title:"Nuevo comienzo", desc:"Celebra tu proceso."}
+];
+
+const trackerGrid = document.getElementById('trackerGrid');
+const trackerProgress = document.getElementById('trackerProgress');
+
+function renderTracker(){
+  trackerGrid.innerHTML = daysData.map(d=>{
+    const done = !!store[`tracker-day-${d.n}`];
+    return `<div class="tracker-day ${done?'done':''}" data-day="${d.n}">
+      <div class="tracker-num">${d.n}</div>
+      <h6>${d.title}</h6>
+      <p>${d.desc}</p>
+    </div>`;
+  }).join('');
+  const total = daysData.filter(d=>store[`tracker-day-${d.n}`]).length;
+  trackerProgress.textContent = `${total}/21 días completados`;
+}
+
+trackerGrid.addEventListener('click', e=>{
+  const day = e.target.closest('.tracker-day');
+  if(!day) return;
+  const n = day.getAttribute('data-day');
+  const key = `tracker-day-${n}`;
+  store[key] = !store[key];
+  saveStore(store);
+  renderTracker();
+});
+
+renderTracker();
+
+/* INITIAL */
+window.dispatchEvent(new Event('scroll'));
+</script>
+</body>
+</html>
