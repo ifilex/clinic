@@ -11,6 +11,29 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Lizar">
+    <script>
+    /* Puerta de acceso: Lizar es exclusivo de profesionales (psicólogo, admin o root).
+       La sesión la crea WineBOX Comunidad (../foro/). Sin sesión profesional se redirige
+       al aviso de acceso y no se carga la historia clínica. */
+    (function () {
+      var ok = false;
+      try {
+        var db = JSON.parse(localStorage.getItem('winebox_foro_db_v1') || 'null');
+        var ses = JSON.parse(localStorage.getItem('winebox_foro_session_v1') || 'null');
+        var user = null;
+        if (db && db.users && ses && ses.userId) {
+          for (var i = 0; i < db.users.length; i++) {
+            if (db.users[i].id === ses.userId) { user = db.users[i]; break; }
+          }
+        }
+        ok = !!(user && !user.blocked && (user.role === 'psy' || user.role === 'admin' || user.role === 'root'));
+      } catch (e) { ok = false; }
+      if (!ok) {
+        try { sessionStorage.setItem('winebox_after_login', '/lizar/'); } catch (e) {}
+        location.replace('/#/acceso-lizar');
+      }
+    })();
+    </script>
     <style>
         :root {
             --primary: #4a6fa5;
