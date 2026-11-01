@@ -11,29 +11,6 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Lizar">
-    <script>
-    /* Puerta de acceso: Lizar es exclusivo de profesionales (psicólogo, admin o root).
-       La sesión la crea WineBOX Comunidad (../foro/). Sin sesión profesional se redirige
-       al aviso de acceso y no se carga la historia clínica. */
-    (function () {
-      var ok = false;
-      try {
-        var db = JSON.parse(localStorage.getItem('winebox_foro_db_v1') || 'null');
-        var ses = JSON.parse(localStorage.getItem('winebox_foro_session_v1') || 'null');
-        var user = null;
-        if (db && db.users && ses && ses.userId) {
-          for (var i = 0; i < db.users.length; i++) {
-            if (db.users[i].id === ses.userId) { user = db.users[i]; break; }
-          }
-        }
-        ok = !!(user && !user.blocked && (user.role === 'psy' || user.role === 'admin' || user.role === 'root'));
-      } catch (e) { ok = false; }
-      if (!ok) {
-        try { sessionStorage.setItem('winebox_after_login', '/lizar/'); } catch (e) {}
-        location.replace('/#/acceso-lizar');
-      }
-    })();
-    </script>
     <style>
         :root {
             --primary: #4a6fa5;
@@ -1788,9 +1765,9 @@
 <button class="btn btn-primary" onclick="wbShowInterstitialThen(() => shareTreatmentPlan(currentTreatmentPlanPatientId))" id="shareTreatmentPlanBtn" style="margin-top: 20px; margin-left: 10px;">
     <i class="fab fa-whatsapp"></i> <span data-i18n="share_plan">Compartir por WhatsApp</span>
 </button>
-<button class="btn btn-info" onclick="printTreatmentPlan(currentTreatmentPlanPatientId)" id="printTreatmentPlanBtn" style="margin-top: 20px;">
+<!-- button class="btn btn-info" onclick="wbShowInterstitialThen(() => shareTreatmentPlan(currentTreatmentPlanPatientId))" id="printTreatmentPlanBtn" style="margin-top: 20px;">
     <i class="fas fa-print"></i> <span data-i18n="print_plan">Imprimir Plan</span>
-</button>
+</button -->
                 </div>
             </div>
 
@@ -2561,9 +2538,9 @@
     <button class="btn btn-secondary" onclick="copyCertificateToClipboard()">
         <i class="fas fa-copy"></i> <span data-i18n="copy_clipboard">Copiar al Portapapeles</span>
     </button>
-    <button class="btn btn-info" onclick="printCertificate()">
+    <!-- button class="btn btn-info" onclick="printCertificate()">
         <i class="fas fa-print"></i> <span data-i18n="print">Imprimir</span>
-    </button>
+    </button -->
 </div>
         </div>
         
@@ -24851,29 +24828,10 @@ function generateCompleteMedicalHistory(patientId) {
     return history;
 }
 
+ 
 
-function printMedicalHistory(patientIdParam = null) {
-    // Priorizar: parámetro > variable global > paciente desde el modal activo
-    let patientId = patientIdParam || currentProfilePatientId || currentSessionPatientId;
-    
-    // Si aún no hay ID, intentar obtener del modal de historia clínica activo
-    if (!patientId) {
-        const modal = document.getElementById('dynamicModal');
-        if (modal && modal.classList.contains('active')) {
-            // Buscar el ID del paciente en el contenido del modal
-            const content = modal.querySelector('.modal-content');
-            if (content && content.innerHTML.includes('Historia Clínica de')) {
-                // Extraer nombre y buscar paciente
-                const match = content.innerHTML.match(/Historia Clínica de ([^<]+)/);
-                if (match) {
-                    const patientName = match[1].trim();
-                    const found = patients.find(p => p.name === patientName);
-                    if (found) patientId = found.id;
-                }
-            }
-        }
-    }
-    
+function printMedicalHistory() {
+    const patientId = currentProfilePatientId || currentSessionPatientId;
     if (!patientId) {
         showNotification(t('select_patient_first'), 'warning');
         return;
@@ -24883,7 +24841,7 @@ function printMedicalHistory(patientIdParam = null) {
     const patient = patients.find(p => p.id === patientId);
     const filename = `Historia_Clinica_${patient.name.replace(/\s+/g, '_')}.txt`;
     
-    // NUEVO: compartir en móvil, imprimir en PC
+    // NUEVO: compartir en móvil
     if (navigator.share) {
         const file = new File([history], filename, { type: 'text/plain' });
         navigator.share({ title: t('medical_history'), files: [file] }).catch(err => {
@@ -24897,27 +24855,20 @@ function printMedicalHistory(patientIdParam = null) {
         const printWindow = window.open('', '_blank');
         printWindow.document.write(`
             <html>
-            <head>
-                <title>Historia Clínica</title>
-                <style>
-                    body { font-family: 'Segoe UI', monospace; margin: 40px; white-space: pre-wrap; }
-                    pre { white-space: pre-wrap; font-family: monospace; }
-                    @media print { body { margin: 0; } .no-print { display: none; } }
-                </style>
+            <head><title>Historia Clínica</title>
+            <style>body { font-family: monospace; margin: 40px; } pre { white-space: pre-wrap; }</style>
             </head>
-            <body>
-                <pre>${content}</pre>
-                <div class="no-print" style="text-align: center; margin-top: 20px;">
-                    <button onclick="window.print()">${t('print') || 'Imprimir'}</button>
-                    <button onclick="window.close()">${t('close') || 'Cerrar'}</button>
-                </div>
+            <body><pre>${content}</pre>
+            <div style="text-align:center; margin-top:20px;">
+                <button onclick="window.print()">${t('print') || 'Imprimir'}</button>
+                <button onclick="window.close()">${t('close') || 'Cerrar'}</button>
+            </div>
             </body>
             </html>
         `);
         printWindow.document.close();
     }
 }
- 
 
         function shareMedicalHistory() {
             if (!currentProfilePatientId && !currentSessionPatientId) {
@@ -26322,11 +26273,9 @@ function viewAndShareMedicalHistory(patientId) {
                 <button class="btn btn-info" onclick="downloadTXTReport(generateCompleteMedicalHistory('${patientId}'), 'historia_clinica_${patient.name.replace(/\s+/g, '_')}.txt')">
                     <i class="fas fa-download"></i> ${t.download_txt}
                 </button>
-                <!-- button class="btn btn-primary" onclick="printMedicalHistory('${patientId}')" -->
-                <!-- button class="btn btn-primary" onclick="printMedicalHistory()" -->
-                <button class="btn btn-primary" onclick="printThisContent(generateCompleteMedicalHistory('${patientId}'), 'Historia Clinica - ${patient.name}')">
+                <!-- button class="btn btn-primary" onclick="wbShowInterstitialThen(() => shareMedicalHistoryText('${patientId}'))">
                     <i class="fas fa-print"></i> ${t.print}
-                </button>
+                </button -->
             </div>
         </div>
     `;
@@ -32478,14 +32427,6 @@ function printTreatmentPlan(patientId) {
 // ==================== SHARE TREATMENT PLAN - 8 IDIOMAS ====================
 
 function shareTreatmentPlan(patientId) {
-
-    // Detectar si es PC (no tiene share nativo)
-    if (typeof navigator.share !== 'function') {
-        // En PC, llamar a printTreatmentPlan
-        printTreatmentPlan(patientId);
-        return;
-    }
-
     const patient = patients.find(p => p.id === patientId);
     const plan = treatmentPlans[patientId];
     
@@ -33922,41 +33863,6 @@ function updateClinicTitle() {
     if (titleEl && therapist && therapist.institution) {
         titleEl.textContent = therapist.institution;
     }
-}
-
-function printThisContent(content, title) {
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(`
-        <html>
-        <head>
-            <title>${title}</title>
-            <style>
-                body { 
-                    font-family: 'Segoe UI', 'MS Gothic', 'Noto Sans CJK JP', 'Noto Sans CJK SC', monospace; 
-                    margin: 40px; 
-                    white-space: pre-wrap; 
-                }
-                pre { 
-                    white-space: pre-wrap; 
-                    font-family: monospace; 
-                    font-size: 12px;
-                }
-                @media print {
-                    body { margin: 0; }
-                    .no-print { display: none; }
-                }
-            </style>
-        </head>
-        <body>
-            <pre>${content}</pre>
-            <div class="no-print" style="text-align: center; margin-top: 20px;">
-                <button onclick="window.print()">${t('print') || 'Imprimir'}</button>
-                <button onclick="window.close()">${t('close') || 'Cerrar'}</button>
-            </div>
-        </body>
-        </html>
-    `);
-    printWindow.document.close();
 }
 
 </script>
