@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WineBOX · Setup Firebase</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; background: #f5f7fb; }
+  h1 { color: #002045; }
+  .step { background: white; padding: 16px; margin: 12px 0; border-radius: 8px; border-left: 4px solid #ddd; }
+  .step.done { border-left-color: #17a589; background: #e8f5e9; }
+  .step.error { border-left-color: #f44336; background: #ffebee; }
+  .step.active { border-left-color: #1877f2; }
+  pre { background: #1a1a2e; color: #0f0; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 12px; max-height: 300px; overflow-y: auto; }
+  button { background: #17a589; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; margin: 4px; }
+  button:hover { background: #11806a; }
+  button:disabled { background: #ccc; cursor: not-allowed; }
+  .btn-blue { background: #1877f2; }
+  .btn-blue:hover { background: #0f5fb3; }
+  .info { background: #e3f2fd; padding: 12px; border-radius: 6px; margin: 12px 0; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+</style>
+</head>
+<body>
+<h1>🔥 WineBOX.Clinic - Setup Firebase</h1>
+
+<div class="info">
+  <strong>Instrucciones:</strong><br>
+  1. Asegurate que <code>firebase-config.js</code> esté en la misma carpeta<br>
+  2. Hacé clic en cada paso y seguí las instrucciones<br>
+  3. Al final, cargá los datos
+</div>
+
+<div id="step1" class="step">
+  <strong>Paso 1: Verificar Configuración</strong>
+  <div id="step1-content">Esperando...</div>
+  <button onclick="checkConfig()">Verificar</button>
+</div>
+
+<div id="step2" class="step">
+  <strong>Paso 2: Probar Conexión</strong>
+  <div id="step2-content">Primero verificá la configuración</div>
+  <button onclick="testConnection()" id="btn-test" disabled>Probar Conexión</button>
+</div>
+
+<div id="step3" class="step">
+  <strong>Paso 3: Cargar Datos</strong>
+  <div id="step3-content">Primero probá la conexión</div>
+  <button onclick="loadData()" id="btn-load" disabled>Cargar Datos</button>
+</div>
+
+<pre id="log">Esperando inicio...</pre>
+
+<script src="firebase-config.js"></script>
+<script src="data.js"></script>
+<script>
+var logEl = document.getElementById('log');
+var steps = {1: false, 2: false, 3: false};
+
+function log(msg) {
+  var time = new Date().toLocaleTimeString();
+  logEl.textContent += '[' + time + '] ' + msg + '\n';
+  logEl.scrollTop = logEl.scrollHeight;
+  console.log(msg);
+}
+
+function setStep(num, status, msg) {
+  var el = document.getElementById('step' + num);
+  var content = document.getElementById('step' + num + '-content');
+  el.className = 'step ' + status;
+  content.innerHTML = msg;
+  steps[num] = status === 'done';
+}
+
+// PASO 1: Verificar config
+function checkConfig() {
+  log('=== PASO 1: Verificando configuración ===');
+  
+  if (!window.FIREBASE_CONFIG) {
+    setStep(1, 'error', '❌ firebase-config.js NO cargado');
+    log('ERROR: window.FIREBASE_CONFIG no existe');
+    log('Verificar que firebase-config.js esté en la misma carpeta');
+    return;
+  }
+  
+  var cfg = window.FIREBASE_CONFIG;
+  log('Config detectada:');
+  log('- apiKey: ' + (cfg.apiKey ? cfg.apiKey.substring(0, 10) + '...' : 'NO'));
+  log('- projectId: ' + (cfg.projectId || 'NO'));
+  log('- authDomain: ' + (cfg.authDomain || 'NO'));
+  
+  if (!cfg.apiKey || !cfg.projectId) {
+    setStep(1, 'error', '❌ Config incompleta');
+    log('ERROR: Falta apiKey o projectId en firebase-config.js');
+    return;
+  }
+  
+  setStep(1, 'done', '✅ Configuración correcta: ' + cfg.projectId);
+  log('CONFIG OK: ' + cfg.projectId);
+  
+  // Habilitar paso 2
+  document.getElementById('btn-test').disabled = false;
+  setStep(2, 'active', '✅ Config ok - Listo para probar conexión');
+}
+
+// PASO 2: Probar conexión
+function testConnection() {
+  log('=== PASO 2: Probando conexión con Firebase ===');
+  
+  if (!window.FIREBASE_CONFIG) {
+    log('ERROR: Primero completá el Paso 1');
+    return;
+  }
+  
+  // Cargar Firebase SDK
+  if (!window.firebase) {
+    log('Cargando Firebase SDK...');
+    var s = document.createElement('script');
+    s.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js';
+    s.onload = function() {
+      log('✓ Firebase App cargado');
+      var s2 = document.createElement('script');
+      s2.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js';
+      s2.onload = function() {
+        log('✓ Firestore cargado');
+        initAndTest();
+      };
+      s2.onerror = function() { log('ERROR: No se pudo cargar Firestore'); };
+      document.head.appendChild(s2);
+    };
+    s.onerror = function() { log('ERROR: No se pudo cargar Firebase App'); };
+    document.head.appendChild(s);
+  } else {
+    initAndTest();
+  }
+}
+
+function initAndTest() {
+  try {
+    firebase.initializeApp(window.FIREBASE_CONFIG);
+    var db = firebase.firestore();
+    log('✓ Firebase inicializado');
+    
+    // Probar conexión escribiendo y leyendo
+    log('Probando escritura de prueba...');
+    var testDoc = db.collection('_test').doc('connection');
+    
+    testDoc.set({test: true, timestamp: firebase.firestore.FieldValue.serverTimestamp()})
+      .then(function() {
+        log('✓ Escritura exitosa');
+        return testDoc.get();
+      })
+      .then(function(doc) {
+        if (doc.exists) {
+          log('✓ Lectura exitosa: ' + doc.data().test);
+          setStep(2, 'done', '✅ Conexión funcionando!');
+          log('CONEXION OK');
+          
+          // Habilitar paso 3
+          document.getElementById('btn-load').disabled = false;
+          setStep(3, 'active', '✅ Conexión OK - Listo para cargar datos');
+          
+          // Limpiar test
+          return testDoc.delete();
+        } else {
+          log('ERROR: No se pudo leer el documento de prueba');
+          setStep(2, 'error', '❌ Conexión problemática');
+        }
+      })
+      .catch(function(err) {
+        log('ERROR: ' + err.message);
+        setStep(2, 'error', '❌ Error: ' + err.code);
+      });
+      
+  } catch(e) {
+    log('ERROR al inicializar: ' + e.message);
+    setStep(2, 'error', '❌ Error: ' + e.message);
+  }
+}
+
+// PASO 3: Cargar datos
+function loadData() {
+  log('=== PASO 3: Cargando datos semilla ===');
+  
+  if (!window.WINEBOX_SEED) {
+    log('ERROR: data.js no cargado');
+    setStep(3, 'error', '❌ data.js no encontrado');
+    return;
+  }
+  
+  var seed = window.WINEBOX_SEED;
+  log('Datos a cargar:');
+  log('- Usuarios: ' + (seed.users?.length || 0));
+  log('- Psicólogos: ' + (seed.psychs?.length || 0));
+  log('- Posts: ' + (seed.posts?.length || 0));
+  log('- Preguntas: ' + (seed.questions?.length || 0));
+  log('- Publicaciones: ' + (seed.publications?.length || 0));
+  
+  var db = firebase.firestore();
+  var total = 0;
+  var errors = 0;
+  
+  async function saveCollection(collection, items) {
+    for (var item of (items || [])) {
+      try {
+        await db.collection(collection).doc(item.id).set(item);
+        total++;
+      } catch(e) {
+        errors++;
+        log('ERROR guardando ' + collection + '/' + item.id + ': ' + e.message);
+      }
+    }
+  }
+  
+  // Cargar en paralelo
+  Promise.all([
+    saveCollection('users', seed.users),
+    saveCollection('psychs', seed.psychs),
+    saveCollection('posts', seed.posts),
+    saveCollection('questions', seed.questions),
+    saveCollection('publications', seed.publications),
+    saveCollection('pointEvents', seed.pointEvents),
+    saveCollection('reviews', seed.reviews),
+    saveCollection('messages', seed.messages)
+  ]).then(function() {
+    log('');
+    log('=== RESUMEN ===');
+    log('Documentos guardados: ' + total);
+    log('Errores: ' + errors);
+    
+    if (errors === 0) {
+      setStep(3, 'done', '✅ ¡Datos cargados! ' + total + ' documentos');
+      log('');
+      log('✅ ÉXITO! Datos cargados en Firebase');
+      log('✅ Podés verificar en: Firestore Database → Datos');
+    } else {
+      setStep(3, 'error', '❌ Completado con ' + errors + ' errores');
+    }
+  }).catch(function(err) {
+    log('ERROR: ' + err.message);
+    setStep(3, 'error', '❌ Error: ' + err.message);
+  });
+}
+
+// Iniciar
+log('Setup Firebase WineBOX.Clinic iniciado');
+log('Hacé clic en "Verificar" para comenzar');
+</script>
+</body>
+</html>

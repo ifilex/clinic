@@ -1,0 +1,26 @@
+{
+  "name": "clinic",
+  "version": "1.0.0",
+  "description": "La **página principal del proyecto es ahora una red social de psicología**, no un landing comercial. Al abrir la raíz (`/`) se entra a la comunidad: feed, directorio, foro, mensajes directos y Aura.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifilex/clinic.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ifilex/clinic/issues"
+  },
+  "homepage": "https://github.com/ifilex/clinic#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "ws": "^8.22.0"
+  }
+}

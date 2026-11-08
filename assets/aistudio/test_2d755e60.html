@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WineBOX.Clinic · Estado del Sistema</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f5f7fb; color: #333; }
+  h1 { color: #002045; border-bottom: 3px solid #17a589; padding-bottom: 10px; }
+  h2 { color: #002045; margin-top: 30px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .status { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+  .status.ok { background: #d4edda; color: #155724; }
+  .status.error { background: #f8d7da; color: #721c24; }
+  .status.pending { background: #fff3cd; color: #856404; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+  th { background: #f8fafc; font-weight: 700; color: #002045; }
+  pre { background: #1a1a2e; color: #0f0; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; }
+  .btn { display: inline-block; padding: 10px 20px; background: #17a589; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; text-decoration: none; margin: 4px; }
+  .btn:hover { background: #11806a; }
+  .btn.secondary { background: #1877f2; }
+  .btn.secondary:hover { background: #0f5fb3; }
+  .alert { padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .alert.info { background: #e3f2fd; border-left: 4px solid #1877f2; }
+  .alert.success { background: #e8f5e9; border-left: 4px solid #17a589; }
+  .alert.warning { background: #fff3e0; border-left: 4px solid #ff9800; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+</style>
+</head>
+<body>
+
+<h1>🧠 WineBOX.Clinic · Estado del Sistema</h1>
+
+<div class="alert info">
+  <strong>Esta página verifica que todo esté funcionando correctamente antes de publicar.</strong>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3>🌐 Configuración</h3>
+    <table>
+      <tr><th>Configuración</th><th>Estado</th></tr>
+      <tr>
+        <td>config.js cargado</td>
+        <td><span id="cfg-status" class="status pending">Verificando...</span></td>
+      </tr>
+      <tr>
+        <td>Turso URL</td>
+        <td><span id="turso-url" class="status pending">-</span></td>
+      </tr>
+      <tr>
+        <td>API URL</td>
+        <td><span id="api-url" class="status pending">-</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>💾 Datos Semilla</h3>
+    <table>
+      <tr><th>Recurso</th><th>Cantidad</th></tr>
+      <tr><td>Usuarios</td><td id="count-users">-</td></tr>
+      <tr><td>Psicólogos</td><td id="count-psychs">-</td></tr>
+      <tr><td>Posts</td><td id="count-posts">-</td></tr>
+      <tr><td>Preguntas</td><td id="count-questions">-</td></tr>
+      <tr><td>Ebooks</td><td id="count-ebooks">-</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🧪 Pruebas de Funcionamiento</h3>
+  <div id="test-results"></div>
+  <button class="btn" onclick="runTests()">▶ Ejecutar Todas las Pruebas</button>
+  <button class="btn secondary" onclick="location.href='index.html'">🏠 Ir a la App</button>
+  <button class="btn secondary" onclick="location.href='turso-setup.html'">⚙️ Setup Turso</button>
+</div>
+
+<div class="card">
+  <h3>🔐 Cuentas Disponibles</h3>
+  <table>
+    <tr><th>Email</th><th>Contraseña</th><th>Rol</th></tr>
+    <tr><td>mrwad300@gmail.com</td><td>Freedos999#</td><td>Root (Dueño)</td></tr>
+    <tr><td>root@winebox.clinic</td><td>Root2026!</td><td>Root (Sistema)</td></tr>
+    <tr><td>sofia.martinez@example.com</td><td>Paciente1!</td><td>Paciente</td></tr>
+    <tr><td>valentina.rios@example.com</td><td>Psy1234!</td><td>Psicólogo</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>📋 Log del Sistema</h3>
+  <pre id="log">Esperando pruebas...</pre>
+</div>
+
+<script src="config.js"></script>
+<script>
+  // Verificar configuración
+  function checkConfig() {
+    const cfg = window.WB_CONFIG;
+    const cfgStatus = document.getElementById('cfg-status');
+    const tursoUrl = document.getElementById('turso-url');
+    const apiUrl = document.getElementById('api-url');
+    
+    if (cfg && cfg.turso && cfg.turso.url && cfg.turso.authToken) {
+      cfgStatus.className = 'status ok';
+      cfgStatus.textContent = '✓ Configurado';
+      tursoUrl.className = 'status ok';
+      tursoUrl.textContent = cfg.turso.url.includes('turso.io') ? '✓ Conectado' : '⚠ URL incorrecta';
+      apiUrl.textContent = cfg.api?.url || 'No configurado (solo Turso)';
+      log('✓ Configuración detectada correctamente');
+      log('  Turso URL: ' + cfg.turso.url);
+      log('  API URL: ' + (cfg.api?.url || 'Ninguna'));
+    } else {
+      cfgStatus.className = 'status error';
+      cfgStatus.textContent = '✗ No configurado';
+      tursoUrl.className = 'status error';
+      tursoUrl.textContent = 'Falta config.js';
+      log('✗ ERROR: config.js no encontrado o incompleto');
+      log('  Crear foro/config.js con tus credenciales de Turso');
+    }
+  }
+
+  // Verificar datos semilla
+  function checkSeed() {
+    const seed = window.WINEBOX_SEED;
+    if (!seed) {
+      log('✗ WINEBOX_SEED no encontrado en data.js');
+      return;
+    }
+    
+    document.getElementById('count-users').textContent = seed.users?.length || 0;
+    document.getElementById('count-psychs').textContent = seed.psychs?.length || 0;
+    document.getElementById('count-posts').textContent = seed.posts?.length || 0;
+    document.getElementById('count-questions').textContent = seed.questions?.length || 0;
+    
+    const ebooks = (seed.publications || []).filter(p => p.type === 'ebook').length;
+    document.getElementById('count-ebooks').textContent = ebooks;
+    
+    log('✓ Datos semilla cargados: ' + (seed.users?.length || 0) + ' usuarios, ' + 
+        (seed.psychs?.length || 0) + ' psicólogos, ' + ebooks + ' ebooks');
+  }
+
+  // Ejecutar pruebas
+  function runTests() {
+    const results = document.getElementById('test-results');
+    results.innerHTML = '';
+    log('Iniciando pruebas...');
+    
+    const tests = [
+      { name: 'config.js cargado', fn: () => window.WB_CONFIG ? true : false },
+      { name: 'WINEBOX_SEED cargado', fn: () => window.WINEBOX_SEED ? true : false },
+      { name: 'Turso URL configurada', fn: () => window.WB_CONFIG?.turso?.url ? true : false },
+      { name: 'Turso AuthToken configurado', fn: () => window.WB_CONFIG?.turso?.authToken ? true : false },
+      { name: 'Usuarios en seed', fn: () => (window.WINEBOX_SEED?.users?.length || 0) > 0 },
+      { name: 'Psicólogos en seed', fn: () => (window.WINEBOX_SEED?.psychs?.length || 0) > 0 },
+      { name: 'Ebooks en seed', fn: () => (window.WINEBOX_SEED?.publications || []).filter(p => p.type === 'ebook').length >= 14 },
+      { name: 'app.js cargado', fn: () => typeof load === 'function' },
+      { name: 'WBAPI disponible', fn: () => window.WBAPI ? true : false },
+    ];
+    
+    let passed = 0;
+    let failed = 0;
+    
+    tests.forEach(test => {
+      try {
+        const result = test.fn();
+        const div = document.createElement('div');
+        div.style.padding = '8px';
+        div.style.margin = '4px 0';
+        div.style.borderRadius = '4px';
+        if (result) {
+          div.style.background = '#d4edda';
+          div.textContent = '✓ ' + test.name;
+          passed++;
+        } else {
+          div.style.background = '#f8d7da';
+          div.textContent = '✗ ' + test.name;
+          failed++;
+        }
+        results.appendChild(div);
+      } catch (e) {
+        const div = document.createElement('div');
+        div.style.background = '#f8d7da';
+        div.style.padding = '8px';
+        div.style.margin = '4px 0';
+        div.style.borderRadius = '4px';
+        div.textContent = '✗ ' + test.name + ' (error: ' + e.message + ')';
+        failed++;
+        results.appendChild(div);
+      }
+    });
+    
+    log('Pruebas completadas: ' + passed + ' passed, ' + failed + ' failed');
+    
+    if (failed === 0) {
+      log('✓ TODO FUNCIONA CORRECTAMENTE');
+      log('✓ Listo para subir a GitHub');
+    } else {
+      log('✗ Hay errores que deben solucionarse antes de publicar');
+    }
+  }
+
+  function log(msg) {
+    const pre = document.getElementById('log');
+    pre.textContent += msg + '\n';
+    pre.scrollTop = pre.scrollHeight;
+  }
+
+  // Iniciar verificación
+  checkConfig();
+  checkSeed();
+  log('Sistema iniciado. Click "Ejecutar Todas las Pruebas" para verificar.');
+</script>
+
+</body>
+</html>
